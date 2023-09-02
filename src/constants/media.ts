@@ -10,7 +10,15 @@ const size = {
   desktopL: 1920,
 };
 
-export const { mobileS, mobileM, mobildL, tablet, desktopS, desktopM, desktopL } = size;
+export const {
+  mobileS,
+  mobileM,
+  mobildL,
+  tablet,
+  desktopS,
+  desktopM,
+  desktopL,
+} = size;
 
 export const media = {
   mobileS: mediaQurey(mobileS), // @media (max-width: ${mobileS}px)

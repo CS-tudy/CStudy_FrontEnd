@@ -9,6 +9,12 @@ export const GlobalStyles = createGlobalStyle`
     vertical-align: middle;
     text-decoration: none;
   }
+  html {
+    font-size: 62.5%;
+    -webkit-overflow-scrolling: auto;
+    min-width: 1200px;
+}
+
   /* HTML5 display-role reset for older browsers */
   article,
   aside,

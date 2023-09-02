@@ -1,9 +1,10 @@
 import Footer from './Footer/footer';
+import Header from './Header/Header';
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       {children}
       <Footer />
     </div>

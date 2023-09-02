@@ -5,15 +5,18 @@ import MembersRanks from 'pages/MembersRanks';
 import ProblemSet from 'pages/ProblemSet';
 import Contest from 'pages/Contest';
 import MyPage from 'pages/MyPage';
-import Footer from 'components/commons/Footer/footer';
+import Workbook from 'pages/Workbook';
+import Layout from 'components/commons/Layout';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Layout />
       <Routes>
         {/* path = 경로  element = 컴포넌트*/}
         <Route path="/" element={<Main />} />
         <Route path="/board" element={<Board />} />
+        <Route path="/workbook" element={<Workbook />} />
         <Route path="/contest" element={<Contest />} />
         <Route path="/problemset" element={<ProblemSet />} />
         <Route path="/membersranks" element={<MembersRanks />} />

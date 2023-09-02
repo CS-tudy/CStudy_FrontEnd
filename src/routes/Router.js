@@ -5,6 +5,7 @@ import MembersRanks from 'pages/MembersRanks';
 import ProblemSet from 'pages/ProblemSet';
 import Contest from 'pages/Contest';
 import MyPage from 'pages/MyPage';
+import Footer from 'components/commons/Footer/footer';
 
 const Router = () => {
   return (

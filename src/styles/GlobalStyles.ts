@@ -6,11 +6,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    /* font: inherit; */
     vertical-align: middle;
     text-decoration: none;
-    /* font-size: 16px; */
-    color: '#0a0a0a';
   }
   /* HTML5 display-role reset for older browsers */
   article,
@@ -28,11 +25,10 @@ export const GlobalStyles = createGlobalStyle`
   }
   html {
     font-family: 'Noto Sans CJK KR', sans-serif;
-    /* font-family: "Noto Sans KR", sans-serif; */
   }
   body {
     /* background-color: #eee; */
-    color: navy;
+    /* color: navy; */
   }
   ol,
   ul,

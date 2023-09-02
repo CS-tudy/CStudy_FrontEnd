@@ -1,5 +1,11 @@
+import Container from 'components/commons/Container';
+
 const Board = () => {
-  return <>Board</>;
+  return (
+    <>
+      <Container>Board</Container>
+    </>
+  );
 };
 
 export default Board;

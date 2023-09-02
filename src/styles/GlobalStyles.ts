@@ -27,8 +27,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Noto Sans CJK KR', sans-serif;
   }
   body {
-    /* background-color: #eee; */
-    /* color: navy; */
   }
   ol,
   ul,
@@ -43,7 +41,6 @@ export const GlobalStyles = createGlobalStyle`
   input,
   textarea {
     font-family: 'Noto Sans CJK KR', sans-serif;
-    font-size: 14px;
   }
   button {
     cursor: pointer;

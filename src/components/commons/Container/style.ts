@@ -1,3 +1,4 @@
+import { COLOR } from 'constants/Color';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -7,6 +8,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BodyWrapper = styled.div`
-  width: 100%;
   margin: 5rem;
+  border: 2px solid ${COLOR.GRAY_50};
+  display: flex;
+  justify-content: center;
 `;

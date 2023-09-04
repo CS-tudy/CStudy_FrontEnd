@@ -8,6 +8,6 @@ export const signUp = async (formData: SignUpForm) => {
 };
 
 // 이메일 중복 체크
-export const emailCheck = () => {
+export const emailCheck123 = () => {
   return;
 };

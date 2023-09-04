@@ -6,12 +6,10 @@ import ProblemSet from 'pages/ProblemSet';
 import Contest from 'pages/Contest';
 import MyPage from 'pages/MyPage';
 import Workbook from 'pages/Workbook';
-import Layout from 'components/commons/Layout';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Layout />
       <Routes>
         {/* path = 경로  element = 컴포넌트*/}
         <Route path="/" element={<Main />} />

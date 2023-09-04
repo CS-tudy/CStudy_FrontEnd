@@ -9,11 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     vertical-align: middle;
     text-decoration: none;
   }
-  html {
-    font-size: 62.5%;
-    -webkit-overflow-scrolling: auto;
-    min-width: 1200px;
-}
+  
 
   /* HTML5 display-role reset for older browsers */
   article,
@@ -31,6 +27,9 @@ export const GlobalStyles = createGlobalStyle`
   }
   html {
     font-family: 'Noto Sans CJK KR', sans-serif;
+    font-size: 62.5%;
+    -webkit-overflow-scrolling: auto;
+   min-width:1200px;
   }
   body {
   }

@@ -23,7 +23,7 @@ const Main = () => {
         </Wrapper>
         <Wrapper>
           <Button variant="primary" size="large">
-            버튼 종류 4
+            버튼 종류 5
           </Button>
         </Wrapper>
       </div>

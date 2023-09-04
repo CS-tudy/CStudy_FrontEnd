@@ -20,7 +20,7 @@ const Header = () => {
       <S.Nav>
         <S.NavList>
           <S.NavItem>
-            <StyleNavLink to="/board">게시판</StyleNavLink>
+            <StyleNavLink to="/board">게시판 </StyleNavLink>
           </S.NavItem>
           <S.NavItem>
             <StyleNavLink to="/problemset">문제풀이</StyleNavLink>

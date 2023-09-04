@@ -38,7 +38,7 @@ const Header = () => {
       </S.Nav>
       <S.Sign>
         <button>로그인</button>
-        <button>회원가입</button>
+        <Link to="signup">회원가입</Link>
       </S.Sign>
     </S.Wrapper>
   );

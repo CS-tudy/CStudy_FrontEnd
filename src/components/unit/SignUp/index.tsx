@@ -1,9 +1,9 @@
 import { signUp } from 'api/auth';
 import Container from 'components/commons/Container';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { SignUpForm } from 'types/Form';
 import * as S from './style';
-import { useRef } from 'react';
+import React from 'react';
 
 const SignUp = () => {
   const {
@@ -13,8 +13,8 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const submitForm = (formValues: SignUpForm) => {
-    signUp({ ...formValues });
+  const submitForm: SubmitHandler<SignUpForm> = (formValues: SignUpForm) => {
+    void signUp({ ...formValues });
   };
 
   return (
@@ -36,8 +36,10 @@ const SignUp = () => {
           />
           <button type="button">중복체크</button>
         </div>
-        <S.ErrorMessage>{errors.name?.message}</S.ErrorMessage>
-
+        {/* <S.ErrorMessage>{errors.name?.message}</S.ErrorMessage> */}
+        <S.ErrorMessage>
+          {errors.name?.message as React.ReactNode}
+        </S.ErrorMessage>
         <div>
           <S.Input
             type="email"
@@ -58,16 +60,19 @@ const SignUp = () => {
           />
           <button type="button">인증</button>
         </div>
-        <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage>
+        {/* <S.ErrorMessage>{errors.email?.message}</S.ErrorMessage> */}
+        <S.ErrorMessage>
+          {errors.email?.message as React.ReactNode}
+        </S.ErrorMessage>
 
         <S.Input
-          type="email"
-          placeholder="이메일 인증 Number"
+          type="text"
+          placeholder="이메일 인증 번호"
           {...register('emailNumber', {
             required: '인증번호를 입력해주세요.',
             pattern: {
               value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
-              message: '올바른 이메일 형식을 입력해주세요.',
+              message: '올바른 인증 번호를 입력해주세요.',
             },
             onChange: (e) =>
               setValue('emailNumber', e.target.value, {
@@ -77,7 +82,10 @@ const SignUp = () => {
               }),
           })}
         />
-        <S.ErrorMessage>{errors.emailNumber?.message}</S.ErrorMessage>
+        {/* <S.ErrorMessage>{errors.emailNumber?.message}</S.ErrorMessage> */}
+        <S.ErrorMessage>
+          {errors.emailNumber?.message as React.ReactNode}
+        </S.ErrorMessage>
 
         <S.Input
           id="password"
@@ -97,26 +105,32 @@ const SignUp = () => {
               }),
           })}
         />
-        <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage>
+        {/* <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage> */}
+        <S.ErrorMessage>
+          {errors.password?.message as React.ReactNode}
+        </S.ErrorMessage>
 
         <S.Input
           type="password"
           placeholder="비밀번호 확인"
-          {...register('password', {
-            required: '비밀번호를 입력해주세요.',
+          {...register('passwordConfirm', {
+            required: '비밀번호를 다시 입력해주세요.',
             pattern: {
               value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
               message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
             },
             onChange: (e) =>
-              setValue('password', e.target.value, {
+              setValue('passwordConfirm', e.target.value, {
                 shouldValidate: true,
                 shouldDirty: true,
                 shouldTouch: true,
               }),
           })}
         />
-        <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage>
+        {/* <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage> */}
+        <S.ErrorMessage>
+          {errors.passwordConfirm?.message as React.ReactNode}
+        </S.ErrorMessage>
 
         <S.Button type="submit">회원가입</S.Button>
         <S.Suggestion>

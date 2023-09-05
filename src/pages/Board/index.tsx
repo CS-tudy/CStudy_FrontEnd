@@ -1,8 +1,36 @@
 import BoardList from 'components/unit/Board';
+import Modal from 'components/unit/Modal';
+import useModal from 'hooks/useModal';
+import { styled } from 'styled-components';
+import { useEffect } from 'react';
+
+const ModalTest = styled.div`
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+`;
 
 const Board = () => {
+  const { modalIsOpen, toggleModalHandler } = useModal();
+  useEffect(() => {
+    setTimeout(() => {
+      toggleModalHandler();
+    }, 0);
+  }, []);
   return (
     <>
+      {modalIsOpen && (
+        <Modal toggleModalHandler={toggleModalHandler}>
+          <ModalTest>test</ModalTest>
+        </Modal>
+      )}
       <BoardList />
     </>
   );

@@ -1,4 +1,3 @@
-import { COLOR } from 'constants/Color';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`

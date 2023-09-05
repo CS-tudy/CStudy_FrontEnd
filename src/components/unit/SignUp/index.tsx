@@ -17,6 +17,13 @@ const SignUp = () => {
     void signUp({ ...formValues });
   };
 
+  const EmailCheckHandler = () => {
+    // state 혹은 useRef에 담아둔 이메일을 받아와서
+    // const 값 = CheckDuplicatedEmail(email)
+    // if(값.code === '400') alert("이미 존재하는 이메일입니다.")
+    // if(값.code === '200')
+  };
+
   return (
     <Container>
       <form onSubmit={handleSubmit(submitForm)}>
@@ -34,7 +41,9 @@ const SignUp = () => {
                 }),
             })}
           />
-          <button type="button">중복체크</button>
+          <button type="button" onClick={EmailCheckHandler}>
+            중복체크
+          </button>
         </div>
         {/* <S.ErrorMessage>{errors.name?.message}</S.ErrorMessage> */}
         <S.ErrorMessage>
@@ -65,13 +74,13 @@ const SignUp = () => {
           {errors.email?.message as React.ReactNode}
         </S.ErrorMessage>
 
-        <S.Input
+        {/* <S.Input
           type="text"
           placeholder="이메일 인증 번호"
           {...register('emailNumber', {
             required: '인증번호를 입력해주세요.',
             pattern: {
-              value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+              value: /^[0-9]{6}$/,
               message: '올바른 인증 번호를 입력해주세요.',
             },
             onChange: (e) =>
@@ -82,10 +91,9 @@ const SignUp = () => {
               }),
           })}
         />
-        {/* <S.ErrorMessage>{errors.emailNumber?.message}</S.ErrorMessage> */}
         <S.ErrorMessage>
           {errors.emailNumber?.message as React.ReactNode}
-        </S.ErrorMessage>
+        </S.ErrorMessage> */}
 
         <S.Input
           id="password"
@@ -110,7 +118,7 @@ const SignUp = () => {
           {errors.password?.message as React.ReactNode}
         </S.ErrorMessage>
 
-        <S.Input
+        {/* <S.Input
           type="password"
           placeholder="비밀번호 확인"
           {...register('passwordConfirm', {
@@ -127,10 +135,9 @@ const SignUp = () => {
               }),
           })}
         />
-        {/* <S.ErrorMessage>{errors.password?.message}</S.ErrorMessage> */}
         <S.ErrorMessage>
           {errors.passwordConfirm?.message as React.ReactNode}
-        </S.ErrorMessage>
+        </S.ErrorMessage> */}
 
         <S.Button type="submit">회원가입</S.Button>
         <S.Suggestion>

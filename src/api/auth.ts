@@ -27,7 +27,11 @@ export const signUp = async (formData: SignUpForm) => {
 // };
 
 // 이메일 중복 체크
-// export const emailDuplicateCheck = async (email) => {
+// export const CheckDuplicatedEmail = async (email) => {
 //   const response = await instance.get(`/api/email?email=${email}`);
 //   return response.data;
+// };
+
+// 이메일 인증
+// export const AuthByEmail = () => {
 // };

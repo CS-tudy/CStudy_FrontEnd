@@ -1,3 +1,4 @@
+import { COLOR } from 'constants/Color';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
@@ -33,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Noto Sans CJK KR', sans-serif;
   }
   body {
+    background-color: #fcfcfc;
   }
   ol,
   ul,

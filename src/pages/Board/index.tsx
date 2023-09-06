@@ -8,7 +8,7 @@ const ModalTest = styled.div`
   position: fixed;
   top: 20vh;
   left: 5%;
-  width: 90%;
+  width: 50%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
@@ -18,16 +18,16 @@ const ModalTest = styled.div`
 `;
 
 const Board = () => {
-  const { modalIsOpen, toggleModalHandler } = useModal();
+  const { modalIsOpen, toggleModal } = useModal();
   useEffect(() => {
     setTimeout(() => {
-      toggleModalHandler();
+      toggleModal();
     }, 0);
   }, []);
   return (
     <>
       {modalIsOpen && (
-        <Modal toggleModalHandler={toggleModalHandler}>
+        <Modal toggleModal={toggleModal}>
           <ModalTest>test</ModalTest>
         </Modal>
       )}

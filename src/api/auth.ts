@@ -26,11 +26,17 @@ export const signUp = async (formData: SignUpForm) => {
 //   return response.data;
 // };
 
+// 닉네임 중복 체크
+export const CheckDuplicatedName = async (name: string) => {
+  const response = await instance.get(`/api/name?name=${name}`);
+  return response.data;
+};
+
 // 이메일 중복 체크
-// export const CheckDuplicatedEmail = async (email) => {
-//   const response = await instance.get(`/api/email?email=${email}`);
-//   return response.data;
-// };
+export const CheckDuplicatedEmail = async (email: string) => {
+  const response = await instance.get(`/api/email?email=${email}`);
+  return response.data;
+};
 
 // 이메일 인증
 // export const AuthByEmail = () => {

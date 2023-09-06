@@ -5,4 +5,6 @@ export interface SignInForm {
 
 export interface SignUpForm extends SignInForm {
   name: string;
+  emailAuthNumber: string;
+  passwordConfirm: string;
 }

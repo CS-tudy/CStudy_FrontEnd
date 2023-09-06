@@ -8,7 +8,6 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    // 요청을 보내기 전 수행할 일
     const tokens = getUserTokens();
     if (tokens) {
       config.headers.Authorization = `Bearer ${tokens.accessToken}`;
@@ -17,7 +16,6 @@ instance.interceptors.request.use(
     return config;
   },
   (error) => {
-    // 오류 요청을 보내기전 수행할 일
     return Promise.reject(error);
   },
 );

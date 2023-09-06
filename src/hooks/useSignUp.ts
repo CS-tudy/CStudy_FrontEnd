@@ -9,7 +9,7 @@ export const useSignUp = () => {
       alert('회원가입 성공');
     },
     onError: () => {
-      // toast.error('회원가입에 실패했습니다.');
+      // toast.error('가입에 실패했습니다.');
       alert('회원가입 실패');
     },
   });

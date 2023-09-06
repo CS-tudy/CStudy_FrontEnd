@@ -3,16 +3,16 @@ import * as S from './style';
 
 interface Props {
   children: JSX.Element;
-  toggleModalHandler: VoidFunction;
+  toggleModal: VoidFunction;
 }
 
 const portalElement = document.getElementById('portal-root') as Element;
 
-const Modal = ({ children, toggleModalHandler }: Props) => {
+const Modal = ({ children, toggleModal }: Props) => {
   return (
     <>
       {ReactDOM.createPortal(
-        <S.Backdrop onClick={toggleModalHandler} />,
+        <S.Backdrop onClick={toggleModal} />,
         portalElement,
       )}
       {ReactDOM.createPortal(children, portalElement)}

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const useModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const toggleModalHandler = () => {
+  const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
 
@@ -17,7 +17,7 @@ const useModal = () => {
 
   return {
     modalIsOpen,
-    toggleModalHandler,
+    toggleModal,
   };
 };
 

@@ -8,6 +8,7 @@ import MyPage from 'pages/MyPage';
 import Workbook from 'pages/Workbook';
 import Layout from 'components/commons/Layout';
 import Signup from 'pages/Signup';
+import OAuthRedirect from 'pages/OauthRedirect';
 
 const Router = () => {
   return (
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/membersranks" element={<MembersRanks />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth2/login" element={<OAuthRedirect />} />
       </Routes>
     </BrowserRouter>
   );

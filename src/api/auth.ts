@@ -1,5 +1,5 @@
 import { instance } from 'api';
-import { SignUpForm } from 'types/Form';
+import { SignInForm, SignUpForm } from 'types/Form';
 
 // 회원가입
 export const signUp = async (formData: SignUpForm) => {
@@ -10,4 +10,10 @@ export const signUp = async (formData: SignUpForm) => {
 // 이메일 중복 체크
 export const emailCheck123 = () => {
   return;
+};
+
+// 이메일
+export const signIn = async (formData: SignInForm) => {
+  const response = await instance.post('/member/login', formData);
+  return response.data;
 };

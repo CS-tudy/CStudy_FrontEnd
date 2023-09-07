@@ -5,26 +5,25 @@ import { COLOR } from 'constants/Color';
 export const Wrapper = styled.header`
   display: flex;
   align-items: center;
+  width: 100%;
   padding: 2rem 0;
-  margin-top: 2.5rem;
+  justify-content: space-between;
   background-color: ${COLOR.WHITE};
-  border-radius: 1.2rem;
-  box-shadow:
-    0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.1),
-    inset 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.12);
 `;
 
 export const LogoWrap = styled.h1`
-  flex: 0.5;
   padding-left: 1.8rem;
 `;
-
+export const LogoImg = styled.img`
+  height: 6rem;
+`;
 export const Nav = styled.nav`
   flex: 3;
 `;
-
+7;
 export const NavList = styled.ul`
   display: flex;
+  justify-content: center;
   font-size: ${FONT.REGULAR_16};
   color: #181818;
 `;
@@ -36,14 +35,14 @@ export const NavItem = styled.li`
 
   & > a {
     display: inline-block;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
+    color: ${COLOR.BLACK};
   }
 `;
 
 export const Sign = styled.div`
   display: flex;
   padding-right: 1.8rem;
-
   & > button {
     padding: 0.5rem;
     font-size: ${FONT.REGULAR_14};
@@ -52,4 +51,15 @@ export const Sign = styled.div`
   & > button:first-child {
     margin-right: 1.4rem;
   }
+`;
+
+export const NavHeader = styled.header`
+  border-bottom: 1px solid #e9e9e9;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0 1.5rem 0;
+  background-color: ${COLOR.WHITE};
+  z-index: 99;
 `;

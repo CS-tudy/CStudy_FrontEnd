@@ -11,12 +11,9 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "axios": "^1.5.0",
-<<<<<<< HEAD
     "http-proxy-middleware": "^2.0.6",
-=======
     "js-cookie": "^3.0.5",
     "qs": "^6.11.2",
->>>>>>> f0420a5d30d1c98e8bffcc6a59d152f17c73df03
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.0",

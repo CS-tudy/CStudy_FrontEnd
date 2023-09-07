@@ -65,7 +65,6 @@ export const useSignUp = () => {
     }
   };
 
-  // 인증번호 전송
   const onSendAuthNumberToEmail = async () => {
     setAuthenticating(true);
     const data = await sendAuthNumberToEmail(watchedEmail);
@@ -73,7 +72,6 @@ export const useSignUp = () => {
     authNumber.current = data;
   };
 
-  // 인증번호 확인
   const onCheckAuthNumber = async () => {
     const watchedEmailAuthNumber = watch('emailAuthNumber');
     console.log('test', authNumber.current);
@@ -99,7 +97,7 @@ export const useSignUp = () => {
   const submitForm = (formValues: SignUpForm) => {
     const { emailAuthNumber, passwordConfirm, ...rest } = formValues;
     console.log({ ...rest });
-    signUpMutation.mutate({ ...rest }); // mutate 호출하여 회원가입 API 호출
+    signUpMutation.mutate({ ...rest });
   };
 
   return {

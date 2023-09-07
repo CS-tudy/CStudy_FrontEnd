@@ -21,6 +21,6 @@ export const ContentWrapper = styled.div`
   border-radius: 1.2rem;
   display: flex;
   justify-content: center;
-  margin: 0 5rem;
+  margin: 0 5vw;
   padding: 5rem;
 `;

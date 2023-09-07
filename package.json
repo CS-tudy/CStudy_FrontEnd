@@ -11,7 +11,12 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "axios": "^1.5.0",
+<<<<<<< HEAD
     "http-proxy-middleware": "^2.0.6",
+=======
+    "js-cookie": "^3.0.5",
+    "qs": "^6.11.2",
+>>>>>>> f0420a5d30d1c98e8bffcc6a59d152f17c73df03
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.0",
@@ -19,6 +24,7 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.7",
     "typescript": "^4.9.5",
+    "uuid": "^9.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,8 +52,10 @@
     ]
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.3",
     "@types/node": "^20.5.8",
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.3",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.3"

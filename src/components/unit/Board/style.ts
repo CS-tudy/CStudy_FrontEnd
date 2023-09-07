@@ -18,4 +18,3 @@ export const ModalTest = styled.div`
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 `;
-

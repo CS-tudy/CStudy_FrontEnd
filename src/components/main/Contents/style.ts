@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { FONT } from './../../../constants/Font';
 import { NavLink } from 'react-router-dom';
+import { COLOR } from 'constants/Color';
 
 export const ContentSection = styled.section`
   padding-top: 3rem;
@@ -21,20 +22,20 @@ export const ContentTitle = styled.h2`
 
 export const ContentImg = styled.img`
   margin-top: 3rem;
-  width: 55rem;
-  height: 55rem;
+  width: 60rem;
+  height: 50rem;
   background-color: #e2e2e2;
 `;
 
 export const ContentTitleImg = styled.div`
-  padding-right: 7.5rem;
+  padding-right: 5rem;
   &:nth-of-type(2) {
-    padding: 0 0 0 7.5rem;
+    padding: 0 0 0 5rem;
   }
 `;
 
 export const ContentTexts = styled.div`
-  padding-top: 12rem;
+  padding-top: 15rem;
 `;
 
 export const TextTitle = styled.strong`
@@ -49,9 +50,18 @@ export const Texts = styled.span`
 
 export const BoldText = styled.span`
   display: inline-block;
-  font-size: ${FONT.BOLD_14};
+  ${FONT.BOLD_14};
 `;
 
 export const ContentLink = styled(NavLink)`
+  margin-top: 2rem;
+  padding: 1.2rem 1.6rem;
   display: inline-block;
+  background-color: ${COLOR.MAIN};
+  color: ${COLOR.WHITE};
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  &:hover {
+    opacity: 0.8;
+  }
 `;

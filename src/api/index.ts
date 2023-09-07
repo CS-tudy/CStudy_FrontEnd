@@ -7,7 +7,7 @@ export const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  (config) => {
+  config => {
     const tokens = getUserTokens();
     if (tokens) {
       config.headers.Authorization = `Bearer ${tokens.accessToken}`;
@@ -15,7 +15,7 @@ instance.interceptors.request.use(
 
     return config;
   },
-  (error) => {
+  error => {
     return Promise.reject(error);
   },
 );

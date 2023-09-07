@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { FONT } from './../../../constants/Font';
 import { COLOR } from 'constants/Color';
 
@@ -12,16 +12,18 @@ export const Wrapper = styled.header`
 `;
 
 export const LogoWrap = styled.h1`
-  flex: 0.5;
   padding-left: 1.8rem;
 `;
-
+export const LogoImg = styled.img`
+  height: 6rem;
+`;
 export const Nav = styled.nav`
   flex: 3;
 `;
-
+7;
 export const NavList = styled.ul`
   display: flex;
+  justify-content: center;
   font-size: ${FONT.REGULAR_16};
   color: #181818;
 `;

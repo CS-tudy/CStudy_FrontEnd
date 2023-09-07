@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+
   * {
     margin: 0;
     padding: 0;
@@ -26,13 +27,13 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   html {
-    font-family: 'Noto Sans CJK KR', sans-serif;
     font-size: 62.5%;
     -webkit-overflow-scrolling: auto;
    min-width:1200px;
   }
   body {
     background-color: #fcfcfc;
+    font-family: 'Noto Sans CJK KR', sans-serif;
   }
   ol,
   ul,

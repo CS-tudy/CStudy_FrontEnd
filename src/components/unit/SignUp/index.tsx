@@ -29,7 +29,7 @@ const SignUp = () => {
             {...register('name', {
               required: '이름을 입력해주세요.',
 
-              onChange: (e) =>
+              onChange: e =>
                 setValue('name', e.target.value, {
                   shouldValidate: true,
                   shouldDirty: true,
@@ -54,7 +54,7 @@ const SignUp = () => {
                 value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
                 message: '올바른 이메일 형식을 입력해주세요.',
               },
-              onChange: (e) =>
+              onChange: e =>
                 setValue('email', e.target.value, {
                   shouldValidate: true,
                   shouldDirty: true,
@@ -89,7 +89,7 @@ const SignUp = () => {
                     value: /[^ㄱ-ㅎ가-힣\s!@#$%]{0,8}$/,
                     message: '올바른 인증 번호를 입력해주세요.',
                   },
-                  onChange: (e) =>
+                  onChange: e =>
                     setValue('emailAuthNumber', e.target.value, {
                       shouldValidate: true,
                       shouldDirty: true,
@@ -119,7 +119,7 @@ const SignUp = () => {
               value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
               message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
             },
-            onChange: (e) =>
+            onChange: e =>
               setValue('password', e.target.value, {
                 shouldValidate: true,
                 shouldDirty: true,
@@ -140,13 +140,13 @@ const SignUp = () => {
             //   value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
             //   message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
             // },
-            onChange: (e) =>
+            onChange: e =>
               setValue('passwordConfirm', e.target.value, {
                 shouldValidate: true,
                 shouldDirty: true,
                 shouldTouch: true,
               }),
-            validate: (value) =>
+            validate: value =>
               value === watchedPassword || '비밀번호가 일치하지 않습니다.',
           })}
         />

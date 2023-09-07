@@ -1,5 +1,5 @@
 import { instance } from 'api';
-import { SignUpForm } from 'types/Form';
+import { SignInForm, SignUpForm } from 'types/Form';
 
 // 회원가입
 export const signUp = async (formData: SignUpForm) => {
@@ -41,5 +41,11 @@ export const CheckDuplicatedEmail = async (email: string) => {
 // 이메일로 인증번호 전송
 export const sendAuthNumberToEmail = async (email: string) => {
   const response = await instance.get(`/api/member/email/send?to=${email}`);
+  return response.data;
+};
+
+// 이메일
+export const signIn = async (formData: SignInForm) => {
+  const response = await instance.post('/member/login', formData);
   return response.data;
 };

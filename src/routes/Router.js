@@ -11,6 +11,7 @@ import Signup from 'pages/Signup';
 import Request from 'pages/Request';
 import RequestDetailPage from 'pages/RequestDetail';
 import RequestWrite from 'pages/RequestWrite';
+import OAuthRedirect from 'pages/OauthRedirect';
 
 const Router = () => {
   return (
@@ -28,6 +29,7 @@ const Router = () => {
         <Route path="/membersranks" element={<MembersRanks />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth2/login" element={<OAuthRedirect />} />
       </Routes>
     </BrowserRouter>
   );

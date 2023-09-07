@@ -31,6 +31,7 @@ const Main = () => {
           </div>
         </div>
       </div> */}
+
       <Banner />
       <Contents />
     </S.Main>

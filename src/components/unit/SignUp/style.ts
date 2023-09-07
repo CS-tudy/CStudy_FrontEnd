@@ -40,3 +40,17 @@ export const TextSuggestionLabel = styled.span`
   font-size: ${FONT.REGULAR_14};
   padding-right: 1rem;
 `;
+
+export const InputDiv = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+export const InputButton = styled.button`
+  position: absolute;
+  right: 0.8rem;
+  top: 1.8rem;
+  background-color: ${COLOR.GRAY_50};
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+`;

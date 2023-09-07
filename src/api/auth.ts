@@ -38,8 +38,8 @@ export const CheckDuplicatedEmail = async (email: string) => {
   return response.data;
 };
 
-// 이메일 인증
-export const AuthByEmail = async (email: string) => {
+// 이메일로 인증번호 전송
+export const sendAuthNumberToEmail = async (email: string) => {
   const response = await instance.get(`/api/member/email/send?to=${email}`);
   return response.data;
 };

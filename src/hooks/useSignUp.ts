@@ -76,7 +76,7 @@ export const useSignUp = () => {
     const watchedEmailAuthNumber = watch('emailAuthNumber');
     console.log('test', authNumber.current);
 
-    if (authNumber.current === watchedEmailAuthNumber)
+    if (String(authNumber.current) === watchedEmailAuthNumber)
       alert('인증번호가 일치합니다.');
     else alert('인증번호가 일치하지 않습니다.');
   };

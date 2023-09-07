@@ -4,7 +4,9 @@ import * as S from './style';
 const Container = ({ children }: React.PropsWithChildren) => {
   return (
     <S.Wrapper>
-      <S.BodyWrapper>{children}</S.BodyWrapper>
+      <S.BodyWrapper>
+        <S.ContentWrapper>{children}</S.ContentWrapper>
+      </S.BodyWrapper>
     </S.Wrapper>
   );
 };

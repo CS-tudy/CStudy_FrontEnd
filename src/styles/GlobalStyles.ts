@@ -32,7 +32,7 @@ export const GlobalStyles = createGlobalStyle`
    min-width:1200px;
   }
   body {
-    font-family: 'Noto Sans CJK KR', sans-serif;
+    background-color: #fcfcfc;
   }
   ol,
   ul,

@@ -1,9 +1,9 @@
-import Container from 'components/commons/Container';
+import BoardList from 'components/unit/Board';
 
 const Board = () => {
   return (
     <>
-      <Container>Board</Container>
+      <BoardList />
     </>
   );
 };

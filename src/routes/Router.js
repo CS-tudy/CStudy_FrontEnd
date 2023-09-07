@@ -6,20 +6,25 @@ import ProblemSet from 'pages/ProblemSet';
 import Contest from 'pages/Contest';
 import MyPage from 'pages/MyPage';
 import Workbook from 'pages/Workbook';
+import Signup from 'pages/Signup';
+import Layout from 'components/commons/Layout';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* path = 경로  element = 컴포넌트*/}
-        <Route path="/" element={<Main />} />
-        <Route path="/board" element={<Board />} />
-        <Route path="/workbook" element={<Workbook />} />
-        <Route path="/contest" element={<Contest />} />
-        <Route path="/problemset" element={<ProblemSet />} />
-        <Route path="/membersranks" element={<MembersRanks />} />
-        <Route path="/mypage" element={<MyPage />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          {/* path = 경로  element = 컴포넌트*/}
+          <Route path="/" element={<Main />} />
+          <Route path="/board" element={<Board />} />
+          <Route path="/workbook" element={<Workbook />} />
+          <Route path="/contest" element={<Contest />} />
+          <Route path="/problemset" element={<ProblemSet />} />
+          <Route path="/membersranks" element={<MembersRanks />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

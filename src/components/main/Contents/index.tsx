@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './style';
+import rank_jpg from 'assets/rank.jpg';
+import inquiry_jpg from 'assets/inquiry.jpg';
+import competition_jpg from 'assets/competition.jpg';
 
 const Contents = () => {
   return (
@@ -13,7 +16,7 @@ const Contents = () => {
               <br />
               해외 전공서적으로 공부하시나요?
             </S.ContentTitle>
-            <S.ContentImg />
+            <S.ContentImg src={inquiry_jpg} alt="inquiry_jpg" />
           </S.ContentTitleImg>
           <S.ContentTexts>
             <p>
@@ -41,13 +44,13 @@ const Contents = () => {
           <S.ContentTexts>
             <p>
               <S.TextTitle>
-                안그래도 재미없는 전공! 한국어도 아닌 영어로 머리를 싸매고
-                힘들어하고 있으신가요?
+                대회에 참여해서 CS지식을 테스트해보세요!
               </S.TextTitle>
               <S.Texts>
+                안그래도 재미없는 전공! 한국어도 아닌 영어로 머리를 싸매고
+                힘들어하고 있으신가요?
                 <br />
-                쉽게 접근 할 수 있는 방법 없을까? 라고 고민해 본적 한번이라도
-                있으신가요?
+                그렇게 공부했는데 제대로 공부했는지 확신이 안 생기시나요?
                 <br />
                 <br />
                 <S.BoldText>그래서 준비했습니다!</S.BoldText>
@@ -66,7 +69,7 @@ const Contents = () => {
               <br />
               공부한것에 대한 확신이 없으신가요?
             </S.ContentTitle>
-            <S.ContentImg />
+            <S.ContentImg src={competition_jpg} alt="competition_jpg" />
           </S.ContentTitleImg>
         </S.ContentWrapper>
       </S.ContentSection>
@@ -76,7 +79,7 @@ const Contents = () => {
             <S.ContentTitle>
               점수와 랭킹을 올려 랭커에 도전 하세요!
             </S.ContentTitle>
-            <S.ContentImg />
+            <S.ContentImg src={rank_jpg} alt="membersRank이미지" />
           </S.ContentTitleImg>
           <S.ContentTexts>
             <p>
@@ -85,9 +88,9 @@ const Contents = () => {
               </S.TextTitle>
               <S.Texts>
                 많은 시니어 개발자들이 시니어 개발자가 되기 위한 덕목중 CS지식을
-                꼽을 정도로 CS
                 <br />
-                지식은 중요합니다. 하지만, 너무 어려운 것도 사실 입니다.
+                꼽을 정도로 CS 지식은 중요합니다. 하지만, 너무 어려운 것도 사실
+                입니다.
                 <br />
                 <br />
                 <S.BoldText>그래서 준비했습니다!</S.BoldText>

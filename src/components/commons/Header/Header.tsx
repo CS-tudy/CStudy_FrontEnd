@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import * as S from './style';
 import { StyleNavLink } from 'components/NavLinkStyles';
+import Logo_Png from 'assets/Logo.png';
 import React from 'react';
 
 const Header = () => {
@@ -8,7 +9,11 @@ const Header = () => {
     <>
       <S.Wrapper>
         <S.LogoWrap>
-          <Link to="/">Logo</Link>
+          <Link to="/">
+            <picture>
+              <S.LogoImg src={Logo_Png} alt="CStudy logo" />
+            </picture>
+          </Link>
         </S.LogoWrap>
         <S.Sign>
           <button>로그인</button>
@@ -19,7 +24,7 @@ const Header = () => {
         <S.Nav>
           <S.NavList>
             <S.NavItem>
-              <StyleNavLink to="/board">게시판</StyleNavLink>
+              <StyleNavLink to="/board">공지사항</StyleNavLink>
             </S.NavItem>
             <S.NavItem>
               <StyleNavLink to="/problemset">문제요청</StyleNavLink>

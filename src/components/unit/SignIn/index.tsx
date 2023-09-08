@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { SignInForm } from 'types/Form';
 import Container from 'components/commons/Container';
 import * as S from './style';
-import { Button } from 'components/Button/Style';
+import { Button } from 'components/commons/Button/Style';
 import { signIn } from 'api/auth';
 
 const SignInModal = () => {

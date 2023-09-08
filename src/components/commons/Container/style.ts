@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 6rem;
   height: 100%;
   background-color: #fff;
 `;

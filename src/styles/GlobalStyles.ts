@@ -34,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background-color: #fcfcfc;
     font-family: 'Noto Sans CJK KR', sans-serif;
+    font-size: 16px;
   }
   ol,
   ul,
@@ -48,6 +49,7 @@ export const GlobalStyles = createGlobalStyle`
   input,
   textarea {
     font-family: 'Noto Sans CJK KR', sans-serif;
+    font-size: 14px;
   }
   button {
     cursor: pointer;

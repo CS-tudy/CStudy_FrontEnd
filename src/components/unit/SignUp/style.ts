@@ -50,7 +50,7 @@ export const InputButton = styled.button`
   position: absolute;
   right: 0.8rem;
   top: 1.8rem;
-  background-color: ${COLOR.GRAY_50};
+  background-color: ${COLOR.GRAY};
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
 `;

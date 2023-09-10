@@ -4,7 +4,7 @@ import Button from 'components/commons/Button/Button';
 
 const RequestDetail = () => {
   return (
-    <Container style={{ position: 'relative' }}>
+    <Container>
       <S.Container>
         {/* <ApproveStatus flag={request?.flag} /> */}승인
         <S.Title>{/* {request?.title} */}문제 올려주세요</S.Title>

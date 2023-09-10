@@ -1,16 +1,21 @@
+import { styled } from 'styled-components';
 import Footer from './Footer/footer';
 import Header from './Header/Header';
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <>
-      <div>
+      <Wrapper>
         <Header />
         {children}
         <Footer />
-      </div>
+      </Wrapper>
     </>
   );
 };
 
 export default Layout;
+
+const Wrapper = styled.div`
+  position: relative;
+`;

@@ -41,9 +41,7 @@ const SignUp = () => {
             중복확인
           </S.InputButton>
         </S.InputDiv>
-        <S.ErrorMessage>
-          {errors.name?.message as React.ReactNode}
-        </S.ErrorMessage>
+        <S.ErrorMessage>{errors.name?.message as string}</S.ErrorMessage>
         <S.InputDiv>
           <S.Input
             type="email"
@@ -106,7 +104,7 @@ const SignUp = () => {
           </S.InputDiv>
         )}
         <S.ErrorMessage>
-          {errors.emailAuthNumber?.message as React.ReactNode}
+          {errors.emailAuthNumber?.message as string}
         </S.ErrorMessage>
 
         <S.Input
@@ -127,9 +125,7 @@ const SignUp = () => {
               }),
           })}
         />
-        <S.ErrorMessage>
-          {errors.password?.message as React.ReactNode}
-        </S.ErrorMessage>
+        <S.ErrorMessage>{errors.password?.message as string}</S.ErrorMessage>
 
         <S.Input
           type="password"
@@ -151,7 +147,7 @@ const SignUp = () => {
           })}
         />
         <S.ErrorMessage>
-          {errors.passwordConfirm?.message as React.ReactNode}
+          {errors.passwordConfirm?.message as string}
         </S.ErrorMessage>
 
         <S.Button type="submit">회원가입</S.Button>

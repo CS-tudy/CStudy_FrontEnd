@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-// import { useCreateRequest } from 'hooks/@query/board/useCreateRequest';
+import { useCreateRequest } from 'hooks/@query/request/useCreateRequest';
 
 // import ContentContainer from 'components/@shared/ContentContainer';
 // import ContentHeaderWrapper from 'components/@shared/ContentHeaderWrapper';

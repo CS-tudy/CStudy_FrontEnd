@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from 'components/commons/Container';
 import * as S from './style';
-import { useSignUp } from 'hooks/useSignUp';
+import { useSignUp } from 'hooks/@query/useSignUp';
 
 const SignUp = () => {
   const {

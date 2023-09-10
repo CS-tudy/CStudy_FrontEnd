@@ -2,8 +2,15 @@ import Button from 'components/commons/Button/Button';
 import Banner from 'components/main/Banner';
 import Contents from 'components/main/Contents';
 import * as S from './style';
+import SignInModal from 'components/unit/SignIn';
+import { useSelector } from 'react-redux';
 
 const Main = () => {
+  const isAuthenticated = useSelector(
+    (state: any) => state.auth.isAuthenticated,
+  );
+  console.log(isAuthenticated);
+
   return (
     <S.Main>
       <div>
@@ -30,7 +37,8 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
+      <SignInModal />
       <Banner />
       <Contents />
     </S.Main>

@@ -3,6 +3,7 @@ import Modal from 'components/unit/Modal';
 import useModal from 'hooks/useModal';
 import SignModal from 'components/commons/Modal/SignModal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
+import RequestItem from '../RequestItem';
 
 const RequestList = () => {
   const { modalIsOpen, toggleModal } = useModal();
@@ -27,9 +28,10 @@ const RequestList = () => {
         </Modal>
       )}
       <Container>
+        <button onClick={openModal}>ConfirmModal</button>
+        <p>요청 게시판</p>
         <div>
-          <button onClick={openModal}>ConfirmModal</button>
-          <p>요청 게시판</p>
+          <RequestItem />
         </div>
       </Container>
     </>

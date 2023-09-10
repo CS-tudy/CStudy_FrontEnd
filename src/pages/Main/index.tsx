@@ -6,7 +6,7 @@ import * as S from './style';
 const Main = () => {
   return (
     <S.Main>
-      {/* <div>
+      <div>
         <h2>버튼 컴포넡트</h2>
         <div>
           <div>
@@ -30,7 +30,7 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </div> */}
+      </div>
       <Banner />
       <Contents />
     </S.Main>

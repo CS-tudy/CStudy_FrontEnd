@@ -13,7 +13,11 @@ export const Form = styled.form`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin: 3rem 0 0 auto;
+  margin: 2rem 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 
   button + button {
     margin-left: 2rem;

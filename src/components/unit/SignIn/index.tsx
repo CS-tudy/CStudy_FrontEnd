@@ -1,11 +1,16 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { SignInForm } from 'types/Form';
 import Container from 'components/commons/Container';
+import { useSignIn } from 'hooks/@query/useSignIn';
 import * as S from './style';
 import { Button } from 'components/Button/Style';
-import { signIn } from 'api/auth';
+import { logout } from 'hooks/@redux/authSlice';
+import { useDispatch } from 'react-redux';
+import { useSignOut } from 'hooks/@query/useSignOut';
 
 const SignInModal = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -13,10 +18,19 @@ const SignInModal = () => {
     formState: { errors },
   } = useForm<SignInForm>();
 
+  const { mutate: SignIn } = useSignIn();
+  const { mutate: signOut } = useSignOut();
+
   const onSignInHandler: SubmitHandler<SignInForm> = (formData: SignInForm) => {
-    console.log(formData);
-    signIn({ ...formData });
+    SignIn({ ...formData });
   };
+
+  const test = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    dispatch(logout());
+  };
+
   return (
     <Container>
       <form onSubmit={handleSubmit(onSignInHandler)}>
@@ -31,6 +45,9 @@ const SignInModal = () => {
             },
           })}
         />
+        <S.ErrorMessage>
+          <p>{errors.email?.message}</p>
+        </S.ErrorMessage>
         <S.Input
           type="password"
           placeholder="비밀번호"
@@ -42,8 +59,14 @@ const SignInModal = () => {
             },
           })}
         />
-        <Button type="submit" variant="primary" size="small">
+        <S.ErrorMessage>
+          <p>{errors.password?.message}</p>
+        </S.ErrorMessage>
+        <Button type="submit" variant="primary" size="medium">
           로그인
+        </Button>
+        <Button onClick={() => signOut()} variant="primary" size="medium">
+          로그아웃
         </Button>
       </form>
     </Container>

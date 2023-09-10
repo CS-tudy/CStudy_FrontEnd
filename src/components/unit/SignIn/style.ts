@@ -1,3 +1,5 @@
+import { FONT } from 'constants/Font';
+import { COLOR } from './../../../constants/Color';
 import { styled } from 'styled-components';
 
 export const Input = styled.input`
@@ -11,4 +13,14 @@ export const Input = styled.input`
   border: 0.1rem solid #d3d3d3;
   border-radius: 0.8rem;
   margin-top: 1rem;
+`;
+
+export const ErrorMessage = styled.div`
+  display: block;
+
+  & p {
+    color: ${COLOR.RED};
+    font-size: ${FONT.REGULAR_12};
+    margin-top: 1rem;
+  }
 `;

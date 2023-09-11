@@ -3,8 +3,19 @@ import * as S from './style';
 import { StyleNavLink } from 'components/NavLinkStyles';
 import Logo_Png from 'assets/Logo.png';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal } from 'hooks/@redux/modalSlice';
+import useModal from 'hooks/useModal';
+import Modal from 'components/unit/Modal';
+import SignModal from '../Modal/SignModal';
+import SignInModal from 'components/unit/SignIn';
 
 const Header = () => {
+  const { modalIsOpen, toggleModal } = useModal();
+  const openModal = () => {
+    toggleModal();
+  };
+
   return (
     <>
       <S.Wrapper>
@@ -16,7 +27,14 @@ const Header = () => {
           </Link>
         </S.LogoWrap>
         <S.Sign>
-          <button>로그인</button>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignInModal />
+              </SignModal>
+            </Modal>
+          )}
+          <button onClick={openModal}>로그인</button>
           <Link to="signup">회원가입</Link>
         </S.Sign>
       </S.Wrapper>

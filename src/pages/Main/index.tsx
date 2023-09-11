@@ -9,7 +9,6 @@ const Main = () => {
   const isAuthenticated = useSelector(
     (state: any) => state.auth.isAuthenticated,
   );
-  console.log(isAuthenticated);
 
   return (
     <S.Main>
@@ -37,8 +36,7 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </div> */}
-      <SignInModal />
+      </div>
       <Banner />
       <Contents />
     </S.Main>

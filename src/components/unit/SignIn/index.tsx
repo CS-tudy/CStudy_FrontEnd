@@ -8,9 +8,11 @@ import { logout } from 'hooks/@redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { useSignOut } from 'hooks/@query/useSignOut';
 
+import { signIn } from 'api/auth';
+import SignModal from 'components/commons/Modal/SignModal';
+
 const SignInModal = () => {
   const dispatch = useDispatch();
-
   const {
     register,
     handleSubmit,
@@ -32,44 +34,42 @@ const SignInModal = () => {
   };
 
   return (
-    <Container>
-      <form onSubmit={handleSubmit(onSignInHandler)}>
-        <S.Input
-          type="email"
-          placeholder="이메일"
-          {...register('email', {
-            required: '이메일을 입력해주세요.',
-            pattern: {
-              value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
-              message: '올바른 이메일을 입력해주세요.',
-            },
-          })}
-        />
-        <S.ErrorMessage>
-          <p>{errors.email?.message}</p>
-        </S.ErrorMessage>
-        <S.Input
-          type="password"
-          placeholder="비밀번호"
-          {...register('password', {
-            required: '비밀번호를 입력해주세요.',
-            pattern: {
-              value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
-              message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
-            },
-          })}
-        />
-        <S.ErrorMessage>
-          <p>{errors.password?.message}</p>
-        </S.ErrorMessage>
-        <Button type="submit" variant="primary" size="medium">
-          로그인
-        </Button>
-        <Button onClick={() => signOut()} variant="primary" size="medium">
-          로그아웃
-        </Button>
-      </form>
-    </Container>
+    <form onSubmit={handleSubmit(onSignInHandler)}>
+      <S.Input
+        type="email"
+        placeholder="이메일"
+        {...register('email', {
+          required: '이메일을 입력해주세요.',
+          pattern: {
+            value: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/,
+            message: '올바른 이메일을 입력해주세요.',
+          },
+        })}
+      />
+      <S.ErrorMessage>
+        <p>{errors.email?.message}</p>
+      </S.ErrorMessage>
+      <S.Input
+        type="password"
+        placeholder="비밀번호"
+        {...register('password', {
+          required: '비밀번호를 입력해주세요.',
+          pattern: {
+            value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
+            message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
+          },
+        })}
+      />
+      <S.ErrorMessage>
+        <p>{errors.password?.message}</p>
+      </S.ErrorMessage>
+      <Button type="submit" variant="primary" size="full">
+        로그인
+      </Button>
+      {/* <Button onClick={() => signOut()} variant="primary" size="medium">
+        로그아웃
+      </Button> */}
+    </form>
   );
 };
 

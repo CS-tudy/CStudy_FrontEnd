@@ -9,7 +9,7 @@ export const ContentSection = styled.section`
 export const ContentWrapper = styled.div`
   display: flex;
   background-color: rgb(255, 255, 255);
-  padding: 4rem 3rem;
+  padding: 5rem 3rem;
   border-radius: 1.2rem;
   box-shadow:
     rgba(0, 0, 0, 0.1) 0.2rem 0.2rem 0.5rem,
@@ -22,15 +22,15 @@ export const ContentTitle = styled.h2`
 
 export const ContentImg = styled.img`
   margin-top: 3rem;
-  width: 60rem;
-  height: 50rem;
+  width: 50rem;
+  height: 42rem;
   background-color: #e2e2e2;
 `;
 
 export const ContentTitleImg = styled.div`
-  padding-right: 5rem;
+  padding-right: 10rem;
   &:nth-of-type(2) {
-    padding: 0 0 0 5rem;
+    padding: 0 0 0 10rem;
   }
 `;
 

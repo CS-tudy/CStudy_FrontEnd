@@ -19,7 +19,6 @@ export const ToastContainer = styled.div<Props>`
   background-color: ${({ type }) => ToastTheme[type]};
   color: ${COLOR.WHITE};
   word-break: keep-all;
-  /* box-shadow: ${SHADOW.CONTENTBOX_REVERSE}; */
   animation:
     slide-in-blurred-top 0.3s cubic-bezier(0.23, 1, 0.32, 1) both 0s,
     slide-out-blurred-top 0.3s cubic-bezier(0.755, 0.05, 0.855, 0.06) both 1.9s;

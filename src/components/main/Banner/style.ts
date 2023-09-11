@@ -1,5 +1,10 @@
 import { styled } from 'styled-components';
 
 export const BannerWrapper = styled.div`
-  height: 65rem;
+  height: 50rem;
+`;
+
+export const BannerImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;

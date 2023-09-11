@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleLoginModal } from 'hooks/@redux/loginModalSlice';
 import { toggleRegisterModal } from 'hooks/@redux/registerModalSlice';
-import Modal from 'components/commons/Modal/index';
+import Modal from 'components/commons/Modal';
 
 const GlobalAuthModals = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const GlobalAuthModals = () => {
 
   return (
     <>
-      {isLoginOpen && (
+      {/* {isLoginOpen && (
         <Modal toggleModal={() => dispatch(toggleLoginModal())}>
           <SignIn />
         </Modal>
@@ -19,7 +19,7 @@ const GlobalAuthModals = () => {
         <Modal toggleModal={() => dispatch(toggleRegisterModal())}>
           <SignUp />
         </Modal>
-      )}
+      )} */}
     </>
   );
 };

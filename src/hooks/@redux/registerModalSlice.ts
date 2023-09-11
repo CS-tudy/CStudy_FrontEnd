@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface RegisterModalState {
+export interface RegisterModalState {
   isOpen: boolean;
 }
 

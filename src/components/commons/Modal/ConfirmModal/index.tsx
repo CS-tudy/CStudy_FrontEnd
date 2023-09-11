@@ -1,4 +1,4 @@
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal';
 import * as S from './style';
 import Button from 'components/commons/Button/Button';
 

@@ -1,8 +1,7 @@
 import Container from 'components/commons/Container';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal';
 import useModal from 'hooks/useModal';
-import SignModal from 'components/commons/Modal/SignModal';
-import ConfirmModal from 'components/commons/Modal/ConfirmModal';
+import AuthModalFrame from 'components/commons/Modal/AuthModalFrame';
 
 const BoardList = () => {
   const { modalIsOpen, toggleModal } = useModal();
@@ -15,14 +14,14 @@ const BoardList = () => {
     <>
       {modalIsOpen && (
         <Modal toggleModal={toggleModal}>
-          <SignModal toggleModal={toggleModal}>
+          <AuthModalFrame toggleModal={toggleModal}>
             <div>test</div>
-          </SignModal>
+          </AuthModalFrame>
         </Modal>
       )}
       <Container>
         <div>
-          <button onClick={openModal}>SignModal</button>
+          <button onClick={openModal}>AuthModal</button>
           <p>보드 게시판</p>
         </div>
       </Container>

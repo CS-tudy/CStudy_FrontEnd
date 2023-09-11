@@ -2,6 +2,9 @@ import React from 'react';
 import Container from 'components/commons/Container';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
+import { useDispatch } from 'react-redux';
+import { toggleRegisterModal } from 'hooks/@redux/registerModalSlice';
+import AuthModalFrame from 'components/commons/Modal/AuthModalFrame';
 
 const SignUp = () => {
   const {
@@ -19,8 +22,15 @@ const SignUp = () => {
     onCheckAuthNumber,
   } = useSignUp();
 
+  const dispatch = useDispatch();
+
+  const changeModalHandler = () => {
+    // closeSignUpModal();
+    // loginModalOpen();
+  };
+
   return (
-    <Container>
+    <AuthModalFrame>
       <form onSubmit={handleSubmit(submitForm)}>
         <S.InputDiv>
           <S.Input
@@ -156,7 +166,7 @@ const SignUp = () => {
           <button type="button">로그인</button>
         </S.Suggestion>
       </form>
-    </Container>
+    </AuthModalFrame>
   );
 };
 

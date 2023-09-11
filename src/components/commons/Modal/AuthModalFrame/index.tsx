@@ -6,7 +6,7 @@ interface Props {
   toggleModal: VoidFunction;
 }
 
-const SignModal = ({ children, toggleModal }: Props) => {
+const AuthModalFrame = ({ children, toggleModal }: Props) => {
   return (
     <S.Container>
       <S.XButton onClick={toggleModal}>
@@ -31,4 +31,4 @@ const SignModal = ({ children, toggleModal }: Props) => {
   );
 };
 
-export default SignModal;
+export default AuthModalFrame;

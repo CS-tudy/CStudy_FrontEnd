@@ -1,7 +1,6 @@
 import Container from 'components/commons/Container';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal';
 import useModal from 'hooks/useModal';
-import SignModal from 'components/commons/Modal/SignModal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import RequestItem from '../RequestItem';
 

@@ -28,7 +28,7 @@ import { FieldValues } from 'react-hook-form';
 
 // 게시판 문제 요청글 생성
 export const createRequest = (RequestForm: FieldValues) => {
-  const response = instance.post('/api/request/create', RequestForm);
+  const response = instance.post('/api/request', RequestForm);
   return response;
 };
 

@@ -4,9 +4,23 @@ import useModal from 'hooks/useModal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import RequestItem from '../RequestItem';
 import { isLogin } from 'repository/auth';
+import { getRequestListTest } from 'api/request';
+import { useEffect, useState } from 'react';
+import Button from 'components/commons/Button/Button';
+import * as S from './style';
 
 const RequestList = () => {
+  const [requestList, setRequestList] = useState();
   const { modalIsOpen, toggleModal } = useModal();
+  const fetchRequestList = async () => {
+    const data = await getRequestListTest();
+    setRequestList(data.data);
+  };
+
+  useEffect(() => {
+    fetchRequestList();
+    console.log(requestList);
+  }, []);
 
   const openModal = () => {
     toggleModal();
@@ -35,14 +49,18 @@ const RequestList = () => {
           />
         </Modal>
       )}
-      <Container style={{ position: 'relative' }}>
+      <Container>
         <button onClick={openModal}>ConfirmModal</button>
-        <p>요청 게시판</p>
-        <br />
-        <button onClick={checkLogin}>글작성하기</button>
-        <div>
-          <RequestItem />
-        </div>
+        <S.ButtonWrapper>
+          <Button variant={'primary'} size={'medium'} onClick={checkLogin}>
+            글 작성
+          </Button>
+        </S.ButtonWrapper>
+        <S.ContentWrapper>
+          {requestList?.content?.map(props => (
+            <RequestItem key={props.id} {...props} />
+          ))}
+        </S.ContentWrapper>
       </Container>
     </>
   );

@@ -28,11 +28,7 @@ instance.interceptors.response.use(
   async error => {
     const { config, response } = error;
     console.log(config);
-    console.log(config.headers.Authorization);
     console.log(response);
-    console.log(response.status);
-    // if (response.status == 401 && response.data.message == 'Token expired')
-    // TODO: 토큰 만료 체크 개선
     if (response.status == 401) {
       // 401(Unauthorized): 클라이언트가 인증되지 않았기 때문에 요청을 정상적으로 처리할 수 없음
       const originalRequest = config;
@@ -43,8 +39,7 @@ instance.interceptors.response.use(
       }
 
       try {
-        // AccessToken 만료 후 인가 요청
-        // tokens 없는 상태 아닌 인가 에러
+        // if (response.status == 401 && response.data.message == "기간이 만료된 토큰")
         const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
           await retryToken(tokens.refreshToken);
         // RefreshToken으로 AccessToken 재발급 요청
@@ -60,7 +55,7 @@ instance.interceptors.response.use(
         axios.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return axios(originalRequest);
-        // 방금 실패했던(error) API 재요청
+        // 방금 실패했던 API 재요청
       } catch (error) {
         userStorage.remove();
         return window.location.replace('/');

@@ -1,6 +1,4 @@
-import RequestDetail from 'components/unit/RequestDetail';
-import * as S from './style';
-import Button from 'components/commons/Button/Button';
+import RequestDetail from 'components/unit/Request/RequestDetail';
 
 const RequestDetailPage = () => {
   return <RequestDetail />;

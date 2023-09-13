@@ -1,12 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleLoginModal } from 'hooks/@redux/loginModalSlice';
-import { toggleRegisterModal } from 'hooks/@redux/registerModalSlice';
-import Modal from 'components/commons/Modal';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { toggleLoginModal } from 'hooks/@redux/loginModalSlice';
+// import { toggleRegisterModal } from 'hooks/@redux/registerModalSlice';
+// import Modal from 'components/commons/Modal';
 
 const GlobalAuthModals = () => {
-  const dispatch = useDispatch();
-  const isLoginOpen = useSelector(state => state.login.isOpen);
-  const isRegisterOpen = useSelector(state => state.register.isOpen);
+  //   const dispatch = useDispatch();
+  //   const isLoginOpen = useSelector(state => state.loginModal.isOpen);
+  //   const isRegisterOpen = useSelector(state => state.registerModal.isOpen);
 
   return (
     <>

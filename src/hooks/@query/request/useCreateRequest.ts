@@ -12,7 +12,7 @@ export const useCreateRequest = () => {
       queryClient.invalidateQueries(['requestList']);
       //   toast.success('글이 등록되었습니다.');
       alert('글이 등록되었습니다.');
-      navigate('/board');
+      navigate('/request');
       window.scrollTo(0, 0);
     },
     onError: () => {

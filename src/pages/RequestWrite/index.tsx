@@ -11,6 +11,7 @@ import * as S from './style';
 import Container from 'components/commons/Container';
 import TextArea from 'components/commons/TextArea';
 import Button from 'components/commons/Button/Button';
+import Input from 'components/commons/Input';
 
 const RequestWrite = () => {
   //   const navigate = useNavigate();
@@ -38,16 +39,27 @@ const RequestWrite = () => {
 
   return (
     <div>
-      <Container style={{ display: 'relative' }}>
-        <S.Form>
-          {/* <form onSubmit={handleSubmit(submitForm)}> */}
-          <input
+      <Container>
+        <S.Form onSubmit={handleSubmit(submitForm)}>
+          {/* <h3>제목</h3> */}
+          {/* <input
             id="title"
             // label="게시판에 올릴 제목을 적어주세요"
             placeholder="제목을 입력해주세요"
             required
             // register={register}
             // errors={errors}
+            {...register('title', {
+              required: '제목을 입력해주세요.',
+            })}
+          /> */}
+          <Input
+            id="title"
+            label="제목"
+            placeholder="제목을 입력해주세요"
+            required
+            register={register}
+            errors={errors}
           />
           <TextArea
             id="description"

@@ -2,8 +2,8 @@ import React from 'react';
 import Container from 'components/commons/Container';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
-import { useDispatch } from 'react-redux';
-import { toggleRegisterModal } from 'hooks/@redux/registerModalSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle, close } from 'hooks/@redux/registerModalSlice';
 import Modal from 'components/commons/Modal';
 import AuthModalFrame from 'components/commons/Modal/AuthModalFrame';
 
@@ -24,16 +24,17 @@ const SignUp = () => {
   } = useSignUp();
 
   const dispatch = useDispatch();
+  const isOpen = useSelector((state: any) => state.registerModal.isOpen);
 
   const changeModalHandler = () => {
     // closeSignUpModal();
     // loginModalOpen();
-    dispatch(toggleRegisterModal());
+    dispatch(toggle());
   };
 
   return (
-    <Modal toggleModal={() => dispatch(toggleRegisterModal())}>
-      <AuthModalFrame toggleModal={() => dispatch(toggleRegisterModal())}>
+    <Modal toggleModal={() => dispatch(toggle())}>
+      <AuthModalFrame toggleModal={() => dispatch(close())}>
         <form onSubmit={handleSubmit(submitForm)}>
           <S.InputDiv>
             <S.Input

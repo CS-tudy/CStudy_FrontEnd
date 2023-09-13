@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom';
 import * as S from './style';
 import { StyleNavLink } from 'components/NavLinkStyles';
 import Logo_Png from 'assets/Logo.png';
+import { Button } from 'components/commons/Button/Style';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from 'hooks/@redux/modalSlice';
+import { useSignOut } from 'hooks/@query/useSignOut';
+import { logout } from 'hooks/@redux/authSlice';
 import useModal from 'hooks/useModal';
 import Modal from 'components/unit/Modal';
 import SignModal from '../Modal/SignModal';
@@ -12,6 +15,11 @@ import SignInModal from 'components/unit/SignIn';
 
 const Header = () => {
   const { modalIsOpen, toggleModal } = useModal();
+  const isAuthenticated = useSelector(
+    (state: any) => state.auth.isAuthenticated,
+  );
+  const { mutate: signOut } = useSignOut();
+
   const openModal = () => {
     toggleModal();
   };
@@ -34,8 +42,17 @@ const Header = () => {
               </SignModal>
             </Modal>
           )}
-          <button onClick={openModal}>로그인</button>
-          <Link to="signup">회원가입</Link>
+          {isAuthenticated ? (
+            <>
+              <button onClick={() => signOut()}>로그아웃</button>
+              <Link to="/">마이페이지</Link>
+            </>
+          ) : (
+            <>
+              <button onClick={openModal}>로그인</button>
+              <Link to="signup">회원가입</Link>
+            </>
+          )}
         </S.Sign>
       </S.Wrapper>
       <S.NavHeader>

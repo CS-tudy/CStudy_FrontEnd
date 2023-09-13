@@ -1,9 +1,9 @@
 import Button from 'components/commons/Button/Button';
-import Banner from 'components/main/Banner';
 import Contents from 'components/main/Contents';
 import * as S from './style';
 import SignInModal from 'components/unit/SignIn';
 import { useSelector } from 'react-redux';
+import Banner from 'components/main/Banner';
 
 const Main = () => {
   const isAuthenticated = useSelector(
@@ -12,7 +12,7 @@ const Main = () => {
 
   return (
     <S.Main>
-      <div>
+      {/* <div>
         <h2>버튼 컴포넡트</h2>
         <div>
           <div>
@@ -36,7 +36,7 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </div>
+      </div> */}
       <Banner />
       <Contents />
     </S.Main>

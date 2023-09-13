@@ -9,10 +9,8 @@ import { useDispatch } from 'react-redux';
 import { useSignOut } from 'hooks/@query/useSignOut';
 
 import { signIn } from 'api/auth';
-import SignModal from 'components/commons/Modal/SignModal';
 
 const SignInModal = () => {
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -21,16 +19,9 @@ const SignInModal = () => {
   } = useForm<SignInForm>();
 
   const { mutate: SignIn } = useSignIn();
-  const { mutate: signOut } = useSignOut();
 
   const onSignInHandler: SubmitHandler<SignInForm> = (formData: SignInForm) => {
     SignIn({ ...formData });
-  };
-
-  const test = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-    dispatch(logout());
   };
 
   return (
@@ -66,9 +57,24 @@ const SignInModal = () => {
       <Button type="submit" variant="primary" size="full">
         로그인
       </Button>
-      {/* <Button onClick={() => signOut()} variant="primary" size="medium">
-        로그아웃
-      </Button> */}
+      <a
+        href="http://localhost:8080/oauth2/authorization/google"
+        rel="noopener noreferrer"
+      >
+        구글 로그인
+      </a>
+      <a
+        href="http://localhost:8080/oauth2/authorization/kakao"
+        rel="noopener noreferrer"
+      >
+        카카오 로그인
+      </a>
+      <a
+        href="http://localhost:8080/oauth2/authorization/naver"
+        rel="noopener noreferrer"
+      >
+        네이버 로그인
+      </a>
     </form>
   );
 };

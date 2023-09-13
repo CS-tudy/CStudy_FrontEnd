@@ -1,23 +1,27 @@
+import { login } from 'hooks/@redux/authSlice';
+import Cookies from 'js-cookie';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { userStorage } from 'repository/userStorage';
 
 const OAuthRedirect = () => {
-  console.log('테스트');
-  const params = useParams();
-  useEffect(() => {
-    const parsedUrl = new URL(window.location.href);
-    const accessToken = parsedUrl.searchParams.get('accessToken');
-    const refreshToken = parsedUrl.searchParams.get('refreshToken');
-    if (!accessToken || !refreshToken) return alert('로그인 실패');
+  const dispatch = useDispatch();
 
-    //  console.log(accessToken);
-    //  console.log(refreshToken);
+  const accessToken = Cookies.get('accessToken');
+  const refreshToken = Cookies.get('refreshToken');
 
-    window.location.replace(`http://localhost:3000`);
-    localStorage.clear();
-    localStorage.setItem('token', accessToken as string);
-    //  window.location.replace('/');
-  }, []);
+  if (!accessToken || !refreshToken)
+    // return toast.error('로그인에 실패했습니다.');
+    return alert('실패');
+
+  userStorage.set({
+    accessToken,
+    refreshToken,
+  });
+  dispatch(login());
+
+  window.location.replace(`http://localhost:3000`);
 
   return <div>Login...</div>;
 };

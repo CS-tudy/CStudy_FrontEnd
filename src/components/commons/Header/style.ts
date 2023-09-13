@@ -20,7 +20,6 @@ export const LogoImg = styled.img`
 export const Nav = styled.nav`
   flex: 3;
 `;
-7;
 export const NavList = styled.ul`
   display: flex;
   justify-content: center;

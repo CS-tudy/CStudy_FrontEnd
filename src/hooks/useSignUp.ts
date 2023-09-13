@@ -20,7 +20,7 @@ export const useSignUp = () => {
     setValue,
     formState: { errors },
     watch,
-  } = useForm();
+  } = useForm<SignUpForm>();
 
   const watchedName = watch('name');
   const watchedEmail = watch('email');
@@ -65,7 +65,6 @@ export const useSignUp = () => {
     }
   };
 
-  // 인증번호 전송
   const onSendAuthNumberToEmail = async () => {
     setAuthenticating(true);
     const data = await sendAuthNumberToEmail(watchedEmail);
@@ -73,17 +72,15 @@ export const useSignUp = () => {
     authNumber.current = data;
   };
 
-  // 인증번호 확인
   const onCheckAuthNumber = async () => {
     const watchedEmailAuthNumber = watch('emailAuthNumber');
     console.log('test', authNumber.current);
 
-    if (authNumber.current === watchedEmailAuthNumber)
+    if (String(authNumber.current) === watchedEmailAuthNumber)
       alert('인증번호가 일치합니다.');
     else alert('인증번호가 일치하지 않습니다.');
   };
 
-  // react-query를 사용한 회원가입 mutation
   const signUpMutation = useMutation(signUpApi, {
     onSuccess: () => {
       // toast.success('회원가입 되었습니다.');
@@ -99,7 +96,7 @@ export const useSignUp = () => {
   const submitForm = (formValues: SignUpForm) => {
     const { emailAuthNumber, passwordConfirm, ...rest } = formValues;
     console.log({ ...rest });
-    signUpMutation.mutate({ ...rest }); // mutate 호출하여 회원가입 API 호출
+    signUpMutation.mutate({ ...rest });
   };
 
   return {

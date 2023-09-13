@@ -17,6 +17,11 @@ const variantCSS: VariantCSS = {
     background: #edededed;
     color: ${COLOR.WHITE};
   `,
+
+  gray: css`
+    background: ${COLOR.GRAY};
+    color: ${COLOR.BLACK};
+  `,
 };
 
 const sizeCSS: SizeCSS = {

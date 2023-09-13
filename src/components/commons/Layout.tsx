@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-import Container from './Container';
 import Footer from './Footer/footer';
 import Header from './Header/Header';
 

@@ -22,7 +22,7 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/board" element={<Board />} />
         <Route path="/request" element={<Request />} />
-        <Route path="/requestdetail" element={<RequestDetailPage />} />
+        <Route path="/request/:id" element={<RequestDetailPage />} />
         <Route path="/requestwrite" element={<RequestWrite />} />
         <Route path="/workbook" element={<Workbook />} />
         <Route path="/contest" element={<Contest />} />

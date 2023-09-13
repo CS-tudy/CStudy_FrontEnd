@@ -29,7 +29,7 @@ const Router = () => {
         <Route path="/problemset" element={<ProblemSet />} />
         <Route path="/membersranks" element={<MembersRanks />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth2/login" element={<OAuthRedirect />} />
       </Routes>
     </BrowserRouter>
   );

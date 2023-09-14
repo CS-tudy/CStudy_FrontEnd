@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Noto Sans CJK KR', sans-serif;
     font-size: 16px;
   }
-  ol,
+  ol, 
   ul,
   li {
     list-style: none;

@@ -27,6 +27,7 @@ const RequestDetail = () => {
           <span>·</span>
           {request?.createAt}
         </S.Detail>
+        <button>수정</button> <button>삭제</button>
         <S.Content>{request?.description}</S.Content>
       </S.Container>
       <S.ButtonWrapper>

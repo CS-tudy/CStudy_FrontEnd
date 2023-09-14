@@ -2,7 +2,16 @@ import { Link } from 'react-router-dom';
 import * as S from './style';
 import ApproveStatus from 'components/commons/Status';
 
-const RequestItem = props => {
+interface RequestListProps {
+  id: number;
+  flag: boolean;
+  title: string;
+  description: string;
+  memberName: string;
+  createAt: string;
+}
+
+const RequestItem = (props: RequestListProps) => {
   const { id, flag, title, description, memberName, createAt } = props;
 
   const checkAndDisplayLoginModal = () => {

@@ -8,9 +8,10 @@ import { getRequestListTest } from 'api/request';
 import { useEffect, useState } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
+import { ToggleRequestList } from 'types/api';
 
 const RequestList = () => {
-  const [requestList, setRequestList] = useState();
+  const [requestList, setRequestList] = useState<ToggleRequestList>();
   const { modalIsOpen, toggleModal } = useModal();
   const fetchRequestList = async () => {
     const data = await getRequestListTest();

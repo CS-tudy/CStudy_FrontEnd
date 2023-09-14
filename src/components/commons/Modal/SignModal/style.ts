@@ -1,4 +1,5 @@
 import { COLOR } from 'constants/Color';
+import { SHADOW } from 'constants/Shadow';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -62,13 +63,22 @@ export const Hr = styled.span`
 `;
 
 export const SocialLogin = styled.div`
-  margin: 3rem auto 0;
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  padding-top: 3rem;
+  & a {
+    &:last-child {
+      background-color: #fae100;
+    }
+  }
 `;
 
-export const GoogleLogo = styled.img`
+export const SocialLogo = styled.img`
   width: 7rem;
   height: 7rem;
   padding: 1rem;
-  border-radius: 50%;
+  border-radius: 1rem;
   cursor: pointer;
+  box-shadow: ${SHADOW.CONTENTBOX_MD};
 `;

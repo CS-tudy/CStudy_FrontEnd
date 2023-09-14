@@ -4,8 +4,8 @@ import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggle, close } from 'hooks/@redux/registerModalSlice';
-import Modal from 'components/commons/Modal';
-import AuthModalFrame from 'components/commons/Modal/AuthModalFrame';
+import Modal from 'components/unit/Modal';
+import AuthModalFrame from 'components/commons/Modal/SignModal';
 
 const SignUp = () => {
   const {

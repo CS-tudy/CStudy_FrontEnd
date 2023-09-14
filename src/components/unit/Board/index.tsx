@@ -1,7 +1,7 @@
 import Container from 'components/commons/Container';
-import Modal from 'components/commons/Modal';
+import Modal from 'components/unit/Modal';
 import useModal from 'hooks/useModal';
-import AuthModalFrame from 'components/commons/Modal/AuthModalFrame';
+import AuthModalFrame from 'components/commons/Modal/SignModal';
 
 const BoardList = () => {
   const { modalIsOpen, toggleModal } = useModal();

@@ -35,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #fcfcfc;
     font-size: 16px;
   }
-  ol,
+  ol, 
   ul,
   li {
     list-style: none;

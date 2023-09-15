@@ -38,16 +38,16 @@ export const approveRequest = (RequestForm: FieldValues) => {
   return response;
 };
 
+// 게시글 수정
+export const editRequest = (RequestForm: FieldValues) => {
+  const response = instance.put('/api/request', RequestForm);
+  return response;
+};
+
 // 게시글 삭제
 export const deleteRequest = async (
   id: string | undefined,
 ): Promise<RequestDetail> => {
   const response = await instance.delete(`/api/request/${id}`);
   return response.data;
-};
-
-// 게시글 수정
-export const editRequest = (RequestForm: FieldValues) => {
-  const response = instance.post('/api/request', RequestForm);
-  return response;
 };

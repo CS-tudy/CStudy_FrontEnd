@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import { ToggleRequestList } from 'types/api';
+import { useNavigate } from 'react-router-dom';
 
 const RequestList = () => {
   const [requestList, setRequestList] = useState<ToggleRequestList>();
@@ -17,6 +18,7 @@ const RequestList = () => {
     const data = await getRequestListTest();
     setRequestList(data.data);
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchRequestList();
@@ -29,9 +31,9 @@ const RequestList = () => {
 
   const checkLogin = () => {
     if (!isLogin()) {
-      alert('로그인해야함');
+      alert('로그인 후 이용하실 수 있습니다.');
     } else {
-      alert('로그인돼있음');
+      navigate('/request/new');
     }
   };
 

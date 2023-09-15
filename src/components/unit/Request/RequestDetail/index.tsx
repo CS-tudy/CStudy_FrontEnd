@@ -6,15 +6,25 @@ import Container from 'components/commons/Container';
 import * as S from './style';
 import Button from 'components/commons/Button/Button';
 import ApproveStatus from 'components/commons/Status';
+import { useDeleteRequest } from 'hooks/@query/request/useMutateRequest';
 
 const RequestDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const request = useGetRequest(id);
+  const { mutate: deleteRequest } = useDeleteRequest();
 
-  const handleNavigate = () => {
+  const handleNavigateEdit = () => {
+    navigate(`/request/${id}/edit`);
+  };
+
+  const handleNavigateBack = () => {
     navigate(-1);
+  };
+
+  const handleDeleteRequest = () => {
+    deleteRequest(id);
   };
 
   return (
@@ -27,14 +37,15 @@ const RequestDetail = () => {
           <span>·</span>
           {request?.createAt}
         </S.Detail>
-        <button>수정</button> <button>삭제</button>
+        <button onClick={handleNavigateEdit}>수정</button>{' '}
+        <button onClick={handleDeleteRequest}>삭제</button>
         <S.Content>{request?.description}</S.Content>
       </S.Container>
       <S.ButtonWrapper>
-        <Button variant="primary" size="medium" onClick={handleNavigate}>
+        <Button variant="primary" size="medium">
           승인하기
         </Button>
-        <Button variant="gray" size="medium" onClick={handleNavigate}>
+        <Button variant="gray" size="medium" onClick={handleNavigateBack}>
           돌아가기
         </Button>
       </S.ButtonWrapper>

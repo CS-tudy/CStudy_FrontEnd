@@ -1,6 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useCreateRequest } from 'hooks/@query/request/useCreateRequest';
+import {
+  useCreateRequest,
+  useEditRequest,
+} from 'hooks/@query/request/useMutateRequest';
 
 // import ContentContainer from 'components/@shared/ContentContainer';
 // import ContentHeaderWrapper from 'components/@shared/ContentHeaderWrapper';
@@ -13,8 +16,13 @@ import TextArea from 'components/commons/TextArea';
 import Button from 'components/commons/Button/Button';
 import Input from 'components/commons/Input';
 
-const RequestWrite = () => {
-  //   const navigate = useNavigate();
+interface RequesetWriteProps {
+  isEdit: boolean;
+  data?: any;
+}
+
+const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
+  const navigate = useNavigate();
 
   const {
     register,
@@ -31,32 +39,31 @@ const RequestWrite = () => {
   //     navigate(-1);
   //   };
 
-  //   const { mutate: createRequest } = useCreateRequest();
+  const { mutate: createRequest } = useCreateRequest();
+  const { mutate: editRequest } = useEditRequest();
 
-  //   const submitForm: SubmitHandler<FieldValues> = (FormData) => {
-  //     createRequest(FormData);
-  //   };
+  const submitForm: SubmitHandler<FieldValues> = FormData => {
+    console.log(FormData);
+    const updateRequestInput = {
+      title: '글수정',
+      description: '글수정',
+      id: data?.id,
+    };
+    // if(title)
+    // if(description)
+    if (isEdit) editRequest(updateRequestInput);
+    else createRequest(FormData);
+  };
 
   return (
     <div>
       <Container>
         <S.Form onSubmit={handleSubmit(submitForm)}>
-          {/* <h3>제목</h3> */}
-          {/* <input
-            id="title"
-            // label="게시판에 올릴 제목을 적어주세요"
-            placeholder="제목을 입력해주세요"
-            required
-            // register={register}
-            // errors={errors}
-            {...register('title', {
-              required: '제목을 입력해주세요.',
-            })}
-          /> */}
           <Input
             id="title"
             label="제목"
-            placeholder="제목을 입력해주세요"
+            placeholder={isEdit ? data?.title : '제목을 입력해주세요'}
+            defaultValue={data?.title}
             required
             register={register}
             errors={errors}
@@ -64,21 +71,21 @@ const RequestWrite = () => {
           <TextArea
             id="description"
             label="내용"
-            placeholder="내용을 적어주세요"
+            placeholder={isEdit ? data?.description : '내용을 입력해주세요'}
+            defaultValue={data?.description}
             required
             register={register}
             errors={errors}
           />
-          {/* </form> */}
+          <S.ButtonWrapper>
+            <Button type="submit" variant="primary" size="medium">
+              {isEdit ? '수정하기' : '등록하기'}
+            </Button>
+            <Button variant="gray" size="medium" onClick={handleNavigate}>
+              돌아가기
+            </Button>
+          </S.ButtonWrapper>
         </S.Form>
-        <S.ButtonWrapper style={{ display: 'absolute', right: '-30px' }}>
-          <Button variant="primary" size="medium">
-            작성하기
-          </Button>
-          <Button variant="gray" size="medium">
-            돌아가기
-          </Button>
-        </S.ButtonWrapper>
       </Container>
     </div>
   );

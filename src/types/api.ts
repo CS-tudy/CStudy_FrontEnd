@@ -19,5 +19,13 @@ export type RequestContent = {
   flag: boolean;
 };
 // export interface ToggleRequestList extends Omit<ContestList, 'content'> {
-//   content: RequestContent[];
-// }
+export interface ToggleRequestList {
+  content: RequestContent[];
+}
+
+// mypage
+export interface MyPage {
+  id: number;
+  name: string;
+  email: string;
+}

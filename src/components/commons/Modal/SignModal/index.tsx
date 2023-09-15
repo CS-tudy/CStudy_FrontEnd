@@ -16,12 +16,12 @@ const SignModal = ({ children, toggleModal }: Props) => {
       </S.XButton>
       <S.Title>CSTUDY에 오신 것을 환영합니다!</S.Title>
       {children}
-      <S.Line>
+      {/* <S.Line>
         <S.Hr></S.Hr>
         <S.TextSocialLogin>소셜 로그인</S.TextSocialLogin>
         <S.Hr></S.Hr>
-      </S.Line>
-      <S.SocialLogin>
+      </S.Line> */}
+      {/* <S.SocialLogin>
         <a
           href="http://localhost:8080/oauth2/authorization/google"
           rel="noopener noreferrer"

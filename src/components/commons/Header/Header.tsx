@@ -9,12 +9,15 @@ import { openModal } from 'hooks/@redux/modalSlice';
 import { useSignOut } from 'hooks/@query/useSignOut';
 import { logout } from 'hooks/@redux/authSlice';
 import useModal from 'hooks/useModal';
-import Modal from 'components/unit/Modal';
-import SignModal from '../Modal/SignModal';
+import Modal from '../../unit/Modal';
 import SignInModal from 'components/unit/SignIn';
+import SignModal from '../Modal/SignModal';
+import SignUp from 'components/unit/SignUp';
+import { useState } from 'react';
 
 const Header = () => {
   const { modalIsOpen, toggleModal } = useModal();
+  const [signupModal, setSignupModal] = useState(true);
   const isAuthenticated = useSelector(
     (state: any) => state.auth.isAuthenticated,
   );
@@ -22,6 +25,11 @@ const Header = () => {
 
   const openModal = () => {
     toggleModal();
+    setSignupModal(false);
+  };
+  const openSignupModal = () => {
+    toggleModal();
+    setSignupModal(true);
   };
 
   return (
@@ -42,6 +50,13 @@ const Header = () => {
               </SignModal>
             </Modal>
           )}
+          {modalIsOpen && signupModal && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignUp />
+              </SignModal>
+            </Modal>
+          )}
           {isAuthenticated ? (
             <>
               <button onClick={() => signOut()}>로그아웃</button>
@@ -50,7 +65,7 @@ const Header = () => {
           ) : (
             <>
               <button onClick={openModal}>로그인</button>
-              <Link to="signup">회원가입</Link>
+              <button onClick={openSignupModal}>회원가입</button>
             </>
           )}
         </S.Sign>

@@ -69,8 +69,6 @@ const Header = () => {
             </>
           )}
         </S.Sign>
-      </S.Wrapper>
-      <S.NavHeader>
         <S.Nav>
           <S.NavList>
             <S.NavItem>

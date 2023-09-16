@@ -90,7 +90,18 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
-      </S.NavHeader>
+        <S.Sign>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignInModal />
+              </SignModal>
+            </Modal>
+          )}
+          <button onClick={openModal}>로그인</button>
+          <StyleNavLink to="signup">회원가입</StyleNavLink>
+        </S.Sign>
+      </S.Wrapper>
     </>
   );
 };

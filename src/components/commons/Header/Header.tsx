@@ -26,19 +26,6 @@ const Header = () => {
             </picture>
           </Link>
         </S.LogoWrap>
-        <S.Sign>
-          {modalIsOpen && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
-                <SignInModal />
-              </SignModal>
-            </Modal>
-          )}
-          <button onClick={openModal}>로그인</button>
-          <Link to="signup">회원가입</Link>
-        </S.Sign>
-      </S.Wrapper>
-      <S.NavHeader>
         <S.Nav>
           <S.NavList>
             <S.NavItem>
@@ -61,7 +48,18 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
-      </S.NavHeader>
+        <S.Sign>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignInModal />
+              </SignModal>
+            </Modal>
+          )}
+          <button onClick={openModal}>로그인</button>
+          <StyleNavLink to="signup">회원가입</StyleNavLink>
+        </S.Sign>
+      </S.Wrapper>
     </>
   );
 };

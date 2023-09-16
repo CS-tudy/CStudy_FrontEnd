@@ -6,9 +6,15 @@ export const Wrapper = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   justify-content: space-between;
   background-color: ${COLOR.WHITE};
+  border-bottom: 1px solid #e9e9e9;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
 `;
 
 export const LogoWrap = styled.h1`
@@ -24,7 +30,7 @@ export const Nav = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   justify-content: center;
-  font-size: ${FONT.REGULAR_16};
+  font-size: ${FONT.REGULAR_14};
   color: #181818;
 `;
 
@@ -44,6 +50,7 @@ export const NavItem = styled.li`
 export const Sign = styled.div`
   display: flex;
   padding-right: 1.8rem;
+  align-items: center;
   & > button {
     padding: 0.5rem;
     font-size: ${FONT.REGULAR_14};
@@ -52,15 +59,4 @@ export const Sign = styled.div`
   & > button:first-child {
     margin-right: 1.4rem;
   }
-`;
-
-export const NavHeader = styled.header`
-  border-bottom: 1px solid #e9e9e9;
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 0 1.5rem 0;
-  background-color: ${COLOR.WHITE};
-  z-index: 99;
 `;

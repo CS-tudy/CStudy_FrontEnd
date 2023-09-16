@@ -20,7 +20,7 @@ const SignModal = ({ children, toggleModal }: Props) => {
         <S.Hr></S.Hr>
         <S.TextSocialLogin>소셜 로그인</S.TextSocialLogin>
         <S.Hr></S.Hr>
-      </S.Line>
+      </S.Line> */}
       <S.SocialLogin>
         <a
           href="http://localhost:8080/oauth2/authorization/google"

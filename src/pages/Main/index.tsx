@@ -8,7 +8,6 @@ const Banner = lazy(() => import('../../components/main/Banner'));
 import * as S from './style';
 import SignInModal from 'components/unit/SignIn';
 import { useSelector } from 'react-redux';
-
 const Main = () => {
   const isAuthenticated = useSelector(
     (state: any) => state.auth.isAuthenticated,

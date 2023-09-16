@@ -14,3 +14,9 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 };
 
 export default Layout;
+
+const Wrapper = styled.div`
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+`;

@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const BannerWrapper = styled.div`
-  height: 50rem;
+  padding-top: 2rem;
 `;
 
 export const BannerImg = styled.img`

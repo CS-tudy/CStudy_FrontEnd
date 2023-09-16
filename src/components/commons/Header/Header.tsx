@@ -53,8 +53,6 @@ const Header = () => {
           <button onClick={openModal}>로그인</button>
           <Link to="signup">회원가입</Link>
         </S.Sign>
-      </S.Wrapper>
-      <S.NavHeader>
         <S.Nav>
           <S.NavList>
             <S.NavItem>

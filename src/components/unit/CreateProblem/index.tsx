@@ -1,15 +1,17 @@
 import React from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
-import List from '../admin/List';
+import List from '../../admin/List';
 import { FieldValues } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useCreateProblem } from 'hooks/useCreateProblem';
 import { AppDispatch } from 'hooks/@redux/problemSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ProblemForm = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       createQuestionRequestDto: {
@@ -18,28 +20,28 @@ const ProblemForm = () => {
         questionTitle: '',
       },
       categoryRequestDto: {
-        category: '',
+        category: '네트워크',
       },
       createChoicesAboutQuestionDto: [
         {
           number: 1,
           content: '',
-          answer: '정답',
+          answer: '',
         },
         {
           number: 2,
           content: '',
-          answer: '정답',
+          answer: '',
         },
         {
           number: 3,
           content: '',
-          answer: '정답',
+          answer: '',
         },
         {
           number: 4,
           content: '',
-          answer: '정답',
+          answer: '',
         },
       ],
     },
@@ -48,6 +50,7 @@ const ProblemForm = () => {
   const onSubmit = (formData: FieldValues) => {
     console.log(formData);
     dispatch(useCreateProblem(formData));
+    navigate('/');
   };
 
   return (
@@ -101,7 +104,6 @@ const ProblemForm = () => {
                 <input
                   id="1"
                   placeholder="내용을 입력해주세요"
-                  required
                   type="text"
                   {...register('createChoicesAboutQuestionDto.0.content')}
                 />
@@ -117,7 +119,6 @@ const ProblemForm = () => {
                 <input
                   id="2"
                   placeholder="내용을 입력해주세요"
-                  required
                   type="text"
                   {...register('createChoicesAboutQuestionDto.1.content')}
                 />
@@ -133,7 +134,6 @@ const ProblemForm = () => {
                 <input
                   id="3"
                   placeholder="내용을 입력해주세요"
-                  required
                   type="text"
                   {...register('createChoicesAboutQuestionDto.2.content')}
                 />
@@ -149,7 +149,6 @@ const ProblemForm = () => {
                 <input
                   id="4"
                   placeholder="내용을 입력해주세요"
-                  required
                   type="text"
                   {...register('createChoicesAboutQuestionDto.3.content')}
                 />
@@ -164,7 +163,7 @@ const ProblemForm = () => {
                 <Button type="submit" variant="primary" size="medium">
                   확인
                 </Button>
-                <Button type="button" variant="primary" size="medium">
+                <Button type="button" variant="gray" size="medium">
                   취소
                 </Button>
               </S.CpButton>

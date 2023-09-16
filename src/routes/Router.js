@@ -22,7 +22,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Layout>
-        {' '}
         <Routes>
           {/* path = 경로  element = 컴포넌트*/}
           <Route path="/" element={<Main />} />

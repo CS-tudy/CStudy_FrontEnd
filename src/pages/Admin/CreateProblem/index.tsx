@@ -1,5 +1,5 @@
 import React from 'react';
-import ProblemForm from 'components/CreateProblem';
+import ProblemForm from 'components/unit/CreateProblem';
 
 const CreateProblem = () => {
   return (

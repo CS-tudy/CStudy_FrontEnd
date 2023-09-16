@@ -21,7 +21,7 @@ const SignModal = ({ children, toggleModal }: Props) => {
         <S.TextSocialLogin>소셜 로그인</S.TextSocialLogin>
         <S.Hr></S.Hr>
       </S.Line> */}
-      {/* <S.SocialLogin>
+      <S.SocialLogin>
         <a
           href="http://localhost:8080/oauth2/authorization/google"
           rel="noopener noreferrer"

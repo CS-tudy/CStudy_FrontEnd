@@ -31,6 +31,7 @@ export const userStorage = {
     const stringifyRefreshToken = JSON.stringify(user.refreshToken);
 
     localStorage.setItem(USER_TOKENS, stringifyAccessToken);
+    localStorage.setItem(REFRESH_TOKEN_COOKIE, stringifyRefreshToken);
     Cookies.set(REFRESH_TOKEN_COOKIE, stringifyRefreshToken, {
       secure: isProduction,
       sameSite: 'lax',

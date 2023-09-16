@@ -24,3 +24,15 @@ export const ErrorMessage = styled.div`
     margin-top: 1rem;
   }
 `;
+
+export const SocialLogin = styled.div`
+  margin: 3rem auto 0;
+`;
+
+export const GoogleLogo = styled.img`
+  width: 7rem;
+  height: 7rem;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+`;

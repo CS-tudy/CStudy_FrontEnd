@@ -8,24 +8,14 @@ export const signUp = async (formData: SignUpForm) => {
   return response.data;
 };
 
-// 로그아웃
-// export const signOut = async () => {
-//   const user = userStorage.get();
-//   const response = await instance.delete('/api/member/logout', {
-//     data: {
-//       refreshToken: user?.refreshToken,
-//     },
-//   });
-//   return response;
-// };
-
 // 재발급
-// export const retryToken = async (refreshToken: string) => {
-//   const response = await instance.post<LoginResponse>('/api/member/refreshToken', {
-//     refreshToken,
-//   });
-//   return response.data;
-// };
+export const retryToken = async (refreshToken: string) => {
+  // const response = await instance.post<LoginResponse>('/api/member/refreshToken', {
+  const response = await instance.post('/api/member/refreshToken', {
+    refreshToken,
+  });
+  return response.data;
+};
 
 // 닉네임 중복 체크
 export const CheckDuplicatedName = async (name: string) => {

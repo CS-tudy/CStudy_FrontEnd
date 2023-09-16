@@ -1,4 +1,4 @@
-import RequestList from 'components/unit/RequestList';
+import RequestList from 'components/unit/Request/RequestList';
 
 const Request = () => {
   return (

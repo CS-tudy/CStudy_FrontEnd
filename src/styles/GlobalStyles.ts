@@ -35,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #fcfcfc;
     
   }
-  ol,
+  ol, 
   ul,
   li {
     list-style: none;
@@ -55,4 +55,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     border: none;
   }
+  a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+a:hover{
+    color: #000;
+}
 `;

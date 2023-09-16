@@ -27,14 +27,13 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   html {
-    font-size: 62.5%;
     -webkit-overflow-scrolling: auto;
    min-width:1200px;
+   font-size:62.5%
   }
   body {
     background-color: #fcfcfc;
-    font-family: 'Noto Sans CJK KR', sans-serif;
-    font-size: 16px;
+    
   }
   ol, 
   ul,

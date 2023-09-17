@@ -6,13 +6,22 @@ import { useSelector } from 'react-redux';
 import Banner from 'components/main/Banner';
 
 const Main = () => {
-  const isAuthenticated = useSelector(
-    (state: any) => state.auth.isAuthenticated,
-  );
+  // const isAuthenticated = useSelector(
+  //   (state: any) => state.auth.isAuthenticated,
+  // );
 
   return (
     <S.Main>
-      {/* <div>
+      <Banner />
+      <Contents />
+    </S.Main>
+  );
+};
+
+export default Main;
+
+{
+  /* <div>
         <h2>버튼 컴포넡트</h2>
         <div>
           <div>
@@ -36,11 +45,5 @@ const Main = () => {
             </Button>
           </div>
         </div>
-      </div> */}
-      <Banner />
-      <Contents />
-    </S.Main>
-  );
-};
-
-export default Main;
+      </div> */
+}

@@ -27,3 +27,9 @@ export const Detail = styled.div`
 export const Content = styled.div`
   margin-top: 4rem;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;

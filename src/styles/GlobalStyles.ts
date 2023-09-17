@@ -27,15 +27,15 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   html {
-    font-size: 62.5%;
     -webkit-overflow-scrolling: auto;
    min-width:1200px;
+   font-size:62.5%
   }
   body {
     background-color: #fcfcfc;
-    font-size: 16px;
+    
   }
-  ol,
+  ol, 
   ul,
   li {
     list-style: none;
@@ -55,4 +55,11 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     border: none;
   }
+  a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+a:hover{
+    color: #000;
+}
 `;

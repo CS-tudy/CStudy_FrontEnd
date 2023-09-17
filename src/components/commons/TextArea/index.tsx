@@ -4,9 +4,10 @@ import * as S from './style';
 interface TextAreaProps {
   id: string;
   label: string;
+  placeholder?: string;
+  defaultValue?: string;
   disabled?: boolean;
   required?: boolean;
-  placeholder?: string;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
 }

@@ -3,7 +3,7 @@ import * as S from './style';
 
 const Container = ({ children }: React.PropsWithChildren) => {
   return (
-    <S.Wrapper style={{ position: 'relative' }}>
+    <S.Wrapper>
       <S.BodyWrapper>
         <S.ContentWrapper>{children}</S.ContentWrapper>
       </S.BodyWrapper>

@@ -21,6 +21,7 @@ export type RequestContent = {
 // export interface ToggleRequestList extends Omit<ContestList, 'content'> {
 export interface ToggleRequestList {
   content: RequestContent[];
+  totalPages?: number;
 }
 
 // mypage

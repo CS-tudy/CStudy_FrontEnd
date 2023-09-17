@@ -7,3 +7,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div``;
+
+export const PaginationWrapper = styled.div`
+  padding: 4rem 0 6rem;
+`;

@@ -9,7 +9,6 @@ const BoardList = () => {
   const openModal = () => {
     toggleModal();
   };
-
   return (
     <>
       {modalIsOpen && (

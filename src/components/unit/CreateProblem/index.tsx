@@ -8,16 +8,23 @@ import { useDispatch } from 'react-redux';
 import { useCreateProblem } from 'hooks/useCreateProblem';
 import { AppDispatch } from 'hooks/@redux/problemSlice';
 import { useNavigate } from 'react-router-dom';
+import CreateProblemSelect from './CreateProblemSelect';
+import CreateProblemInput from './CreateProblemInput';
 
 const ProblemForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm({
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
     defaultValues: {
       createQuestionRequestDto: {
+        questionTitle: '',
         questionDesc: '',
         questionExplain: '',
-        questionTitle: '',
       },
       categoryRequestDto: {
         category: '네트워크',
@@ -50,7 +57,6 @@ const ProblemForm = () => {
   const onSubmit = (formData: FieldValues) => {
     console.log(formData);
     dispatch(useCreateProblem(formData));
-    navigate('/');
   };
 
   return (
@@ -61,102 +67,110 @@ const ProblemForm = () => {
           <S.CpTitle>문제 생성</S.CpTitle>
           <S.CpForm onSubmit={handleSubmit(onSubmit)}>
             <S.CpInputSelect>
-              <label htmlFor="questionTitle">제목</label>
-              <input
+              <CreateProblemInput
                 id="questionTitle"
-                placeholder="내용을 입력해주세요"
+                label="문제"
                 type="text"
-                {...register('createQuestionRequestDto.questionTitle')}
+                placeholder="내용을 입력해주세요"
+                register={register}
+                name="createQuestionRequestDto.questionTitle"
                 required
               />
-              <label htmlFor="questionExplain">설명</label>
-              <input
+              <CreateProblemInput
                 id="questionExplain"
-                placeholder="내용을 입력해주세요"
-                required
+                label="설명"
                 type="text"
-                {...register('createQuestionRequestDto.questionExplain')}
+                placeholder="내용을 입력해주세요"
+                register={register}
+                name="createQuestionRequestDto.questionExplain"
+                required
               />
 
-              <label htmlFor="questionDesc">정답 설명</label>
-              <input
+              <CreateProblemInput
                 id="questionDesc"
-                placeholder="내용을 입력해주세요"
-                required
-                {...register('createQuestionRequestDto.questionDesc')}
+                label="정답 설명"
                 type="text"
+                placeholder="내용을 입력해주세요"
+                register={register}
+                name="createQuestionRequestDto.questionDesc"
+                required
               />
-              <label htmlFor="category">카테고리</label>
-              <select
-                id="category"
-                {...register('categoryRequestDto.category')}
-              >
-                <option value="네트워크">네트워크</option>
-                <option value="자바">자바</option>
-                <option value="운영체제">운영체제</option>
-                <option value="데이터베이스">데이터베이스</option>
-                <option value="일반CS">일반 CS</option>
-              </select>
+              <CreateProblemSelect
+                name="categoryRequestDto.catagory"
+                register={register}
+              />
             </S.CpInputSelect>
             <S.CpInput>
               <S.Ex>
-                <label htmlFor="1">보기1</label>
-                <input
+                <CreateProblemInput
                   id="1"
-                  placeholder="내용을 입력해주세요"
+                  label="보기 1"
                   type="text"
-                  {...register('createChoicesAboutQuestionDto.0.content')}
+                  placeholder="내용을 입력해주세요"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.0.content"
+                  required
                 />
-                <S.CheckBoxInput
+                <CreateProblemInput
                   id="1"
                   type="checkbox"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.0.answer"
                   value="정답"
-                  {...register('createChoicesAboutQuestionDto.0.answer')}
                 />
               </S.Ex>
               <S.Ex>
-                <label htmlFor="2">보기2</label>
-                <input
+                <CreateProblemInput
                   id="2"
-                  placeholder="내용을 입력해주세요"
+                  label="보기 2"
                   type="text"
-                  {...register('createChoicesAboutQuestionDto.1.content')}
+                  placeholder="내용을 입력해주세요"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.1.content"
+                  required
                 />
-                <S.CheckBoxInput
+                <CreateProblemInput
                   id="2"
                   type="checkbox"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.1.answer"
                   value="정답"
-                  {...register('createChoicesAboutQuestionDto.1.answer')}
                 />
               </S.Ex>
               <S.Ex>
-                <label htmlFor="3">보기3</label>
-                <input
+                <CreateProblemInput
                   id="3"
-                  placeholder="내용을 입력해주세요"
+                  label="보기 3"
                   type="text"
-                  {...register('createChoicesAboutQuestionDto.2.content')}
+                  placeholder="내용을 입력해주세요"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.2.content"
+                  required
                 />
-                <S.CheckBoxInput
+                <CreateProblemInput
                   id="3"
                   type="checkbox"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.2.answer"
                   value="정답"
-                  {...register('createChoicesAboutQuestionDto.2.answer')}
                 />
               </S.Ex>
               <S.Ex>
-                <label htmlFor="4">보기4</label>
-                <input
+                <CreateProblemInput
                   id="4"
-                  placeholder="내용을 입력해주세요"
+                  label="보기 4"
                   type="text"
-                  {...register('createChoicesAboutQuestionDto.3.content')}
+                  placeholder="내용을 입력해주세요"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.3.content"
+                  required
                 />
-                <S.CheckBoxInput
+                <CreateProblemInput
                   id="4"
                   type="checkbox"
+                  register={register}
+                  name="createChoicesAboutQuestionDto.3.answer"
                   value="정답"
-                  {...register('createChoicesAboutQuestionDto.3.answer')}
                 />
               </S.Ex>
               <S.CpButton>

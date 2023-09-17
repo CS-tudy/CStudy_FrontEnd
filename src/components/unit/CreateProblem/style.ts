@@ -60,12 +60,6 @@ export const CpButton = styled.div`
   }
 `;
 
-export const CheckBoxInput = styled.input`
-  position: absolute;
-  top: 20%;
-  right: 0;
-`;
-
 export const Ex = styled.div`
   position: relative;
   display: flex;

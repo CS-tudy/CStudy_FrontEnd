@@ -1,32 +1,22 @@
-import Container from 'components/commons/Container';
-import Modal from 'components/unit/Modal';
-import useModal from 'hooks/useModal';
-import SignModal from 'components/commons/Modal/SignModal';
-import ConfirmModal from 'components/commons/Modal/ConfirmModal';
+import { Link } from 'react-router-dom';
+import * as S from './style';
 
 const BoardList = () => {
-  const { modalIsOpen, toggleModal } = useModal();
-
-  const openModal = () => {
-    toggleModal();
-  };
-
   return (
-    <>
-      {modalIsOpen && (
-        <Modal toggleModal={toggleModal}>
-          <SignModal toggleModal={toggleModal}>
-            <div>test</div>
-          </SignModal>
-        </Modal>
-      )}
-      <Container>
-        <div>
-          <button onClick={openModal}>SignModal</button>
-          <p>보드 게시판</p>
-        </div>
-      </Container>
-    </>
+    <S.Container>
+      <Link to={`/notice/`}>
+        <S.Article>
+          <S.ContentgitWrapper>
+            <S.Content>
+              <S.Title>타이틀</S.Title>
+              <S.Detail>
+                <p>내용 미리보기</p>·<span>2023-06-03</span>
+              </S.Detail>
+            </S.Content>
+          </S.ContentgitWrapper>
+        </S.Article>
+      </Link>
+    </S.Container>
   );
 };
 

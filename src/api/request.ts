@@ -11,19 +11,69 @@ export const getRequest = async (
 };
 
 // 게시판 전체 리스트 / 내가 요청한 문제 조회
+// export const getToggleRequestList = async ({
+//   page = 0,
+//   size = 10,
+//   sort = 'list',
+// }): Promise<ToggleRequestList> => {
+//   const response = await instance.get(
+//     `/api/request/requests?page=${page}&size=${size}&$sort=${sort}`,
+//   );
+//   return response.data;
+// };
+
 export const getToggleRequestList = async ({
+  target = 'requests',
   page = 0,
   size = 10,
-  sort = 'list',
+  sort = '',
+}): Promise<ToggleRequestList> => {
+  const response = await instance.get(
+    `/api/request/${target}?page=${page}&size=${size}&$sort=${sort}`,
+  );
+  return response.data;
+};
+
+export const getRequestList = ({
+  target = 'requests',
+  page = 0,
+  size = 10,
+  sort = '',
+}) => {
+  const response = instance.get(
+    `/api/request/${target}?page=${page}&size=${size}&$sort=${sort}`,
+  );
+  return response;
+};
+
+export const getRequestListAsync = async ({
+  page = 0,
+  size = 10,
+  sort = '',
 }): Promise<ToggleRequestList> => {
   const response = await instance.get(
     `/api/request/requests?page=${page}&size=${size}&$sort=${sort}`,
   );
   return response.data;
 };
-export const getRequestListTest = () => {
-  const response = instance.get(`/api/request/requests`);
+
+// 내가 요청한 문제 조회
+export const getMyRequestList = ({ page = 0, size = 10, sort = '' }) => {
+  const response = instance.get(
+    `/api/request/member?page=${page}&size=${size}&sort=${sort}`,
+  );
   return response;
+};
+
+export const getMyRequestListAsync = async ({
+  page = 0,
+  size = 10,
+  sort = '',
+}): Promise<ToggleRequestList> => {
+  const response = await instance.get(
+    `/api/request/member?page=${page}&size=${size}&$sort=${sort}`,
+  );
+  return response.data;
 };
 
 // 게시판 문제 요청글 생성

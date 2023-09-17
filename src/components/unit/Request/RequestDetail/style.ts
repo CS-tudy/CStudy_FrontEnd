@@ -11,6 +11,19 @@ export const Container = styled.div`
   width: 80vw;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid ${COLOR.GRAY_100};
+`;
+
+export const PostInfo = styled.div``;
+
+export const Options = styled.div`
+  color: ${COLOR.GRAY_200};
+`;
+
 export const Title = styled.div`
   ${FONT.H3};
   margin-top: 1.2rem;
@@ -20,7 +33,6 @@ export const Detail = styled.div`
   font-size: ${FONT.REGULAR_16};
   color: ${COLOR.GRAY_200};
   margin-top: 0.8rem;
-  border-bottom: 0.1rem solid ${COLOR.GRAY_100};
   padding-bottom: 3rem;
 `;
 
@@ -30,6 +42,10 @@ export const Content = styled.div`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
+
+  & > button {
+    margin: 0.5rem;
+  }
 `;

@@ -23,13 +23,13 @@ export const getRequest = async (
 // };
 
 export const getToggleRequestList = async ({
-  target = 'requests',
+  query = 'requests',
   page = 0,
   size = 10,
   sort = '',
 }): Promise<ToggleRequestList> => {
   const response = await instance.get(
-    `/api/request/${target}?page=${page}&size=${size}&$sort=${sort}`,
+    `/api/request/${query}?page=${page}&size=${size}&$sort=${sort}`,
   );
   return response.data;
 };

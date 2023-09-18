@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import useGetRequest from 'hooks/@query/request/useGetRequest';
 
@@ -10,6 +11,7 @@ import { useDeleteRequest } from 'hooks/@query/request/useMutateRequest';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
 import { getMyPage } from 'api/mypage';
+import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
 
 const RequestDetail = () => {
   const [loginUserInfo, setLoginUserInfo] = useState();
@@ -19,6 +21,16 @@ const RequestDetail = () => {
 
   const request = useGetRequest(id);
   const { mutate: deleteRequest } = useDeleteRequest();
+
+  const ApproveRequest = useApproveRequest();
+
+  const { handleSubmit } = useForm<FieldValues>();
+
+  const onSubmit: SubmitHandler<FieldValues> = formData => {
+    formData.id = request?.id;
+    formData.flag = true;
+    ApproveRequest(formData);
+  };
 
   const handleNavigateEdit = () => {
     navigate(`/request/${id}/edit`);
@@ -33,15 +45,16 @@ const RequestDetail = () => {
   };
 
   // 로그인 유저 정보 받아오기
-  // const fetchLoginUserInfo = async () => {
-  //   const data = await getMyPage();
-  //   setLoginUserInfo(data);
-  // };
+  const fetchLoginUserInfo = async () => {
+    const data = await getMyPage();
+    console.log(data);
+    // setLoginUserInfo(data);
+  };
 
-  // useEffect(() => {
-  //   fetchLoginUserInfo();
-  //   console.log(loginUserInfo);
-  // }, []);
+  useEffect(() => {
+    fetchLoginUserInfo();
+    // console.log(loginUserInfo);
+  }, []);
 
   return (
     <Container>
@@ -68,7 +81,12 @@ const RequestDetail = () => {
         <S.Content>{request?.description}</S.Content>
       </S.Container>
       <S.ButtonWrapper>
-        <Button variant="primary" size="medium">
+        <Button
+          variant="primary"
+          size="medium"
+          disabled={request?.flag}
+          onClick={handleSubmit(onSubmit)}
+        >
           승인하기
         </Button>
         <Button variant="gray" size="medium" onClick={handleNavigateBack}>

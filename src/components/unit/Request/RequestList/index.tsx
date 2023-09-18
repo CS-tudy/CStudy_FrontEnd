@@ -9,6 +9,7 @@ import * as S from './style';
 import { ToggleRequestList } from 'types/api';
 import { useNavigate } from 'react-router-dom';
 import Pagination from 'components/commons/Pagination';
+import useRequestFilter from 'hooks/Request/useRequestFilter';
 
 interface RequestListsProps {
   requestList: ToggleRequestList;
@@ -16,7 +17,7 @@ interface RequestListsProps {
   handlePage: (page: number) => void;
 }
 
-const RequestList = ({ requestList }: RequestListsProps) => {
+const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
   const { modalIsOpen, toggleModal } = useModal();
 
   const navigate = useNavigate();
@@ -27,16 +28,8 @@ const RequestList = ({ requestList }: RequestListsProps) => {
     toggleModal();
   };
 
-  const checkLogin = () => {
-    if (!isLogin()) {
-      alert('로그인 후 이용하실 수 있습니다.');
-    } else {
-      navigate('/request/new');
-    }
-  };
-
-  const handlePage = () => {};
-  const page = 0;
+  // const handlePage = () => {};
+  // const page = 0;
 
   return (
     <>
@@ -53,14 +46,10 @@ const RequestList = ({ requestList }: RequestListsProps) => {
           />
         </Modal>
       )}
-      <Container>
+      <>
         <button onClick={openModal}>ConfirmModal</button>
-        <S.ButtonWrapper>
-          <Button variant={'primary'} size={'medium'} onClick={checkLogin}>
-            글 작성
-          </Button>
-        </S.ButtonWrapper>
         <S.ContentWrapper>
+          {requestList?.totalElements === 0 && <div>게시글이 없습니다.</div>}
           {requestList?.content?.map(props => (
             <RequestItem key={props.id} {...props} />
           ))}
@@ -74,7 +63,7 @@ const RequestList = ({ requestList }: RequestListsProps) => {
             />{' '}
           </S.PaginationWrapper>
         )}
-      </Container>
+      </>
     </>
   );
 };

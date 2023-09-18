@@ -6,19 +6,19 @@ import {
 } from 'api/request';
 
 interface GetRequestList {
-  target?: string;
+  query?: string;
   page: number;
   sort?: string;
 }
 
 export const useGetToggleRequestList = ({
-  target,
+  query,
   page,
   sort,
 }: GetRequestList) => {
   const { data: requestList } = useQuery(
-    ['requestList', { target, page, sort }],
-    () => getToggleRequestList({ target, page, sort }),
+    ['requestList', { query, page, sort }],
+    () => getToggleRequestList({ query, page, sort }),
     { keepPreviousData: true },
   );
   return requestList;

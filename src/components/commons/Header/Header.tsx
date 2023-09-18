@@ -18,9 +18,9 @@ import { useState } from 'react';
 const Header = () => {
   const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
-  const isAuthenticated = useSelector(
-    (state: any) => state.auth.isAuthenticated,
-  );
+  // const isAuthenticated = useSelector(
+  //   (state: any) => state.auth.isAuthenticated,
+  // );
   const { mutate: signOut } = useSignOut();
 
   const openModal = () => {
@@ -42,35 +42,6 @@ const Header = () => {
             </picture>
           </Link>
         </S.LogoWrap>
-        <S.Sign>
-          {modalIsOpen && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
-                <SignInModal />
-              </SignModal>
-            </Modal>
-          )}
-          {modalIsOpen && signupModal && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
-                <SignUp />
-              </SignModal>
-            </Modal>
-          )}
-          {isAuthenticated ? (
-            <>
-              <button onClick={() => signOut()}>로그아웃</button>
-              <Link to="/">마이페이지</Link>
-            </>
-          ) : (
-            <>
-              <button onClick={openModal}>로그인</button>
-              <button onClick={openSignupModal}>회원가입</button>
-            </>
-          )}
-        </S.Sign>
-      </S.Wrapper>
-      <S.NavHeader>
         <S.Nav>
           <S.NavList>
             <S.NavItem>
@@ -93,7 +64,34 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
-      </S.NavHeader>
+        <S.Sign>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignInModal />
+              </SignModal>
+            </Modal>
+          )}
+          {modalIsOpen && signupModal && (
+            <Modal toggleModal={toggleModal}>
+              <SignModal toggleModal={toggleModal}>
+                <SignUp />
+              </SignModal>
+            </Modal>
+          )}
+          {/* {isAuthenticated ? (
+            <> */}
+          {/* <button onClick={() => signOut()}>로그아웃</button>
+              <Link to="/">마이페이지</Link>
+            </> 
+          ) : (
+            <> */}
+          <button onClick={openModal}>로그인</button>
+          <button onClick={openSignupModal}>회원가입</button>
+          {/* </>
+          )} */}
+        </S.Sign>
+      </S.Wrapper>
     </>
   );
 };

@@ -5,6 +5,8 @@ import { COLOR } from 'constants/Color';
 
 export const ContentSection = styled.section`
   padding-top: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 export const ContentWrapper = styled.div`
   display: flex;

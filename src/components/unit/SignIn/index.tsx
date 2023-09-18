@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { SignInForm } from 'types/Form';
-import Container from 'components/commons/Container';
 import { useSignIn } from 'hooks/@query/useSignIn';
 import * as S from './style';
 import { Button } from 'components/commons/Button/Style';
@@ -54,24 +53,6 @@ const SignInModal = () => {
       <Button type="submit" variant="primary" size="full">
         로그인
       </Button>
-      <a
-        href="http://localhost:8080/oauth2/authorization/google"
-        rel="noopener noreferrer"
-      >
-        구글 로그인
-      </a>
-      <a
-        href="http://localhost:8080/oauth2/authorization/kakao"
-        rel="noopener noreferrer"
-      >
-        카카오 로그인
-      </a>
-      <a
-        href="http://localhost:8080/oauth2/authorization/naver"
-        rel="noopener noreferrer"
-      >
-        네이버 로그인
-      </a>
     </form>
   );
 };

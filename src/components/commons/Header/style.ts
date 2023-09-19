@@ -60,3 +60,14 @@ export const Sign = styled.div`
     margin-right: 1.4rem;
   }
 `;
+
+export const Admin = styled.div`
+  padding-right: 2rem;
+  a {
+    color: ${COLOR.RED};
+    ${FONT.BOLD_20};
+    &:hover {
+      color: ${COLOR.RED};
+    }
+  }
+`;

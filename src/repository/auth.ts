@@ -1,6 +1,7 @@
+import { jwtDecodeProps } from 'types/repository';
 import { userStorage } from './userStorage';
 import jwtDecode from 'jwt-decode';
-import { jwtDecodeProps } from 'types/repo';
+import { redirect } from 'react-router-dom';
 
 export const getUserTokens = () => {
   const userTokens = userStorage.get();
@@ -18,13 +19,19 @@ export const isLogin = () => {
   return !!accessToken;
 };
 
-export const userInfo = () => {
+export const isAdmin = () => {
   const userToken = userStorage.get();
   if (!userToken) {
-    return null;
+    return false;
   }
+  const { roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
 
-  const { memberId, roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
+  if (roles[0] === 'ROLE_ADMIN') return true;
+  return false;
+};
 
-  return { memberId, roles };
+export const checkAdminLoader = () => {
+  if (!isAdmin()) return false;
+
+  return true;
 };

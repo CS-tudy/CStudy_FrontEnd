@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import List from '../../admin/List';
@@ -73,7 +73,7 @@ const ProblemForm = () => {
                 type="text"
                 placeholder="내용을 입력해주세요"
                 register={register}
-                name="createQuestionRequestDto.questionTitle"
+                resgiterName="createQuestionRequestDto.questionTitle"
                 required
               />
               <CreateProblemInput
@@ -82,7 +82,7 @@ const ProblemForm = () => {
                 type="text"
                 placeholder="내용을 입력해주세요"
                 register={register}
-                name="createQuestionRequestDto.questionExplain"
+                resgiterName="createQuestionRequestDto.questionExplain"
                 required
               />
 
@@ -92,7 +92,7 @@ const ProblemForm = () => {
                 type="text"
                 placeholder="내용을 입력해주세요"
                 register={register}
-                name="createQuestionRequestDto.questionDesc"
+                resgiterName="createQuestionRequestDto.questionDesc"
                 required
               />
               <CreateProblemSelect
@@ -108,14 +108,15 @@ const ProblemForm = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createChoicesAboutQuestionDto.0.content"
+                  resgiterName="createChoicesAboutQuestionDto.0.content"
                   required
                 />
                 <CreateProblemInput
                   id="1"
-                  type="checkbox"
+                  type="radio"
                   register={register}
-                  name="createChoicesAboutQuestionDto.0.answer"
+                  name="problem"
+                  resgiterName="createChoicesAboutQuestionDto.0.answer"
                   value="정답"
                 />
               </S.Ex>
@@ -126,14 +127,15 @@ const ProblemForm = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createChoicesAboutQuestionDto.1.content"
+                  resgiterName="createChoicesAboutQuestionDto.1.content"
                   required
                 />
                 <CreateProblemInput
                   id="2"
-                  type="checkbox"
+                  type="radio"
                   register={register}
-                  name="createChoicesAboutQuestionDto.1.answer"
+                  name="problem"
+                  resgiterName="createChoicesAboutQuestionDto.1.answer"
                   value="정답"
                 />
               </S.Ex>
@@ -144,14 +146,15 @@ const ProblemForm = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createChoicesAboutQuestionDto.2.content"
+                  resgiterName="createChoicesAboutQuestionDto.2.content"
                   required
                 />
                 <CreateProblemInput
                   id="3"
-                  type="checkbox"
+                  type="radio"
                   register={register}
-                  name="createChoicesAboutQuestionDto.2.answer"
+                  name="problem"
+                  resgiterName="createChoicesAboutQuestionDto.2.answer"
                   value="정답"
                 />
               </S.Ex>
@@ -162,14 +165,15 @@ const ProblemForm = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createChoicesAboutQuestionDto.3.content"
+                  resgiterName="createChoicesAboutQuestionDto.3.content"
                   required
                 />
                 <CreateProblemInput
                   id="4"
-                  type="checkbox"
+                  type="radio"
                   register={register}
-                  name="createChoicesAboutQuestionDto.3.answer"
+                  name="problem"
+                  resgiterName="createChoicesAboutQuestionDto.3.answer"
                   value="정답"
                 />
               </S.Ex>

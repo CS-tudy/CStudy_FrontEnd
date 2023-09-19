@@ -6,5 +6,5 @@ export const BannerWrapper = styled.div`
 
 export const BannerImg = styled.img`
   width: 100%;
-  height: 100%;
+  height: 50rem;
 `;

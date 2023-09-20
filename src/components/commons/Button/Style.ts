@@ -44,7 +44,7 @@ const sizeCSS: SizeCSS = {
 
   full: css`
     width: 100%;
-    font-size: ${FONT.REGULAR_18};
+    font-size: ${FONT.REGULAR_14};
   `,
 };
 

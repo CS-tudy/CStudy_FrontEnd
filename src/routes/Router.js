@@ -17,6 +17,7 @@ import Notion from 'pages/Admin/Notion';
 import CreateContest from 'pages/Admin/CreateContest';
 import RequestQuestion from 'pages/Admin/RequestQuestion';
 import RequestEdit from 'pages/Request/RequestEdit';
+import CreateBoard from 'pages/Admin/Board';
 
 const Router = () => {
   return (
@@ -26,6 +27,7 @@ const Router = () => {
           {/* path = 경로  element = 컴포넌트*/}
           <Route path="/" element={<Main />} />
           <Route path="/board" element={<Board />} />
+          <Route path="/admin/board" element={<CreateBoard />} />
           <Route path="/request" element={<Request />} />
           <Route path="/request/:id" element={<RequestDetailPage />} />
           <Route path="/request/new" element={<RequestWrite />} />

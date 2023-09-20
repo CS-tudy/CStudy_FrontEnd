@@ -10,3 +10,8 @@ export interface InputStyleProps {
   id: string;
   value?: number | boolean;
 }
+
+export interface AdminInputStyleProps {
+  errors: FieldErrors;
+  name: string;
+}

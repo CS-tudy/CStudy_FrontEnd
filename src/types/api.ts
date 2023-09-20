@@ -19,6 +19,11 @@ export type RequestContent = {
   flag: boolean;
 };
 
+export interface AddboardListForm {
+  content: string;
+  title: string;
+}
+
 /* hsw 임시 타입 설정*/
 export interface ApiResponse {
   totalPages: number;

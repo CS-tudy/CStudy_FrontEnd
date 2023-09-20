@@ -1,4 +1,4 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { ChangeHandler, FieldValues, UseFormRegister } from 'react-hook-form';
 import * as S from './style';
 
 interface CreateProblemInputProps {
@@ -12,7 +12,7 @@ interface CreateProblemInputProps {
   required?: boolean;
   disabled?: boolean;
   value?: string;
-  onChange?: any;
+  onChange?: ChangeHandler;
   checked?: boolean;
 }
 

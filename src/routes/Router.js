@@ -18,6 +18,7 @@ import RequestQuestion from 'pages/Admin/RequestQuestion';
 import RequestEdit from 'pages/Request/RequestEdit';
 import Problem from 'pages/Problem';
 import ProblemDetailPage from 'pages/ProblemDetail';
+import CreateBoard from 'pages/Admin/Board';
 
 const Router = () => {
   return (
@@ -27,6 +28,7 @@ const Router = () => {
           {/* path = 경로  element = 컴포넌트*/}
           <Route path="/" element={<Main />} />
           <Route path="/board" element={<Board />} />
+          <Route path="/admin/board" element={<CreateBoard />} />
           <Route path="/request" element={<Request />} />
           <Route path="/requestdetail" element={<RequestDetailPage />} />
           <Route path="/requestwrite" element={<RequestWrite />} />

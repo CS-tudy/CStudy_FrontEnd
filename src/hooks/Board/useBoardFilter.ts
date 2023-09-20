@@ -21,14 +21,14 @@
 //     [boardFilter],
 //   );
 
-// //   const handleToggle = useCallback(() => {
-// //     boardFilter.reset();
-// //     boardFilter.setQuery(
-// //       boardFilter.query === ROUTE.BOARD_LIST
-// //         ? ROUTE.BOARD_MY_LIST
-// //         : ROUTE.BOARD_LIST,
-// //     );
-// //   }, [boardFilter]);
+//   //   const handleToggle = useCallback(() => {
+//   //     boardFilter.reset();
+//   //     boardFilter.setQuery(
+//   //       boardFilter.query === ROUTE.BOARD_LIST
+//   //         ? ROUTE.BOARD_MY_LIST
+//   //         : ROUTE.BOARD_LIST,
+//   //     );
+//   //   }, [boardFilter]);
 //   return {
 //     boardFilter,
 //     handlePage,
@@ -38,3 +38,5 @@
 // };
 
 // export default useBoardFilter;
+
+export {};

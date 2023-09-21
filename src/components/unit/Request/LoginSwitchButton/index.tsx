@@ -17,7 +17,7 @@ const LoginSwitchButton = ({
 }: LoginSwitchButtonProps) => {
   //   const loginModal = useLoginModal();
   const isAuthenticated = useSelector(
-    (state: any) => state.auth.isAuthenticated,
+    (state: any) => state.persistedReducer.auth.isAuthenticated,
   );
 
   const navigate = useNavigate();

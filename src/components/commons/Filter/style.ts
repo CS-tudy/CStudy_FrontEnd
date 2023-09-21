@@ -4,7 +4,7 @@ import { FONT } from 'constants/Font';
 
 export const Filter = styled.button`
   &:hover {
-    background: ${COLOR.GRAY_100};
+    background: ${COLOR.GRAY};
   }
 
   &.active {
@@ -18,5 +18,6 @@ export const Filter = styled.button`
   margin-right: 2rem;
   text-align: center;
   font-size: ${FONT.REGULAR_14};
+  border: 1px solid #dbdbdb;
   cursor: pointer;
 `;

@@ -16,10 +16,10 @@ import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
 const RequestDetail = () => {
   const [loginUserInfo, setLoginUserInfo] = useState();
 
-  const { id } = useParams();
+  const { requestId } = useParams();
   const navigate = useNavigate();
 
-  const request = useGetRequest(id);
+  const request = useGetRequest(requestId);
   const { mutate: deleteRequest } = useDeleteRequest();
 
   const ApproveRequest = useApproveRequest();
@@ -33,7 +33,7 @@ const RequestDetail = () => {
   };
 
   const handleNavigateEdit = () => {
-    navigate(`/request/${id}/edit`);
+    navigate(`/request/${requestId}/edit`);
   };
 
   const handleNavigateBack = () => {
@@ -41,7 +41,7 @@ const RequestDetail = () => {
   };
 
   const handleDeleteRequest = () => {
-    deleteRequest(id);
+    deleteRequest(requestId);
   };
 
   // 로그인 유저 정보 받아오기

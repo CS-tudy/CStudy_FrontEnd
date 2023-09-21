@@ -31,12 +31,11 @@ const Router = () => {
           <Route path="/request" element={<Request />} />
           <Route path="/request/:requestId" element={<RequestDetailPage />} />
           <Route path="/request/new" element={<RequestWrite />} />
-          <Route path="/request/:id/edit" element={<RequestEdit />} />
+          <Route path="/request/:requestId/edit" element={<RequestEdit />} />
           <Route path="/workbook" element={<Workbook />} />
           <Route path="/contest" element={<Contest />} />
           <Route path="/problem" element={<Problem />} />
-          {/* <Route path="/problem/:problemId" element={<Problem />} /> */}
-          <Route path="/problem/id" element={<ProblemDetailPage />} />
+          <Route path="/problem/:problemId" element={<ProblemDetailPage />} />
           <Route path="/membersranks" element={<MembersRanks />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/signup" element={<Signup />} />

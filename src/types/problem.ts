@@ -6,7 +6,7 @@ export interface selectAnswerProblemFromProps {
   };
 }
 
-export interface ProblemList {
+export interface ProblemItem {
   questionId: number;
   questionTitle: string;
   categoryTitle: string;

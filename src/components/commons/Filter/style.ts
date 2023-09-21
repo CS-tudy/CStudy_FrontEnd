@@ -8,7 +8,7 @@ export const Filter = styled.button`
   }
 
   &.active {
-    background: ${COLOR.GREEN};
+    background: #6dd93f;
     color: ${COLOR.WHITE};
   }
 

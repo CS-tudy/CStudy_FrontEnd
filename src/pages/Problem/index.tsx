@@ -2,23 +2,40 @@ import Container from 'components/commons/Container';
 import * as S from './style';
 import Table from 'components/commons/Table';
 import { useEffect, useState } from 'react';
-import { getProblemList } from 'api/problem';
+import { getProblemList, getProblemListTest } from 'api/problem';
 import ProblemList from 'components/unit/Problem/ProblemList';
 import Select from 'components/unit/Problem/Select';
 import Filter from 'components/commons/Filter';
+import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
+import { IProblemList } from 'types/api';
 
 const Problem = () => {
-  // const [problemList, setProblemList] = useState();
+  const [problemList, setProblemList] = useState();
 
-  // const fetchProblemList = async () => {
-  //   const data = await getProblemList();
-  //   setProblemList(data.data);
-  // };
+  const fetchProblemListTest = async () => {
+    const data = await getProblemListTest();
+    setProblemList(data.data);
+  };
 
-  // useEffect(() => {
-  //   fetchProblemList();
-  //   console.log(problemList);
-  // }, []);
+  useEffect(() => {
+    fetchProblemListTest();
+    console.log(problemList);
+  }, []);
+
+  // const problemList = useGetProblemList({
+  //   // categoryTitle: categoryFilter.categoryValue,
+  //   // status: statusFilter.statusValue,
+  //   // page: pageNumber,
+  //   // query: queryFilter.query,
+  //   questionTitle: '',
+  //   categoryTitle: '',
+  //   status: 0,
+  //   memberId: 0,
+  //   page: 0,
+  //   query: '',
+  // });
+
+  console.log(problemList);
 
   const tableColRate = ['10%', '15%', '60%', '15%'];
   const tableTitle = ['번호', '상태', '제목', '카테고리'];
@@ -41,7 +58,7 @@ const Problem = () => {
       <Container>
         <Table colRate={tableColRate} title={tableTitle}>
           {/* <ProgramFilterTBody problemList={problemList as Problem} /> */}
-          <ProblemList />
+          <ProblemList problemList={problemList as IProblemList} />
         </Table>
       </Container>
     </>

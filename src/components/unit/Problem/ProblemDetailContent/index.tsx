@@ -9,13 +9,13 @@ interface ProblemFormProps {
 }
 
 const ProblemDetailContent = ({ problem, register }: ProblemFormProps) => {
+  console.log(problem);
   return (
     <S.ProblemContentWrapper>
       <S.ProblemContentTitle>
         정답을 맞추면 답과 해설이 나오지만, 틀렸을 땐 인터렉션만 동작합니다.
       </S.ProblemContentTitle>
-      {/* <ChoiceList choiceList={problem?.choices} register={register} /> */}
-      <ChoiceList />
+      <ChoiceList choiceList={problem?.choices} register={register} />
     </S.ProblemContentWrapper>
   );
 };

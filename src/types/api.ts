@@ -33,8 +33,8 @@ export type ProblemContent = {
   status: number;
 };
 
-export interface ProblemList {
-  content: ProblemContent[];
+export interface IProblemList {
+  content?: ProblemContent[];
 }
 
 export interface Problem {

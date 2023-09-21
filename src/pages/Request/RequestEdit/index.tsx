@@ -3,8 +3,8 @@ import RequestWrite from 'pages/RequestWrite';
 import { useParams } from 'react-router-dom';
 
 const RequestEdit = () => {
-  const { id } = useParams();
-  const request = useGetRequest(id);
+  const { requestId } = useParams();
+  const request = useGetRequest(requestId);
 
   return <RequestWrite isEdit={true} data={request} />;
 };

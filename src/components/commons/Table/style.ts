@@ -42,19 +42,20 @@ export const TBodyTd = styled.td<Props>`
 
   & span {
     display: inline-block;
-    padding: 0.5rem 2rem;
+    /* padding: 0.5rem 2rem; */
 
-    color: ${COLOR.WHITE};
+    /* color: ${COLOR.WHITE};
     border-radius: 5rem;
-    border: 0.1rem solid ${COLOR.WHITE};
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
+    border: 0.1rem solid ${COLOR.WHITE}; */
 
     &.success {
-      background-color: ${COLOR.MAIN};
+      /* background-color: ${COLOR.MAIN}; */
+      color: ${COLOR.MAIN};
     }
 
     &.failed {
-      background-color: ${COLOR.RED};
+      /* background-color: ${COLOR.RED}; */
+      color: #ff8f00;
     }
   }
 

@@ -1,17 +1,24 @@
 import { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // import useLoginModal from 'hooks/@zustand/useLoginModal';
 // import { isLogin } from 'utils/auth';
 import { ProblemContent } from 'types/api';
 // import StatusLabel from '../StatusLabel';
 import { TBodyTd } from 'components/commons/Table/style';
+import { useSelector } from 'react-redux';
+import SolveStatus from '../SolveStatus';
 
 interface ProblemItemProps {
   problem: ProblemContent;
 }
 
 const ProblemItem = ({ problem }: ProblemItemProps) => {
-  // const { questionId, status, questionTitle, categoryTitle } = problem;
+  const { questionId, status, questionTitle, categoryTitle } = problem;
+
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector(
+    (state: any) => state.persistedReducer.auth.isAuthenticated,
+  );
   // const loginModal = useLoginModal();
 
   // const checkAndDisplayLoginModal = useCallback(
@@ -23,20 +30,26 @@ const ProblemItem = ({ problem }: ProblemItemProps) => {
   //     },
   //     [loginModal],
   // );
+
+  const checkLogin = () => {
+    if (!isAuthenticated) {
+      alert('로그인 후 이용하실 수 있습니다.');
+      navigate('/problem');
+    }
+  };
+
   return (
     <tr>
-      <TBodyTd>{/* {questionId} */}1</TBodyTd>
-      <TBodyTd>X</TBodyTd>
-      <TBodyTd className="title">
-        {/* <Link to={`${questionId}`} onClick={checkAndDisplayLoginModal}> */}
-        {/* {questionTitle} */}
-        자바 관련 문제
-        {/* </Link> */}
-      </TBodyTd>
+      <TBodyTd>{questionId}</TBodyTd>
       <TBodyTd>
-        {/* {categoryTitle} */}
-        자바
+        <SolveStatus status={status} />
       </TBodyTd>
+      <TBodyTd className="title">
+        <Link to={`${questionId}`} onClick={checkLogin}>
+          {questionTitle}
+        </Link>
+      </TBodyTd>
+      <TBodyTd>{categoryTitle}</TBodyTd>
     </tr>
   );
 };

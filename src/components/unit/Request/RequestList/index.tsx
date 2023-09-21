@@ -10,6 +10,7 @@ import { ToggleRequestList } from 'types/api';
 import { useNavigate } from 'react-router-dom';
 import Pagination from 'components/commons/Pagination';
 import useRequestFilter from 'hooks/Request/useRequestFilter';
+import NoData from 'components/commons/NoData';
 
 interface RequestListsProps {
   requestList: ToggleRequestList;
@@ -49,7 +50,9 @@ const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
       <>
         <button onClick={openModal}>ConfirmModal</button>
         <S.ContentWrapper>
-          {requestList?.totalElements === 0 && <div>게시글이 없습니다.</div>}
+          {requestList?.totalElements === 0 && (
+            <NoData>게시글이 없습니다.</NoData>
+          )}
           {requestList?.content?.map(props => (
             <RequestItem key={props.id} {...props} />
           ))}

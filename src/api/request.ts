@@ -2,7 +2,7 @@ import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
 import { RequestDetail, ToggleRequestList } from 'types/api';
 
-// 게시판 글 조회
+// 단일 게시판 글 조회
 export const getRequest = async (
   id: string | undefined,
 ): Promise<RequestDetail> => {

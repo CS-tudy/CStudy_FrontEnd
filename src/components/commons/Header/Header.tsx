@@ -51,7 +51,7 @@ const Header = () => {
               <StyleNavLink to="/request">문제요청</StyleNavLink>
             </S.NavItem>
             <S.NavItem>
-              <StyleNavLink to="/problemset">문제풀이</StyleNavLink>
+              <StyleNavLink to="/problem">문제풀이</StyleNavLink>
             </S.NavItem>
             <S.NavItem>
               <StyleNavLink to="/contest">대회</StyleNavLink>

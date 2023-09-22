@@ -31,6 +31,4 @@ const ProblemSlice = createSlice({
   },
 });
 
-export type AppDispatch = typeof store.dispatch;
-
 export default ProblemSlice.reducer;

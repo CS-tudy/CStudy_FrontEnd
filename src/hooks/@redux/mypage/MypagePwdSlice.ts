@@ -31,6 +31,4 @@ const MypagePwdSlice = createSlice({
   },
 });
 
-export type AppDispatch = typeof store.dispatch;
-
 export default MypagePwdSlice.reducer;

@@ -5,7 +5,6 @@ import * as S from './style';
 import {
   FieldErrors,
   FieldValues,
-  SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';

@@ -1,12 +1,17 @@
 import * as S from './style';
 import MypageBoard from 'components/unit/Mypage/MypageBoard';
 import MypageMyInfo from 'components/unit/Mypage/MypageMyInfo';
+import { useGetMypage } from 'hooks/mypage/useGetMypage';
 import useMyPage from 'hooks/mypage/useMyPage';
+import { useEffect } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'stroe';
 const MyPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -14,14 +19,19 @@ const MyPage = () => {
       oldPassword: '',
     },
   });
-
   const {
     isActive,
     isLoading,
     HandleClickPwd,
     passwordPattern,
     handleChangePwdSubmit,
-  } = useMyPage();
+  } = useMyPage({ reset });
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(useGetMypage());
+  }, []);
 
   return (
     <S.MyPageWrapper>

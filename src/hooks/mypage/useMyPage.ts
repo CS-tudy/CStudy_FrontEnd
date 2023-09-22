@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, UseFormReset } from 'react-hook-form';
 import { usePwdEdit } from './usePwdEdit';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from 'hooks/@redux/MypagePwdSlice';
+import { AppDispatch } from 'stroe';
 
-const useMyPage = () => {
+interface useMyPageProp {
+  reset: UseFormReset<FieldValues>;
+}
+
+const useMyPage = ({ reset }: useMyPageProp) => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
@@ -19,6 +23,7 @@ const useMyPage = () => {
   const handleChangePwdSubmit = (formData: FieldValues) => {
     dispatch(usePwdEdit(formData));
     console.log(formData);
+    reset();
   };
 
   return {

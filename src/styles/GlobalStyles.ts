@@ -27,8 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   html {
-    -webkit-overflow-scrolling: auto;
-   min-width:1200px;
+    -webkit-overflow-scrolling: auto; 
    font-size:62.5%
   }
   body {

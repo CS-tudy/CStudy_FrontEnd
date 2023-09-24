@@ -14,6 +14,7 @@ import SignInModal from 'components/unit/SignIn';
 import SignModal from '../Modal/SignModal';
 import SignUp from 'components/unit/SignUp';
 import { useState } from 'react';
+import { isAdmin } from 'repository/auth';
 
 const Header = () => {
   const { modalIsOpen, toggleModal } = useModal();
@@ -64,6 +65,11 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
+        {isAdmin() && (
+          <S.Admin>
+            <StyleNavLink to="/admin/createProblem">관리자</StyleNavLink>
+          </S.Admin>
+        )}
         <S.Sign>
           {modalIsOpen && (
             <Modal toggleModal={toggleModal}>
@@ -80,16 +86,16 @@ const Header = () => {
             </Modal>
           )}
           {/* {isAuthenticated ? (
-            <> */}
-          {/* <button onClick={() => signOut()}>로그아웃</button>
+            <>
+              <button onClick={() => signOut()}>로그아웃</button>
               <Link to="/">마이페이지</Link>
-            </> 
-          ) : (
-            <> */}
-          <button onClick={openModal}>로그인</button>
-          <button onClick={openSignupModal}>회원가입</button>
-          {/* </>
-          )} */}
+            </> */}
+          {/* ) : ( */}
+          <>
+            <button onClick={openModal}>로그인</button>
+            <button onClick={openSignupModal}>회원가입</button>
+          </>
+          {/* )} */}
         </S.Sign>
       </S.Wrapper>
     </>

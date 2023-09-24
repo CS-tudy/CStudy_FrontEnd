@@ -3,7 +3,6 @@ import { FieldValues } from 'react-hook-form';
 import { Problem, ProblemList } from 'types/api';
 import { selectAnswerProblemFromProps } from 'types/problem';
 
-// 문제 생성하기 & 대량 문제 생성하기
 export const problemSet = async (formData: FieldValues) => {
   const response = await instance.post('/api/questions', formData);
 

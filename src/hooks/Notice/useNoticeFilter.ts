@@ -17,7 +17,6 @@ const useNoticeFilter = () => {
   );
 
   // Define your isActive variable as you have done
-  const isActive = noticeFilter.query === ROUTE.NOTICE_MY_LIST ? 'active' : '';
 
   const handlePage = (page: number) => {
     dispatch(setPageNumber(page));
@@ -44,7 +43,6 @@ const useNoticeFilter = () => {
     noticeFilter,
     handlePage,
     handleToggle,
-    isActive,
     onSubmit,
   };
 };

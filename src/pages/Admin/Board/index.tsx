@@ -21,8 +21,8 @@ const CreateBoard = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      boardTitle: '',
-      boardcontent: '',
+      title: '',
+      content: '',
     },
   });
   const { mutate: addboard } = useAddBoardList();
@@ -39,9 +39,9 @@ const CreateBoard = () => {
           <FormBody>
             <FormSection title="공지사항 제목 설정해 주세요">
               <AdminInput
-                id="boardTitle"
+                id="title"
                 type="text"
-                name="boardTitle"
+                name="title"
                 label="공지사항 타이틀"
                 register={register}
                 errors={errors}
@@ -50,9 +50,9 @@ const CreateBoard = () => {
             </FormSection>
             <FormSection title="공지사항 내용을 입력해주세요">
               <AdminInput
-                id="boardcontent"
+                id="content"
                 type="textarea"
-                name="boardcontent"
+                name="content"
                 label="공지사항 내용"
                 register={register}
                 errors={errors}

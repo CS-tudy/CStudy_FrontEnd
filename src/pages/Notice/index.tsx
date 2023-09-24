@@ -1,4 +1,3 @@
-import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import ContentContainer from 'components/commons/ContentContainer';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as S from './style';
@@ -8,6 +7,7 @@ import Pagination from 'components/commons/Pagination';
 import NoticeList from 'components/unit/Board';
 import { RequestNoticeList } from 'types/api';
 import NoData from 'components/commons/NoData';
+import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 
 const Notice = () => {
   const { register, handleSubmit, setValue, reset } = useForm<FieldValues>({
@@ -16,7 +16,7 @@ const Notice = () => {
       content: '',
     },
   });
-  const { noticeFilter, handleToggle, onSubmit, handlePage, isActive } =
+  const { noticeFilter, handleToggle, onSubmit, handlePage } =
     useNoticeFilter();
 
   const noticeList = useGetNoticeList({
@@ -25,7 +25,6 @@ const Notice = () => {
     title: noticeFilter.SearchTitle,
     content: noticeFilter.SearchContent,
   });
-  console.log(noticeList);
 
   return (
     <>

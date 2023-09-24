@@ -1,14 +1,15 @@
 import { instance } from 'api';
-import { AddboardListForm, ApiResponse } from 'types/api';
+import { AddboardListForm, RequestNoticeList } from 'types/api';
 
 // 게시판 리스트
 export const getToggleRequestList = async ({
+  query = 'notice',
   page = 0,
   size = 10,
   title = '',
   content = '',
   createdDate = '',
-}): Promise<ApiResponse> => {
+}): Promise<RequestNoticeList> => {
   const response = await instance.get(
     `/api/notice?page=${page}&size=${size}&title=${title}&content=${content}&createdDate=${createdDate}`,
   );

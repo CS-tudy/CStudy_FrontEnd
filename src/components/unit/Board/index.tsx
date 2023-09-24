@@ -1,23 +1,26 @@
 import { Link } from 'react-router-dom';
 import * as S from './style';
+import { RequestNoticeList } from 'types/api';
+import NoticeListCard from './NoticeListCard';
 
-const BoardList = () => {
+interface NoticeListProps {
+  noticeList: RequestNoticeList;
+}
+
+const NoticeList = ({ noticeList }: NoticeListProps) => {
   return (
-    <S.Container>
-      <Link to={`/notice/`}>
-        <S.Article>
-          <S.ContentWrapper>
-            <S.Content>
-              <S.Title>타이틀</S.Title>
-              <S.Detail>
-                <p>내용 미리보기</p>·<span>2023-06-03</span>
-              </S.Detail>
-            </S.Content>
-          </S.ContentWrapper>
-        </S.Article>
-      </Link>
-    </S.Container>
+    <S.NoticeCards>
+      {noticeList?.content?.map(({ id, title, content, createdDate }) => (
+        <NoticeListCard
+          key={id}
+          id={id}
+          title={title}
+          content={content}
+          createdDate={createdDate}
+        />
+      ))}
+    </S.NoticeCards>
   );
 };
 
-export default BoardList;
+export default NoticeList;

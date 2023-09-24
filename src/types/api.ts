@@ -25,37 +25,17 @@ export interface AddboardListForm {
 }
 
 /* hsw 임시 타입 설정*/
-export interface ApiResponse {
+export interface RequestNoticeList {
   totalPages: number;
-  totalElements: bigint;
+  totalElements: number;
   size: number;
   content: ContentItem[];
   number: number;
-  sort: {
-    empty: boolean;
-    sorted: boolean;
-    unsorted: boolean;
-  };
-  first: boolean;
-  last: boolean;
   numberOfElements: number;
-  pageable: {
-    offset: bigint;
-    sort: {
-      empty: boolean;
-      sorted: boolean;
-      unsorted: boolean;
-    };
-    paged: boolean;
-    pageSize: number;
-    pageNumber: number;
-    unpaged: boolean;
-  };
-  empty: boolean;
 }
 
 interface ContentItem {
-  id: bigint;
+  id: number;
   title: string;
   content: string;
   createdDate: string;
@@ -63,6 +43,28 @@ interface ContentItem {
 // export interface ToggleRequestList extends Omit<ContestList, 'content'> {
 export interface ToggleRequestList {
   content: RequestContent[];
+  totalPages?: number;
+}
+
+// Problem
+// export interface Problem extends Omit<ContestList, 'content'> {
+export type ProblemContent = {
+  questionId: number;
+  questionTitle: string;
+  categoryTitle: string;
+  status: number;
+};
+
+export interface ProblemList {
+  content: ProblemContent[];
+}
+
+export interface Problem {
+  title: string;
+  categoryTitle: string;
+  description: string;
+  explain: string;
+  // choices: Choices[];
 }
 
 // mypage

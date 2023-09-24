@@ -6,11 +6,9 @@ import problemSlice from 'hooks/@redux/problemSlice';
 
 const store = configureStore({
   reducer: {
-    persistedReducer,
+    rootReducer,
     problem: problemSlice,
   },
 });
-
-export const persistor = persistStore(store);
 
 export default store;

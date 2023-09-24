@@ -1,4 +1,3 @@
-import { SearchInput } from './../../../../../old_front-end/CStudy-frontend/src/pages/Workbook/style';
 import { createSlice } from '@reduxjs/toolkit';
 
 const pageNumberSlice = createSlice({

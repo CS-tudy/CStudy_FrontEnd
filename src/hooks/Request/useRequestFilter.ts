@@ -16,11 +16,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const useRequestFilter = () => {
   const dispatch = useDispatch();
-  // const requestFilter = useSelector(
-  //   (state: any) => state.persistedReducer.filter,
-  // );
-  const requestFilter = useSelector((state: any) => state.persistedReducer);
-  console.log(requestFilter);
+  const requestFilter = useSelector(
+    (state: any) => state.persistedReducer.filter,
+  );
 
   //   const boardFilter = useBoardFilterStore();
   const isActive =

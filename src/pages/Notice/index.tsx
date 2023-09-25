@@ -1,5 +1,5 @@
 import ContentContainer from 'components/commons/ContentContainer';
-import { FieldValues, useForm } from 'react-hook-form';
+import { Controller, FieldValues, useForm } from 'react-hook-form';
 import * as S from './style';
 import useGetNoticeList from 'hooks/@query/board/useGetNoticeList';
 import useNoticeFilter from 'hooks/Notice/useNoticeFilter';
@@ -8,16 +8,23 @@ import NoticeList from 'components/unit/Board';
 import { RequestNoticeList } from 'types/api';
 import NoData from 'components/commons/NoData';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
+import { useState } from 'react';
 
 const Notice = () => {
-  const { register, handleSubmit, setValue, reset } = useForm<FieldValues>({
-    defaultValues: {
-      title: '',
-      content: '',
-    },
-  });
-  const { noticeFilter, handleToggle, onSubmit, handlePage } =
-    useNoticeFilter();
+  const { register, control, handleSubmit, setValue, reset } =
+    useForm<FieldValues>({
+      defaultValues: {
+        title: '',
+        content: '',
+        searchOption: 'title',
+      },
+    });
+  const { noticeFilter, onSubmit, handlePage } = useNoticeFilter();
+  const [selectedSearchOption, setSelectedSearchOption] = useState('title');
+
+  const handleSearchOptionChange = (event: any) => {
+    setSelectedSearchOption(event.target.value);
+  };
 
   const noticeList = useGetNoticeList({
     page: noticeFilter.pageNumber,
@@ -33,8 +40,8 @@ const Notice = () => {
           <S.SearchWrapper>
             <S.SearchInput
               type="text"
-              {...register('title', {
-                required: '이름을 입력해주세요.',
+              {...register(selectedSearchOption, {
+                required: '검색어를 입력해주세요.',
               })}
             />
             <button
@@ -45,6 +52,24 @@ const Notice = () => {
             >
               검색
             </button>
+            <label>
+              <input
+                type="radio"
+                value="title"
+                {...register('searchOption')}
+                onChange={handleSearchOptionChange}
+              />
+              Title
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="content"
+                {...register('searchOption')}
+                onChange={handleSearchOptionChange}
+              />
+              Content
+            </label>
           </S.SearchWrapper>
           <NoticeList noticeList={noticeList as RequestNoticeList} />
           {noticeList?.numberOfElements === 0 && (

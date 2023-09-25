@@ -29,12 +29,14 @@ const useNoticeFilter = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(
-    ({ title, content }) => {
-      console.log(title);
-
-      // dispatch(noticeFilter.setSearchInput(search));
-      dispatch(setNoticeFilterSearchTitle(title));
-      // noticeFilter.setSearchInput(search);
+    ({ searchOption, title, content }) => {
+      if (searchOption === 'title') {
+        dispatch(setNoticeFilterSearchTitle(title));
+        dispatch(setNoticeFilterSearchContent('')); // 리셋 컨텐츠 검색
+      } else if (searchOption === 'content') {
+        dispatch(setNoticeFilterSearchContent(content));
+        dispatch(setNoticeFilterSearchTitle(''));
+      }
     },
     [noticeFilter],
   );

@@ -16,6 +16,6 @@ const Layout = ({ children }: React.PropsWithChildren) => {
 export default Layout;
 
 const Wrapper = styled.div`
-  /* position: relative; */
+  position: relative;
   min-height: 100vh;
 `;

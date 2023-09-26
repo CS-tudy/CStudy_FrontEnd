@@ -28,7 +28,6 @@ export const GlobalStyles = createGlobalStyle`
   }
   html {
     -webkit-overflow-scrolling: auto;
-   min-width:1200px;
    font-size:62.5%
   }
   body {

@@ -1,10 +1,10 @@
 import { FieldValues, UseFormRegister } from 'react-hook-form';
-import { Problem } from 'types/api';
+import { IProblem } from 'types/api';
 import ChoiceList from '../ChoiceList';
 import * as S from './style';
 
 interface ProblemFormProps {
-  problem: Problem;
+  problem: IProblem;
   register?: UseFormRegister<FieldValues>;
 }
 

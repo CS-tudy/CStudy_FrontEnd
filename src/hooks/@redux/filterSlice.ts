@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ROUTE } from 'constants/Route';
 
 const pageNumberSlice = createSlice({
   name: 'pageNumber',
@@ -22,23 +23,87 @@ const requestFilterSlice = createSlice({
     query: 'requests',
   },
   reducers: {
-    setQuery(state, action) {
+    setRequestQuery(state, action) {
       state.query = action.payload;
     },
     setPageNumber(state, action) {
       state.pageNumber = action.payload;
     },
-    reset(state) {
-      state.query = '';
-      state.pageNumber = 0;
+  },
+});
+
+const statusFilterSlice = createSlice({
+  name: 'statusFilter',
+  initialState: {
+    status: '',
+    statusValue: 0,
+    statusActive: false,
+  },
+  reducers: {
+    setStatus(state, action: PayloadAction<string>) {
+      state.status = action.payload;
+    },
+    setStatusValue(state, action: PayloadAction<number>) {
+      state.statusValue = action.payload;
+    },
+    toggleStatusActive(state) {
+      state.statusActive = !state.statusActive;
     },
   },
 });
 
+const categoryFilterSlice = createSlice({
+  name: 'categoryFilter',
+  initialState: {
+    category: '',
+    categoryValue: '',
+    categoryActive: false,
+  },
+  reducers: {
+    setCategory(state, action: PayloadAction<string>) {
+      state.category = action.payload;
+    },
+    setCategoryValue(state, action: PayloadAction<string>) {
+      state.categoryValue = action.payload;
+    },
+    toggleCategoryActive(state) {
+      state.categoryActive = !state.categoryActive;
+    },
+  },
+});
+
+const queryFilterSlice = createSlice({
+  name: 'queryFilter',
+  initialState: {
+    query: '',
+    queryActive: '',
+  },
+  reducers: {
+    setProblemQuery(state, action) {
+      state.query = action.payload;
+      // state.QueryActive = state.query === ROUTE.PROBLEMSET_MYQUESTION;
+    },
+    // reset(state) {
+    //   return {
+    //     query: '',
+    //     isActive: false,
+    //   };
+    // },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
-export const { setQuery, setPageNumber } = requestFilterSlice.actions;
+export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
+export const { setStatus, setStatusValue, toggleStatusActive } =
+  statusFilterSlice.actions;
+export const { setCategory, setCategoryValue, toggleCategoryActive } =
+  categoryFilterSlice.actions;
+export const { setProblemQuery } = queryFilterSlice.actions;
 
 export const filterReducer = {
   page: pageNumberSlice.reducer,
   filter: requestFilterSlice.reducer,
+  statusFilter: statusFilterSlice.reducer,
+  categoryFilter: categoryFilterSlice.reducer,
+  queryFilter: queryFilterSlice.reducer,
 };

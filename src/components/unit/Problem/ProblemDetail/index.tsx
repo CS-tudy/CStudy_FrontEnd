@@ -6,7 +6,7 @@ import {
   UseFormRegister,
   useForm,
 } from 'react-hook-form';
-import { Problem } from 'types/api';
+import { IProblem } from 'types/api';
 // import ProblemRenderTitle from '../ProblemRenderTitle';
 // import ResultImage from 'components/@shared/ResultImage';
 import * as S from './style';
@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
 import { useGetProblem } from 'hooks/@query/problem/useGetProblem';
 
 // interface ProblemRenderProps {
-//   problem: Problem;
+//   problem: IProblem;
 //   Answer: string;
 //   isAnswer: boolean;
 //   isAction: boolean;

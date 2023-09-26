@@ -1,6 +1,6 @@
 import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
-import { Problem, ProblemList } from 'types/api';
+import { IProblem, IProblemList } from 'types/api';
 import { selectAnswerProblemFromProps } from 'types/problem';
 
 // 문제 생성하기 & 대량 문제 생성하기
@@ -19,7 +19,7 @@ export const getProblemList = async ({
   page = 0,
   size = 10,
   query = '',
-}): Promise<Problem> => {
+}): Promise<IProblem> => {
   const response = await instance.get(
     `/api/questions${query}?${
       query === ''
@@ -37,7 +37,7 @@ export const getProblemListTest = () => {
 };
 
 //  단일 문제 조회
-export const getProblem = async (problemId: string): Promise<Problem> => {
+export const getProblem = async (problemId: string): Promise<IProblem> => {
   const response = await instance.get(`/api/questions/${problemId}`);
   return response.data;
 };

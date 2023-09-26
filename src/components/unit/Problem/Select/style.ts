@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
-import { SHADOW } from 'constants/Shadow';
 import filterArrow from 'assets/filterArrow.png';
 import { FONT } from 'constants/Font';
 
@@ -10,7 +9,6 @@ export const SelectBox = styled.div`
   height: 4.5rem;
   border-radius: 1.6rem;
   border: 1px solid ${COLOR.WHITE};
-  /* box-shadow: ${SHADOW.CONTENTBOX_LG}; */
   background-color: ${COLOR.WHITE};
   border: 1px solid #dbdbdb;
   cursor: pointer;
@@ -42,6 +40,7 @@ export const SelectBox = styled.div`
     .optionList {
       max-height: 50rem;
       transition: all 0.25s ease-in;
+      opacity: 100;
     }
 
     .arrow {
@@ -70,13 +69,14 @@ export const OptionList = styled.ul`
   top: 5rem;
   left: 0;
   width: 100%;
-  background: lightcoral;
+  background: ${COLOR.WHITE};
   color: #fff;
   list-style-type: none;
   padding: 0;
   border-radius: 0.6rem;
   overflow: hidden;
-  max-height: 0;
+  /* max-height: 0; */
+  opacity: 0;
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -94,6 +94,8 @@ export const OptionList = styled.ul`
   &::-webkit-scrollbar-thumb:hover {
     background: #303030;
   }
+  border: 1px solid #dbdbdb;
+  z-index: 1000;
 `;
 
 export const OptionItem = styled.li`
@@ -110,4 +112,5 @@ export const OptionItem = styled.li`
   &:last-child {
     border-bottom: 0 none;
   }
+  border: 1px solid #dbdbdb;
 `;

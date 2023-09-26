@@ -24,7 +24,9 @@ const SignUp = () => {
   } = useSignUp();
 
   const dispatch = useDispatch();
-  const isOpen = useSelector((state: any) => state.registerModal.isOpen);
+  const isOpen = useSelector(
+    (state: any) => state.persistedReducer.registerModal.isOpen,
+  );
 
   const changeModalHandler = () => {
     // closeSignUpModal();

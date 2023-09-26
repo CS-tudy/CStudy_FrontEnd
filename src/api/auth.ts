@@ -14,6 +14,7 @@ export const retryToken = async (refreshToken: string) => {
   const response = await instance.post('/api/member/refreshToken', {
     refreshToken,
   });
+  console.log('test', response.data);
   return response.data;
 };
 

@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { Problem } from 'types/api';
+import { IProblem } from 'types/api';
 // import ProgramFilterTBodyList from '../ProgramFilterTBodyList';
 import ProblemItem from '../ProblemItem';
 import NoData from 'components/commons/NoData';
 
 interface problemListProps {
-  problemList: Problem;
+  problemList: IProblem;
 }
 
 const ProblemList = ({ problemList }: problemListProps) => {

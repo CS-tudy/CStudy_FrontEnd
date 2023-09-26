@@ -1,8 +1,8 @@
-import { Problem } from 'types/api';
+import { IProblem } from 'types/api';
 import * as S from './style';
 
 interface ProblemDetailTitleProps {
-  problem: Problem;
+  problem: IProblem;
 }
 
 const ProblemDetailTitle = ({ problem }: ProblemDetailTitleProps) => {

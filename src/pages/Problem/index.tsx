@@ -27,7 +27,7 @@ const Problem = () => {
     useStatusFilterSlice();
   const { category, categoryValue, categoryActive, handleCategoryClick } =
     useCategoryFilterSlice();
-  const { query, QueryActive, handleToggle } = useQueryFilterSlice();
+  const { query, QueryActive, handleToggle, isActive } = useQueryFilterSlice();
 
   const fetchProblemListTest = async () => {
     const data = await getProblemListTest();
@@ -88,7 +88,7 @@ const Problem = () => {
       <S.Div>
         <S.Contents>
           <S.Content1>
-            <Filter className={QueryActive} onClick={handleToggle}>
+            <Filter className={isActive} onClick={handleToggle}>
               내가 푼 문제
             </Filter>
           </S.Content1>

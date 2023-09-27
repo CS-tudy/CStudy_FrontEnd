@@ -24,11 +24,6 @@ const Request = () => {
     sort: '',
   });
 
-  // const handlePage = () => {};
-  // const handleToggle = () => {};
-  // const pageNumber = 0;
-  // const isActive = true;
-
   return (
     <Container>
       {/* <S.ButtonWrapper>

@@ -11,6 +11,9 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
   // queryFilterState.queryActive =
   //   queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
 
+  const isActive =
+    queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
+
   const handleToggle = () => {
     dispatch(reset());
     dispatch(
@@ -20,7 +23,7 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
     );
   };
 
-  return { ...queryFilterState, handleToggle };
+  return { ...queryFilterState, handleToggle, isActive };
 };
 
 export default useQueryFilterSlice;

@@ -24,7 +24,7 @@ export interface AddboardListForm {
   title: string;
 }
 
-/* hsw 임시 타입 설정*/
+/* hsw notice type*/
 export interface ApiResponse {
   totalPages: number;
   totalElements: bigint;
@@ -55,7 +55,21 @@ export interface ApiResponse {
 }
 
 interface ContentItem {
-  id: bigint;
+  id: number;
+  title: string;
+  content: string;
+  createdDate: string;
+}
+
+export interface RequestNoticeDetail {
+  id: number;
+  title: string;
+  content: string;
+  createdDate: string;
+}
+
+export interface RequestNoticeDetail {
+  id: number;
   title: string;
   content: string;
   createdDate: string;
@@ -102,6 +116,26 @@ export interface MyPage {
   name: string;
   email: string;
 }
+
+/* hsw comment type*/
+
+export interface RequestComment {
+  map(
+    arg0: (comment: RequestComment) => import('react/jsx-runtime').JSX.Element,
+  ): import('react').ReactNode;
+  id: string;
+  content: string;
+  memberId: string;
+  author: string;
+  parentCommentId: string;
+  childComments: [];
+}
+
+export interface AddComment {
+  noticeId: string;
+  content: string;
+}
+// export interface RequestCheildComment {}
 
 // rank
 export interface Ranks {

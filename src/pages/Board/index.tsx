@@ -10,9 +10,7 @@ const Board = () => {
   return (
     <>
       <ContentContainer>
-        <ContentBodyWrapper>
-          <BoardList></BoardList>
-        </ContentBodyWrapper>
+        <ContentBodyWrapper>{/* <BoardList></BoardList> */}</ContentBodyWrapper>
       </ContentContainer>
       ;
     </>

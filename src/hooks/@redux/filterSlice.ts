@@ -110,18 +110,28 @@ const contestFilterSlice = createSlice({
     setContestPageNumber(state, action) {
       state.pageNumber = action.payload;
     },
+    setSearchInput(state, action) {
+      state.SearchTitle = action.payload;
+    },
+    setContenthInput(state, action) {
+      state.SearchContent = action.payload;
+    },
+    setSearchReset(state) {
+      state.SearchTitle = '';
+      state.SearchContent = '';
+    },
   },
 });
 
 export const { handlePage, reset } = pageNumberSlice.actions;
-export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
-export const { setStatus, setStatusValue, toggleStatusActive } =
-  statusFilterSlice.actions;
-export const { setCategory, setCategoryValue, toggleCategoryActive } =
-  categoryFilterSlice.actions;
-export const { setProblemQuery } = queryFilterSlice.actions;
-export const { setContestQuery, setContestPageNumber } =
-  contestFilterSlice.actions;
+export const { setQuery, setPageNumber } = requestFilterSlice.actions;
+export const {
+  setQuery: setNoticeFilterQuery,
+  setPageNumber: setNoticeFilterPageNumber,
+  setSearchInput: setNoticeFilterSearchTitle,
+  setContenthInput: setNoticeFilterSearchContent,
+  setSearchReset: setNoticeFilterSearchReset,
+} = NoticeFilterSlice.actions;
 
 export const filterReducer = {
   page: pageNumberSlice.reducer,

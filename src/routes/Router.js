@@ -22,6 +22,7 @@ import ProblemDetailPage from 'pages/ProblemDetail';
 import CreateBoard from 'pages/Admin/Board';
 
 import AdminRoute from './AdminRouter';
+import NoticeRequestDetail from 'pages/NoticeDetail';
 const Router = () => {
   return (
     <BrowserRouter>
@@ -29,8 +30,9 @@ const Router = () => {
         <Routes>
           {/* path = 경로  element = 컴포넌트*/}
           <Route path="/" element={<Main />} />
-          <Route path="/board" element={<Board />} />
-          <Route path="/admin/board" element={<CreateBoard />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/:Id" element={<NoticeRequestDetail />} />
+          <Route path="/admin/notice" element={<CreateBoard />} />
           <Route path="/request" element={<Request />} />
           <Route path="/requestdetail" element={<RequestDetailPage />} />
           <Route path="/requestwrite" element={<RequestWrite />} />

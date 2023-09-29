@@ -2,25 +2,6 @@ import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 
-// export const Modal = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
-
-// export const ModalTest = styled.div`
-//   position: fixed;
-//   top: 25vh;
-//   left: 25%;
-//   width: 50%;
-//   height: 30%;
-//   background-color: white;
-//   padding: 1rem;
-//   border-radius: 14px;
-//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-//   z-index: 120;
-//   animation: slide-down 300ms ease-out forwards;
-// `;
-
 export const Container = styled.div`
   &:hover {
     background-color: ${COLOR.GRAY_50};
@@ -28,7 +9,6 @@ export const Container = styled.div`
 `;
 
 export const Article = styled.article`
-  border-bottom: 0.1rem solid ${COLOR.GRAY_100};
   padding: 2.5rem;
 `;
 

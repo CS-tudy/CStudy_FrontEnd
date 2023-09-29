@@ -1,5 +1,5 @@
 import { instance } from 'api';
-import { AddboardListForm, RequestNoticeList } from 'types/api';
+import { RequestNoticeDetail, RequestNoticeList } from 'types/api';
 
 // 게시판 리스트
 export const getToggleRequestList = async ({
@@ -19,4 +19,11 @@ export const getToggleRequestList = async ({
 export const addBoardList = async (formData: any): Promise<any> => {
   const response = instance.post('/api/notice', formData);
   return response;
+};
+
+export const getNoticeDetail = async (
+  id: string | undefined,
+): Promise<RequestNoticeDetail> => {
+  const response = await instance.get(`/api/notice/${id}`);
+  return response.data;
 };

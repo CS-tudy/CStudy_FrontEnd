@@ -21,10 +21,10 @@ const Notice = () => {
     });
   const { noticeFilter, onSubmit, handlePage } = useNoticeFilter();
   const [selectedSearchOption, setSelectedSearchOption] = useState('title');
-
-  const handleSearchOptionChange = (event: any) => {
-    setSelectedSearchOption(event.target.value);
-  };
+  const options = [
+    { label: '제목', value: 'title' },
+    { label: '내용', value: 'content' },
+  ];
 
   const noticeList = useGetNoticeList({
     page: noticeFilter.pageNumber,
@@ -32,6 +32,7 @@ const Notice = () => {
     title: noticeFilter.SearchTitle,
     content: noticeFilter.SearchContent,
   });
+  console.log(noticeFilter);
 
   return (
     <>
@@ -53,22 +54,19 @@ const Notice = () => {
               검색
             </button>
             <label>
-              <input
-                type="radio"
-                value="title"
+              Search Option:
+              <select
                 {...register('searchOption')}
-                onChange={handleSearchOptionChange}
-              />
-              Title
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="content"
-                {...register('searchOption')}
-                onChange={handleSearchOptionChange}
-              />
-              Content
+                onChange={e => {
+                  setSelectedSearchOption(e.target.value);
+                }}
+              >
+                {options.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </label>
           </S.SearchWrapper>
           <NoticeList noticeList={noticeList as RequestNoticeList} />

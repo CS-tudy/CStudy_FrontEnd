@@ -56,9 +56,9 @@ const NoticeFilterSlice = createSlice({
     setContenthInput(state, action) {
       state.SearchContent = action.payload;
     },
-    reset(state) {
-      state.query = '';
-      state.pageNumber = 0;
+    setSearchReset(state) {
+      state.SearchTitle = '';
+      state.SearchContent = '';
     },
   },
 });
@@ -70,6 +70,7 @@ export const {
   setPageNumber: setNoticeFilterPageNumber,
   setSearchInput: setNoticeFilterSearchTitle,
   setContenthInput: setNoticeFilterSearchContent,
+  setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
 
 export const filterReducer = {

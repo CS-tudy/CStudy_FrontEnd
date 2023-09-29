@@ -3,14 +3,16 @@ import {
   reset,
   setNoticeFilterSearchTitle,
   setNoticeFilterSearchContent,
+  setNoticeFilterSearchReset,
   setPageNumber,
   setQuery,
 } from 'hooks/@redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 const useNoticeFilter = () => {
+  // const [selectedSearchOption, setSelectedSearchOption] = useState('title');
   const dispatch = useDispatch();
   const noticeFilter = useSelector(
     (state: any) => state.rootReducer.Noticefilter,
@@ -29,11 +31,15 @@ const useNoticeFilter = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(
-    ({ searchOption, title, content }) => {
+    formData => {
+      const { searchOption, title, content } = formData; // Destructure searchOption from formData
+      console.log(searchOption);
+
       if (searchOption === 'title') {
         dispatch(setNoticeFilterSearchTitle(title));
-        dispatch(setNoticeFilterSearchContent('')); // 리셋 컨텐츠 검색
+        dispatch(setNoticeFilterSearchContent('')); // Reset content search
       } else if (searchOption === 'content') {
+        console.log(content);
         dispatch(setNoticeFilterSearchContent(content));
         dispatch(setNoticeFilterSearchTitle(''));
       }

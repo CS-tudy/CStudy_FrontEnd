@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { TextAreaStyleProps } from 'types/style';
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 `;
 
-export const Input = styled.input`
+export const CommentTextArea = styled.textarea`
   &:focus {
     border: 0.1rem solid #000;
   }
-
-  width: 33.6rem;
-  height: 4rem;
+  width: 100% !important;
   padding: 1rem;
   border: 0.1rem solid #d3d3d3;
   border-radius: 0.8rem;
@@ -42,4 +43,10 @@ export const Suggestion = styled.div`
 
 export const TextSuggestionLabel = styled.span`
   font-size: ${FONT.REGULAR_14};
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
 `;

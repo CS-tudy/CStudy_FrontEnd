@@ -1,41 +1,46 @@
 import { RequestComment } from 'types/api';
 import ReplayCommentList from '../ReplayComment';
-import Comment from '..';
+import AddComment from '../addComment';
+import * as S from './style';
+import useReplyButton from 'hooks/Comment/useReplyButton';
 
 interface CommentListProps {
   commentList: RequestComment[];
-  maxDepth: number;
-  currentDepth: number;
+  //
 }
 
-const CommentList = ({
-  commentList,
-  maxDepth,
-  currentDepth,
-}: CommentListProps) => {
-  console.log(currentDepth);
+const CommentList = ({ commentList }: CommentListProps) => {
+  const { selectedCommentId, toggleReplyingHandler } = useReplyButton();
+  console.log(commentList);
 
   return (
-    <div>
+    <S.Wrapper>
       {commentList?.map((comment: RequestComment) => (
-        <div key={comment.id}>
-          <p>Author: {comment.author}</p>
-          <p>Content: {comment.content}</p>
+        <S.ProfileContainer key={comment.id}>
+          <S.Profile>
+            <p> {comment.author}</p>
+            <p> {comment.content}</p>
+            {selectedCommentId !== comment.id && (
+              <div>
+                <button onClick={() => toggleReplyingHandler(comment.id)}>
+                  댓글 달기
+                </button>
+              </div>
+            )}
 
-          {/* Render child comments recursively */}
-          {currentDepth < maxDepth && comment.childComments.length > 0 && (
-            <div style={{ marginLeft: '40px' }}>
-              {/* Recursively render deeper child comments */}
-              <CommentList
-                commentList={comment.childComments}
-                maxDepth={maxDepth}
-                currentDepth={currentDepth + 1} // Increase the current depth by 1
-              />
-            </div>
+            {selectedCommentId === comment.id && (
+              <div>
+                <button onClick={() => toggleReplyingHandler('')}>닫기</button>
+                <AddComment parentId={comment.id} />
+              </div>
+            )}
+          </S.Profile>
+          {comment.childComments && (
+            <ReplayCommentList replaycomment={comment.childComments} />
           )}
-        </div>
+        </S.ProfileContainer>
       ))}
-    </div>
+    </S.Wrapper>
   );
 };
 

@@ -1,39 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const CommentNumberSlice = createSlice({
-  name: 'commentDetailNumber',
-  initialState: {
-    pageNumber: 0,
+const initialState = {
+  pageNumber: 0,
+  depth: {
+    maxDepth: 3,
+    currentDepth: 0,
   },
-  reducers: {
-    handlePage(state, action) {
-      state.pageNumber = action.payload;
-    },
-  },
-});
-
-const requestFilterSlice = createSlice({
-  name: 'requestFilter',
-  initialState: {
-    pageNumber: 0,
-    query: 'requests',
-  },
-  reducers: {
-    setQuery(state, action) {
-      state.query = action.payload;
-    },
-    setPageNumber(state, action) {
-      state.pageNumber = action.payload;
-    },
-    reset(state) {
-      state.query = '';
-      state.pageNumber = 0;
-    },
-  },
-});
-
-export const { handlePage } = CommentNumberSlice.actions;
-export const filterReducer = {
-  page: CommentNumberSlice.reducer,
-  detail: requestFilterSlice.reducer,
+  isReplying: false, // 대댓글 작성 중인지 여부
 };
+
+const commentdepthSlice = createSlice({
+  name: 'commentdepth',
+  initialState,
+  reducers: {
+    setpageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+    setMaxDepth(state, action) {
+      state.depth.maxDepth = action.payload;
+    },
+    setCurrentDepth(state, action) {
+      state.depth.currentDepth = action.payload;
+    },
+    toggleReplying(state) {
+      state.isReplying = !state.isReplying;
+    },
+  },
+});
+
+export const { setMaxDepth, setCurrentDepth, toggleReplying, setpageNumber } =
+  commentdepthSlice.actions;
+export default commentdepthSlice.reducer;

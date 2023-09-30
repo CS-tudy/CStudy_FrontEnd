@@ -98,5 +98,6 @@ export interface RequestComment {
 export interface AddComment {
   noticeId: string;
   content: string;
+  parentCommentId?: string;
 }
 // export interface RequestCheildComment {}

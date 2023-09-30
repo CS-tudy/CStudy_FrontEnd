@@ -12,12 +12,8 @@ export const getCommentList = async (
 };
 
 export const addCommentList = async ({
-  noticeId,
-  content,
-}: AddComment): Promise<AxiosResponse> => {
-  const response = instance.post('/api/comment', {
-    noticeId,
-    content,
-  });
+  formData,
+}: any): Promise<AxiosResponse> => {
+  const response = instance.post('/api/comment', formData);
   return response;
 };

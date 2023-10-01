@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { useGetMypage } from 'hooks/mypage/useGetMypage';
 import store from 'stroe';
 
-export interface myPagePwdState {
+export interface myPageState {
   info: {
     id: number;
     name: string;
@@ -12,7 +12,7 @@ export interface myPagePwdState {
   loading: boolean;
 }
 
-const initialState: myPagePwdState = {
+const initialState: myPageState = {
   info: {
     id: 0,
     name: '',

@@ -1,21 +1,53 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as S from './style';
 import Button from 'components/commons/Button/Button';
 import { RootState } from 'stroe';
+import {
+  FieldValues,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from 'react-hook-form';
+import { useRef } from 'react';
 
 interface MyPageMyInfoProps {
   HandleClickPwd: () => void;
+  onValid: () => void;
+  register: UseFormRegister<FieldValues>;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
 }
 
-const MyPageInfo = ({ HandleClickPwd }: MyPageMyInfoProps) => {
+const MyPageInfo = ({
+  onValid,
+  HandleClickPwd,
+  register,
+  handleSubmit,
+}: MyPageMyInfoProps) => {
   const infoSelector = useSelector((state: RootState) => state.Mypage.info);
-  console.log(infoSelector);
+  const imgSelector = useSelector(
+    (state: RootState) => state.MyPageDownload.image,
+  );
   return (
     <>
       <S.MyInfoImg>
-        <picture>
-          <S.MyImg />
-        </picture>
+        <S.MyImgDiv>
+          <picture>
+            {imgSelector && <S.MyImg src={imgSelector} alt="프로필" />}
+          </picture>
+          <S.Form onSubmit={handleSubmit(onValid)}>
+            <S.Label htmlFor="image_file">이미지 수정</S.Label>
+            <S.FileInput
+              id="image_file"
+              {...register('files')}
+              type="file"
+              accept="image/*"
+            />
+            <S.ButtonDiv>
+              <Button type="submit" variant={'primary'} size={'not'}>
+                업로드
+              </Button>
+            </S.ButtonDiv>
+          </S.Form>
+        </S.MyImgDiv>
         <S.MyInfo>
           {infoSelector !== undefined && (
             <>

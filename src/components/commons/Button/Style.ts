@@ -26,6 +26,10 @@ const variantCSS: VariantCSS = {
 };
 
 const sizeCSS: SizeCSS = {
+  not: css`
+    font-size: ${FONT.REGULAR_12};
+  `,
+
   small: css`
     width: 64px;
     font-size: ${FONT.REGULAR_12};

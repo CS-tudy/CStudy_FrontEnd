@@ -17,7 +17,9 @@ export const useSignIn = () => {
         accessToken: response.accessToken,
         refreshToken: response.refreshToken,
       });
-
+      if (response.name === '관리자') {
+        navigate('admin/CreateProblem');
+      }
       dispatch(login());
       alert('로그인 되었습니다.');
     },

@@ -1,6 +1,12 @@
+import { useSelector } from 'react-redux';
 import * as S from './style';
+import { RootState } from 'stroe';
 
 const MypageBoard = () => {
+  const statusSelector = useSelector(
+    (state: RootState) => state.MypageStatus.status,
+  );
+  // console.log(statusSelector);
   return (
     <S.MypageBoardWrapper>
       <S.BoardTitle>나의 게시판 승인 현황</S.BoardTitle>

@@ -1,3 +1,5 @@
+// reducers.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -7,6 +9,7 @@ const initialState = {
     currentDepth: 0,
   },
   isReplying: false, // 대댓글 작성 중인지 여부
+  selectedCommentid: '',
 };
 
 const commentdepthSlice = createSlice({
@@ -25,9 +28,19 @@ const commentdepthSlice = createSlice({
     toggleReplying(state) {
       state.isReplying = !state.isReplying;
     },
+    setCommentId(state, action) {
+      state.selectedCommentid =
+        state.selectedCommentid === action.payload ? '' : action.payload;
+    },
   },
 });
 
-export const { setMaxDepth, setCurrentDepth, toggleReplying, setpageNumber } =
-  commentdepthSlice.actions;
+export const {
+  setMaxDepth,
+  setCurrentDepth,
+  toggleReplying,
+  setpageNumber,
+  setCommentId,
+} = commentdepthSlice.actions;
+
 export default commentdepthSlice.reducer;

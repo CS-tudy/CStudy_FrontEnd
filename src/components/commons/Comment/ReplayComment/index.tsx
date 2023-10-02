@@ -4,26 +4,26 @@ import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
 
 const ReplayCommentList = ({ replaycomment }: any) => {
-  const dispatch = useDispatch();
   const maxDepth = useSelector(
     (state: any) => state.rootReducer.commentdepth.depth.maxDepth,
   );
   const currentDepth = useSelector(
     (state: any) => state.rootReducer.commentdepth.depth.currentDepth,
   );
-  const isPlaying = useSelector(
-    (state: any) => state.rootReducer.commentdepth.isReplying,
-  );
 
-  const { selectedCommentId, toggleReplyingHandler } = useReplyButton();
+  const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
 
   return (
-    <S.Wrapper>
+    <>
       {replaycomment?.map((replay: any) => (
         <S.Profile key={replay.id}>
-          <p> {replay.author}</p>
-          <p> {replay.content}</p>
-          {selectedCommentId !== replay.id && (
+          <S.Pheader>
+            <p> {replay.author}</p>
+          </S.Pheader>
+          <S.Pboay>
+            <p> {replay.content}</p>
+          </S.Pboay>
+          {selectedCommentid !== replay.id && (
             <div>
               <button onClick={() => toggleReplyingHandler(replay.id)}>
                 댓글 달기
@@ -31,7 +31,7 @@ const ReplayCommentList = ({ replaycomment }: any) => {
             </div>
           )}
 
-          {selectedCommentId === replay.id && (
+          {selectedCommentid === replay.id && (
             <div>
               <button onClick={() => toggleReplyingHandler('')}>닫기</button>
               <AddComment parentId={replay.id} />
@@ -44,7 +44,7 @@ const ReplayCommentList = ({ replaycomment }: any) => {
           />
         </S.Profile>
       ))}
-    </S.Wrapper>
+    </>
   );
 };
 

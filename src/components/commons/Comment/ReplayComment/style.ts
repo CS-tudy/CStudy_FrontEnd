@@ -3,16 +3,25 @@ import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 
 export const Wrapper = styled.div`
-  padding-left: 1rem;
-  border-left: 1px solid ${COLOR.GRAY_100};
+  /* border-left: 1px solid ${COLOR.GRAY_100};
   margin-left: 0.625rem;
   margin-top: 1.25rem;
+  padding-left: 1.1rem; */
 `;
 
 export const Profile = styled.div`
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-  & p {
-    font-size: ${FONT.BOLD_18};
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+`;
+
+export const Pheader = styled.div`
+  p {
+    font-size: ${FONT.BOLD_20};
+  }
+`;
+export const Pboay = styled.div`
+  padding: 1.1rem;
+  p {
+    font-size: ${FONT.BOLD_16};
   }
 `;

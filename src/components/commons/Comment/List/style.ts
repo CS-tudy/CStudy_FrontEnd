@@ -13,8 +13,14 @@ export const Wrapper = styled.div`
 export const ProfileContainer = styled.div`
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  border-top: 1px solid ${COLOR.GRAY_100};
   border-bottom: 1px solid ${COLOR.GRAY_100};
+`;
+
+export const ReplayContainer = styled.div`
+  border-left: 1px solid ${COLOR.GRAY_100};
+  margin-left: 0.625rem;
+  margin-top: 1.25rem;
+  padding-left: 1.1rem;
 `;
 
 export const Profile = styled.div`

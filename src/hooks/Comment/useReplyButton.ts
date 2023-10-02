@@ -1,17 +1,18 @@
-import { toggleReplying } from 'hooks/@redux/comment';
+import { toggleReplying, setCommentId } from 'hooks/@redux/comment';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const useReplyButton = () => {
-  const [selectedCommentId, setSelectedCommentId] = useState('');
+  const selectedCommentid = useSelector(
+    (state: any) => state.rootReducer.commentdepth.selectedCommentid,
+  );
   const dispatch = useDispatch();
 
   const toggleReplyingHandler = (commentId: string) => {
-    setSelectedCommentId(commentId);
-    dispatch(toggleReplying());
+    dispatch(setCommentId(commentId));
   };
 
-  return { selectedCommentId, toggleReplyingHandler };
+  return { selectedCommentid, toggleReplyingHandler };
 };
 
 export default useReplyButton;

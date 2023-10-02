@@ -26,5 +26,6 @@ export const Detail = styled.div`
 `;
 
 export const Content = styled.div`
+  font-size: ${FONT.REGULAR_16};
   margin-top: 4rem;
 `;

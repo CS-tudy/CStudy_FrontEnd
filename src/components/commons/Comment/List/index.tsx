@@ -3,6 +3,7 @@ import ReplayCommentList from '../ReplayComment';
 import AddComment from '../addComment';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
+import { useSelector } from 'react-redux';
 
 interface CommentListProps {
   commentList: RequestComment[];
@@ -10,8 +11,7 @@ interface CommentListProps {
 }
 
 const CommentList = ({ commentList }: CommentListProps) => {
-  const { selectedCommentId, toggleReplyingHandler } = useReplyButton();
-  console.log(commentList);
+  const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
 
   return (
     <S.Wrapper>
@@ -20,7 +20,7 @@ const CommentList = ({ commentList }: CommentListProps) => {
           <S.Profile>
             <p> {comment.author}</p>
             <p> {comment.content}</p>
-            {selectedCommentId !== comment.id && (
+            {selectedCommentid !== comment.id && (
               <div>
                 <button onClick={() => toggleReplyingHandler(comment.id)}>
                   댓글 달기
@@ -28,7 +28,7 @@ const CommentList = ({ commentList }: CommentListProps) => {
               </div>
             )}
 
-            {selectedCommentId === comment.id && (
+            {selectedCommentid === comment.id && (
               <div>
                 <button onClick={() => toggleReplyingHandler('')}>닫기</button>
                 <AddComment parentId={comment.id} />
@@ -36,7 +36,9 @@ const CommentList = ({ commentList }: CommentListProps) => {
             )}
           </S.Profile>
           {comment.childComments && (
-            <ReplayCommentList replaycomment={comment.childComments} />
+            <S.ReplayContainer>
+              <ReplayCommentList replaycomment={comment.childComments} />
+            </S.ReplayContainer>
           )}
         </S.ProfileContainer>
       ))}

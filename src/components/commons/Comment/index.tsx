@@ -14,10 +14,10 @@ const Comment = () => {
   const commentList = useGetCommentList(Id);
 
   return (
-    <S.Container>
+    <>
       <AddComment />
       <CommentList commentList={commentList as any} />
-    </S.Container>
+    </>
   );
 };
 

@@ -1,5 +1,3 @@
-// reducers.js
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -12,8 +10,8 @@ const initialState = {
   selectedCommentid: '',
 };
 
-const commentdepthSlice = createSlice({
-  name: 'commentdepth',
+const commentSlice = createSlice({
+  name: 'comment',
   initialState,
   reducers: {
     setpageNumber(state, action) {
@@ -41,6 +39,6 @@ export const {
   toggleReplying,
   setpageNumber,
   setCommentId,
-} = commentdepthSlice.actions;
+} = commentSlice.actions;
 
-export default commentdepthSlice.reducer;
+export default commentSlice.reducer;

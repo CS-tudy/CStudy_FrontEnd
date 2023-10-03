@@ -1,5 +1,5 @@
 import { css, DefaultTheme } from 'styled-components';
-
+import { MouseEvent } from 'react';
 export interface VariantCSS {
   [key: string]: ReturnType<typeof css>;
 }

@@ -9,7 +9,7 @@ interface ProblemFormProps {
 }
 
 const ProblemDetailContent = ({ problem, register }: ProblemFormProps) => {
-  console.log(problem);
+  // console.log(problem);
   return (
     <S.ProblemContentWrapper>
       <S.ProblemContentTitle>

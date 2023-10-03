@@ -1,8 +1,12 @@
 import Container from 'components/commons/Container';
 import * as S from './style';
 import Table from 'components/commons/Table';
-import { useEffect, useState } from 'react';
-import { getProblemList, getProblemListTest } from 'api/problem';
+import { ChangeEvent, useEffect, useState } from 'react';
+import {
+  getProblemList,
+  getProblemListSearch,
+  getProblemListTest,
+} from 'api/problem';
 import ProblemList from 'components/unit/Problem/ProblemList';
 import Select from 'components/unit/Problem/Select';
 import Filter from 'components/commons/Filter';
@@ -13,9 +17,13 @@ import { handlePage, reset } from 'hooks/@redux/filterSlice';
 import useStatusFilterSlice from 'hooks/@redux/Problem/useStatusFilterSlice';
 import useQueryFilterSlice from 'hooks/@redux/Problem/useQueryFilterSlice';
 import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice';
+import Pagination from 'components/commons/Pagination';
+import _ from 'lodash';
+import { useMemo } from 'react';
 
 const Problem = () => {
-  const [problemList, setProblemList] = useState();
+  // const [problemList, setProblemList] = useState<IProblem>();
+  const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const teststate = useSelector(state => state);
   const pageNumber = useSelector(
@@ -29,35 +37,24 @@ const Problem = () => {
     useCategoryFilterSlice();
   const { query, QueryActive, handleToggle, isActive } = useQueryFilterSlice();
 
-  const fetchProblemListTest = async () => {
-    const data = await getProblemListTest();
-    setProblemList(data.data);
-  };
+  // const fetchProblemListTest = async () => {
+  //   const res = await getProblemListTest();
+  //   setProblemList(res.data);
+  // };
 
-  // const problemList = useGetProblemList({
-  //   categoryTitle: categoryFilter.categoryValue,
-  //   status: statusFilter.statusValue,
-  //   page: pageNumber,
-  //   query: queryFilter.query,
-  // })
+  // useEffect(() => {
+  //   fetchProblemListTest();
+  //   console.log(problemList);
+  // }, []);
 
-  useEffect(() => {
-    fetchProblemListTest();
-    console.log(problemList);
-  }, []);
-
-  // const problemList = useGetProblemList({
-  //   // categoryTitle: categoryFilter.categoryValue,
-  //   // status: statusFilter.statusValue,
-  //   // page: pageNumber,
-  //   // query: queryFilter.query,
-  //   questionTitle: '',
-  //   categoryTitle: '',
-  //   status: 0,
-  //   memberId: 0,
-  //   page: 0,
-  //   query: '',
-  // });
+  const problemList = useGetProblemList({
+    questionTitle: 'Question',
+    categoryTitle: categoryValue,
+    status: statusValue,
+    memberId: 0,
+    page: pageNumber,
+    query: query,
+  });
 
   console.log(problemList);
 
@@ -83,8 +80,91 @@ const Problem = () => {
   const tableColRate = ['10%', '15%', '60%', '15%'];
   const tableTitle = ['번호', '상태', '제목', '카테고리'];
 
+  // const getDebounce = _.debounce(value => {
+  //   // ({ search: value, page: 1 });
+  //   useGetProblemList({ questionTitle: value });
+  // }, 500);
+
+  // const onChangeSearchbar = (event: ChangeEvent): void => {
+  //   getDebounce(event.target.value);
+  // };
+
+  // =========================================== //
+
+  // const onChangeSearchbar = (event: ChangeEvent): void => {
+  //   // getDebounce(event.target.value);
+  //   useGetProblemList({ questionTitle: event.target.value });
+  // };
+
+  // =========================================== //
+
+  // const [inputValue, setInputValue] = useState('');
+
+  // const debouncedSave = _.debounce(value => {
+  //   useGetProblemList({ questionTitle: value });
+  // }, 500);
+
+  // useEffect(() => {
+  //   if (inputValue) {
+  //     debouncedSave(inputValue);
+  //   }
+  // }, [inputValue]);
+
+  // const onChangeSearchbar = event => {
+  //   setInputValue(event.target.value);
+  // };
+
+  // =========================================== //
+
+  // // Debounce the inputValue with lodash's _.debounce function
+  // const debouncedInput = useMemo(() => _.debounce(setInputValue, 500), []);
+
+  // const onChangeSearchbar = (event: ChangeEvent): void => {
+  //   // Cancel the previous debounced value
+  //   debouncedInput.cancel();
+
+  //   // Set the new debounced value
+  //   debouncedInput(event.target.value);
+  // };
+
+  // useEffect(() => {
+  //   if (inputValue) {
+  //     useGetProblemList({ questionTitle: inputValue });
+  //   }
+  // }, [inputValue]);
+
+  // =========================================== //
+
+  const handleLoadSearch = async e => {
+    if (e.key === 'Enter') {
+      // useGetProblemList({ questionTitle: inputValue });
+      const res = await getProblemListSearch(e.target.value);
+      console.log(e.target.value);
+      setProblemList(res.data);
+    }
+  };
+
   return (
     <>
+      <div>
+        {/* <input
+          type="text"
+          style={{ border: '1px solid gray' }}
+          placeholder="검색어를 입력해 주세요."
+          onChange={onChangeSearchbar}
+          value={inputValue}
+        /> */}
+        <input
+          type="text"
+          style={{ border: '1px solid gray' }}
+          placeholder="검색어를 입력해 주세요."
+          onChange={e => {
+            setInputValue(e.target.value);
+          }}
+          value={inputValue}
+          onKeyDown={handleLoadSearch}
+        />
+      </div>
       <S.Div>
         <S.Contents>
           <S.Content1>
@@ -97,12 +177,12 @@ const Problem = () => {
               name={status}
               handleActive={handleStatusClick}
               isActive={statusActive}
-              options={!statusActive ? filterOptionStatus : filterOptionTotal}
+              options={!isActive ? filterOptionStatus : filterOptionTotal}
               optionsValue={
-                !statusActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
               selectedIndex={
-                !statusActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
           </S.Content2>
@@ -111,14 +191,12 @@ const Problem = () => {
               name={category}
               handleActive={handleCategoryClick}
               isActive={categoryActive}
-              options={
-                !categoryActive ? filterOptionCategory : filterOptionTotal
-              }
+              options={!isActive ? filterOptionCategory : filterOptionTotal}
               optionsValue={
-                !categoryActive ? filterOptionCategoryValue : filterOptionEmpty
+                !isActive ? filterOptionCategoryValue : filterOptionEmpty
               }
               selectedIndex={
-                !categoryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
           </S.Content3>
@@ -128,6 +206,15 @@ const Problem = () => {
         <Table colRate={tableColRate} title={tableTitle}>
           <ProblemList problemList={problemList as IProblem} />
         </Table>
+        {(problemList?.totalPages as number) > 0 && (
+          <S.PaginationWrapper>
+            <Pagination
+              totalPages={problemList?.totalPages as number}
+              handlePage={handlePage}
+              page={pageNumber}
+            />
+          </S.PaginationWrapper>
+        )}
       </Container>
     </>
   );

@@ -23,7 +23,7 @@ export const getProblemList = async ({
   const response = await instance.get(
     `/api/questions${query}?${
       query === ''
-        ? `questionTitle=${questionTitle}&categoryTitle=${categoryTitle}&status=${status}&memberId=${memberId}&page=${page}&size=${size}`
+        ? `questionTitle=&categoryTitle=${categoryTitle}&status=${status}&memberId=&page=${page}&size=${size}`
         : `page=${page}&size=${size}`
     }`,
   );
@@ -33,6 +33,11 @@ export const getProblemList = async ({
 
 export const getProblemListTest = () => {
   const response = instance.get(`/api/questions`);
+  return response;
+};
+
+export const getProblemListSearch = search => {
+  const response = instance.get(`/api/questions?questionTitle=${search}`);
   return response;
 };
 
@@ -47,6 +52,9 @@ export const selectAnswerProblem = async ({
   problemId,
   formData,
 }: selectAnswerProblemFromProps) => {
-  const response = await instance.post(`/api/question/${problemId}`, formData);
+  const response = await instance.post(
+    `/api/questions/${problemId}/answer`,
+    formData,
+  );
   return response;
 };

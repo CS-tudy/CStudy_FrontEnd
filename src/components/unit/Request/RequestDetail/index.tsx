@@ -12,9 +12,10 @@ import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
 import { getMyPage } from 'api/mypage';
 import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
+import { userInfo } from 'repository/auth';
 
 const RequestDetail = () => {
-  const [loginUserInfo, setLoginUserInfo] = useState();
+  const [userInfoData, setUserInfoData] = useState();
 
   const { requestId } = useParams();
   const navigate = useNavigate();
@@ -44,16 +45,9 @@ const RequestDetail = () => {
     deleteRequest(requestId);
   };
 
-  // 로그인 유저 정보 받아오기
-  const fetchLoginUserInfo = async () => {
-    const data = await getMyPage();
-    console.log(data);
-    // setLoginUserInfo(data);
-  };
-
   useEffect(() => {
-    fetchLoginUserInfo();
-    // console.log(loginUserInfo);
+    console.log(userInfo().memberId);
+    setUserInfoData(userInfo());
   }, []);
 
   return (
@@ -69,14 +63,19 @@ const RequestDetail = () => {
               {request?.createAt}
             </S.Detail>
           </S.PostInfo>
-          <S.Options>
-            <button onClick={handleNavigateEdit}>
-              <AiFillEdit size={20} color="#aaa" />
-            </button>{' '}
-            <button onClick={handleDeleteRequest}>
-              <AiFillDelete size={20} color="#aaa" />
-            </button>
-          </S.Options>
+          {/* 수정삭제버튼 */}
+          {request?.memberId === userInfoData?.memberId ? (
+            <S.Options>
+              <button onClick={handleNavigateEdit}>
+                <AiFillEdit size={20} color="#aaa" />
+              </button>{' '}
+              <button onClick={handleDeleteRequest}>
+                <AiFillDelete size={20} color="#aaa" />
+              </button>
+            </S.Options>
+          ) : (
+            ''
+          )}
         </S.Header>
         <S.Content>{request?.description}</S.Content>
       </S.Container>

@@ -16,10 +16,12 @@ const useCategoryFilterSlice = () => {
 
   const handleCategoryClick = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
-    dispatch(setCategory(target.innerText));
-    dispatch(setCategoryValue(target.dataset.value));
     dispatch(toggleCategoryActive());
-    reset();
+    if (target.nodeName === 'LI') {
+      reset();
+      dispatch(setCategory(target.innerText));
+      dispatch(setCategoryValue(target.dataset.value as string));
+    }
   };
 
   return { ...categoryFilterState, handleCategoryClick };

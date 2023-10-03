@@ -19,7 +19,10 @@ const ProblemList = ({ problemList }: problemListProps) => {
         </tr>
       )}
       {problemList?.content?.map(problem => (
-        <ProblemItem key={problem.questionId} problem={problem} />
+        <ProblemItem
+          // key={problem.questionId}
+          problem={problem}
+        />
       ))}
     </>
   );

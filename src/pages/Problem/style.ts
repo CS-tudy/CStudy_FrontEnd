@@ -28,3 +28,7 @@ export const Content2 = styled.div`
 export const Content3 = styled.div`
   /* width: 15%; */
 `;
+
+export const PaginationWrapper = styled.div`
+  padding: 4rem 0 6rem;
+`;

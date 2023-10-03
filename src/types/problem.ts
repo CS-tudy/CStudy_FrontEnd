@@ -1,8 +1,13 @@
+export interface LoginUserDto {
+  memberId: number;
+  roles: string[];
+}
+
 export interface selectAnswerProblemFromProps {
   problemId: string;
   formData: {
     choiceNumber: number;
-    // loginUserDto: LoginUserDto;
+    loginUserDto: LoginUserDto;
   };
 }
 

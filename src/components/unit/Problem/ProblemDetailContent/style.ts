@@ -1,4 +1,3 @@
-export {};
 import styled from 'styled-components';
 import { FONT } from 'constants/Font';
 

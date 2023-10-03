@@ -5,7 +5,7 @@ import { persistStore } from 'redux-persist';
 import problemSlice from 'hooks/@redux/problemSlice';
 import MypagePwdSlice from 'hooks/@redux/mypage/MypagePwdSlice';
 import MypageSlice from 'hooks/@redux/mypage/MypageSlice';
-import authSlice from 'hooks/@redux/authSlice';
+import registerModalSlice from 'hooks/@redux/registerModalSlice';
 import loginModalSlice from 'hooks/@redux/loginModalSlice';
 import MypageStatusSlice from 'hooks/@redux/mypage/MypageStatusSlice';
 import MypageUploadSlice from 'hooks/@redux/mypage/MypageUploadSlice';
@@ -20,7 +20,7 @@ const store = configureStore({
     MypageStatus: MypageStatusSlice,
     MyPageUpload: MypageUploadSlice,
     MyPageDownload: MyPageDownloadSlice,
-    auth: authSlice,
+    registerModal: registerModalSlice,
     loginModal: loginModalSlice,
   },
 });

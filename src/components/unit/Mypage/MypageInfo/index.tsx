@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import * as S from './style';
 import Button from 'components/commons/Button/Button';
 import { RootState } from 'stroe';
@@ -7,7 +7,6 @@ import {
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
-import { useRef } from 'react';
 
 interface MyPageMyInfoProps {
   HandleClickPwd: () => void;

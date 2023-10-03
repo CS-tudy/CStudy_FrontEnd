@@ -3,6 +3,7 @@ import * as S from './style';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from 'components/commons/Button/Style';
 import { useSelector } from 'react-redux';
+import { RootState } from 'stroe';
 interface AddCommentFormProps {
   parentId?: string | null;
 }
@@ -15,9 +16,8 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
   } = useForm<FieldValues>();
 
   const pageNumber = useSelector(
-    (state: any) => state.rootReducer.commentdepth.pageNumber,
+    (state: RootState) => state.rootReducer.comment.pageNumber,
   );
-  console.log(parentId);
 
   const { mutate: addComment } = useAddCommentList();
   const onSubmit: SubmitHandler<FieldValues> = async FormData => {

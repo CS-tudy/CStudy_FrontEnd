@@ -1,48 +1,58 @@
-import AddComment from '../addComment';
+import AddComment from '../AddComment';
 import { useDispatch, useSelector } from 'react-redux';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
+import { RootState } from 'stroe';
 
-const ReplayCommentList = ({ replaycomment }: any) => {
+interface ReplayProps {
+  id: string;
+  author: string;
+  content: string;
+  childComments?: ReplayProps[];
+}
+
+interface childCommentsProps {
+  replaycomment?: ReplayProps[];
+}
+
+const ReplayCommentList = ({ replaycomment }: childCommentsProps) => {
   const maxDepth = useSelector(
-    (state: any) => state.rootReducer.commentdepth.depth.maxDepth,
+    (state: RootState) => state.rootReducer.comment.depth.maxDepth,
   );
   const currentDepth = useSelector(
-    (state: any) => state.rootReducer.commentdepth.depth.currentDepth,
+    (state: RootState) => state.rootReducer.comment.depth.currentDepth,
   );
 
   const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
 
   return (
     <>
-      {replaycomment?.map((replay: any) => (
-        <S.Profile key={replay.id}>
-          <S.Pheader>
-            <p> {replay.author}</p>
-          </S.Pheader>
-          <S.Pboay>
-            <p> {replay.content}</p>
-          </S.Pboay>
-          {selectedCommentid !== replay.id && (
-            <div>
-              <button onClick={() => toggleReplyingHandler(replay.id)}>
-                댓글 달기
-              </button>
-            </div>
-          )}
+      {replaycomment?.map((replay: ReplayProps) => (
+        <S.Container key={replay.id}>
+          <S.Profile>
+            <S.Pheader>
+              <p> {replay.author}</p>
+            </S.Pheader>
+            <S.Pboay>
+              <p> {replay.content}</p>
+            </S.Pboay>
+            {selectedCommentid !== replay.id && (
+              <div>
+                <button onClick={() => toggleReplyingHandler(replay.id)}>
+                  댓글 달기
+                </button>
+              </div>
+            )}
 
-          {selectedCommentid === replay.id && (
-            <div>
-              <button onClick={() => toggleReplyingHandler('')}>닫기</button>
-              <AddComment parentId={replay.id} />
-            </div>
-          )}
-          <ReplayCommentList
-            replaycomment={replay.childComments}
-            maxDepth={maxDepth}
-            currentDepth={currentDepth + 1}
-          />
-        </S.Profile>
+            {selectedCommentid === replay.id && (
+              <div>
+                <button onClick={() => toggleReplyingHandler('')}>닫기</button>
+                <AddComment parentId={replay.id} />
+              </div>
+            )}
+          </S.Profile>
+          <ReplayCommentList replaycomment={replay.childComments} />
+        </S.Container>
       ))}
     </>
   );

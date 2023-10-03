@@ -1,13 +1,12 @@
 import { RequestComment } from 'types/api';
 import ReplayCommentList from '../ReplayComment';
-import AddComment from '../addComment';
+import AddComment from '../AddComment';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
-import { useSelector } from 'react-redux';
+import DeleteComment from '../DeleteComment';
 
 interface CommentListProps {
   commentList: RequestComment[];
-  //
 }
 
 const CommentList = ({ commentList }: CommentListProps) => {
@@ -18,8 +17,13 @@ const CommentList = ({ commentList }: CommentListProps) => {
       {commentList?.map((comment: RequestComment) => (
         <S.ProfileContainer key={comment.id}>
           <S.Profile>
-            <p> {comment.author}</p>
-            <p> {comment.content}</p>
+            <S.Pheader>
+              <p> {comment.author}</p>
+              <DeleteComment commentId={comment.id} />
+            </S.Pheader>
+            <S.Pboay>
+              <p> {comment.content}</p>
+            </S.Pboay>
             {selectedCommentid !== comment.id && (
               <div>
                 <button onClick={() => toggleReplyingHandler(comment.id)}>

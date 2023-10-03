@@ -9,9 +9,19 @@ export const Wrapper = styled.div`
   padding-left: 1.1rem; */
 `;
 
-export const Profile = styled.div`
+export const Container = styled.div`
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
+`;
+
+export const Profile = styled.div`
+  padding-top: 2.1rem;
+  padding-bottom: 2.1rem;
+  border-bottom: 1px solid ${COLOR.GRAY_100};
+  border-style: dashed;
+  &:last-child {
+    border-bottom: 0 none;
+  }
 `;
 
 export const Pheader = styled.div`

@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux';
 import authReducer from './authSlice';
 import registerModalReducer from './registerModalSlice';
-import commentdepthReducer from './comment';
-import { filterReducer } from './filterSlice';
+import commentReducer from './comment';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   loginModal: loginmodalReducer,
   registerModal: registerModalReducer,
-  commentdepth: commentdepthReducer,
-  ...filterReducer,
+  comment: commentReducer, // 수정된 부분
 });
 
 export default rootReducer;

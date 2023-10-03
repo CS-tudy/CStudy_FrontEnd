@@ -38,14 +38,20 @@ export interface IProblemList {
   content?: ProblemContent[];
 }
 
+type Choices = {
+  number: number;
+  content: string;
+};
+
 export interface IProblem {
   title: string;
   categoryTitle: string;
   content: string[];
   description: string;
   explain: string;
-  // choices: Choices[];
+  choices: Choices[];
   totalElements: number;
+  totalPages?: number;
 }
 
 // mypage
@@ -53,4 +59,11 @@ export interface MyPage {
   id: number;
   name: string;
   email: string;
+}
+
+// rank
+
+export interface Ranks {
+  score: number | null;
+  value: string | null;
 }

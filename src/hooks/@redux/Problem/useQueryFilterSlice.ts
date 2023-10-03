@@ -3,6 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { reset, setProblemQuery } from '../filterSlice';
 import { ROUTE } from 'constants/Route';
 
+interface QueryFilterActionProps {
+  reset: () => void;
+}
+
+interface QueryFilterActionState {
+  queryFilter: QueryFilterStoreType;
+  isActive: string;
+  handleToggle: () => void;
+}
+
 const useQueryFilterSlice = (): QueryFilterActionState => {
   const dispatch = useDispatch();
   const queryFilterState = useSelector(

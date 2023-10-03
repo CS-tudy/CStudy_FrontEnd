@@ -35,7 +35,7 @@ const requestFilterSlice = createSlice({
 const statusFilterSlice = createSlice({
   name: 'statusFilter',
   initialState: {
-    status: '',
+    status: '상태',
     statusValue: 0,
     statusActive: false,
   },
@@ -55,8 +55,8 @@ const statusFilterSlice = createSlice({
 const categoryFilterSlice = createSlice({
   name: 'categoryFilter',
   initialState: {
-    category: '',
-    categoryValue: '',
+    category: '카테고리',
+    categoryValue: '네트워크',
     categoryActive: false,
   },
   reducers: {

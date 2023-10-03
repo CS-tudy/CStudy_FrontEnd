@@ -1,4 +1,6 @@
 import { userStorage } from './userStorage';
+import jwtDecode from 'jwt-decode';
+import { jwtDecodeProps } from 'types/repo';
 
 export const getUserTokens = () => {
   const userTokens = userStorage.get();
@@ -14,4 +16,18 @@ export const isLogin = () => {
 
   const { accessToken } = user;
   return !!accessToken;
+};
+
+export const userInfo = () => {
+  const userToken = userStorage.get();
+  if (!userToken) {
+    return null;
+  }
+
+  // const { memberId, roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
+
+  // return { memberId, roles };
+
+  const member = jwtDecode(userToken.accessToken);
+  return member;
 };

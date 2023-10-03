@@ -3,6 +3,9 @@ import { RiCloseFill } from 'react-icons/ri';
 import { RiCheckFill } from 'react-icons/ri';
 
 const SolveStatus = ({ status }: solveStatusProp) => {
+  if (status === 0) {
+    return <span></span>;
+  }
   if (status === 1) {
     return (
       <span className="success">
@@ -10,7 +13,7 @@ const SolveStatus = ({ status }: solveStatusProp) => {
       </span>
     );
   }
-  if (status === 2 || status === 0) {
+  if (status === 2) {
     return (
       <span className="failed">
         <RiCloseFill size={25} />

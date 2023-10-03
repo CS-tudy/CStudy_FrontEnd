@@ -24,7 +24,13 @@ const ProblemDetailSubmit = ({
       >
         제출
       </Button>
-      {timeCheck && isAnswer && (
+      {/* {timeCheck && isAnswer && (
+        <S.ProblemAnswerWrapper>
+          <S.ProblemAnswerTitle>정답:</S.ProblemAnswerTitle>
+          <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>
+        </S.ProblemAnswerWrapper>
+      )} */}
+      {isAnswer && (
         <S.ProblemAnswerWrapper>
           <S.ProblemAnswerTitle>정답:</S.ProblemAnswerTitle>
           <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>

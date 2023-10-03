@@ -45,8 +45,8 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const submitForm: SubmitHandler<FieldValues> = FormData => {
     console.log(FormData);
     const updateRequestInput = {
-      title: '글수정',
-      description: '글수정',
+      title: FormData?.title,
+      description: FormData?.description,
       id: data?.id,
     };
     // if(title)

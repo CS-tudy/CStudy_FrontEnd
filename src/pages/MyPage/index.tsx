@@ -29,6 +29,7 @@ const MyPage = () => {
     passwordPattern,
     handleChangePwdSubmit,
     onValid,
+    handleDetail,
   } = useMyPage({ reset, getValues });
 
   const dispatch = useDispatch<AppDispatch>();
@@ -36,8 +37,7 @@ const MyPage = () => {
   useEffect(() => {
     dispatch(useGetMypage());
     dispatch(useGetImg());
-
-    // dispatch(useGetStatus());
+    dispatch(useGetStatus());
   }, []);
 
   return (
@@ -55,7 +55,7 @@ const MyPage = () => {
           handleChangePwdSubmit={handleChangePwdSubmit}
           onValid={onValid}
         />
-        <MypageBoard />
+        <MypageBoard handleDetail={handleDetail} />
       </S.MyPageInfoWrapper>
     </S.MyPageWrapper>
   );

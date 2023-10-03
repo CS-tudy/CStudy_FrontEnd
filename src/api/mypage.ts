@@ -38,8 +38,6 @@ export const ImgDownload = async () => {
 
 // 승인현황
 export const ApprovalStatus = async () => {
-  const response = await instance.get(
-    `api/request/member?page=10&size=1&sort=`,
-  );
+  const response = await instance.get(`api/request/member`);
   return response.data;
 };

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from 'stroe';
 import { useUploadImg } from './useUploadImg';
 import { useGetImg } from './useGetImg';
+import { useNavigate } from 'react-router-dom';
 
 interface useMyPageProp {
   reset: UseFormReset<FieldValues>;
@@ -15,6 +16,7 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   const passwordPattern = {
     value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
@@ -38,8 +40,12 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     await dispatch(useUploadImg(formData));
     dispatch(useGetImg());
   };
+  const handleDetail = (id: number) => {
+    navigate(`/request/${id}`);
+  };
 
   return {
+    handleDetail,
     HandleClickPwd,
     isActive,
     isLoading,

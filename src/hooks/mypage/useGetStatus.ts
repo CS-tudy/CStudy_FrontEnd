@@ -2,10 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ApprovalStatus } from 'api/mypage';
 
 export const useGetStatus = createAsyncThunk(
-  'myPagePwd/useGetStatus',
+  'myPageStatus/useGetStatus',
   async () => {
     try {
-      return await ApprovalStatus();
+      const data = await ApprovalStatus();
+      return data;
     } catch (error) {
       alert(error);
     }

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useGetMypage } from 'hooks/mypage/useGetMypage';
+import { useGetStatus } from 'hooks/mypage/useGetStatus';
 import store from 'stroe';
 
 export interface myPageStatusState {
@@ -49,7 +50,7 @@ const initialState: myPageStatusState = {
   status: {
     content: [
       {
-        id: 0,
+        id: 1,
         flag: false,
         title: '',
         description: '',
@@ -94,13 +95,13 @@ const MypageStatusSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(useGetMypage.pending, state => {
+    builder.addCase(useGetStatus.pending, state => {
       state.loading = false;
     });
-    builder.addCase(useGetMypage.fulfilled, (state, action) => {
+    builder.addCase(useGetStatus.fulfilled, (state, action) => {
       state.status = action.payload;
     });
-    builder.addCase(useGetMypage.rejected, state => {
+    builder.addCase(useGetStatus.rejected, state => {
       state.loading = true;
     });
   },

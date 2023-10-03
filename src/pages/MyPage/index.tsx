@@ -1,6 +1,7 @@
 import * as S from './style';
 import MypageBoard from 'components/unit/Mypage/MypageBoard';
 import MypageMyInfo from 'components/unit/Mypage/MypageMyInfo';
+import MypageQuestion from 'components/unit/Mypage/MypageQuestion';
 import { useGetImg } from 'hooks/mypage/useGetImg';
 import { useGetMypage } from 'hooks/mypage/useGetMypage';
 import { useGetStatus } from 'hooks/mypage/useGetStatus';
@@ -56,6 +57,7 @@ const MyPage = () => {
           onValid={onValid}
         />
         <MypageBoard handleDetail={handleDetail} />
+        <MypageQuestion />
       </S.MyPageInfoWrapper>
     </S.MyPageWrapper>
   );

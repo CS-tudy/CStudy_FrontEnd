@@ -21,7 +21,7 @@ export const BoardTable = styled.table`
 `;
 
 export const Thead = styled.th`
-  padding: 2rem 0 1rem;
+  padding: 1.5rem;
   ${FONT.BOLD_16}
 `;
 

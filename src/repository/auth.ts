@@ -24,10 +24,7 @@ export const userInfo = () => {
     return null;
   }
 
-  // const { memberId, roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
+  const { memberId, roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
 
-  // return { memberId, roles };
-
-  const member = jwtDecode(userToken.accessToken);
-  return member;
+  return { memberId, roles };
 };

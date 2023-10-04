@@ -29,13 +29,13 @@ const Problem = () => {
   const pageNumber = useSelector(
     (state: any) => state.persistedReducer.page.pageNumber,
   );
-  console.log('state', teststate);
+  // console.log('state', teststate);
 
   const { status, statusValue, statusActive, handleStatusClick } =
     useStatusFilterSlice();
   const { category, categoryValue, categoryActive, handleCategoryClick } =
     useCategoryFilterSlice();
-  const { query, QueryActive, handleToggle, isActive } = useQueryFilterSlice();
+  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
 
   // const fetchProblemListTest = async () => {
   //   const res = await getProblemListTest();
@@ -135,12 +135,12 @@ const Problem = () => {
 
   // =========================================== //
 
-  const handleLoadSearch = async e => {
+  const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
       // useGetProblemList({ questionTitle: inputValue });
       const res = await getProblemListSearch(e.target.value);
       console.log(e.target.value);
-      setProblemList(res.data);
+      // setProblemList(res.data);
     }
   };
 

@@ -25,5 +25,5 @@ export const ContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 5vw;
-  padding: 5rem;
+  padding: 5vw;
 `;

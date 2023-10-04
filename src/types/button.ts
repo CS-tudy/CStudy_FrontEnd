@@ -13,4 +13,7 @@ export type ButtonComponent = {
   size: keyof SizeCSS;
   theme?: DefaultTheme;
   children?: React.ReactNode;
+  type?: string;
+  onClick?: (event: any) => void;
+  disabled?: boolean;
 };

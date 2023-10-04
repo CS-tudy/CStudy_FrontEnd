@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import { reset, setProblemQuery } from '../filterSlice';
+import { QueryFilterStoreType, reset, setProblemQuery } from '../filterSlice';
 import { ROUTE } from 'constants/Route';
 
 interface QueryFilterActionProps {
@@ -9,7 +9,9 @@ interface QueryFilterActionProps {
 
 interface QueryFilterActionState {
   queryFilter: QueryFilterStoreType;
+  query: string;
   isActive: string;
+  queryActive: boolean;
   handleToggle: () => void;
 }
 

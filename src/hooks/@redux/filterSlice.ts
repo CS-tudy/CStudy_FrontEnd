@@ -72,6 +72,11 @@ const categoryFilterSlice = createSlice({
   },
 });
 
+export interface QueryFilterStoreType {
+  query: string;
+  setProblemQuery: (query: string) => void;
+}
+
 const queryFilterSlice = createSlice({
   name: 'queryFilter',
   initialState: {
@@ -92,6 +97,22 @@ const queryFilterSlice = createSlice({
   },
 });
 
+const contestFilterSlice = createSlice({
+  name: 'contestFilter',
+  initialState: {
+    pageNumber: 0,
+    query: '',
+  },
+  reducers: {
+    setContestQuery(state, action) {
+      state.query = action.payload;
+    },
+    setContestPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const { setStatus, setStatusValue, toggleStatusActive } =
@@ -99,6 +120,8 @@ export const { setStatus, setStatusValue, toggleStatusActive } =
 export const { setCategory, setCategoryValue, toggleCategoryActive } =
   categoryFilterSlice.actions;
 export const { setProblemQuery } = queryFilterSlice.actions;
+export const { setContestQuery, setContestPageNumber } =
+  contestFilterSlice.actions;
 
 export const filterReducer = {
   page: pageNumberSlice.reducer,

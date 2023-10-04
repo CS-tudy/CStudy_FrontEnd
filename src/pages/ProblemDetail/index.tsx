@@ -12,6 +12,8 @@ import { UTIL } from 'constants/Util';
 import { IProblem } from 'types/api';
 import { userInfo } from 'repository/auth';
 import { RxLapTimer } from 'react-icons/rx';
+import ProblemDetailFooter from 'components/unit/Problem/ProblemDetailFooter';
+import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
 
 const ProblemDetailPage = () => {
   const { problemId } = useParams();
@@ -48,6 +50,12 @@ const ProblemDetailPage = () => {
   }, []);
 
   const { register, handleSubmit } = useForm<FieldValues>();
+
+  const selectAnswerProblem = useSelectAnswerProblem({
+    handleIsLoading,
+    handleIsAnswer,
+    actionAnimations,
+  });
 
   const onSubmit: SubmitHandler<FieldValues> = FormData => {
     const choiceNumber = { choiceNumber: parseInt(FormData.choiceNumber) };
@@ -93,7 +101,9 @@ const ProblemDetailPage = () => {
         isAnswer={isAnswer}
         isAction={isAction}
         timeCheck={timeCheck}
-      />
+      ></ProblemDetail>
+      {/* {isAction && isAnswer ? <div>정답</div> : <div>오답</div>} */}
+      {isAnswer && <ProblemDetailFooter explain={problem?.explain as string} />}
     </Container>
   );
 };

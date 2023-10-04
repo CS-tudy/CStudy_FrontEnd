@@ -13,9 +13,10 @@ import { useEffect, useState } from 'react';
 import { getMyPage } from 'api/mypage';
 import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
 import { userInfo } from 'repository/auth';
+import { LoginUserDto } from 'types/problem';
 
 const RequestDetail = () => {
-  const [userInfoData, setUserInfoData] = useState();
+  const [userInfoData, setUserInfoData] = useState<LoginUserDto | null>();
 
   const { requestId } = useParams();
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const RequestDetail = () => {
   };
 
   useEffect(() => {
-    console.log(userInfo().memberId);
+    console.log(userInfo()?.memberId);
     setUserInfoData(userInfo());
   }, []);
 

@@ -36,7 +36,7 @@ export const getProblemListTest = () => {
   return response;
 };
 
-export const getProblemListSearch = search => {
+export const getProblemListSearch = (search: string) => {
   const response = instance.get(`/api/questions?questionTitle=${search}`);
   return response;
 };

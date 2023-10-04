@@ -14,5 +14,6 @@ export type ButtonComponent = {
   theme?: DefaultTheme;
   children?: React.ReactNode;
   type?: string;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: any) => void;
+  disabled?: boolean;
 };

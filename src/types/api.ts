@@ -46,7 +46,7 @@ type Choices = {
 export interface IProblem {
   title: string;
   categoryTitle: string;
-  content: string[];
+  content: ProblemContent[];
   description: string;
   explain: string;
   choices: Choices[];
@@ -62,8 +62,86 @@ export interface MyPage {
 }
 
 // rank
-
 export interface Ranks {
   score: number | null;
   value: string | null;
+}
+
+// contest
+export interface Contest {
+  title: string;
+  startTime: string;
+  endTime: string;
+  participants: number;
+  maxParticipants: number;
+}
+
+export interface ContestProblem {
+  questionId: number;
+  description: string;
+  choices: Choices[];
+}
+
+type ContestSort = {
+  sorted: boolean;
+  unsorted: boolean;
+  empty: boolean;
+};
+
+type ContestPageAble = {
+  offset: number;
+  pageNumber: number;
+  pageSize: number;
+  paged: boolean;
+  sort: ContestSort;
+  unpaged: boolean;
+};
+
+export type ContestContent = {
+  id: number;
+  title: string;
+  startTime: string;
+  endTime: string;
+  participants: number;
+};
+
+export interface ContestList {
+  content: ContestContent[];
+  empty: boolean;
+  first: boolean;
+  last: boolean;
+  number: number;
+  numberOfElements: number;
+  pageable: ContestPageAble;
+  size: number;
+  sort: ContestSort;
+  totalElements: number;
+  totalPages: number;
+}
+
+type ContestDetail = {
+  questionId: number;
+  choiceNumber: number;
+  correct: boolean;
+};
+
+export interface ContestResult {
+  score: number;
+  total: number;
+  details: ContestDetail[];
+}
+
+export type ContestRankingContent = {
+  memberId: number;
+  name: string;
+  score: number;
+  endTime: number | null;
+};
+
+export interface ContestRanking extends Omit<ContestList, 'content'> {
+  content: ContestRankingContent[];
+}
+
+export interface ContestMyRanking {
+  ranking: boolean | null;
 }

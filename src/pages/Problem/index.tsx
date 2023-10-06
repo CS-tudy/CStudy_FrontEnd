@@ -22,14 +22,42 @@ import _ from 'lodash';
 import { useMemo } from 'react';
 
 const Problem = () => {
-  // const [problemList, setProblemList] = useState<IProblem>();
+  const [problemList, setProblemList] = useState<IProblem>();
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const teststate = useSelector(state => state);
   const pageNumber = useSelector(
-    (state: any) => state.persistedReducer.page.pageNumber,
+    (state: any) => state.rootReducer.page.pageNumber,
   );
   // console.log('state', teststate);
+  const { register, handleSubmit } = useForm();
+
+  const { status, statusValue, statusActive, handleStatusClick } =
+    useStatusFilterSlice();
+  const { category, categoryValue, categoryActive, handleCategoryClick } =
+    useCategoryFilterSlice();
+  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
+
+  const fetchProblemListTest = async () => {
+    const res = await getProblemListTest();
+    setProblemList(res.data);
+  };
+
+  useEffect(() => {
+    fetchProblemListTest();
+    console.log(problemList);
+  }, []);
+
+  // const problemList = useGetProblemList({
+  //   questionTitle: 'Question',
+  //   categoryTitle: categoryValue,
+  //   status: statusValue,
+  //   memberId: 0,
+  //   page: pageNumber,
+  //   query: query,
+  // });
+
+  // console.log(problemList);
 
   const { status, statusValue, statusActive, handleStatusClick } =
     useStatusFilterSlice();

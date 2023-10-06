@@ -25,7 +25,7 @@ export interface AddboardListForm {
 }
 
 /* hsw notice type*/
-export interface ApiResponse {
+export interface RequestNoticeList {
   totalPages: number;
   totalElements: bigint;
   size: number;
@@ -55,13 +55,6 @@ export interface ApiResponse {
 }
 
 interface ContentItem {
-  id: number;
-  title: string;
-  content: string;
-  createdDate: string;
-}
-
-export interface RequestNoticeDetail {
   id: number;
   title: string;
   content: string;
@@ -218,4 +211,20 @@ export interface ContestRanking extends Omit<ContestList, 'content'> {
 
 export interface ContestMyRanking {
   ranking: boolean | null;
+}
+
+/* hsw comment type*/
+export interface RequestComment {
+  id: string;
+  content: string;
+  memberId: string;
+  author: string;
+  parentCommentId: string;
+  childComments: [];
+}
+
+export interface AddComment {
+  noticeId: string;
+  content: string;
+  parentCommentId?: string;
 }

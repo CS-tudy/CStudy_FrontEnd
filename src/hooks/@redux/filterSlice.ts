@@ -110,6 +110,24 @@ const contestFilterSlice = createSlice({
     setContestPageNumber(state, action) {
       state.pageNumber = action.payload;
     },
+  },
+});
+
+const NoticeFilterSlice = createSlice({
+  name: 'noticeFilter',
+  initialState: {
+    pageNumber: 0,
+    query: 'notice',
+    SearchTitle: '',
+    SearchContent: '',
+  },
+  reducers: {
+    setQuery(state, action) {
+      state.query = action.payload;
+    },
+    setPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
     setSearchInput(state, action) {
       state.SearchTitle = action.payload;
     },
@@ -123,46 +141,6 @@ const contestFilterSlice = createSlice({
   },
 });
 
-const categoryFilterSlice = createSlice({
-  name: 'categoryFilter',
-  initialState: {
-    category: '',
-    categoryValue: '',
-    categoryActive: false,
-  },
-  reducers: {
-    setCategory(state, action: PayloadAction<string>) {
-      state.category = action.payload;
-    },
-    setCategoryValue(state, action: PayloadAction<string>) {
-      state.categoryValue = action.payload;
-    },
-    toggleCategoryActive(state) {
-      state.categoryActive = !state.categoryActive;
-    },
-  },
-});
-
-const queryFilterSlice = createSlice({
-  name: 'queryFilter',
-  initialState: {
-    query: '',
-    queryActive: '',
-  },
-  reducers: {
-    setProblemQuery(state, action) {
-      state.query = action.payload;
-      // state.QueryActive = state.query === ROUTE.PROBLEMSET_MYQUESTION;
-    },
-    // reset(state) {
-    //   return {
-    //     query: '',
-    //     isActive: false,
-    //   };
-    // },
-  },
-});
-
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
@@ -172,6 +150,8 @@ export const {
   setContenthInput: setNoticeFilterSearchContent,
   setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
+export const { setContestQuery, setContestPageNumber } =
+  contestFilterSlice.actions;
 
 export const { setStatus, setStatusValue, toggleStatusActive } =
   statusFilterSlice.actions;

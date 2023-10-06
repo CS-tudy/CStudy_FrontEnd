@@ -25,7 +25,7 @@ export const useSelectAnswerProblem = ({
       switch (error) {
         case '3000':
           // toast.error('이미 풀은 문제입니다.');
-          alert('이미 푼 문제입니다.');
+          alert('이미 풀은 문제입니다.');
           break;
 
         default:

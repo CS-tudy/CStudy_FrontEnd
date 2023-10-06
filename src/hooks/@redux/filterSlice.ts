@@ -123,8 +123,48 @@ const contestFilterSlice = createSlice({
   },
 });
 
+const categoryFilterSlice = createSlice({
+  name: 'categoryFilter',
+  initialState: {
+    category: '',
+    categoryValue: '',
+    categoryActive: false,
+  },
+  reducers: {
+    setCategory(state, action: PayloadAction<string>) {
+      state.category = action.payload;
+    },
+    setCategoryValue(state, action: PayloadAction<string>) {
+      state.categoryValue = action.payload;
+    },
+    toggleCategoryActive(state) {
+      state.categoryActive = !state.categoryActive;
+    },
+  },
+});
+
+const queryFilterSlice = createSlice({
+  name: 'queryFilter',
+  initialState: {
+    query: '',
+    queryActive: '',
+  },
+  reducers: {
+    setProblemQuery(state, action) {
+      state.query = action.payload;
+      // state.QueryActive = state.query === ROUTE.PROBLEMSET_MYQUESTION;
+    },
+    // reset(state) {
+    //   return {
+    //     query: '',
+    //     isActive: false,
+    //   };
+    // },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
-export const { setQuery, setPageNumber } = requestFilterSlice.actions;
+export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
   setQuery: setNoticeFilterQuery,
   setPageNumber: setNoticeFilterPageNumber,
@@ -133,9 +173,16 @@ export const {
   setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
 
+export const { setStatus, setStatusValue, toggleStatusActive } =
+  statusFilterSlice.actions;
+export const { setCategory, setCategoryValue, toggleCategoryActive } =
+  categoryFilterSlice.actions;
+export const { setProblemQuery } = queryFilterSlice.actions;
+
 export const filterReducer = {
   page: pageNumberSlice.reducer,
   filter: requestFilterSlice.reducer,
+  Noticefilter: NoticeFilterSlice.reducer,
   statusFilter: statusFilterSlice.reducer,
   categoryFilter: categoryFilterSlice.reducer,
   queryFilter: queryFilterSlice.reducer,

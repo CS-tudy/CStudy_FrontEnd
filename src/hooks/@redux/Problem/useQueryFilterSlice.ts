@@ -1,19 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
-import { QueryFilterStoreType, reset, setProblemQuery } from '../filterSlice';
+import { reset, setProblemQuery } from '../filterSlice';
 import { ROUTE } from 'constants/Route';
-
-interface QueryFilterActionProps {
-  reset: () => void;
-}
-
-interface QueryFilterActionState {
-  queryFilter: QueryFilterStoreType;
-  query: string;
-  isActive: string;
-  queryActive: boolean;
-  handleToggle: () => void;
-}
 
 const useQueryFilterSlice = (): QueryFilterActionState => {
   const dispatch = useDispatch();
@@ -22,9 +10,6 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
   );
   // queryFilterState.queryActive =
   //   queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
-
-  const isActive =
-    queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
 
   const handleToggle = () => {
     dispatch(reset());
@@ -35,7 +20,7 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
     );
   };
 
-  return { ...queryFilterState, handleToggle, isActive };
+  return { ...queryFilterState, handleToggle };
 };
 
 export default useQueryFilterSlice;

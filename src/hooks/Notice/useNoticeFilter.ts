@@ -5,17 +5,17 @@ import {
   setNoticeFilterSearchContent,
   setNoticeFilterSearchReset,
   setPageNumber,
-  setQuery,
+  setRequestQuery,
 } from 'hooks/@redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useCallback, useState } from 'react';
+import { RootState } from 'stroe';
 
 const useNoticeFilter = () => {
-  // const [selectedSearchOption, setSelectedSearchOption] = useState('title');
   const dispatch = useDispatch();
   const noticeFilter = useSelector(
-    (state: any) => state.rootReducer.Noticefilter,
+    (state: RootState) => state.rootReducer.Noticefilter,
   );
 
   // Define your isActive variable as you have done
@@ -28,7 +28,7 @@ const useNoticeFilter = () => {
   const handleToggle = () => {
     // dispatch(reset());
 
-    dispatch(setQuery(ROUTE.NOTICE_LIST));
+    dispatch(setRequestQuery(ROUTE.NOTICE_LIST));
   };
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(

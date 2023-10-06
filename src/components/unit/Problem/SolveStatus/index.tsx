@@ -13,7 +13,7 @@ const SolveStatus = ({ status }: solveStatusProp) => {
       </span>
     );
   }
-  if (status === 2) {
+  if (status === 2 || status === 0) {
     return (
       <span className="failed">
         <RiCloseFill size={25} />

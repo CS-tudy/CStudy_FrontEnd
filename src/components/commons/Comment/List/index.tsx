@@ -11,6 +11,7 @@ interface CommentListProps {
 
 const CommentList = ({ commentList }: CommentListProps) => {
   const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
+  //   console.log(commentList);
 
   return (
     <S.Wrapper>

@@ -4,7 +4,7 @@ import ChoiceList from '../ChoiceList';
 import * as S from './style';
 
 interface ProblemFormProps {
-  problem: IProblem;
+  problem: Problem;
   register?: UseFormRegister<FieldValues>;
 }
 

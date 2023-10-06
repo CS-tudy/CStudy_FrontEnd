@@ -23,31 +23,7 @@ import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Problem = () => {
-  const [problemList, setProblemList] = useState<IProblem>();
-  const [inputValue, setInputValue] = useState('');
-  const dispatch = useDispatch();
-  const teststate = useSelector(state => state);
-  const pageNumber = useSelector(
-    (state: any) => state.rootReducer.page.pageNumber,
-  );
-  // console.log('state', teststate);
-  const { register, handleSubmit } = useForm();
-
-  const { status, statusValue, statusActive, handleStatusClick } =
-    useStatusFilterSlice();
-  const { category, categoryValue, categoryActive, handleCategoryClick } =
-    useCategoryFilterSlice();
-  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
-
-  const fetchProblemListTest = async () => {
-    const res = await getProblemListTest();
-    setProblemList(res.data);
-  };
-
-  useEffect(() => {
-    fetchProblemListTest();
-    console.log(problemList);
-  }, []);
+  // const [problemList, setProblemList] = useState();
 
   // const problemList = useGetProblemList({
   //   questionTitle: 'Question',
@@ -60,6 +36,25 @@ const Problem = () => {
 
   // console.log(problemList);
 
+  const filterOptionTotal = ['전체'];
+  const filterOptionEmpty = [''];
+  const noActiveFilterSelectIndex = [0];
+  const filterSelectIndex = [0, 1, 2];
+  const filterOptionStatus = ['전체', '완료', '실패'];
+  const filterOptionCategory = [
+    '전체',
+    '자바',
+    '네트워크',
+    '운영체제',
+    '데이터베이스',
+  ];
+  const filterOptionCategoryValue = [
+    '',
+    '자바',
+    '네트워크',
+    '운영체제',
+    '데이터베이스',
+  ];
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];
   const noActiveFilterSelectIndex = [0];

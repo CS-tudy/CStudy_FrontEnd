@@ -16,15 +16,16 @@ import CreateContest from 'pages/Admin/CreateContest';
 import RequestQuestion from 'pages/Admin/RequestQuestion';
 import { checkAdminLoader } from '../../src/repository/auth';
 import RequestEdit from 'pages/Request/RequestEdit';
-import CreateBoard from 'pages/Admin/Board';
+import CreateBoard from 'pages/Admin/Notice';
 import Problem from 'pages/Problem';
 import ProblemDetailPage from 'pages/ProblemDetail';
 import Notice from 'pages/Notice';
 
 import AdminRoute from './AdminRouter';
-import ContestInfo from 'pages/ContestDetail';
+import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -32,8 +33,9 @@ const Router = () => {
         <Routes>
           {/* path = 경로  element = 컴포넌트*/}
           <Route path="/" element={<Main />} />
-          <Route path="/board" element={<Notice />} />
-          <Route path="/admin/board" element={<CreateBoard />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/:Id" element={<NoticeRequestDetail />} />
+          <Route path="/admin/notice" element={<CreateBoard />} />
           <Route path="/request" element={<Request />} />
           <Route path="/request/:requestId" element={<RequestDetailPage />} />
           <Route path="/request/new" element={<RequestWrite />} />

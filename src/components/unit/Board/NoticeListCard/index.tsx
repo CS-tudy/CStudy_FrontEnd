@@ -16,7 +16,7 @@ const NoticeListCard = ({
 }: NoticeCardProps) => {
   return (
     <S.Container>
-      <Link to={`${id}`}>
+      <Link to={`/notice/${id}`}>
         <S.Article>
           <S.ContentWrapper>
             <S.Content>

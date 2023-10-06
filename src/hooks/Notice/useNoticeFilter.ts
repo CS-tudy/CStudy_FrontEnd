@@ -3,20 +3,20 @@ import {
   reset,
   setNoticeFilterSearchTitle,
   setNoticeFilterSearchContent,
+  setNoticeFilterSearchReset,
   setPageNumber,
   setRequestQuery,
 } from 'hooks/@redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import { RootState } from 'stroe';
 
 const useNoticeFilter = () => {
   const dispatch = useDispatch();
   const noticeFilter = useSelector(
-    (state: any) => state.rootReducer.Noticefilter,
+    (state: RootState) => state.rootReducer.Noticefilter,
   );
-
-  // Define your isActive variable as you have done
 
   const handlePage = (page: number) => {
     dispatch(setPageNumber(page));
@@ -29,12 +29,18 @@ const useNoticeFilter = () => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(
-    ({ title, content }) => {
-      console.log(title);
+    formData => {
+      const { searchOption, title, content } = formData; // Destructure searchOption from formData
+      console.log(searchOption);
 
-      // dispatch(noticeFilter.setSearchInput(search));
-      dispatch(setNoticeFilterSearchTitle(title));
-      // noticeFilter.setSearchInput(search);
+      if (searchOption === 'title') {
+        dispatch(setNoticeFilterSearchTitle(title));
+        dispatch(setNoticeFilterSearchContent('')); // Reset content search
+      } else if (searchOption === 'content') {
+        console.log(content);
+        dispatch(setNoticeFilterSearchContent(content));
+        dispatch(setNoticeFilterSearchTitle(''));
+      }
     },
     [noticeFilter],
   );

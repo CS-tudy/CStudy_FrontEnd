@@ -29,7 +29,6 @@ const CreateBoard = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async formData => {
     addboard({ ...formData });
-    console.log('test');
   };
 
   return (

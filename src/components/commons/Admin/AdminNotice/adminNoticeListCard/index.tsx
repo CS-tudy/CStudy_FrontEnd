@@ -26,40 +26,7 @@ const AdminNoticeListCard = ({
   createdDate,
 }: AdminNoticeCardProps) => {
   const [isActive, setIsActive] = useState(false);
-  // const {
-  //   register,
-  //   handleSubmit: handleSubmit,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm<FieldValues>({
-  //   defaultValues: {
-  //     title: title,
-  //   },
-  // });
 
-  // const handleIsActive = useCallback((isActive: boolean) => {
-  //   setIsActive(isActive);
-  // }, []);
-
-  // const { mutate: deleteComment } = useDeleteNoticeList();
-  // const UpdateNotice = useUpdateNoticeList({ handleIsActive });
-
-  // const onSubmit: SubmitHandler<FieldValues> = data => {
-  //   console.log(data.action);
-
-  //   if (data.action === 'delete') {
-  //     deleteComment(id);
-  //   }
-
-  //   if (data.action === 'edit') {
-  //     const formData = {
-  //       id: id,
-  //       title: data.title,
-  //       content: data.content,
-  //     };
-  //     UpdateNotice({ formData });
-  //   }
-  // };
   return (
     <S.Container>
       <S.Article>

@@ -24,7 +24,7 @@ export interface AddboardListForm {
   title: string;
 }
 
-/* hsw 임시 타입 설정*/
+/* hsw notice type*/
 export interface RequestNoticeList {
   totalPages: number;
   totalElements: number;
@@ -35,6 +35,13 @@ export interface RequestNoticeList {
 }
 
 interface ContentItem {
+  id: number;
+  title: string;
+  content: string;
+  createdDate: string;
+}
+
+export interface RequestNoticeDetail {
   id: number;
   title: string;
   content: string;
@@ -166,4 +173,20 @@ export interface ContestRanking extends Omit<ContestList, 'content'> {
 
 export interface ContestMyRanking {
   ranking: boolean | null;
+}
+
+/* hsw comment type*/
+export interface RequestComment {
+  id: string;
+  content: string;
+  memberId: string;
+  author: string;
+  parentCommentId: string;
+  childComments: [];
+}
+
+export interface AddComment {
+  noticeId: string;
+  content: string;
+  parentCommentId?: string;
 }

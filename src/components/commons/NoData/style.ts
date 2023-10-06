@@ -7,5 +7,5 @@ export const NoDataContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 40vh;
-  ${FONT.BOLD_16}
+  ${FONT.BOLD_18}
 `;

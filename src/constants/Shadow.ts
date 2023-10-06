@@ -9,7 +9,7 @@ export const SHADOW = {
     '0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.1), inset 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.12);',
   CONTENTBOX_XLG:
     '0.4rem 0.4rem 2.4rem rgba(0, 0, 0, 0.1), inset 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.12);',
-  QUESTION: '-0.2rem 0.2rem 0 0 rgba(0, 0, 0, 0.5);',
+  QUESTION: '-0.15rem 0.15rem 0 0 rgba(0, 0, 0, 0.5);',
 
   BUTTON:
     'inset 0.4rem 0.4rem 0.6rem -0.4rem rgba(230, 230, 230, 0.3), inset -0.4rem -0.4rem 0.8rem -0.5rem rgba(0, 0, 0, 0.3);',

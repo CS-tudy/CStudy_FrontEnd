@@ -22,6 +22,7 @@ const ReplayCommentList = ({ replaycomment }: childCommentsProps) => {
   const currentDepth = useSelector(
     (state: RootState) => state.rootReducer.comment.depth.currentDepth,
   );
+  console.log(replaycomment);
 
   const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
 

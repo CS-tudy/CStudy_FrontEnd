@@ -21,8 +21,6 @@ const DeleteComment = ({ commentId }: DeleteCommentProps) => {
   const { mutate: deleteComment } = useDeleteCommentList();
 
   const onSubmit: SubmitHandler<FieldValues> = () => {
-    console.log(commentId);
-
     deleteComment({ commentId });
   };
 

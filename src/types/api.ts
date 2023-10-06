@@ -50,7 +50,8 @@ export interface RequestNoticeDetail {
 // export interface ToggleRequestList extends Omit<ContestList, 'content'> {
 export interface ToggleRequestList {
   content: RequestContent[];
-  totalPages?: number;
+  totalPages: number;
+  totalElements: number;
 }
 
 // Problem
@@ -62,16 +63,18 @@ export type ProblemContent = {
   status: number;
 };
 
-export interface ProblemList {
-  content: ProblemContent[];
+export interface IProblemList {
+  content?: ProblemContent[];
 }
 
-export interface Problem {
+export interface IProblem {
   title: string;
   categoryTitle: string;
+  content: string[];
   description: string;
   explain: string;
   // choices: Choices[];
+  totalElements: number;
 }
 
 // mypage

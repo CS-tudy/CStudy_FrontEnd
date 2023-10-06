@@ -21,11 +21,14 @@ export const ProblemNumber = styled.input`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-width: 6rem;
-  min-height: 6rem;
+  /* min-width: 6rem;
+  min-height: 6rem; */
+  min-width: 4.5rem;
+  min-height: 4.5rem;
   border: 0.2rem solid ${COLOR.WHITE};
-  border-radius: 100%;
-  box-shadow: ${SHADOW.CONTENTBOX_LG};
+  border-radius: 20%;
+  /* box-shadow: ${SHADOW.CONTENTBOX_LG}; */
+  border: 1px solid ${COLOR.GRAY_100};
 
   cursor: pointer;
 

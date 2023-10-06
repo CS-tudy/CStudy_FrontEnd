@@ -1,5 +1,9 @@
 import { ROUTE } from 'constants/Route';
-import { reset, setPageNumber, setQuery } from 'hooks/@redux/filterSlice';
+import {
+  reset,
+  setPageNumber,
+  setRequestQuery,
+} from 'hooks/@redux/filterSlice';
 // import {
 //   BoardFilterStoreType,
 //   useBoardFilterStore,
@@ -32,13 +36,13 @@ const useRequestFilter = () => {
   const handleToggle = () => {
     // boardFilter.reset();
     dispatch(reset());
-    // boardFilter.setQuery(
+    // boardFilter.setRequestQuery(
     //   boardFilter.query === ROUTE.BOARD_LIST
     //     ? ROUTE.BOARD_MY_LIST
     //     : ROUTE.BOARD_LIST,
     // );
     dispatch(
-      setQuery(
+      setRequestQuery(
         requestFilter.query === ROUTE.REQUEST_LIST
           ? ROUTE.REQUEST_MY_LIST
           : ROUTE.REQUEST_LIST,

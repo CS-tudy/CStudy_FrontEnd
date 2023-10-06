@@ -12,9 +12,9 @@ const ProblemDetailPage = () => {
   return (
     <Container>
       <div>
-        <Button variant="gray" size="medium" onClick={handleNavigateBack}>
+        {/* <Button variant="gray" size="medium" onClick={handleNavigateBack}>
           돌아가기
-        </Button>
+        </Button> */}
       </div>
       <ProblemDetail />
     </Container>

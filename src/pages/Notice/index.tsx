@@ -1,5 +1,5 @@
 import ContentContainer from 'components/commons/ContentContainer';
-import { Controller, FieldValues, useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import * as S from './style';
 import useGetNoticeList from 'hooks/@query/board/useGetNoticeList';
 import useNoticeFilter from 'hooks/Notice/useNoticeFilter';
@@ -9,6 +9,7 @@ import { RequestNoticeList } from 'types/api';
 import NoData from 'components/commons/NoData';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import { useState } from 'react';
+import { Button } from 'components/commons/Button/Style';
 
 const Notice = () => {
   const { register, control, handleSubmit, setValue, reset } =
@@ -44,17 +45,16 @@ const Notice = () => {
                 required: '검색어를 입력해주세요.',
               })}
             />
-            <button
+            <Button
               type="submit"
               onClick={handleSubmit(onSubmit)}
-              // variant="primary"
-              // size="medium"
+              variant="primary"
+              size="medium"
             >
               검색
-            </button>
+            </Button>
             <label>
-              Search Option:
-              <select
+              <S.Select
                 {...register('searchOption')}
                 onChange={e => {
                   setSelectedSearchOption(e.target.value);
@@ -65,7 +65,7 @@ const Notice = () => {
                     {option.label}
                   </option>
                 ))}
-              </select>
+              </S.Select>
             </label>
           </S.SearchWrapper>
           <NoticeList noticeList={noticeList as RequestNoticeList} />

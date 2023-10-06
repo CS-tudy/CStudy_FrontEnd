@@ -4,17 +4,20 @@ import {
   SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
+  useForm,
 } from 'react-hook-form';
-import { Problem } from 'types/api';
+import { IProblem } from 'types/api';
 // import ProblemRenderTitle from '../ProblemRenderTitle';
 // import ResultImage from 'components/@shared/ResultImage';
 import * as S from './style';
 import ProblemDetailContent from '../ProblemDetailContent';
 import ProblemDetailSubmit from '../ProblemDetailSubmit';
 import ProblemDetailTitle from '../ProblemDetailTitle';
+import { useParams } from 'react-router-dom';
+import { useGetProblem } from 'hooks/@query/problem/useGetProblem';
 
 // interface ProblemRenderProps {
-//   problem: Problem;
+//   problem: IProblem;
 //   Answer: string;
 //   isAnswer: boolean;
 //   isAction: boolean;
@@ -26,7 +29,7 @@ import ProblemDetailTitle from '../ProblemDetailTitle';
 // }
 
 const ProblemDetail = () =>
-  //   {
+  // {
   //   isLoading,
   //   problem,
   //   isAnswer,
@@ -39,22 +42,23 @@ const ProblemDetail = () =>
   //   children,
   // }: PropsWithChildren<ProblemDetailProps>
   {
+    const { problemId } = useParams();
+    const problem = useGetProblem(problemId as string);
+
+    const { register, handleSubmit } = useForm<FieldValues>();
+
     return (
       <S.Form
       // onSubmit={handleSubmit(onSubmit)}
       >
-        <ProblemDetailTitle
-        // problem={problem}
-        />
+        <ProblemDetailTitle problem={problem} />
         {/* {children} */}
         {/* <ResultImage
         isAnswer={isAnswer}
         isAction={isAction}
         timeCheck={timeCheck}
       /> */}
-        <ProblemDetailContent
-        // problem={problem} register={register}
-        />
+        <ProblemDetailContent problem={problem} register={register} />
         <ProblemDetailSubmit
         // timeCheck={timeCheck}
         // isAnswer={isAnswer}

@@ -1,4 +1,4 @@
-import AddComment from '../AddComment';
+import AddComment from '../OptionaddComment';
 import { useDispatch, useSelector } from 'react-redux';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';

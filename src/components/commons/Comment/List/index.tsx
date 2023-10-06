@@ -1,9 +1,9 @@
 import { RequestComment } from 'types/api';
 import ReplayCommentList from '../ReplayComment';
-import AddComment from '../AddComment';
+import AddComment from '../OptionaddComment';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
-import DeleteComment from '../DeleteComment';
+import DeleteComment from '../OptionDeleteComment';
 
 interface CommentListProps {
   commentList: RequestComment[];

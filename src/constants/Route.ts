@@ -4,4 +4,5 @@ export const ROUTE = {
   REQUEST_LIST: 'requests',
   REQUEST_MY_LIST: 'member',
   CONTEST_FINISH: '/finish',
+  NOTICE_LIST: '/notice',
 };

@@ -1,5 +1,5 @@
-const Contest = () => {
-  return <>Contest</>;
+const ContestProblem = () => {
+  return <>ContestProblem</>;
 };
 
-export default Contest;
+export default ContestProblem;

@@ -11,7 +11,7 @@ const useCategoryFilterSlice = () => {
   const dispatch = useDispatch();
 
   const categoryFilterState = useSelector(
-    (state: any) => state.persistedReducer.categoryFilter,
+    (state: any) => state.rootReducer.categoryFilter,
   );
 
   const handleCategoryClick = (e: MouseEvent) => {

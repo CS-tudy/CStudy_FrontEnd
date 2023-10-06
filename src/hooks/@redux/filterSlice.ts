@@ -113,8 +113,42 @@ const contestFilterSlice = createSlice({
   },
 });
 
+const NoticeFilterSlice = createSlice({
+  name: 'noticeFilter',
+  initialState: {
+    pageNumber: 0,
+    query: 'notice',
+    SearchTitle: '',
+    SearchContent: '',
+  },
+  reducers: {
+    setRequestQuery(state, action) {
+      state.query = action.payload;
+    },
+    setPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+    setSearchInput(state, action) {
+      state.SearchTitle = action.payload;
+    },
+    setContenthInput(state, action) {
+      state.SearchContent = action.payload;
+    },
+    reset(state) {
+      state.query = '';
+      state.pageNumber = 0;
+    },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
+export const {
+  setQuery: setNoticeFilterQuery,
+  setPageNumber: setNoticeFilterPageNumber,
+  setSearchInput: setNoticeFilterSearchTitle,
+  setContenthInput: setNoticeFilterSearchContent,
+} = NoticeFilterSlice.actions;
 export const { setStatus, setStatusValue, toggleStatusActive } =
   statusFilterSlice.actions;
 export const { setCategory, setCategoryValue, toggleCategoryActive } =
@@ -126,6 +160,7 @@ export const { setContestQuery, setContestPageNumber } =
 export const filterReducer = {
   page: pageNumberSlice.reducer,
   filter: requestFilterSlice.reducer,
+  Noticefilter: NoticeFilterSlice.reducer,
   statusFilter: statusFilterSlice.reducer,
   categoryFilter: categoryFilterSlice.reducer,
   queryFilter: queryFilterSlice.reducer,

@@ -11,7 +11,7 @@ const useStatusFilterSlice = () => {
   const dispatch = useDispatch();
 
   const statusFilterState = useSelector(
-    (state: any) => state.persistedReducer.statusFilter,
+    (state: any) => state.rootReducer.statusFilter,
   );
 
   const handleStatusClick = (e: React.MouseEvent) => {

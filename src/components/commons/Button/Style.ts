@@ -44,7 +44,7 @@ const sizeCSS: SizeCSS = {
 
   full: css`
     width: 100%;
-    font-size: ${FONT.REGULAR_18};
+    font-size: ${FONT.REGULAR_14};
   `,
 };
 
@@ -53,11 +53,14 @@ export const Button = styled.button<ButtonComponent>`
   ${({ size }) => sizeCSS[size]}
   cursor: pointer;
   border: none;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   padding: 1.2rem 1.6rem;
   border-radius: 1rem;
   &:hover {
     opacity: 0.8;
+  }
+  & + & {
+    margin-left: 1.1rem;
   }
 `;

@@ -18,6 +18,28 @@ export type RequestContent = {
   createAt: string;
   flag: boolean;
 };
+
+export interface AddboardListForm {
+  content: string;
+  title: string;
+}
+
+/* hsw 임시 타입 설정*/
+export interface RequestNoticeList {
+  totalPages: number;
+  totalElements: number;
+  size: number;
+  content: ContentItem[];
+  number: number;
+  numberOfElements: number;
+}
+
+interface ContentItem {
+  id: number;
+  title: string;
+  content: string;
+  createdDate: string;
+}
 // export interface ToggleRequestList extends Omit<ContestList, 'content'> {
 export interface ToggleRequestList {
   content: RequestContent[];

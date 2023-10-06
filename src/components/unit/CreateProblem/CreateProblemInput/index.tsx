@@ -1,4 +1,4 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { ChangeHandler, FieldValues, UseFormRegister } from 'react-hook-form';
 import * as S from './style';
 
 interface CreateProblemInputProps {
@@ -7,10 +7,13 @@ interface CreateProblemInputProps {
   placeholder?: string;
   type?: string;
   register: UseFormRegister<FieldValues>;
-  name: string;
+  name?: string;
+  resgiterName: string;
   required?: boolean;
   disabled?: boolean;
   value?: string;
+  onChange?: ChangeHandler;
+  checked?: boolean;
 }
 
 const CreateProblemInput = ({
@@ -19,8 +22,11 @@ const CreateProblemInput = ({
   type,
   register,
   name,
+  resgiterName,
   label,
   value,
+  onChange,
+  checked,
 }: CreateProblemInputProps) => {
   return (
     <>
@@ -31,16 +37,18 @@ const CreateProblemInput = ({
             id={id}
             placeholder={placeholder}
             type={type}
-            {...register(name)}
+            {...register(resgiterName)}
           />
         </>
       )}
-      {type === 'checkbox' && (
+      {type === 'radio' && (
         <S.CheckBoxInput
           id={id}
           type={type}
           value={value}
-          {...register(name)}
+          checked={checked}
+          name={name}
+          {...(register(resgiterName), { onChange: () => onChange })}
         />
       )}
     </>

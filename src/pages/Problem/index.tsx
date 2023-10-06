@@ -20,16 +20,18 @@ import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice'
 import Pagination from 'components/commons/Pagination';
 import _ from 'lodash';
 import { useMemo } from 'react';
+import { useForm } from 'react-hook-form';
 
 const Problem = () => {
-  // const [problemList, setProblemList] = useState<IProblem>();
+  const [problemList, setProblemList] = useState<IProblem>();
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const teststate = useSelector(state => state);
   const pageNumber = useSelector(
-    (state: any) => state.persistedReducer.page.pageNumber,
+    (state: any) => state.rootReducer.page.pageNumber,
   );
   // console.log('state', teststate);
+  const { register, handleSubmit } = useForm();
 
   const { status, statusValue, statusActive, handleStatusClick } =
     useStatusFilterSlice();
@@ -37,26 +39,26 @@ const Problem = () => {
     useCategoryFilterSlice();
   const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
 
-  // const fetchProblemListTest = async () => {
-  //   const res = await getProblemListTest();
-  //   setProblemList(res.data);
-  // };
+  const fetchProblemListTest = async () => {
+    const res = await getProblemListTest();
+    setProblemList(res.data);
+  };
 
-  // useEffect(() => {
-  //   fetchProblemListTest();
-  //   console.log(problemList);
-  // }, []);
+  useEffect(() => {
+    fetchProblemListTest();
+    console.log(problemList);
+  }, []);
 
-  const problemList = useGetProblemList({
-    questionTitle: 'Question',
-    categoryTitle: categoryValue,
-    status: statusValue,
-    memberId: 0,
-    page: pageNumber,
-    query: query,
-  });
+  // const problemList = useGetProblemList({
+  //   questionTitle: 'Question',
+  //   categoryTitle: categoryValue,
+  //   status: statusValue,
+  //   memberId: 0,
+  //   page: pageNumber,
+  //   query: query,
+  // });
 
-  console.log(problemList);
+  // console.log(problemList);
 
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];
@@ -141,11 +143,39 @@ const Problem = () => {
       const res = await getProblemListSearch(e.target.value);
       console.log(e.target.value);
       // setProblemList(res.data);
+      console.log('res', res);
+      setProblemList(res.data);
     }
   };
 
+  // function SearchForm({ onSearch }) {
+  //   const onSubmit = data => {
+  //     onSearch(data.searchTerm);
+  //   };
+  // }
+
   return (
     <>
+      {' '}
+      <input
+        type="text"
+        style={{ border: '1px solid gray' }}
+        placeholder="검색어를 입력해 주세요."
+        onChange={e => {
+          setInputValue(e.target.value);
+        }}
+        value={inputValue}
+        onKeyDown={handleLoadSearch}
+      />
+      {/* <form  onSubmit={handleSubmit(onSubmit)}>
+        <input
+          name="searchTerm"
+          style={{ border: '1px solid gray' }}
+          ref={register}
+          placeholder="검색어를 입력하세요."
+        />
+        <button type="submit">검색</button>
+      </form> */}
       <div>
         {/* <input
           type="text"
@@ -154,7 +184,7 @@ const Problem = () => {
           onChange={onChangeSearchbar}
           value={inputValue}
         /> */}
-        <input
+        {/* <input
           type="text"
           style={{ border: '1px solid gray' }}
           placeholder="검색어를 입력해 주세요."
@@ -163,7 +193,7 @@ const Problem = () => {
           }}
           value={inputValue}
           onKeyDown={handleLoadSearch}
-        />
+        /> */}
       </div>
       <S.Div>
         <S.Contents>

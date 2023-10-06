@@ -1,5 +1,5 @@
 import { useAddCommentList } from 'hooks/@query/comment/useCreateComment';
-import * as S from './style';
+import * as S from 'components/commons/Comment/OptionaddComment/style';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from 'components/commons/Button/Style';
 import { useSelector } from 'react-redux';

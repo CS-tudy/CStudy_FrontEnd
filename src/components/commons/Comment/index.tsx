@@ -1,6 +1,6 @@
 import useGetCommentList from 'hooks/@query/comment/useGetCommentts';
 import Container from '../Container';
-import AddComment from './AddComment';
+import AddComment from './OptionaddComment';
 import CommentList from './List';
 import { useParams } from 'react-router-dom';
 import * as S from './style';

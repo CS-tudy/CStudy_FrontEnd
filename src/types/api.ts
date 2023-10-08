@@ -228,3 +228,8 @@ export interface AddComment {
   content: string;
   parentCommentId?: string;
 }
+
+export interface WorkbookSetForm {
+  title: string;
+  description: string;
+}

@@ -9,6 +9,8 @@ interface GetRequestList {
 }
 
 const useGetNoticeList = ({ page, query, title, content }: GetRequestList) => {
+  console.log(page);
+
   const { data: requestList } = useQuery(
     ['noticeList', { page, query, title, content }],
     () => getToggleRequestList({ page, query, title, content }),

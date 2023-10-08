@@ -4,7 +4,7 @@ import {
   setNoticeFilterSearchTitle,
   setNoticeFilterSearchContent,
   setNoticeFilterSearchReset,
-  setPageNumber,
+  setNoticeFilterPageNumber,
   setRequestQuery,
 } from 'hooks/@redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,9 @@ const useNoticeFilter = () => {
   const isActive = noticeFilter.query === ROUTE.NOTICE_MY_LIST ? 'active' : '';
 
   const handlePage = (page: number) => {
-    dispatch(setPageNumber(page));
+    console.log(page);
+
+    dispatch(setNoticeFilterPageNumber(page));
   };
 
   const handleToggle = () => {

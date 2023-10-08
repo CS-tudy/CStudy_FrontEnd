@@ -28,6 +28,7 @@ import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import ContestResult from 'pages/ContestResult';
 import Review from 'pages/Review';
+import CreateWorkbook from 'pages/Admin/CreateWorkbook';
 
 const Router = () => {
   return (
@@ -45,7 +46,7 @@ const Router = () => {
           <Route path="/request/:requestId" element={<RequestDetailPage />} />
           <Route path="/request/new" element={<RequestWrite />} />
           <Route path="/request/:requestId/edit" element={<RequestEdit />} />
-          <Route path="/workbook" element={<Workbook />} />
+          <Route path="/workbook" element={<CreateWorkbook />} />
           <Route path="/contest" element={<Contest />} />
           <Route path="/problem" element={<Problem />} />
           <Route path="/problem/:problemId" element={<ProblemDetailPage />} />
@@ -85,6 +86,15 @@ const Router = () => {
               <AdminRoute
                 authenticated={checkAdminLoader()}
                 component={<RequestQuestion />}
+              />
+            }
+          />
+          <Route
+            path="/admin/CreateWorkbook"
+            element={
+              <AdminRoute
+                authenticated={checkAdminLoader()}
+                component={<CreateWorkbook />}
               />
             }
           />

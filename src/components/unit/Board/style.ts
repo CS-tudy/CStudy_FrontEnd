@@ -65,4 +65,7 @@ export const Detail = styled.div`
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.GRAY_200};
   margin-top: 1.2rem;
+
+export const NoticeCards = styled.section`
+  margin: 2rem 0;
 `;

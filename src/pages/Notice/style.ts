@@ -5,6 +5,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 3rem;
+  width: 100%;
 `;
 
 export const SearchInput = styled.input`

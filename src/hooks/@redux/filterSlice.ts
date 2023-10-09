@@ -141,6 +141,31 @@ const NoticeFilterSlice = createSlice({
   },
 });
 
+const workbookFilterSlice = createSlice({
+  name: 'workbookFilter',
+  initialState: {
+    pageNumber: 0,
+    title: '',
+    description: '',
+  },
+  reducers: {
+    setPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+    setTitle(state, action) {
+      state.title = action.payload;
+    },
+    setDescription(state, action) {
+      state.description = action.payload;
+    },
+    reset(state) {
+      state.pageNumber = 0;
+      state.title = '';
+      state.description = '';
+    },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
@@ -150,6 +175,8 @@ export const {
   setContenthInput: setNoticeFilterSearchContent,
   setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
+export const { setTitle, setDescription } = workbookFilterSlice.actions;
+
 export const { setContestQuery, setContestPageNumber } =
   contestFilterSlice.actions;
 
@@ -166,4 +193,5 @@ export const filterReducer = {
   statusFilter: statusFilterSlice.reducer,
   categoryFilter: categoryFilterSlice.reducer,
   queryFilter: queryFilterSlice.reducer,
+  workbookfilter: workbookFilterSlice.reducer,
 };

@@ -10,14 +10,12 @@ import { isAdmin } from 'repository/auth';
 import { useUpdateWorkbook } from 'hooks/@query/workbook/useUpdateWorkbook';
 
 interface CreateContestProps {
-  title: string;
   desc?: string;
   admin?: boolean;
   adminLink?: string;
 }
 
 const ContentHeaderWrapper = ({
-  title,
   desc,
   admin,
   adminLink,
@@ -81,7 +79,7 @@ const ContentHeaderWrapper = ({
           </Styled.AdminWrapper>
         )}
         {isAdmin() && adminLink && (
-          <StyleLink className="lg navy style" to="admin">
+          <StyleLink className="lg navy style" to="admin/CreateWorkbook">
             {adminLink}
           </StyleLink>
         )}

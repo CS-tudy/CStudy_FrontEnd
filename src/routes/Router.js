@@ -26,6 +26,7 @@ import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import ContestResult from 'pages/ContestResult';
+import Review from 'pages/Review';
 
 const Router = () => {
   return (
@@ -88,6 +89,7 @@ const Router = () => {
           <Route path="/contest/:contestId" element={<ContestDetail />} />
           <Route path="/contestproblem" element={<ContestProblem />} />
           <Route path="/contestresult" element={<ContestResult />} />
+          <Route path="/review" element={<Review />} />
         </Routes>
       </Layout>
     </BrowserRouter>

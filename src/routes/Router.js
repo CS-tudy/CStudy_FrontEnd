@@ -25,6 +25,7 @@ import AdminRoute from './AdminRouter';
 import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
+import ContestResult from 'pages/ContestResult';
 
 const Router = () => {
   return (
@@ -84,8 +85,9 @@ const Router = () => {
             }
           />
           <Route path="/oauth2/login" element={<OAuthRedirect />} />
-          <Route path="/contestinfo" element={<ContestDetail />} />
+          <Route path="/contest/:contestId" element={<ContestDetail />} />
           <Route path="/contestproblem" element={<ContestProblem />} />
+          <Route path="/contestresult" element={<ContestResult />} />
         </Routes>
       </Layout>
     </BrowserRouter>

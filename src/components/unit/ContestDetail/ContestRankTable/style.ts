@@ -3,13 +3,16 @@ import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
 export const ContestRanking = styled.div`
   width: 100%;
   padding: 2rem 4rem 3rem 3rem;
-  background-color: ${COLOR.WHITE};
-  border: 0.2rem solid ${COLOR.WHITE};
+  background-color: #f6f6f6;
+  /* border: 0.1rem solid #ddd; */
   border-radius: 1.2rem;
-  box-shadow: ${SHADOW.CONTENTBOX_XLG};
   margin-left: 3rem;
 `;
 

@@ -1,6 +1,6 @@
 import { TBodyTd } from 'components/commons/Table/style';
 
-const ContestListTableItem = () => {
+const ContestItem = () => {
   return (
     <tr>
       <TBodyTd>자바 대회</TBodyTd>
@@ -10,4 +10,4 @@ const ContestListTableItem = () => {
   );
 };
 
-export default ContestListTableItem;
+export default ContestItem;

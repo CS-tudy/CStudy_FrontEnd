@@ -1,7 +1,7 @@
-import ContestListTableItem from '../ContestListTableItem';
+import ContestItem from '../ContestItem';
 
 const ContestListTableBody = () => {
-  return <ContestListTableItem />;
+  return <ContestItem />;
 };
 
 export default ContestListTableBody;

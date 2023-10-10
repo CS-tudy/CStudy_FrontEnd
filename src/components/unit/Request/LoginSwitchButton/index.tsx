@@ -46,7 +46,7 @@ const LoginSwitchButton = ({
           </Button>
         </>
       ) : (
-        <Button variant="primary" size="medium">
+        <Button variant="primary" size="medium" onClick={checkLogin}>
           글 작성
         </Button>
       )}

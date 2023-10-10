@@ -13,21 +13,16 @@ export const Contents = styled.div`
   justify-content: flex-end;
   width: 100%;
   position: absolute;
-  margin-right: 5vw;
-  padding-right: 16rem;
+  padding-right: 5vw;
 `;
 
-export const Content1 = styled.div`
-  /* width: 20%; */
-`;
+export const Content1 = styled.div``;
 
 export const Content2 = styled.div`
-  /* width: 15%; */
+  margin-right: 1rem;
 `;
 
-export const Content3 = styled.div`
-  /* width: 15%; */
-`;
+export const Content3 = styled.div``;
 
 export const PaginationWrapper = styled.div`
   padding: 4rem 0 6rem;

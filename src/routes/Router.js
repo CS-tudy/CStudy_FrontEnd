@@ -27,6 +27,7 @@ import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import CreateWorkbook from 'pages/Admin/CreateWorkbook';
 import WorkbookQuestion from 'pages/WorkbookQuestion';
+import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 
 const Router = () => {
   return (
@@ -103,6 +104,11 @@ const Router = () => {
               />
             }
           />
+          <Route
+            path="/workbook/:questionId/question"
+            element={<WorkbookProblemAdd />}
+          />
+
           <Route path="/oauth2/login" element={<OAuthRedirect />} />
           <Route path="/contestinfo" element={<ContestDetail />} />
           <Route path="/contestproblem" element={<ContestProblem />} />

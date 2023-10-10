@@ -52,3 +52,8 @@ export const workbookQuestionDelete = async (formData: FieldValues) => {
   );
   return response;
 };
+
+export const addWorkbookQuestion = async (formData: FieldValues) => {
+  const response = await instance.post(`/api/workbook/question/add`, formData);
+  return response;
+};

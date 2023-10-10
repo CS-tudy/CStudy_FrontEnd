@@ -1,7 +1,8 @@
 export const ROUTE = {
   WORKBOOK_QUESTION: '/workbook/question',
-  PROBLEMSET_MYQUESTION: '/myquestion',
-  BOARD_LIST: 'list',
-  BOARD_MY_LIST: 'mylist',
+  PROBLEMSET_MYQUESTION: '/my-questions',
+  REQUEST_LIST: 'requests',
+  REQUEST_MY_LIST: 'member',
   CONTEST_FINISH: '/finish',
+  NOTICE_LIST: '/notice',
 };

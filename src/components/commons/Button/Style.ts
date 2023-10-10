@@ -21,6 +21,7 @@ const variantCSS: VariantCSS = {
   gray: css`
     background: ${COLOR.GRAY};
     color: ${COLOR.BLACK};
+    border: 1px solid #dbdbdb;
   `,
 };
 
@@ -56,11 +57,14 @@ export const Button = styled.button<ButtonComponent>`
   ${({ size }) => sizeCSS[size]}
   cursor: pointer;
   border: none;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   padding: 1.2rem 1.6rem;
   border-radius: 1rem;
   &:hover {
     opacity: 0.8;
+  }
+  & + & {
+    margin-left: 1.1rem;
   }
 `;

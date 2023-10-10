@@ -27,11 +27,12 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   html {
-    -webkit-overflow-scrolling: auto; 
+    -webkit-overflow-scrolling: auto;
    font-size:62.5%
   }
   body {
     background-color: #fcfcfc;
+    font-size: 16px;
     
   }
   ol, 

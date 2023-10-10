@@ -9,9 +9,9 @@ interface ApproveStatusStyleProps {
 
 export const ApproveStatus = styled.span<ApproveStatusStyleProps>`
   flex-shrink: 0;
-  padding: ${({ small }) => (small ? '0.3rem 1rem' : '0.5rem 1.5rem')};
+  padding: ${({ small }) => (small ? '0.2rem 0.8rem' : '0.4rem 1.2rem')};
   border-radius: 5rem;
   background: ${({ isApproved }) => (isApproved ? COLOR.GREEN : COLOR.GRAY)};
   color: ${({ isApproved }) => (isApproved ? COLOR.WHITE : COLOR.BLACK)};
-  ${({ small }) => (small ? FONT.BOLD_14 : FONT.BOLD_18)};
+  ${({ small }) => (small ? FONT.REGULAR_14 : FONT.REGULAR_16)};
 `;

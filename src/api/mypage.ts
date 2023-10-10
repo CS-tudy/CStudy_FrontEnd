@@ -1,11 +1,9 @@
 import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
 
-// 내정보
-export const getMyPage = async () => {
-  const response = await instance.get(`api/member/member`);
-
-  return response.data;
+export const getMyPage = () => {
+  const response = instance.get('/api/member/member');
+  return response;
 };
 
 // 비밀번호변경

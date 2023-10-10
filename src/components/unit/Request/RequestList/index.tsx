@@ -4,38 +4,33 @@ import useModal from 'hooks/useModal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import RequestItem from '../RequestItem';
 import { isLogin } from 'repository/auth';
-import { getRequestListTest } from 'api/request';
-import { useEffect, useState } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import { ToggleRequestList } from 'types/api';
 import { useNavigate } from 'react-router-dom';
+import Pagination from 'components/commons/Pagination';
+import useRequestFilter from 'hooks/Request/useRequestFilter';
+import NoData from 'components/commons/NoData';
 
-const RequestList = () => {
-  const [requestList, setRequestList] = useState<ToggleRequestList>();
+interface RequestListsProps {
+  requestList: ToggleRequestList;
+  page: number;
+  handlePage: (page: number) => void;
+}
+
+const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
   const { modalIsOpen, toggleModal } = useModal();
-  const fetchRequestList = async () => {
-    const data = await getRequestListTest();
-    setRequestList(data.data);
-  };
+
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchRequestList();
-    console.log(requestList);
-  }, []);
+  console.log(requestList);
 
   const openModal = () => {
     toggleModal();
   };
 
-  const checkLogin = () => {
-    if (!isLogin()) {
-      alert('로그인 후 이용하실 수 있습니다.');
-    } else {
-      navigate('/request/new');
-    }
-  };
+  // const handlePage = () => {};
+  // const page = 0;
 
   return (
     <>
@@ -52,19 +47,26 @@ const RequestList = () => {
           />
         </Modal>
       )}
-      <Container>
+      <>
         <button onClick={openModal}>ConfirmModal</button>
-        <S.ButtonWrapper>
-          <Button variant={'primary'} size={'medium'} onClick={checkLogin}>
-            글 작성
-          </Button>
-        </S.ButtonWrapper>
         <S.ContentWrapper>
+          {requestList?.totalElements === 0 && (
+            <NoData>게시글이 없습니다.</NoData>
+          )}
           {requestList?.content?.map(props => (
             <RequestItem key={props.id} {...props} />
           ))}
         </S.ContentWrapper>
-      </Container>
+        {(requestList?.totalPages as number) > 0 && (
+          <S.PaginationWrapper>
+            <Pagination
+              totalPages={requestList?.totalPages as number}
+              handlePage={handlePage}
+              page={page}
+            />{' '}
+          </S.PaginationWrapper>
+        )}
+      </>
     </>
   );
 };

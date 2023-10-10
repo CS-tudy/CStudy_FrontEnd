@@ -13,7 +13,7 @@ import MyPageDownloadSlice from 'hooks/@redux/mypage/MypageDownloadSlice';
 
 const store = configureStore({
   reducer: {
-    persistedReducer,
+    rootReducer,
     problem: problemSlice,
     myPagePwd: MypagePwdSlice,
     Mypage: MypageSlice,

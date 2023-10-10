@@ -17,7 +17,7 @@ export const BodyWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  border: 2px solid ${COLOR.GRAY_50};
+  border: 1px solid #dbdbdb;
   background-color: #fff;
   border-radius: 1.2rem;
   display: flex;
@@ -25,5 +25,5 @@ export const ContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 5vw;
-  padding: 5rem;
+  padding: 5vw;
 `;

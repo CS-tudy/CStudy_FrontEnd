@@ -8,3 +8,15 @@ export interface SignUpForm extends SignInForm {
   emailAuthNumber?: string;
   passwordConfirm?: string;
 }
+
+export interface ContestSetForm {
+  competitionTitle: string;
+  participants: number;
+  competitionStart: Date;
+  competitionEnd: Date;
+}
+
+export interface WorkbookSetForm {
+  title: string;
+  description: string;
+}

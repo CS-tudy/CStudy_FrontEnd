@@ -1,5 +1,5 @@
 import { css, DefaultTheme } from 'styled-components';
-
+import { MouseEvent } from 'react';
 export interface VariantCSS {
   [key: string]: ReturnType<typeof css>;
 }
@@ -14,5 +14,6 @@ export type ButtonComponent = {
   theme?: DefaultTheme;
   children?: React.ReactNode;
   type?: string;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: any) => void;
+  disabled?: boolean;
 };

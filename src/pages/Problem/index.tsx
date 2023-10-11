@@ -13,7 +13,7 @@ import Filter from 'components/commons/Filter';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { IProblem } from 'types/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { handlePage, reset } from 'hooks/@redux/filterSlice';
+import { handlePage, reset, setTitle } from 'hooks/@redux/filterSlice';
 import useStatusFilterSlice from 'hooks/@redux/Problem/useStatusFilterSlice';
 import useQueryFilterSlice from 'hooks/@redux/Problem/useQueryFilterSlice';
 import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice';
@@ -23,7 +23,8 @@ import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Problem = () => {
-  const [problemList, setProblemList] = useState<IProblem>();
+  // const [problemList, setProblemList] = useState<IProblem>();
+  const [titleValue, setTitleValue] = useState('');
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const teststate = useSelector(state => state);
@@ -37,28 +38,28 @@ const Problem = () => {
     useStatusFilterSlice();
   const { category, categoryValue, categoryActive, handleCategoryClick } =
     useCategoryFilterSlice();
-  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
+  const { query, queryActive, handleToggle } = useQueryFilterSlice();
 
-  const fetchProblemListTest = async () => {
-    const res = await getProblemListTest();
-    setProblemList(res.data);
-  };
+  // const fetchProblemListTest = async () => {
+  //   const res = await getProblemListTest();
+  //   setProblemList(res.data);
+  // };
 
-  useEffect(() => {
-    fetchProblemListTest();
-    console.log(problemList);
-  }, []);
+  // useEffect(() => {
+  //   fetchProblemListTest();
+  //   console.log(problemList);
+  // }, []);
 
-  // const problemList = useGetProblemList({
-  //   questionTitle: 'Question',
-  //   categoryTitle: categoryValue,
-  //   status: statusValue,
-  //   memberId: 0,
-  //   page: pageNumber,
-  //   query: query,
-  // });
+  const problemList = useGetProblemList({
+    questionTitle: inputValue,
+    categoryTitle: categoryValue,
+    status: statusValue,
+    memberId: 0,
+    page: pageNumber,
+    query: query,
+  });
 
-  // console.log(problemList);
+  console.log(problemList);
 
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];
@@ -140,12 +141,14 @@ const Problem = () => {
   const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
       // useGetProblemList({ questionTitle: inputValue });
-      const res = await getProblemListSearch(e.target.value);
+      // const res = await getProblemListSearch(e.target.value);
       console.log(e.target.value);
       // setProblemList(res.data);
-      console.log('res', res);
-      setProblemList(res.data);
+      // console.log('res', res);
+      // setProblemList(res.data);
+      setInputValue(e.target.value);
     }
+    // setInputValue('');
   };
 
   // function SearchForm({ onSearch }) {
@@ -198,7 +201,7 @@ const Problem = () => {
       <S.Div>
         <S.Contents>
           <S.Content1>
-            <Filter className={isActive} onClick={handleToggle}>
+            <Filter className={queryActive} onClick={handleToggle}>
               내가 푼 문제
             </Filter>
           </S.Content1>
@@ -207,12 +210,12 @@ const Problem = () => {
               name={status}
               handleActive={handleStatusClick}
               isActive={statusActive}
-              options={!isActive ? filterOptionStatus : filterOptionTotal}
+              options={!queryActive ? filterOptionStatus : filterOptionTotal}
               optionsValue={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
               selectedIndex={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
           </S.Content2>
@@ -221,12 +224,12 @@ const Problem = () => {
               name={category}
               handleActive={handleCategoryClick}
               isActive={categoryActive}
-              options={!isActive ? filterOptionCategory : filterOptionTotal}
+              options={!queryActive ? filterOptionCategory : filterOptionTotal}
               optionsValue={
-                !isActive ? filterOptionCategoryValue : filterOptionEmpty
+                !queryActive ? filterOptionCategoryValue : filterOptionEmpty
               }
               selectedIndex={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
+                !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
           </S.Content3>

@@ -6,7 +6,7 @@ import MyPage from 'pages/MyPage';
 import Workbook from 'pages/Workbook';
 import Signup from 'pages/Signup';
 import Layout from 'components/commons/Layout';
-import OAuthRedirect from 'pages/OauthRedirect';
+import OAuthRedirect from 'pages/Admin/OauthRedirect';
 import Request from 'pages/Request';
 import RequestDetailPage from 'pages/RequestDetail';
 import RequestWrite from 'pages/RequestWrite';
@@ -25,6 +25,8 @@ import AdminRoute from './AdminRouter';
 import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
+import CreateWorkbook from 'pages/Admin/CreateWorkbook';
+import WorkbookQuestion from 'pages/WorkbookQuestion';
 import ContestResult from 'pages/ContestResult';
 import Review from 'pages/Review';
 
@@ -82,6 +84,24 @@ const Router = () => {
               <AdminRoute
                 authenticated={checkAdminLoader()}
                 component={<RequestQuestion />}
+              />
+            }
+          />
+          <Route
+            path="workbook/admin/CreateWorkbook"
+            element={
+              <AdminRoute
+                authenticated={checkAdminLoader()}
+                component={<CreateWorkbook />}
+              />
+            }
+          />
+          <Route
+            path="workbook/:questionId"
+            element={
+              <AdminRoute
+                authenticated={checkAdminLoader()}
+                component={<WorkbookQuestion />}
               />
             }
           />

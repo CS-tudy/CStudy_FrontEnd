@@ -6,10 +6,10 @@ import { FieldValues } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useCreateProblem } from 'hooks/useCreateProblem';
-import { AppDispatch } from 'hooks/@redux/problemSlice';
 import { useNavigate } from 'react-router-dom';
 import CreateProblemSelect from '../../../components/unit/CreateProblem/CreateProblemSelect';
 import CreateProblemInput from '../../../components/unit/CreateProblem/CreateProblemInput';
+import { AppDispatch } from 'stroe';
 
 const CreateProblem = () => {
   const dispatch = useDispatch<AppDispatch>();

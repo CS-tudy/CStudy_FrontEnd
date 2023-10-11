@@ -17,9 +17,14 @@ export const useSignIn = () => {
         accessToken: response.accessToken,
         refreshToken: response.refreshToken,
       });
-
       dispatch(login());
       alert('로그인 되었습니다.');
+      const get = userStorage.get();
+      if (get) {
+        if (response.name === '관리자') {
+          navigate('/admin/CreateProblem');
+        }
+      }
     },
     onError: () => {
       alert('로그인에 실패했습니다.');

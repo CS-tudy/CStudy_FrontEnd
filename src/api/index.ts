@@ -68,7 +68,7 @@ instance.interceptors.response.use(
       throw new Error('접근 권한이 없습니다.');
     }
 
-    throw error.response.status;
+    throw error.response;
     // throw error.response.error;
     // TODO: 예외 처리 개선
   },

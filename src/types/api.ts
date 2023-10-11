@@ -190,3 +190,35 @@ export interface AddComment {
   content: string;
   parentCommentId?: string;
 }
+
+//Workbook
+export interface WorkbookSetForm {
+  title: string;
+  description: string;
+}
+
+type WorkbookContent = {
+  id: number;
+  title: string;
+  description: string;
+  createdAt: string;
+};
+export interface WorkbookList extends Omit<ContestList, 'content'> {
+  content: WorkbookContent[];
+}
+
+export type Workbook = WorkbookContent;
+
+export type WorkbookQuestionContent = {
+  title: string;
+  questionId: number;
+  workbookQuestionId: number;
+};
+
+export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
+  content: WorkbookQuestionContent[];
+}
+
+export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
+  content: WorkbookQuestionContent[];
+}

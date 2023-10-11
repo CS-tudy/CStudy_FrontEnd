@@ -21,19 +21,8 @@ const ProblemList = ({ problemList }: problemListProps) => {
       )}
       {problemList?.content?.map(problem => {
         // console.log('problem', problem);
-        return (
-          <ProblemItem
-            // key={problem.questionId}
-            problem={problem}
-          />
-        );
+        return <ProblemItem key={problem.questionId} problem={problem} />;
       })}
-      {/* {problemList?.content?.map(problem => (
-        <ProblemItem
-          // key={problem.questionId}
-          problem={problem}
-        />
-      ))} */}
     </>
   );
 };

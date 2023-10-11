@@ -21,6 +21,7 @@ interface MypageMyInfoProps {
   HandleClickPwd: () => void;
   handleChangePwdSubmit: (formData: FieldValues) => void;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
+  onValid: () => void;
 }
 
 const MypageMyInfo = ({
@@ -32,10 +33,16 @@ const MypageMyInfo = ({
   HandleClickPwd,
   passwordPattern,
   handleChangePwdSubmit,
+  onValid,
 }: MypageMyInfoProps) => {
   return (
     <S.MyInfoWrapper>
-      <MyPageInfo HandleClickPwd={HandleClickPwd} />
+      <MyPageInfo
+        register={register}
+        onValid={onValid}
+        handleSubmit={handleSubmit}
+        HandleClickPwd={HandleClickPwd}
+      />
       {isActive && (
         <MypageInput
           register={register}

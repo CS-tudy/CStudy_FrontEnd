@@ -8,10 +8,12 @@ export const usePwdEdit = createAsyncThunk(
     try {
       const data = await PwdEdit(formData);
       alert('비밀번호가 변경되었습니다.');
+
       return thunkAPI.fulfillWithValue(data);
-    } catch (error) {
-      alert('비밀번호가 변경에 실패 하였습니다.');
-      return thunkAPI.rejectWithValue(error);
+    } catch (error: any) {
+      if (error.data.code === '1002') {
+        alert(error.data.message);
+      }
     }
   },
 );

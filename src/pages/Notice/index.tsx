@@ -10,6 +10,7 @@ import NoData from 'components/commons/NoData';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import { useState } from 'react';
 import { Button } from 'components/commons/Button/Style';
+import Container from 'components/commons/Container';
 
 const Notice = () => {
   const { register, control, handleSubmit, setValue, reset } =
@@ -35,54 +36,50 @@ const Notice = () => {
   });
 
   return (
-    <>
-      <ContentContainer>
-        <ContentBodyWrapper>
-          <S.SearchWrapper>
-            <S.SearchInput
-              type="text"
-              {...register(selectedSearchOption, {
-                required: '검색어를 입력해주세요.',
-              })}
-            />
-            <Button
-              type="submit"
-              onClick={handleSubmit(onSubmit)}
-              variant="primary"
-              size="medium"
-            >
-              검색
-            </Button>
-            <label>
-              <S.Select
-                {...register('searchOption')}
-                onChange={e => {
-                  setSelectedSearchOption(e.target.value);
-                }}
-              >
-                {options.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </S.Select>
-            </label>
-          </S.SearchWrapper>
-          <NoticeList noticeList={noticeList as RequestNoticeList} />
-          {noticeList?.numberOfElements === 0 && (
-            <NoData>게시글이 없습니다 다른 제목으로 입력해주세요.</NoData>
-          )}
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={noticeList?.totalPages as number}
-              handlePage={handlePage}
-              page={noticeList?.number as number}
-            />
-          </S.PaginationWrapper>
-        </ContentBodyWrapper>
-      </ContentContainer>
-      ;
-    </>
+    <Container>
+      <S.SearchWrapper>
+        <S.SearchInput
+          type="text"
+          {...register(selectedSearchOption, {
+            required: '검색어를 입력해주세요.',
+          })}
+        />
+        <Button
+          type="submit"
+          onClick={handleSubmit(onSubmit)}
+          variant="primary"
+          size="medium"
+        >
+          검색
+        </Button>
+        <label>
+          <S.Select
+            {...register('searchOption')}
+            onChange={e => {
+              setSelectedSearchOption(e.target.value);
+            }}
+          >
+            {options.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </S.Select>
+        </label>
+      </S.SearchWrapper>
+      <NoticeList noticeList={noticeList as RequestNoticeList} />
+      {noticeList?.numberOfElements === 0 && (
+        <NoData>게시글이 없습니다 다른 제목으로 입력해주세요.</NoData>
+      )}
+
+      <S.PaginationWrapper>
+        <Pagination
+          totalPages={noticeList?.totalPages as number}
+          handlePage={handlePage}
+          page={noticeFilter.pageNumber as number}
+        />{' '}
+      </S.PaginationWrapper>
+    </Container>
   );
 };
 

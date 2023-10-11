@@ -3,9 +3,13 @@ import { workbookSet } from 'api/workbook';
 
 interface useWorkbookSetProps {
   handleIsLoading: (isLoading: boolean) => void;
+  handleIsModal: (isModalOpen: boolean) => void;
 }
 
-export const useWorkbookSet = ({ handleIsLoading }: useWorkbookSetProps) => {
+export const useWorkbookSet = ({
+  handleIsLoading,
+  handleIsModal,
+}: useWorkbookSetProps) => {
   const queryClient = useQueryClient();
   const { mutate: WorkbookSet } = useMutation(workbookSet, {
     onSuccess: () => {
@@ -17,6 +21,7 @@ export const useWorkbookSet = ({ handleIsLoading }: useWorkbookSetProps) => {
     },
     onSettled: () => {
       handleIsLoading(false);
+      handleIsModal(true);
     },
   });
 

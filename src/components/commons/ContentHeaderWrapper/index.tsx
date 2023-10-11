@@ -8,6 +8,7 @@ import StyleLink from '../StyleLink';
 import * as Styled from './style';
 import { isAdmin } from 'repository/auth';
 import { useUpdateWorkbook } from 'hooks/@query/workbook/useUpdateWorkbook';
+import { Button } from '../Button/Style';
 
 interface CreateContestProps {
   desc?: string;
@@ -51,13 +52,14 @@ const ContentHeaderWrapper = ({
       <div>
         {isAdmin() && admin && (
           <Styled.AdminWrapper>
-            <button
+            <Button
               type="button"
-              className="lg navy style"
               onClick={() => setIsActive(active => !active)}
+              variant="primary"
+              size="mideum"
             >
               문제집 정보 수정
-            </button>
+            </Button>
             {isActive && (
               <>
                 <button
@@ -105,4 +107,4 @@ const ContentHeaderWrapper = ({
   );
 };
 
-export default memo(ContentHeaderWrapper);
+export default ContentHeaderWrapper;

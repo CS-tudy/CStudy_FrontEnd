@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getWorkbookList } from 'api/workbook';
 
 interface UseGetWorkbookListProps {
-  page: number;
+  page?: number;
   title?: string;
   description?: string;
 }

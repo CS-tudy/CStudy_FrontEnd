@@ -12,6 +12,7 @@ import WorkbookQuestionTableLists from 'components/unit/WorkbookQuestion/Workboo
 import { isAdmin } from 'repository/auth';
 import WorkbookQuestionAdminOptionGroup from 'components/unit/WorkbookQuestion/WorkbookQuestionAdminOption';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
+import { Button } from 'components/commons/Button/Style';
 
 const WorkbookQuestion = () => {
   const { questionId } = useParams();
@@ -48,13 +49,14 @@ const WorkbookQuestion = () => {
       <ContentHeaderWrapper admin desc={workbook?.description}>
         <S.CreateInfo>
           출시일: {workbook?.createdAt}
-          <button
+          <Button
             type="button"
-            className="gray style mt xl2"
             onClick={() => navigate(-1)}
+            variant="gray"
+            size="mideum"
           >
             돌아가기
-          </button>
+          </Button>
         </S.CreateInfo>
       </ContentHeaderWrapper>
       <ContentBodyWrapper>

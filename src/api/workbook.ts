@@ -4,7 +4,7 @@ import { WorkbookSetForm } from 'types/Form';
 import { Workbook, WorkbookList, WorkbookQuestion } from 'types/api';
 
 // 문제집 생성
-export const workbookSet = async (formData: WorkbookSetForm) => {
+export const workbookSet = async (formData: WorkbookSetForm): Promise<any> => {
   const response = await instance.post('/api/workbook', formData);
   return response;
 };
@@ -46,14 +46,25 @@ export const updateWorkbook = async (formData: FieldValues) => {
 };
 
 export const workbookQuestionDelete = async (formData: FieldValues) => {
+  const { workbookId, questionIds } = formData;
+  const response = await instance.delete(`/api/workbook`, {
+    data: {
+      workbookId,
+      questionIds,
+    },
+  });
+  return response;
+};
+
+export const addWorkbookQuestion = async (formData: FieldValues) => {
   const response = await instance.post(
-    `/api/workbook/question/delete`,
+    `/api/workbook/workbook/questions`,
     formData,
   );
   return response;
 };
 
-export const addWorkbookQuestion = async (formData: FieldValues) => {
-  const response = await instance.post(`/api/workbook/question/add`, formData);
+export const uploadimageWorkbook = async (formData: FieldValues) => {
+  const response = await instance.post(`/api/upload`, formData);
   return response;
 };

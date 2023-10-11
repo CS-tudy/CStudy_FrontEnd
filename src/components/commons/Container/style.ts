@@ -13,7 +13,8 @@ export const Wrapper = styled.div`
 
 export const BodyWrapper = styled.div`
   width: 100%;
-  top: 20;
+  /* position: absolute;
+  top: 20; */
 `;
 
 export const ContentWrapper = styled.div`

@@ -20,6 +20,8 @@ import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice'
 import Pagination from 'components/commons/Pagination';
 import _ from 'lodash';
 import { useMemo } from 'react';
+import { useForm } from 'react-hook-form';
+import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
 
 const Problem = () => {
   const [problemList, setProblemList] = useState<IProblem>();
@@ -80,7 +82,7 @@ const Problem = () => {
     categoryTitle: categoryValue,
     status: statusValue,
     memberId: 0,
-    page: pageNumber,
+    page: problemFilter.pageNumber,
     query: query,
   });
 
@@ -239,7 +241,7 @@ const Problem = () => {
             <Pagination
               totalPages={problemList?.totalPages as number}
               handlePage={handlePage}
-              page={pageNumber}
+              page={problemFilter.pageNumber}
             />
           </S.PaginationWrapper>
         )}

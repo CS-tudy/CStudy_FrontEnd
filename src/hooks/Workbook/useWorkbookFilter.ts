@@ -2,6 +2,7 @@ import {
   setTitle,
   setDescription,
   setPageNumber,
+  setPageNum,
 } from 'hooks/@redux/filterSlice';
 import { useCallback } from 'react';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
@@ -18,7 +19,7 @@ const useWorkbookFilter = () => {
 
   const handlePage = useCallback(
     (page: number) => {
-      dispatch(setPageNumber(page));
+      dispatch(setPageNum(page));
     },
     [workbookFilter],
   );

@@ -1,29 +1,27 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateWorkbook } from 'api/workbook';
+import { updateWorkbook, uploadimageWorkbook } from 'api/workbook';
 
-interface UpdateWorkbookProps {
-  handleIsLoading: (isLoading: boolean) => void;
-  handleIsActive: (isActive: boolean) => void;
+interface UploadImgWorkbookProps {
+  handleIsModal: (isModalOpen: boolean) => void;
 }
 
-export const useUploadWorkbook = ({
-  handleIsLoading,
-  handleIsActive,
-}: UpdateWorkbookProps) => {
+export const useUploadImgWorkbook = ({
+  handleIsModal,
+}: UploadImgWorkbookProps) => {
   const queryClient = useQueryClient();
-  const { mutate: UpdateWorkbook } = useMutation(updateWorkbook, {
+  const { mutate: useUploadImgWorkbook } = useMutation(uploadimageWorkbook, {
     onSuccess: () => {
-      alert('문제집 정보 수정에 성공했습니다.');
-      queryClient.invalidateQueries(['workbook']);
+      queryClient.invalidateQueries(['workbookimage']);
+
+      alert('이미지 저장에 성공했습니다.');
     },
     onError: () => {
-      alert('문제집 정보 수정에 실패했습니다.');
+      alert('이미지 저장에 실패했습니다.');
     },
     onSettled: () => {
-      handleIsActive(false);
-      handleIsLoading(false);
+      handleIsModal(false);
     },
   });
 
-  return UpdateWorkbook;
+  return useUploadImgWorkbook;
 };

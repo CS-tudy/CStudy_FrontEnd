@@ -27,6 +27,7 @@ export const getWorkbookQuestion = async (
   return response.data;
 };
 
+// 문제집 리스트
 export const getWorkbookList = async ({
   page = 0,
   size = 8,
@@ -64,7 +65,12 @@ export const addWorkbookQuestion = async (formData: FieldValues) => {
   return response;
 };
 
-export const uploadimageWorkbook = async (formData: FieldValues) => {
-  const response = await instance.post(`/api/upload`, formData);
+export const uploadimageWorkbook = async ({ id, formData }: any) => {
+  const response = await instance.post(`/api/workbook/upload/${id}`, formData);
+  return response;
+};
+
+export const getWorkbookimage = async () => {
+  const response = await instance.get(`/api/workbook/images`);
   return response;
 };

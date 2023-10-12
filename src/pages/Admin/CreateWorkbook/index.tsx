@@ -9,11 +9,12 @@ import AdminInput from 'components/commons/Admin/AdminInput';
 import FormSection from 'components/commons/Admin/FormSection';
 import { useWorkbookSet } from 'hooks/@query/workbook/useWorkbookSet';
 import { Button } from 'components/commons/Button/Style';
+import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
 
 const CreateWorkbook = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
   const {
     register,
     handleSubmit,
@@ -81,6 +82,7 @@ const CreateWorkbook = () => {
             </Button>
           </FormBody>
         </form>
+        {isModalOpen && <WorkbookImageUpload handleIsModal={handleIsModal} />}
       </ContentBodyWrapper>
     </ContentContainer>
   );

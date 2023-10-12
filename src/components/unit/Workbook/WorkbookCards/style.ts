@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const WorkBookCards = styled.section`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   grid-gap: 3rem;
 

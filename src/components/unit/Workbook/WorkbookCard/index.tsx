@@ -37,9 +37,9 @@ const WorkBookCard = ({
   return (
     <Styled.WorkBookCard>
       <Link to={`${id}`}>
+        <Styled.Img category={getCategory(title)} />
         <Styled.Title>{title}</Styled.Title>
         <Styled.Time>{createdAt}</Styled.Time>
-        <Styled.Img category={getCategory(title)} />
         <Styled.Description>{description}</Styled.Description>
       </Link>
     </Styled.WorkBookCard>

@@ -11,6 +11,7 @@ import ContentContainer from 'components/commons/ContentContainer';
 import Pagination from 'components/commons/Pagination';
 import WorkbookCards from 'components/unit/Workbook/WorkbookCards';
 import Container from 'components/commons/Container';
+import useGetWorkbookImg from 'hooks/@query/workbook/useGetWorkbookImg';
 
 const Workbook = () => {
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -21,14 +22,16 @@ const Workbook = () => {
   const { workbookFilter, handlePage, onSubmit } = useWorkbookFilter();
 
   const workbookList = useGetWorkbookList({
-    page: workbookFilter.pageNumber,
+    page: workbookFilter.pageNum,
     title: workbookFilter.title,
     description: workbookFilter.description,
   });
+  const workbookImgList = useGetWorkbookImg();
+  console.log(workbookImgList);
   console.log(workbookList);
 
   const handleReset = () => {
-    reset();
+    // reset();
     // workbookFilter.reset();
   };
 
@@ -57,16 +60,16 @@ const Workbook = () => {
           <NoData>문제집이 없습니다.</NoData>
         )}
         <WorkbookCards workbookList={workbookList as WorkbookList} />
-        {(workbookList?.totalPages as number) > 1 && (
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={workbookList?.totalPages as number}
-              handlePage={handlePage}
-              page={workbookFilter.pageNumber}
-              white
-            />
-          </S.PaginationWrapper>
-        )}
+        {/* {(workbookList?.totalPages as number) > 1 && (
+          )} */}
+        <S.PaginationWrapper>
+          <Pagination
+            totalPages={workbookList?.totalPages as number}
+            handlePage={handlePage}
+            page={workbookFilter.pageNum}
+            white
+          />
+        </S.PaginationWrapper>
       </Container>
     </ContentContainer>
   );

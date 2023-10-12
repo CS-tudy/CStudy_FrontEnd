@@ -12,12 +12,13 @@ export const Wrapper = styled.div`
 
 export const BodyWrapper = styled.div`
   width: 100%;
+  position: absolute;
   top: 20;
 `;
 
 export const ContentWrapper = styled.div`
-  border: 1px solid #dbdbdb;
-  background-color: #fff;
+  /* border: 1px solid #dbdbdb;
+  background-color: #fff; */
   border-radius: 1.2rem;
   display: flex;
   flex-direction: column;

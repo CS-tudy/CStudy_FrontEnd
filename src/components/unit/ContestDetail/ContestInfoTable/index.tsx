@@ -1,11 +1,13 @@
 import Table from 'components/commons/Table';
 import { TBodyTd, TBodyTh } from 'components/commons/Table/style';
+import Table2 from 'components/commons/Table2';
+import { RiTable2 } from 'react-icons/ri';
 
 const ContestInfoTable = () => {
   const tableColRate = ['50%', '50%'];
   const tableTitle = ['대회 시작일', '대회 종료일'];
   return (
-    <Table maxHeight colRate={tableColRate} title={tableTitle}>
+    <Table2 maxHeight colRate={tableColRate} title={tableTitle}>
       <tr>
         <TBodyTd>
           {/* {contest?.startTime} */}
@@ -30,7 +32,7 @@ const ContestInfoTable = () => {
           현재 참가자수
         </TBodyTd>
       </tr>
-    </Table>
+    </Table2>
   );
 };
 

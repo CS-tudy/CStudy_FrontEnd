@@ -5,7 +5,7 @@ const ContestDetailRankTable = () => {
     <S.Wrapper>
       <S.ContestRanking>
         <S.RankingTitle>
-          대회랭킹
+          랭킹
           {/* {!!myRanking?.['ranking'] && (
           <span>나의 랭킹 : {myRanking?.['ranking']}</span>
         )} */}

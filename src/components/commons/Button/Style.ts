@@ -23,6 +23,11 @@ const variantCSS: VariantCSS = {
     color: ${COLOR.BLACK};
     border: 1px solid #dbdbdb;
   `,
+
+  green: css`
+    background: ${COLOR.GREEN};
+    color: ${COLOR.WHITE};
+  `,
 };
 
 const sizeCSS: SizeCSS = {

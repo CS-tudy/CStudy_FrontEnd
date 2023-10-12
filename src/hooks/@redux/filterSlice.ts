@@ -166,6 +166,18 @@ const workbookFilterSlice = createSlice({
   },
 });
 
+const problemFilterSlice = createSlice({
+  name: 'problemFilter',
+  initialState: {
+    pageNumber: 0,
+  },
+  reducers: {
+    setProblemPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+  },
+});
+
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
@@ -184,6 +196,7 @@ export const { setCategory, setCategoryValue, toggleCategoryActive } =
 export const { setProblemQuery } = queryFilterSlice.actions;
 export const { setContestQuery, setContestPageNumber } =
   contestFilterSlice.actions;
+export const { setProblemPageNumber } = problemFilterSlice.actions;
 
 export const filterReducer = {
   page: pageNumberSlice.reducer,
@@ -193,4 +206,5 @@ export const filterReducer = {
   categoryFilter: categoryFilterSlice.reducer,
   queryFilter: queryFilterSlice.reducer,
   workbookfilter: workbookFilterSlice.reducer,
+  problemFilter: problemFilterSlice.reducer,
 };

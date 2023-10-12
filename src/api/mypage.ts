@@ -39,3 +39,9 @@ export const ApprovalStatus = async () => {
   const response = await instance.get(`api/request/member`);
   return response.data;
 };
+
+// 오답노트
+export const getReview = async () => {
+  const response = await instance.get(`api/review`);
+  return response.data;
+};

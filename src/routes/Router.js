@@ -108,7 +108,10 @@ const Router = () => {
           <Route path="/oauth2/login" element={<OAuthRedirect />} />
           <Route path="/contest/:contestId" element={<ContestDetail />} />
           <Route path="/contestproblem" element={<ContestProblem />} />
-          <Route path="/contestresult" element={<ContestResult />} />
+          <Route
+            path="/contest/:contestId/result"
+            element={<ContestResult />}
+          />
           <Route path="/review" element={<Review />} />
         </Routes>
       </Layout>

@@ -9,7 +9,7 @@ interface problemListProps {
 }
 
 const ProblemList = ({ problemList }: problemListProps) => {
-  // console.log('problemlist', problemList);
+  console.log('problemlist', problemList);
   return (
     <>
       {problemList?.totalElements === 0 && (

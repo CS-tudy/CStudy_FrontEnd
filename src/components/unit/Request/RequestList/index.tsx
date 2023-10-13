@@ -51,7 +51,7 @@ const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
         <button onClick={openModal}>ConfirmModal</button>
         <S.ContentWrapper>
           {requestList?.totalElements === 0 && (
-            <NoData>게시글이 없습니다.</NoData>
+            <NoData>문제 요청 글이 없습니다.</NoData>
           )}
           {requestList?.content?.map(props => (
             <RequestItem key={props.id} {...props} />

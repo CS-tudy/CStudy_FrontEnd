@@ -5,6 +5,7 @@ import { SHADOW } from 'constants/Shadow';
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 
 export const ContestRanking = styled.div`
@@ -33,8 +34,6 @@ export const StyledTable = styled.table`
   border-collapse: separate;
   border-spacing: 0 1rem;
   margin-top: 1.8rem;
-  background-color: ${COLOR.GRAY_50};
-  box-shadow: ${SHADOW.RANKING_TABLE};
 `;
 
 export const PaginationWrapper = styled.div`

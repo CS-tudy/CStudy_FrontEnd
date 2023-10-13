@@ -1,8 +1,8 @@
 import Button from 'components/commons/Button/Button';
 import Container from 'components/commons/Container';
 import MiniContainer from 'components/commons/MiniContainer';
-import ContestInfoTable from 'components/unit/ContestDetail/ContestInfoTable';
-import ContestDetailRankTable from 'components/unit/ContestDetail/ContestRankTable';
+import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
+import ContestRank from 'components/unit/ContestDetail/ContestRank';
 import { useNavigate } from 'react-router-dom';
 
 const ContestDetail = () => {
@@ -21,9 +21,13 @@ const ContestDetail = () => {
         }}
       >
         <div>
-          <h2>대회정보</h2>
+          <h2></h2>
         </div>
-        <div>
+        <div
+          style={{
+            marginBottom: '3rem',
+          }}
+        >
           <Button variant="green" size="large" onClick={handleNavigateMyResult}>
             나의 대회 결과
           </Button>
@@ -32,9 +36,9 @@ const ContestDetail = () => {
           </Button>
         </div>
       </div>
-      <div style={{ display: 'flex' }}>
-        <ContestInfoTable />
-        <ContestDetailRankTable />
+      <div style={{ width: '100%', display: 'flex' }}>
+        <ContestInfo />
+        <ContestRank />
       </div>
     </MiniContainer>
   );

@@ -83,7 +83,6 @@ export const TBodyTd = styled.td<Props>`
       display: block;
       padding: 2rem 3rem;
     }
-    }
   }
 
   &.white {

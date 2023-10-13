@@ -42,7 +42,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   position: relative;
   min-width: 6rem;
   min-height: 6rem;
-  /* background-color: ${COLOR.NAVY_100}; */
+  background-color: ${COLOR.GRAY_50};
   border: 0.2rem solid ${COLOR.WHITE};
   border-radius: 100%;
   box-shadow: ${SHADOW.CONTENTBOX_LG};

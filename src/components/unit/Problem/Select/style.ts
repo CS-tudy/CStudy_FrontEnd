@@ -5,7 +5,7 @@ import { FONT } from 'constants/Font';
 
 export const SelectBox = styled.div`
   position: relative;
-  min-width: 19rem;
+  min-width: 13rem;
   height: 4.5rem;
   border-radius: 1.6rem;
   border: 1px solid ${COLOR.WHITE};

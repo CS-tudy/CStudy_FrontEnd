@@ -59,7 +59,7 @@ export const ResultProblemWrapper = styled.div`
 `;
 
 export const ResultProblemTitle = styled.h3`
-  ${FONT.H3}
+  ${FONT.H1}
   margin-left: 0.8rem;
 `;
 

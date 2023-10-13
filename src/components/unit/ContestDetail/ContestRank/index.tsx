@@ -1,21 +1,26 @@
+import ContestRankTBody from '../ContestRankTBody';
+import ContestRankTHead from '../ContestRankTHead';
 import * as S from './style';
 
-const ContestDetailRankTable = () => {
+const ContestRank = () => {
   return (
     <S.Wrapper>
+      <div style={{ marginLeft: '3rem' }}>
+        <h2>대회랭킹</h2>
+      </div>
       <S.ContestRanking>
         <S.RankingTitle>
-          랭킹
+          {/* 랭킹 */}
           {/* {!!myRanking?.['ranking'] && (
           <span>나의 랭킹 : {myRanking?.['ranking']}</span>
         )} */}
         </S.RankingTitle>
         <S.StyledTable>
-          {/* <ContestDetailRankingTHead />
-        <ContestDetailRankingTBody
-          contestRanking={contestRanking}
-          totalQuestion={totalQuestion}
-        /> */}
+          <ContestRankTHead />
+          <ContestRankTBody
+          // contestRanking={contestRanking}
+          // totalQuestion={totalQuestion}
+          />
         </S.StyledTable>
         {/* {contestRanking?.totalPages > 1 && (
         <S.PaginationWrapper>
@@ -32,4 +37,4 @@ const ContestDetailRankTable = () => {
   );
 };
 
-export default ContestDetailRankTable;
+export default ContestRank;

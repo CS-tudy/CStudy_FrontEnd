@@ -192,7 +192,7 @@ type ContestDetail = {
   correct: boolean;
 };
 
-export interface ContestResult {
+export interface IContestResult {
   score: number;
   total: number;
   details: ContestDetail[];

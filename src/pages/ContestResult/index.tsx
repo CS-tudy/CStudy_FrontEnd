@@ -1,12 +1,12 @@
 import Container from 'components/commons/Container';
-import QuizResult from 'components/unit/Contest/QuizResult';
+import ContestResult from 'components/unit/Contest/QuizResult';
 
-const ContestResult = () => {
+const ContestResultPage = () => {
   return (
     <Container>
-      <QuizResult />
+      <ContestResult />
     </Container>
   );
 };
 
-export default ContestResult;
+export default ContestResultPage;

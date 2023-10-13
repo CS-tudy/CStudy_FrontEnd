@@ -27,8 +27,8 @@ import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import CreateWorkbook from 'pages/Admin/CreateWorkbook';
 import WorkbookQuestion from 'pages/WorkbookQuestion';
-import ContestResult from 'pages/ContestResult';
 import Review from 'pages/Review';
+import ContestResultPage from 'pages/ContestResult';
 
 const Router = () => {
   return (
@@ -110,7 +110,7 @@ const Router = () => {
           <Route path="/contestproblem" element={<ContestProblem />} />
           <Route
             path="/contest/:contestId/result"
-            element={<ContestResult />}
+            element={<ContestResultPage />}
           />
           <Route path="/review" element={<Review />} />
         </Routes>

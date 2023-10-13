@@ -1,12 +1,12 @@
-import { ContestResult } from 'types/api';
+import { IContestResult } from 'types/api';
 import * as Styled from './style';
 
 // interface QuizResultProps {
 //   testResultData: ContestResult;
 // }
 
-const QuizResult = () => {
-  // { testResultData }: QuizResultProps
+const ContestResult = () => {
+  // { testResultData }: ContestResultProps
   //   {
   //     const correctDetails = testResultData?.details?.filter(
   //       detail => detail.correct,
@@ -112,4 +112,4 @@ const QuizResult = () => {
   //   };
 };
 
-export default QuizResult;
+export default ContestResult;

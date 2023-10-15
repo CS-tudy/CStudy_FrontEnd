@@ -2,19 +2,18 @@ import styled from 'styled-components';
 import { AdminInputStyleProps } from 'types/style';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import { SHADOW } from 'constants/Shadow';
 
 export const ContestProblemDesc = styled.h3`
   ${FONT.H3}
 `;
 export const Form = styled.form`
+  position: relative;
   width: 100%;
   margin-top: 3rem;
   padding: 3rem 4rem 3rem 7rem;
   background-color: ${COLOR.WHITE};
   border: 0.2rem solid ${COLOR.WHITE};
   border-radius: 1.2rem;
-  box-shadow: ${SHADOW.CONTENTBOX_XLG};
 `;
 
 export const ContestFieldWrapper = styled.div`
@@ -45,7 +44,6 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   background-color: ${COLOR.GRAY_50};
   border: 0.2rem solid ${COLOR.WHITE};
   border-radius: 100%;
-  box-shadow: ${SHADOW.CONTENTBOX_LG};
 
   cursor: pointer;
 
@@ -70,7 +68,6 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
     border-top: none;
     border-right: none;
     transform-origin: top left;
-    box-shadow: ${SHADOW.QUESTION};
     animation: start 0.3s ease forwards;
   }
 

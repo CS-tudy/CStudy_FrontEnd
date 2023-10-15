@@ -7,7 +7,7 @@ import {
   ContestMyRanking,
   ContestProblem,
   ContestRanking,
-  ContestResult,
+  IContestResult,
 } from 'types/api';
 
 /* -------- Get 요청 -------- */
@@ -32,10 +32,10 @@ export const getContestProblem = async (
 export const getContestList = async ({
   page = 0,
   size = 10,
-  query = '',
+  query = 'active',
 }): Promise<ContestList> => {
   const response = await instance.get(
-    `/api/competition/list${query}?page=${page}&size=${size}`,
+    `/api/competitions/${query}?page=${page}&size=${size}&sort=`,
   );
   return response.data;
 };
@@ -67,7 +67,7 @@ export const getContestMyRanking = async (
 // 대회 점수 조회
 export const getContestResult = async (
   contestId: string,
-): Promise<ContestResult> => {
+): Promise<IContestResult> => {
   const response = await instance.get(`/api/competition/result/${contestId}`);
   return response.data;
 };

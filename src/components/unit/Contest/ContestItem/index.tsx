@@ -1,14 +1,23 @@
 import StyleLink from 'components/commons/StyleLink';
 import { TBodyTd } from 'components/commons/Table/style';
+import { ContestInfo } from 'types/api';
 
-const ContestItem = () => {
+interface ContestItemProps {
+  contestItem: ContestInfo;
+}
+
+const ContestItem = ({ contestItem }: ContestItemProps) => {
+  const { id, title, participants, startTime, endTime } = contestItem;
+  console.log('item', contestItem);
   return (
     <tr>
       <TBodyTd>
-        <StyleLink to="1">자바 대회</StyleLink>
+        <StyleLink to="1">{title}</StyleLink>
       </TBodyTd>
-      <TBodyTd>100</TBodyTd>
-      <TBodyTd>2023-05-15 ~ 2024-05-14</TBodyTd>
+      <TBodyTd>{participants}</TBodyTd>
+      <TBodyTd>
+        {startTime} ~ {endTime}
+      </TBodyTd>
     </tr>
   );
 };

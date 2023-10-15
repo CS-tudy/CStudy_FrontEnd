@@ -164,7 +164,7 @@ type ContestPageAble = {
   unpaged: boolean;
 };
 
-export type ContestContent = {
+export type ContestInfo = {
   id: number;
   title: string;
   startTime: string;
@@ -173,7 +173,7 @@ export type ContestContent = {
 };
 
 export interface ContestList {
-  content: ContestContent[];
+  content: ContestInfo[];
   empty: boolean;
   first: boolean;
   last: boolean;

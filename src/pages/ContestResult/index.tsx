@@ -1,5 +1,5 @@
 import Container from 'components/commons/Container';
-import ContestResult from 'components/unit/Contest/QuizResult';
+import ContestResult from 'components/unit/Contest/ContestResult';
 
 const ContestResultPage = () => {
   return (

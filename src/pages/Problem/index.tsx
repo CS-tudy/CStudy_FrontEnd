@@ -22,6 +22,7 @@ import _ from 'lodash';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
+import SearchBar from 'components/commons/SearchBar';
 
 const Problem = () => {
   const [problemList, setProblemList] = useState<IProblem>();
@@ -176,6 +177,27 @@ const Problem = () => {
 
   return (
     <>
+      {' '}
+      <input
+        type="text"
+        style={{ border: '1px solid gray' }}
+        placeholder="검색어를 입력해 주세요."
+        onChange={e => {
+          setInputValue(e.target.value);
+        }}
+        value={inputValue}
+        onKeyDown={handleLoadSearch}
+      />
+      <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
+      {/* <form  onSubmit={handleSubmit(onSubmit)}>
+        <input
+          name="searchTerm"
+          style={{ border: '1px solid gray' }}
+          ref={register}
+          placeholder="검색어를 입력하세요."
+        />
+        <button type="submit">검색</button>
+      </form> */}
       <div>
         {/* <input
           type="text"

@@ -3,6 +3,7 @@ import Container from 'components/commons/Container';
 import MiniContainer from 'components/commons/MiniContainer';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
+import useGetContest from 'hooks/@query/contest/useGetContest';
 import { useNavigate } from 'react-router-dom';
 
 const ContestDetail = () => {

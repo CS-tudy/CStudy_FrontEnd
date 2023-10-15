@@ -22,6 +22,7 @@ import _ from 'lodash';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
+import SearchBar from 'components/commons/SearchBar';
 
 const Problem = () => {
   // const [problemList, setProblemList] = useState<IProblem>();
@@ -174,6 +175,7 @@ const Problem = () => {
         value={inputValue}
         onKeyDown={handleLoadSearch}
       />
+      <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
       {/* <form  onSubmit={handleSubmit(onSubmit)}>
         <input
           name="searchTerm"

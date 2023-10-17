@@ -13,6 +13,7 @@ import { isAdmin } from 'repository/auth';
 import WorkbookQuestionAdminOptionGroup from 'components/unit/WorkbookQuestion/WorkbookQuestionAdminOption';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
 import { Button } from 'components/commons/Button/Style';
+import NoData from 'components/commons/NoData';
 
 const WorkbookQuestion = () => {
   const { questionId } = useParams();
@@ -37,8 +38,6 @@ const WorkbookQuestion = () => {
     questionId: string;
     page: number;
   });
-
-  console.log(workbookQuestion);
 
   const handlePage = useCallback((page: number) => {
     setPage(page);
@@ -83,6 +82,9 @@ const WorkbookQuestion = () => {
             register={register}
             errors={errors}
           />
+          {/* {!workbookQuestion?.content[0]?.questionId && (
+            <NoData>문제집에 문제가 없습니다.</NoData>
+          )} */}
         </Table>
         <S.PaginationWrapper>
           <Pagination

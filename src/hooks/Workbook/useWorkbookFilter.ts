@@ -1,14 +1,8 @@
-import {
-  setTitle,
-  setDescription,
-  setPageNumber,
-  setPageNum,
-} from 'hooks/@redux/filterSlice';
+import { setTitle, setPageNum } from 'hooks/@redux/filterSlice';
 import { useCallback } from 'react';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stroe';
-import { WorkbookFilterStoreType } from 'types/workbook';
 
 const useWorkbookFilter = () => {
   const dispatch = useDispatch();

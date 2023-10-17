@@ -159,7 +159,7 @@ const workbookFilterSlice = createSlice({
       state.description = action.payload;
     },
 
-    reset(state) {
+    setReset(state) {
       state.pageNum = 0;
       state.title = '';
       state.description = '';
@@ -176,7 +176,7 @@ export const {
   setContenthInput: setNoticeFilterSearchContent,
   setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
-export const { setTitle, setDescription, setPageNum } =
+export const { setTitle, setDescription, setPageNum, setReset } =
   workbookFilterSlice.actions;
 
 export const { setStatus, setStatusValue, toggleStatusActive } =

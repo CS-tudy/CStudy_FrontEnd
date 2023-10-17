@@ -15,6 +15,7 @@ import AdminWorkbookTableLists from 'components/commons/Admin/AdminWorkbookTable
 import { getProblemList } from 'api/problem';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
+import { Button } from 'components/commons/Button/Style';
 
 const WorkbookProblemAdd = () => {
   const { questionId } = useParams();
@@ -25,6 +26,7 @@ const WorkbookProblemAdd = () => {
     questionTitle: '',
     categoryTitle: '',
   });
+  console.log(problemList);
 
   const page = 0;
   const { workbookQuestion } = useMixWorkbookWorkbookQuestion({
@@ -57,6 +59,7 @@ const WorkbookProblemAdd = () => {
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
   };
+  console.log('asd');
 
   const AddWorkbookQuestion = useAddWorkbookQuestion({ handleIsLoading });
 
@@ -93,21 +96,23 @@ const WorkbookProblemAdd = () => {
                 errors={errors}
               />
             </Table>
-            <button
+            <Button
               type="submit"
-              className="mt navy xl style"
+              variant="primary"
+              size="large"
               disabled={isLoading}
             >
               문제등록하기
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
-              className="gray style ml xl"
+              variant="gray"
+              size="large"
               onClick={() => navigate(-1)}
               disabled={isLoading}
             >
               돌아가기
-            </button>
+            </Button>
           </FormBody>
         </form>
       </ContentBodyWrapper>

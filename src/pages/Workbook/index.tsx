@@ -3,7 +3,7 @@ import useWorkbookFilter from 'hooks/Workbook/useWorkbookFilter';
 import useGetWorkbookList from 'hooks/@query/workbook/useGetWorkbookList';
 import { WorkbookList } from 'types/api';
 import { Button } from 'components/commons/Button/Style';
-
+import { GrPowerReset } from 'react-icons/gr';
 import * as S from './style';
 import NoData from 'components/commons/NoData';
 import ContentHeaderWrapper from 'components/commons/ContentHeaderWrapper';
@@ -26,9 +26,7 @@ const Workbook = () => {
     title: workbookFilter.title,
     description: workbookFilter.description,
   });
-  const workbookImgList = useGetWorkbookImg();
-  console.log(workbookImgList);
-  console.log(workbookList);
+  // const workbookImgList = useGetWorkbookImg();
 
   const handleReset = () => {
     // reset();
@@ -50,9 +48,9 @@ const Workbook = () => {
           >
             검색
           </Button>
-          <button onClick={handleReset} className="ml xl  revert">
-            버튼
-          </button>
+          <Button variant="white" size="small" onClick={handleReset}>
+            <GrPowerReset size={20}></GrPowerReset>
+          </Button>
         </S.SearchWrapper>
       </ContentHeaderWrapper>
       <Container>

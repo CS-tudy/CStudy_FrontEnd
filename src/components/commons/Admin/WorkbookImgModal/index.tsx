@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import workbook from 'assets/workbook.png';
 import { AiOutlineClose } from 'react-icons/ai';
-
 import useGetWorkbookList from 'hooks/@query/workbook/useGetWorkbookList';
 import { useUploadImgWorkbook } from 'hooks/@query/workbook/useUploadWorkbook';
 import * as S from './style';
@@ -34,6 +33,7 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
 
     const lastWorkbook = workbookList?.content.length;
     const id = lastWorkbook ? lastWorkbook + 1 : null;
+    console.log(id);
 
     workbookImgUpload({ id, formData });
   };

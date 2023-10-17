@@ -12,20 +12,34 @@ export const WorkBookCard = styled.article`
 `;
 
 export const Title = styled.div`
-  ${FONT.H1}
+  ${FONT.BOLD_20};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 16px;
+  color: ${COLOR.BLACK};
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 `;
 
 export const Time = styled.div`
   font-size: ${FONT.REGULAR_12};
   color: #949494;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #dce1e5;
+  margin-top: auto;
 `;
 
-export const Img = styled.div<{ category?: string }>``;
+export const Img = styled.img`
+  display: block;
+  width: 100%;
+  object-fit: cover;
+`;
 
-export const Description = styled.div`
+export const Info = styled.div`
   display: flex;
   min-height: 210px;
   flex-direction: column;
@@ -33,3 +47,5 @@ export const Description = styled.div`
   justify-content: space-between;
   padding: 24px;
 `;
+
+export const Description = styled.div``;

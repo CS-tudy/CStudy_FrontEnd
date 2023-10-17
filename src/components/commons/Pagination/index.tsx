@@ -8,8 +8,6 @@ const Pagination = ({
   page,
   white,
 }: PaginationProps) => {
-  console.log(page);
-
   const {
     currentPage,
     handlePrevPageGroupClick,

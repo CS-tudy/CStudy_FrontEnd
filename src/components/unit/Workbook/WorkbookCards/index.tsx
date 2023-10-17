@@ -10,15 +10,18 @@ interface WorkbookCardsProps {
 const WorkbookCards = ({ workbookList }: WorkbookCardsProps) => {
   return (
     <Styled.WorkBookCards>
-      {workbookList?.content?.map(({ id, title, description, createdAt }) => (
-        <WorkBookCard
-          key={id}
-          id={id}
-          title={title}
-          description={description}
-          createdAt={createdAt}
-        />
-      ))}
+      {workbookList?.content?.map(
+        ({ id, title, description, createdAt, fileName }) => (
+          <WorkBookCard
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            createdAt={createdAt}
+            fileName={fileName}
+          />
+        ),
+      )}
     </Styled.WorkBookCards>
   );
 };

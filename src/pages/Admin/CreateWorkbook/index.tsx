@@ -14,7 +14,7 @@ import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
 const CreateWorkbook = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const {
     register,
     handleSubmit,

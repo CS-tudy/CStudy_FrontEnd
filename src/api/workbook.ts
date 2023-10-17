@@ -18,7 +18,7 @@ export const getWorkbook = async (id: string): Promise<Workbook> => {
 export const getWorkbookQuestion = async (
   id = '',
   page = 0,
-  size = 10,
+  size = 5,
   sort = '',
 ): Promise<WorkbookQuestion> => {
   const response = await instance.get(

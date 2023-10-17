@@ -240,6 +240,7 @@ type WorkbookContent = {
   title: string;
   description: string;
   createdAt: string;
+  fileName: string;
 };
 export interface WorkbookList extends Omit<ContestList, 'content'> {
   content: WorkbookContent[];

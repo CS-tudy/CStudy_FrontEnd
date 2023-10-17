@@ -24,6 +24,12 @@ const variantCSS: VariantCSS = {
     border: 1px solid #dbdbdb;
   `,
 
+  white: css`
+    background: ${COLOR.WHITE};
+    color: ${COLOR.BLACK};
+    border: 1px solid #dbdbdb !important;
+  `,
+
   green: css`
     background: ${COLOR.GREEN};
     color: ${COLOR.WHITE};

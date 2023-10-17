@@ -12,7 +12,7 @@ const ContestItem = ({ contestItem }: ContestItemProps) => {
   return (
     <tr>
       <TBodyTd>
-        <StyleLink to="1">{title}</StyleLink>
+        <StyleLink to={`${id}`}>{title}</StyleLink>
       </TBodyTd>
       <TBodyTd>{participants}</TBodyTd>
       <TBodyTd>

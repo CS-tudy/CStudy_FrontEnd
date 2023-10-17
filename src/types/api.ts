@@ -160,18 +160,18 @@ export interface IContestResult {
   details: ContestDetail[];
 }
 
-export type ContestRankingContent = {
+export type ContestRankContent = {
   memberId: number;
   name: string;
   score: number;
   endTime: number | null;
 };
 
-export interface ContestRanking extends Omit<ContestList, 'content'> {
-  content: ContestRankingContent[];
+export interface IContestRank extends Omit<ContestList, 'content'> {
+  content: ContestRankContent[];
 }
 
-export interface ContestMyRanking {
+export interface ContestMyRank {
   ranking: boolean | null;
 }
 

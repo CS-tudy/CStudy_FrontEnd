@@ -1,16 +1,22 @@
-// interface ContestRankTBodyListProps {
-//   ranking: ContestRankingContent;
-//   totalQuestion: number;
-// }
-
+import { IContestRank } from 'types/api';
 import ContestRankTBodyItem from '../ContestRankTBodyItem';
 
-const ContestRankTBodyList = () => {
+interface ContestRankTBodyListProps {
+  contestRanking: IContestRank;
+  // totalQuestion: number;
+}
+
+const ContestRankTBodyList = ({ contestRank }: ContestRankTBodyListProps) => {
   return (
-    // {contestRanking?.content?.map((ranking) => (
-    // <ContestDetailRankingTBodyList key={ranking.memberId} ranking={ranking} totalQuestion={totalQuestion} />
-    // ))}
-    <ContestRankTBodyItem />
+    <>
+      {contestRank?.content?.map(rank => (
+        <ContestRankTBodyItem
+          key={rank.memberId}
+          rank={rank}
+          // totalQuestion={totalQuestion}
+        />
+      ))}
+    </>
   );
 };
 

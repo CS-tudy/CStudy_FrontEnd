@@ -6,7 +6,7 @@ import {
   getContestProblem,
   getContestRanking,
 } from 'api/contest';
-// import { isLogin } from 'utils/auth';
+import { isLogin } from 'repository/auth';
 
 interface MixQueryProps {
   categoryTitle?: string;
@@ -42,7 +42,7 @@ export const useMixContestDetailAll = ({
       {
         queryKey: ['contestMyRanking', { contestId }],
         queryFn: () => getContestMyRanking(contestId),
-        // enabled: isLogin(),
+        enabled: isLogin(),
       },
       {
         queryKey: ['contest', { contestId }],
@@ -57,9 +57,9 @@ export const useMixContestDetailAll = ({
 
   const problem = problemListResult?.data;
   const contestQuestion = contestProblemListResult?.data;
-  const myRanking = contestMyRankingListResult?.data;
+  const myRank = contestMyRankingListResult?.data;
   const contest = contestListResult?.data;
-  const contestRanking = contestRankingListResult?.data;
+  const contestRank = contestRankingListResult?.data;
 
-  return { problem, contestQuestion, myRanking, contest, contestRanking };
+  return { problem, contestQuestion, myRank, contest, contestRank };
 };

@@ -1,14 +1,18 @@
+import { ContestRankContent } from 'types/api';
 import * as S from './style';
 
-const ContestRankTBodyItem = () => {
+interface ContestRankTBodyItemProps {
+  rank: ContestRankContent;
+  // totalQuestion: number;
+}
+
+const ContestRankTBodyItem = ({ rank }: ContestRankTBodyItemProps) => {
   return (
-    <S.StyledTr
-    // key={ranking.memberId}
-    >
-      <S.StyledTd>{/* {ranking.name} */}test</S.StyledTd>
-      <S.StyledTd>{/* {ranking.score} / {totalQuestion} */}2 / 3</S.StyledTd>
+    <S.StyledTr key={rank.memberId}>
+      <S.StyledTd>{rank.name}</S.StyledTd>
+      <S.StyledTd>{/* {rank.score} / {totalQuestion} */}</S.StyledTd>
       <S.StyledTd>
-        {/* {ranking.endTime ? ranking.endTime : '제출한 시험지가 없습니다'} */}
+        {/* {rank.endTime ? rank.endTime : '제출한 시험지가 없습니다'} */}
         2024-07-18 21:08
       </S.StyledTd>
     </S.StyledTr>

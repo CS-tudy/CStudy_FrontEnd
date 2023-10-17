@@ -9,7 +9,8 @@ import useGetContest from 'hooks/@query/contest/useGetContest';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
-import { Contest } from 'types/api';
+import { Contest, IContestRank } from 'types/api';
+import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
@@ -17,6 +18,27 @@ const ContestDetail = () => {
   const handleNavigateMyResult = () => {
     navigate(`/contest/1/result`);
   };
+
+  const [page, setPage] = useState(0);
+
+  const { problem, contestQuestion, myRank, contest, contestRank } =
+    useMixContestDetailAll({
+      contestId,
+      page,
+    } as { contestId: string });
+
+  const filterQuestion = problem?.content?.filter(
+    ({ questionId: problemQuestionId }: { questionId: number }) => {
+      return contestQuestion?.some(
+        ({ questionId: contestQuestionId }: { questionId: number }) =>
+          problemQuestionId === contestQuestionId,
+      );
+    },
+  );
+  const totalQuestion = filterQuestion?.length;
+  console.log('filter', filterQuestion);
+  console.log('problem', problem);
+  console.log('contest', contestQuestion);
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
@@ -28,6 +50,8 @@ const ContestDetail = () => {
     contestId,
     handleIsLoading,
   });
+
+  console.log('rank', contestRank);
 
   return (
     <MiniContainer>
@@ -68,8 +92,8 @@ const ContestDetail = () => {
         )}
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        <ContestInfo />
-        <ContestRank />
+        <ContestInfo contest={contest as Contest} />
+        <ContestRank contestRank={contestRank as IContestRank} />
       </div>
     </MiniContainer>
   );

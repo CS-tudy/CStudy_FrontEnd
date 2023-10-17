@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import { SHADOW } from 'constants/Shadow';
 
 export const StyledTbody = styled.tbody`
   font-size: ${FONT.REGULAR_14};

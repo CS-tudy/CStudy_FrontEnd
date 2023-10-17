@@ -1,8 +1,18 @@
+import { ContestMyRank, IContestRank } from 'types/api';
 import ContestRankTBody from '../ContestRankTBody';
 import ContestRankTHead from '../ContestRankTHead';
 import * as S from './style';
+import Pagination from 'components/commons/Pagination';
 
-const ContestRank = () => {
+interface ContestRankProps {
+  contestRank: IContestRank;
+  totalQuestion: number;
+  myRank: ContestMyRank;
+  page: number;
+  handlePage: (page: number) => void;
+}
+
+const ContestRank = ({ contestRank }: ContestRankProps) => {
   return (
     <S.Wrapper>
       <div style={{ marginLeft: '3rem' }}>
@@ -18,15 +28,15 @@ const ContestRank = () => {
         <S.StyledTable>
           <ContestRankTHead />
           <ContestRankTBody
-          // contestRanking={contestRanking}
-          // totalQuestion={totalQuestion}
+            contestRank={contestRank}
+            // totalQuestion={totalQuestion}
           />
         </S.StyledTable>
-        {/* {contestRanking?.totalPages > 1 && (
+        {/* {contestRank?.totalPages > 1 && (
         <S.PaginationWrapper>
           <Pagination
             white
-            totalPages={contestRanking?.totalPages as number}
+            totalPages={contestRank?.totalPages as number}
             handlePage={handlePage}
             page={page}
           />

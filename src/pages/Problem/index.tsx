@@ -178,7 +178,7 @@ const Problem = () => {
   return (
     <>
       {' '}
-      <input
+      {/* <input
         type="text"
         style={{ border: '1px solid gray' }}
         placeholder="검색어를 입력해 주세요."
@@ -187,7 +187,7 @@ const Problem = () => {
         }}
         value={inputValue}
         onKeyDown={handleLoadSearch}
-      />
+      /> */}
       <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
       {/* <form  onSubmit={handleSubmit(onSubmit)}>
         <input

@@ -112,7 +112,7 @@ const Header = () => {
           {isLogin() ? (
             <>
               <button onClick={() => signOut()}>로그아웃</button>
-              <Link to="/">마이페이지</Link>
+              <Link to="/mypage">마이페이지</Link>
             </>
           ) : (
             <>
@@ -120,7 +120,6 @@ const Header = () => {
               <button onClick={openSignupModal}>회원가입</button>
             </>
           )}
-          {/* )} */}
         </S.Sign>
       </S.Wrapper>
     </>

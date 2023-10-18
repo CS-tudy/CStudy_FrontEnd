@@ -179,6 +179,35 @@ const problemFilterSlice = createSlice({
   },
 });
 
+const problemFilterSlice = createSlice({
+  name: 'problemFilter',
+  initialState: {
+    pageNumber: 0,
+  },
+  reducers: {
+    setProblemPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+  },
+});
+
+const PwdEditSlice = createSlice({
+  name: 'PwdEdit',
+  initialState: {
+    newPassword: '',
+    oldPassword: '',
+  },
+  reducers: {
+    setNewPassword(state, action) {
+      state.newPassword = action.payload;
+    },
+    setOldPassword(state, action) {
+      state.oldPassword = action.payload;
+    },
+  },
+});
+
+export const { setNewPassword, setOldPassword } = PwdEditSlice.actions;
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {

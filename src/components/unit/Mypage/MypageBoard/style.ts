@@ -16,8 +16,9 @@ export const BoardTitle = styled.h3`
 
 export const BoardTable = styled.table`
   width: 100%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 2rem;
+  border: 1px solid #d2d2d2;
+  border-radius: 1.2rem;
+  border-collapse: separate;
 `;
 
 export const Thead = styled.th`
@@ -28,6 +29,7 @@ export const Thead = styled.th`
 export const Tbody = styled.td`
   text-align: center;
   border-top: 0.1rem solid rgb(241, 242, 243);
+
   font-size: ${FONT.REGULAR_16};
   padding: 1rem 0;
 `;

@@ -8,6 +8,7 @@ import {
 import MyPageInfo from '../MypageInfo';
 import * as S from './style';
 import MypageInput from '../MypageInput';
+import { myPageDownloadState, myPageState } from 'types/mypage';
 
 interface MypageMyInfoProps {
   isLoading: boolean;
@@ -22,6 +23,8 @@ interface MypageMyInfoProps {
   handleChangePwdSubmit: (formData: FieldValues) => void;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   onValid: () => void;
+  myPageInfo: myPageState;
+  img: myPageDownloadState;
 }
 
 const MypageMyInfo = ({
@@ -34,10 +37,14 @@ const MypageMyInfo = ({
   passwordPattern,
   handleChangePwdSubmit,
   onValid,
+  myPageInfo,
+  img,
 }: MypageMyInfoProps) => {
   return (
     <S.MyInfoWrapper>
       <MyPageInfo
+        myPageInfo={myPageInfo}
+        img={img}
         register={register}
         onValid={onValid}
         handleSubmit={handleSubmit}

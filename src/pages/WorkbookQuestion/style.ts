@@ -19,6 +19,9 @@ export const CreateInfo = styled.div`
   flex-shrink: 0;
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.GRAY_100};
+  & button {
+    margin-top: 1rem;
+  }
 `;
 export const PaginationWrapper = styled.div`
   padding: 4rem 0 6rem;

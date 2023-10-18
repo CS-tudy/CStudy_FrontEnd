@@ -38,6 +38,7 @@ const WorkbookQuestion = () => {
     questionId: string;
     page: number;
   });
+  console.log();
 
   const handlePage = useCallback((page: number) => {
     setPage(page);
@@ -67,32 +68,35 @@ const WorkbookQuestion = () => {
           />
         </S.AdminWrapper>
 
-        <Table
-          colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
-          title={
-            isAdmin()
-              ? ['문제번호', '문제이름', '문제삭제']
-              : ['문제번호', '문제이름']
-          }
-        >
-          <WorkbookQuestionTableLists
-            workbookContent={
-              workbookQuestion?.content as WorkbookQuestionContent[]
+        {workbookQuestion?.content[0]?.questionId ? (
+          <Table
+            colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
+            title={
+              isAdmin()
+                ? ['문제번호', '문제이름', '문제삭제']
+                : ['문제번호', '문제이름']
             }
-            register={register}
-            errors={errors}
-          />
-          {/* {!workbookQuestion?.content[0]?.questionId && (
-            <NoData>문제집에 문제가 없습니다.</NoData>
-          )} */}
-        </Table>
-        <S.PaginationWrapper>
-          <Pagination
-            totalPages={workbookQuestion?.totalPages as number}
-            handlePage={handlePage}
-            page={page}
-          />
-        </S.PaginationWrapper>
+          >
+            <WorkbookQuestionTableLists
+              workbookContent={
+                workbookQuestion?.content as WorkbookQuestionContent[]
+              }
+              register={register}
+              errors={errors}
+            />
+          </Table>
+        ) : (
+          <NoData>문제집에 문제가 없습니다.</NoData>
+        )}
+        {(workbookQuestion?.totalPages as number) > 1 && (
+          <S.PaginationWrapper>
+            <Pagination
+              totalPages={workbookQuestion?.totalPages as number}
+              handlePage={handlePage}
+              page={page}
+            />
+          </S.PaginationWrapper>
+        )}
       </ContentBodyWrapper>
     </ContentContainer>
   );

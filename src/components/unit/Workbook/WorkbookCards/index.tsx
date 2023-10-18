@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { WorkbookList } from 'types/api';
 import WorkBookCard from '../WorkbookCard';
-import * as Styled from './style';
+import * as S from './style';
 
 interface WorkbookCardsProps {
   workbookList: WorkbookList;
@@ -9,7 +9,7 @@ interface WorkbookCardsProps {
 
 const WorkbookCards = ({ workbookList }: WorkbookCardsProps) => {
   return (
-    <Styled.WorkBookCards>
+    <S.WorkBookCards>
       {workbookList?.content?.map(
         ({ id, title, description, createdAt, fileName }) => (
           <WorkBookCard
@@ -22,7 +22,7 @@ const WorkbookCards = ({ workbookList }: WorkbookCardsProps) => {
           />
         ),
       )}
-    </Styled.WorkBookCards>
+    </S.WorkBookCards>
   );
 };
 

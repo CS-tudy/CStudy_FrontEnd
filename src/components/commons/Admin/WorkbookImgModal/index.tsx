@@ -21,7 +21,6 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
 
   const workbookList = useGetWorkbookList({ title: '', description: '' });
   const workbookImgUpload = useUploadImgWorkbook({ handleIsModal });
-  console.log(workbookList);
 
   const handleUpload = () => {
     if (!selectedFile) return;
@@ -31,10 +30,8 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    const lastWorkbook = workbookList?.content.length;
-    const id = lastWorkbook ? lastWorkbook + 1 : null;
-    console.log(id);
-
+    const lastWorkbook = workbookList?.content[0].id;
+    const id = lastWorkbook ? lastWorkbook : null;
     workbookImgUpload({ id, formData });
   };
 

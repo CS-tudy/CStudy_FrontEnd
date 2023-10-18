@@ -39,3 +39,24 @@ export const PwdInput = styled.input`
 export const Error = styled.span`
   color: ${COLOR.RED};
 `;
+
+export const PwdDiv = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+`;
+
+export const PwdInner = styled.div`
+  background-color: #fff;
+  padding: 6rem;
+  border-radius: 2rem;
+`;
+
+export const Close = styled.span`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+`;

@@ -9,6 +9,7 @@ import MyPageInfo from '../MypageInfo';
 import * as S from './style';
 import MypageInput from '../MypageInput';
 import { myPageDownloadState, myPageState } from 'types/mypage';
+import { Statement } from 'typescript';
 
 interface MypageMyInfoProps {
   isLoading: boolean;
@@ -25,6 +26,7 @@ interface MypageMyInfoProps {
   onValid: () => void;
   myPageInfo: myPageState;
   img: myPageDownloadState;
+  setIsActive: any;
 }
 
 const MypageMyInfo = ({
@@ -38,6 +40,7 @@ const MypageMyInfo = ({
   handleChangePwdSubmit,
   onValid,
   myPageInfo,
+  setIsActive,
   img,
 }: MypageMyInfoProps) => {
   return (
@@ -52,6 +55,8 @@ const MypageMyInfo = ({
       />
       {isActive && (
         <MypageInput
+          setIsActive={setIsActive}
+          isActive={isActive}
           register={register}
           handleSubmit={handleSubmit}
           errors={errors}

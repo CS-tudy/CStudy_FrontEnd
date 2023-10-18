@@ -2,6 +2,7 @@ import Container from 'components/commons/Container';
 import ContestResult from 'components/unit/Contest/ContestResult';
 import useGetContestResult from 'hooks/@query/contest/useGetContestResult';
 import { useLocation, useParams } from 'react-router-dom';
+import { IContestResult } from 'types/api';
 
 const ContestResultPage = () => {
   const { contestId } = useParams();
@@ -13,7 +14,7 @@ const ContestResultPage = () => {
 
   return (
     <Container>
-      <ContestResult />
+      <ContestResult contestResult={contestResult as IContestResult} />
     </Container>
   );
 };

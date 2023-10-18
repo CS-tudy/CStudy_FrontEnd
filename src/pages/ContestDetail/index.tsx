@@ -27,21 +27,28 @@ const ContestDetail = () => {
       page,
     } as { contestId: string });
 
-  const filterQuestion = problem?.content?.filter(
-    ({ questionId: problemQuestionId }: { questionId: number }) => {
-      return contestQuestion?.some(
-        ({ questionId: contestQuestionId }: { questionId: number }) =>
-          problemQuestionId === contestQuestionId,
-      );
-    },
-  );
-  const totalQuestion = filterQuestion?.length;
-  console.log('filter', filterQuestion);
-  console.log('problem', problem);
-  console.log('contest', contestQuestion);
+  // const filterQuestion = problem?.content?.filter(
+  //   ({ questionId: problemQuestionId }: { questionId: number }) => {
+  //     return contestQuestion?.some(
+  //       ({ questionId: contestQuestionId }: { questionId: number }) =>
+  //         problemQuestionId === contestQuestionId,
+  //     );
+  //   },
+  // );
+  // const totalQuestion = filterQuestion?.length;
+  // console.log('filter', filterQuestion);
+  // console.log('problem', problem);
+  // console.log('contest', contestQuestion);
+
+  const totalQuestion = contestQuestion?.length;
+  console.log('total', totalQuestion);
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
+  };
+
+  const handlePage = (page: number) => {
+    setPage(page);
   };
 
   const [isLoading, setIsLoading] = useState(false);
@@ -93,7 +100,12 @@ const ContestDetail = () => {
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
         <ContestInfo contest={contest as Contest} />
-        <ContestRank contestRank={contestRank as IContestRank} />
+        <ContestRank
+          contestRank={contestRank as IContestRank}
+          totalQuestion={totalQuestion as number}
+          handlePage={handlePage}
+          page={page}
+        />
       </div>
     </MiniContainer>
   );

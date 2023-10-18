@@ -45,16 +45,6 @@ const Problem = () => {
 
   console.log('filter', problemFilter);
 
-  // const fetchProblemListTest = async () => {
-  //   const res = await getProblemListTest();
-  //   setProblemList(res.data);
-  // };
-
-  // useEffect(() => {
-  //   fetchProblemListTest();
-  //   console.log(problemList);
-  // }, []);
-
   const problemList = useGetProblemList({
     questionTitle: inputValue,
     categoryTitle: categoryValue,
@@ -88,130 +78,19 @@ const Problem = () => {
   const tableColRate = ['10%', '15%', '60%', '15%'];
   const tableTitle = ['번호', '상태', '제목', '카테고리'];
 
-  // const getDebounce = _.debounce(value => {
-  //   // ({ search: value, page: 1 });
-  //   useGetProblemList({ questionTitle: value });
-  // }, 500);
-
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   getDebounce(event.target.value);
-  // };
-
-  // =========================================== //
-
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   // getDebounce(event.target.value);
-  //   useGetProblemList({ questionTitle: event.target.value });
-  // };
-
-  // =========================================== //
-
-  // const [inputValue, setInputValue] = useState('');
-
-  // const debouncedSave = _.debounce(value => {
-  //   useGetProblemList({ questionTitle: value });
-  // }, 500);
-
-  // useEffect(() => {
-  //   if (inputValue) {
-  //     debouncedSave(inputValue);
-  //   }
-  // }, [inputValue]);
-
-  // const onChangeSearchbar = event => {
-  //   setInputValue(event.target.value);
-  // };
-
-  // =========================================== //
-
-  // // Debounce the inputValue with lodash's _.debounce function
-  // const debouncedInput = useMemo(() => _.debounce(setInputValue, 500), []);
-
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   // Cancel the previous debounced value
-  //   debouncedInput.cancel();
-
-  //   // Set the new debounced value
-  //   debouncedInput(event.target.value);
-  // };
-
-  // useEffect(() => {
-  //   if (inputValue) {
-  //     useGetProblemList({ questionTitle: inputValue });
-  //   }
-  // }, [inputValue]);
-
-  // =========================================== //
-
-  const handleLoadSearch = async (e: any) => {
-    if (e.key === 'Enter') {
-      // useGetProblemList({ questionTitle: inputValue });
-      // const res = await getProblemListSearch(e.target.value);
-      console.log(e.target.value);
-      // setProblemList(res.data);
-      // console.log('res', res);
-      // setProblemList(res.data);
-      setInputValue(e.target.value);
-    }
-    // setInputValue('');
-  };
-
-  // function SearchForm({ onSearch }) {
-  //   const onSubmit = data => {
-  //     onSearch(data.searchTerm);
-  //   };
-  // }
-
   return (
     <>
       {' '}
-      {/* <input
-        type="text"
-        style={{ border: '1px solid gray' }}
-        placeholder="검색어를 입력해 주세요."
-        onChange={e => {
-          setInputValue(e.target.value);
-        }}
-        value={inputValue}
-        onKeyDown={handleLoadSearch}
-      /> */}
       <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
-      {/* <form  onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="searchTerm"
-          style={{ border: '1px solid gray' }}
-          ref={register}
-          placeholder="검색어를 입력하세요."
-        />
-        <button type="submit">검색</button>
-      </form> */}
-      <div>
-        {/* <input
-          type="text"
-          style={{ border: '1px solid gray' }}
-          placeholder="검색어를 입력해 주세요."
-          onChange={onChangeSearchbar}
-          value={inputValue}
-        /> */}
-        {/* <input
-          type="text"
-          style={{ border: '1px solid gray' }}
-          placeholder="검색어를 입력해 주세요."
-          onChange={e => {
-            setInputValue(e.target.value);
-          }}
-          value={inputValue}
-          onKeyDown={handleLoadSearch}
-        /> */}
-      </div>
-      <S.Div>
-        <S.Contents>
-          <S.Content1>
+      <div></div>
+      <S.ContainerHeader>
+        <S.FilterWrapper>
+          <S.QueryFilterWrapper>
             <Filter className={queryActive} onClick={handleToggle}>
               내가 푼 문제
             </Filter>
-          </S.Content1>
-          <S.Content2>
+          </S.QueryFilterWrapper>
+          <S.StatusFilterWrapper>
             <Select
               name={status}
               handleActive={handleStatusClick}
@@ -224,8 +103,8 @@ const Problem = () => {
                 !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
-          </S.Content2>
-          <S.Content3>
+          </S.StatusFilterWrapper>
+          <S.CategoryFilterWrapper>
             <Select
               name={category}
               handleActive={handleCategoryClick}
@@ -238,9 +117,9 @@ const Problem = () => {
                 !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
-          </S.Content3>
-        </S.Contents>
-      </S.Div>
+          </S.CategoryFilterWrapper>
+        </S.FilterWrapper>
+      </S.ContainerHeader>
       <Container>
         <Table colRate={tableColRate} title={tableTitle}>
           <ProblemList problemList={problemList as IProblem} />

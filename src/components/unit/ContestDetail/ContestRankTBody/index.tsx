@@ -3,11 +3,14 @@ import ContestRankTBodyList from '../ContestRankTBodyList';
 import * as S from './style';
 
 interface ContestRankTBodyProps {
-  contestRanking: IContestRank;
-  // totalQuestion: number;
+  contestRank: IContestRank;
+  totalQuestion: number;
 }
 
-const ContestRankTBody = ({ contestRank }: ContestRankTBodyProps) => {
+const ContestRankTBody = ({
+  contestRank,
+  totalQuestion,
+}: ContestRankTBodyProps) => {
   return (
     <S.StyledTbody>
       {(contestRank?.totalElements as number) === 0 ? (
@@ -17,7 +20,7 @@ const ContestRankTBody = ({ contestRank }: ContestRankTBodyProps) => {
       ) : (
         <ContestRankTBodyList
           contestRank={contestRank}
-          // totalQuestion={totalQuestion}
+          totalQuestion={totalQuestion}
         />
       )}
     </S.StyledTbody>

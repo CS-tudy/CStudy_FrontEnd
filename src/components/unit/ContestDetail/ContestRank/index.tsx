@@ -7,12 +7,17 @@ import Pagination from 'components/commons/Pagination';
 interface ContestRankProps {
   contestRank: IContestRank;
   totalQuestion: number;
-  myRank: ContestMyRank;
+  myRank?: ContestMyRank;
   page: number;
   handlePage: (page: number) => void;
 }
 
-const ContestRank = ({ contestRank }: ContestRankProps) => {
+const ContestRank = ({
+  contestRank,
+  totalQuestion,
+  page,
+  handlePage,
+}: ContestRankProps) => {
   return (
     <S.Wrapper>
       <div style={{ marginLeft: '3rem' }}>
@@ -29,19 +34,19 @@ const ContestRank = ({ contestRank }: ContestRankProps) => {
           <ContestRankTHead />
           <ContestRankTBody
             contestRank={contestRank}
-            // totalQuestion={totalQuestion}
+            totalQuestion={totalQuestion}
           />
         </S.StyledTable>
-        {/* {contestRank?.totalPages > 1 && (
-        <S.PaginationWrapper>
-          <Pagination
-            white
-            totalPages={contestRank?.totalPages as number}
-            handlePage={handlePage}
-            page={page}
-          />
-        </S.PaginationWrapper>
-      )} */}
+        {contestRank?.totalPages > 0 && (
+          <S.PaginationWrapper>
+            <Pagination
+              white
+              totalPages={contestRank?.totalPages as number}
+              handlePage={handlePage}
+              page={page}
+            />
+          </S.PaginationWrapper>
+        )}
       </S.ContestRanking>
     </S.Wrapper>
   );

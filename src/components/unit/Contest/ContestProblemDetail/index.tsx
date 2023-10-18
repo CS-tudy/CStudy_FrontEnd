@@ -136,14 +136,15 @@ const ContestProblemDetail = ({
                 다음
               </Button>
             ) : (
-              <Button
-                type="submit"
-                variant="primary"
-                size="medium"
-                disabled={isLoading}
-              >
-                제출
-              </Button>
+              // <Button
+              //   type="submit"
+              //   variant="primary"
+              //   size="medium"
+              //   disabled={isLoading}
+              // >
+              //   제출
+              // </Button>
+              <button>test</button>
             )}
           </S.ButtonWrapper>
         </div>

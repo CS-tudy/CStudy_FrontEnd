@@ -12,7 +12,7 @@ import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
 import { getMyPage } from 'api/mypage';
 import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
-import { userInfo } from 'repository/auth';
+import { isAdmin, userInfo } from 'repository/auth';
 import { LoginUserDto } from 'types/problem';
 
 const RequestDetail = () => {
@@ -81,17 +81,25 @@ const RequestDetail = () => {
         <S.Content>{request?.description}</S.Content>
       </S.Container>
       <S.ButtonWrapper>
-        <Button
-          variant="primary"
-          size="medium"
-          disabled={request?.flag}
-          onClick={handleSubmit(onSubmit)}
-        >
-          승인하기
-        </Button>
-        <Button variant="gray" size="medium" onClick={handleNavigateBack}>
-          돌아가기
-        </Button>
+        {isAdmin() ? (
+          <>
+            <Button
+              variant="primary"
+              size="medium"
+              disabled={request?.flag}
+              onClick={handleSubmit(onSubmit)}
+            >
+              승인하기
+            </Button>
+            <Button variant="gray" size="medium" onClick={handleNavigateBack}>
+              돌아가기
+            </Button>
+          </>
+        ) : (
+          <Button variant="gray" size="medium" onClick={handleNavigateBack}>
+            돌아가기
+          </Button>
+        )}
       </S.ButtonWrapper>
     </Container>
   );

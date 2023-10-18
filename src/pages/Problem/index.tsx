@@ -39,44 +39,10 @@ const Problem = () => {
     useStatusFilterSlice();
   const { category, categoryValue, categoryActive, handleCategoryClick } =
     useCategoryFilterSlice();
-  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
+  const { query, queryActive, handleToggle } = useQueryFilterSlice();
+  const { problemFilter, handlePage } = UseProblemFilterSlice();
 
-  const fetchProblemListTest = async () => {
-    const res = await getProblemListTest();
-    setProblemList(res.data);
-  };
-
-  useEffect(() => {
-    fetchProblemListTest();
-    console.log(problemList);
-  }, []);
-
-  // const problemList = useGetProblemList({
-  //   questionTitle: 'Question',
-  //   categoryTitle: categoryValue,
-  //   status: statusValue,
-  //   memberId: 0,
-  //   page: pageNumber,
-  //   query: query,
-  // });
-
-  // console.log(problemList);
-
-  const { status, statusValue, statusActive, handleStatusClick } =
-    useStatusFilterSlice();
-  const { category, categoryValue, categoryActive, handleCategoryClick } =
-    useCategoryFilterSlice();
-  const { query, queryActive, handleToggle, isActive } = useQueryFilterSlice();
-
-  // const fetchProblemListTest = async () => {
-  //   const res = await getProblemListTest();
-  //   setProblemList(res.data);
-  // };
-
-  // useEffect(() => {
-  //   fetchProblemListTest();
-  //   console.log(problemList);
-  // }, []);
+  console.log('filter', problemFilter);
 
   const problemList = useGetProblemList({
     questionTitle: 'Question',
@@ -178,53 +144,16 @@ const Problem = () => {
   return (
     <>
       {' '}
-      {/* <input
-        type="text"
-        style={{ border: '1px solid gray' }}
-        placeholder="검색어를 입력해 주세요."
-        onChange={e => {
-          setInputValue(e.target.value);
-        }}
-        value={inputValue}
-        onKeyDown={handleLoadSearch}
-      /> */}
       <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
-      {/* <form  onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="searchTerm"
-          style={{ border: '1px solid gray' }}
-          ref={register}
-          placeholder="검색어를 입력하세요."
-        />
-        <button type="submit">검색</button>
-      </form> */}
-      <div>
-        {/* <input
-          type="text"
-          style={{ border: '1px solid gray' }}
-          placeholder="검색어를 입력해 주세요."
-          onChange={onChangeSearchbar}
-          value={inputValue}
-        /> */}
-        <input
-          type="text"
-          style={{ border: '1px solid gray' }}
-          placeholder="검색어를 입력해 주세요."
-          onChange={e => {
-            setInputValue(e.target.value);
-          }}
-          value={inputValue}
-          onKeyDown={handleLoadSearch}
-        />
-      </div>
-      <S.Div>
-        <S.Contents>
-          <S.Content1>
-            <Filter className={isActive} onClick={handleToggle}>
+      <div></div>
+      <S.ContainerHeader>
+        <S.FilterWrapper>
+          <S.QueryFilterWrapper>
+            <Filter className={queryActive} onClick={handleToggle}>
               내가 푼 문제
             </Filter>
-          </S.Content1>
-          <S.Content2>
+          </S.QueryFilterWrapper>
+          <S.StatusFilterWrapper>
             <Select
               name={status}
               handleActive={handleStatusClick}
@@ -237,8 +166,8 @@ const Problem = () => {
                 !isActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
-          </S.Content2>
-          <S.Content3>
+          </S.StatusFilterWrapper>
+          <S.CategoryFilterWrapper>
             <Select
               name={category}
               handleActive={handleCategoryClick}
@@ -251,9 +180,9 @@ const Problem = () => {
                 !isActive ? filterSelectIndex : noActiveFilterSelectIndex
               }
             />
-          </S.Content3>
-        </S.Contents>
-      </S.Div>
+          </S.CategoryFilterWrapper>
+        </S.FilterWrapper>
+      </S.ContainerHeader>
       <Container>
         <Table colRate={tableColRate} title={tableTitle}>
           <ProblemList problemList={problemList as IProblem} />

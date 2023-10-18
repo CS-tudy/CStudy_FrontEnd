@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Div = styled.div`
+export const ContainerHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 6rem;
@@ -8,7 +8,7 @@ export const Div = styled.div`
   height: 100%;
 `;
 
-export const Contents = styled.div`
+export const FilterWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -16,13 +16,13 @@ export const Contents = styled.div`
   padding-right: 5vw;
 `;
 
-export const Content1 = styled.div``;
+export const QueryFilterWrapper = styled.div``;
 
-export const Content2 = styled.div`
+export const StatusFilterWrapper = styled.div`
   margin-right: 1rem;
 `;
 
-export const Content3 = styled.div``;
+export const CategoryFilterWrapper = styled.div``;
 
 export const PaginationWrapper = styled.div`
   padding: 4rem 0 6rem;

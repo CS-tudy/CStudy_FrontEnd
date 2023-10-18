@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface UseJoinContestProps {
-  contestId?: string;
+  competitionId?: string;
   handleIsLoading: (isLoading: boolean) => void;
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -9,6 +9,6 @@ export interface UseJoinContestProps {
 // component: Quiz
 
 export interface UseSubmitContestProps {
-  contestId: string;
+  competitionId: string;
   handleIsLoading: (isLoading: boolean) => void;
 }

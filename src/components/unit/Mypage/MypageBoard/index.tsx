@@ -5,11 +5,11 @@ import ApproveStatus from 'components/commons/Status';
 
 interface statusMap {
   content: [];
+  id: number;
+  title: string;
+  flag: boolean;
   status: {
     content?: [];
-    id: number;
-    title: string;
-    flag: boolean;
   };
 }
 interface boardProps {
@@ -36,7 +36,7 @@ const MypageBoard = ({ handleDetail, status }: boardProps) => {
             </tr>
           </thead>
           <tbody>
-            {status?.content.map((content: any) => (
+            {status?.content.map((content: statusMap) => (
               <S.Tr onClick={() => handleDetail(content?.id)} key={content?.id}>
                 <S.Tbody>{content?.id}</S.Tbody>
                 <S.Tbody>{content?.title}</S.Tbody>

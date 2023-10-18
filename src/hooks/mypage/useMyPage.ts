@@ -62,6 +62,7 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     passwordPattern,
     handleChangePwdSubmit,
     onValid,
+    setIsActive,
   };
 };
 

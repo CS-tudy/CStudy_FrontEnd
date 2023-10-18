@@ -30,6 +30,7 @@ const MyPage = () => {
     handleChangePwdSubmit,
     onValid,
     handleDetail,
+    setIsActive,
   } = useMyPage({ reset, getValues });
 
   const Img = useGetImg();
@@ -51,6 +52,7 @@ const MyPage = () => {
           errors={errors}
           handleChangePwdSubmit={handleChangePwdSubmit}
           onValid={onValid}
+          setIsActive={setIsActive}
         />
         <MypageBoard handleDetail={handleDetail} status={status} />
         <MypageQuestion />

@@ -166,6 +166,23 @@ const workbookFilterSlice = createSlice({
   },
 });
 
+const PwdEditSlice = createSlice({
+  name: 'PwdEdit',
+  initialState: {
+    newPassword: '',
+    oldPassword: '',
+  },
+  reducers: {
+    setNewPassword(state, action) {
+      state.newPassword = action.payload;
+    },
+    setOldPassword(state, action) {
+      state.oldPassword = action.payload;
+    },
+  },
+});
+
+export const { setNewPassword, setOldPassword } = PwdEditSlice.actions;
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {

@@ -31,7 +31,7 @@ const MypageInput = ({
     <>
       <MyInfoImg>
         <S.PwdButton>
-          <form onSubmit={handleSubmit(handleChangePwdSubmit)}>
+          <form method="put" onSubmit={handleSubmit(handleChangePwdSubmit)}>
             <S.Pwd>
               <S.OldNewdPwd>
                 <S.PwdLabel htmlFor="oldPassword">현재 비밀번호</S.PwdLabel>

@@ -73,7 +73,7 @@ export const createRequest = (RequestForm: FieldValues) => {
 
 // 게시글 상태(승인/대기) 수정
 export const approveRequest = (RequestForm: FieldValues) => {
-  const response = instance.put('/api/request/approve', RequestForm);
+  const response = instance.patch('/api/request/approve', RequestForm);
   return response;
 };
 

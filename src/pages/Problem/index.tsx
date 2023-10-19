@@ -144,43 +144,50 @@ const Problem = () => {
   return (
     <>
       {' '}
-      <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
-      <div></div>
+      {/* <SearchBar inputValue={inputValue} setInputValue={setInputValue} /> */}
+      {/* <div></div> */}
       <S.ContainerHeader>
         <S.FilterWrapper>
-          <S.QueryFilterWrapper>
-            <Filter className={queryActive} onClick={handleToggle}>
-              내가 푼 문제
-            </Filter>
-          </S.QueryFilterWrapper>
-          <S.StatusFilterWrapper>
-            <Select
-              name={status}
-              handleActive={handleStatusClick}
-              isActive={statusActive}
-              options={!isActive ? filterOptionStatus : filterOptionTotal}
-              optionsValue={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
-              }
-              selectedIndex={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
-              }
-            />
-          </S.StatusFilterWrapper>
-          <S.CategoryFilterWrapper>
-            <Select
-              name={category}
-              handleActive={handleCategoryClick}
-              isActive={categoryActive}
-              options={!isActive ? filterOptionCategory : filterOptionTotal}
-              optionsValue={
-                !isActive ? filterOptionCategoryValue : filterOptionEmpty
-              }
-              selectedIndex={
-                !isActive ? filterSelectIndex : noActiveFilterSelectIndex
-              }
-            />
-          </S.CategoryFilterWrapper>
+          <S.SearchWrapper>
+            <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
+          </S.SearchWrapper>
+          <S.FilterWrapper2>
+            <S.QueryFilterWrapper>
+              <Filter className={queryActive} onClick={handleToggle}>
+                내가 푼 문제
+              </Filter>
+            </S.QueryFilterWrapper>
+            <S.StatusFilterWrapper>
+              <Select
+                name={status}
+                handleActive={handleStatusClick}
+                isActive={statusActive}
+                options={!queryActive ? filterOptionStatus : filterOptionTotal}
+                optionsValue={
+                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                }
+                selectedIndex={
+                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                }
+              />
+            </S.StatusFilterWrapper>
+            <S.CategoryFilterWrapper>
+              <Select
+                name={category}
+                handleActive={handleCategoryClick}
+                isActive={categoryActive}
+                options={
+                  !queryActive ? filterOptionCategory : filterOptionTotal
+                }
+                optionsValue={
+                  !queryActive ? filterOptionCategoryValue : filterOptionEmpty
+                }
+                selectedIndex={
+                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                }
+              />
+            </S.CategoryFilterWrapper>
+          </S.FilterWrapper2>
         </S.FilterWrapper>
       </S.ContainerHeader>
       <Container>

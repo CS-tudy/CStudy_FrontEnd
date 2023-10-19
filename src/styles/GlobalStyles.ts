@@ -62,4 +62,16 @@ export const GlobalStyles = createGlobalStyle`
 a:hover{
     color: #000;
 }
+
+#toast-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
 `;

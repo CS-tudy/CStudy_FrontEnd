@@ -5,7 +5,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Input from '../Input';
 import StyleLink from '../StyleLink';
 
-import * as Styled from './style';
+import * as S from './style';
 import { isAdmin } from 'repository/auth';
 import { useUpdateWorkbook } from 'hooks/@query/workbook/useUpdateWorkbook';
 import { Button } from '../Button/Style';
@@ -48,10 +48,10 @@ const ContentHeaderWrapper = ({
   };
 
   return (
-    <Styled.Header>
+    <S.Header>
       <div>
         {isAdmin() && admin && (
-          <Styled.AdminWrapper>
+          <S.AdminWrapper>
             <Button
               type="button"
               onClick={() => setIsActive(active => !active)}
@@ -78,7 +78,7 @@ const ContentHeaderWrapper = ({
                 </button>
               </>
             )}
-          </Styled.AdminWrapper>
+          </S.AdminWrapper>
         )}
         {isAdmin() && adminLink && (
           <StyleLink className="lg navy style" to="admin/CreateWorkbook">
@@ -87,7 +87,7 @@ const ContentHeaderWrapper = ({
         )}
 
         {desc && (
-          <Styled.Desc>
+          <S.Desc>
             {isActive ? (
               <Input
                 id="description"
@@ -99,11 +99,11 @@ const ContentHeaderWrapper = ({
             ) : (
               desc
             )}
-          </Styled.Desc>
+          </S.Desc>
         )}
       </div>
       {children}
-    </Styled.Header>
+    </S.Header>
   );
 };
 

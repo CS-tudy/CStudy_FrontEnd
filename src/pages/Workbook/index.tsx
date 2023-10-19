@@ -11,7 +11,6 @@ import ContentContainer from 'components/commons/ContentContainer';
 import Pagination from 'components/commons/Pagination';
 import WorkbookCards from 'components/unit/Workbook/WorkbookCards';
 import Container from 'components/commons/Container';
-import useGetWorkbookImg from 'hooks/@query/workbook/useGetWorkbookImg';
 
 const Workbook = () => {
   const { register, handleSubmit, reset } = useForm<FieldValues>({
@@ -19,19 +18,14 @@ const Workbook = () => {
       search: '',
     },
   });
-  const { workbookFilter, handlePage, onSubmit } = useWorkbookFilter();
+  const { workbookFilter, handlePage, onSubmit, handleReset } =
+    useWorkbookFilter();
 
   const workbookList = useGetWorkbookList({
     page: workbookFilter.pageNum,
     title: workbookFilter.title,
     description: workbookFilter.description,
   });
-  // const workbookImgList = useGetWorkbookImg();
-
-  const handleReset = () => {
-    // reset();
-    // workbookFilter.reset();
-  };
 
   return (
     <ContentContainer>

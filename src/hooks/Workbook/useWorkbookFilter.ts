@@ -1,4 +1,4 @@
-import { setTitle, setPageNum } from 'hooks/@redux/filterSlice';
+import { setTitle, setPageNum, setReset } from 'hooks/@redux/filterSlice';
 import { useCallback } from 'react';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,10 +26,15 @@ const useWorkbookFilter = () => {
     [workbookFilter],
   );
 
+  const handleReset = () => {
+    dispatch(setReset());
+  };
+
   return {
     workbookFilter,
     handlePage,
     onSubmit,
+    handleReset,
   };
 };
 

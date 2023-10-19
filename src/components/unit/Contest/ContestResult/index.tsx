@@ -2,7 +2,7 @@ import { IContestResult } from 'types/api';
 import * as Styled from './style';
 
 interface ContestResultProps {
-  contestResult: ContestResult;
+  contestResult: IContestResult;
 }
 
 const ContestResult = ({ contestResult }: ContestResultProps) => {

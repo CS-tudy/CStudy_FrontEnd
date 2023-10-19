@@ -14,8 +14,8 @@ export const useJoinContest = ({
     onSuccess: () => {
       navigate('contestproblem');
       queryClient.invalidateQueries();
-      //   toast.success('대회에 참여에 성공했습니다.');
-      alert('대회에 참여에 성공했습니다.');
+      //   toast.success('대회 참여에 성공했습니다.');
+      alert('대회 참여에 성공했습니다.');
     },
     onError: error => {
       switch (error) {

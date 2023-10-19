@@ -4,8 +4,8 @@ import { GoSearch } from 'react-icons/go';
 const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
-      // useGetProblemList({ questionTitle: inputValue });
-      // const res = await getProblemListSearch(e.target.value);
+      // useList({ questionTitle: inputValue });
+      // const res = await ListSearch(e.target.value);
       console.log(e.target.value);
       // setProblemList(res.data);
       // console.log('res', res);

@@ -8,7 +8,7 @@ import {
   getProblemListTest,
 } from 'api/problem';
 import ProblemList from 'components/unit/Problem/ProblemList';
-import Select from 'components/unit/Problem/Select';
+// import Select from 'components/unit/Problem/Select';
 import Filter from 'components/commons/Filter';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { IProblem } from 'types/api';
@@ -23,6 +23,7 @@ import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
 import SearchBar from 'components/commons/SearchBar';
+import Select from 'components/commons/Select';
 
 const Problem = () => {
   // const [problemList, setProblemList] = useState<IProblem>();

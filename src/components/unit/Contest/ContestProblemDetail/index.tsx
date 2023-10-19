@@ -64,14 +64,14 @@ const ContestProblemDetail = ({
 
   const { fields } = useFieldArray({ control, name: 'questions' });
   console.log('field', fields);
-  const SubmitContest = useSubmitContest({
-    handleIsLoading,
-    competitionId,
-  } as UseSubmitContestProps);
+  // const SubmitContest = useSubmitContest({
+  //   handleIsLoading,
+  //   competitionId,
+  // } as UseSubmitContestProps);
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
     console.log(data);
-    SubmitContest(data);
+    // SubmitContest(data);
   };
 
   useEffect(() => {
@@ -79,8 +79,8 @@ const ContestProblemDetail = ({
       competitionId,
       endTime: formatDate(new Date(), { second: true }),
       questions: quizData?.map(question => ({
-        questionNumber: String(question.questionId),
-        questionId: String(question.questionId),
+        questionNumber: question.questionId,
+        questionId: question.questionId,
       })),
     });
   }, [quizData, competitionId, reset]);

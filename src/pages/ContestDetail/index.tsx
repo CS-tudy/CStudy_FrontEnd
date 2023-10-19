@@ -23,7 +23,7 @@ const ContestDetail = () => {
 
   const { problem, contestQuestion, myRank, contest, contestRank } =
     useMixContestDetailAll({
-      contestId,
+      contestId: contestId ? contestId : '',
       page,
     } as { contestId: string });
 
@@ -54,7 +54,7 @@ const ContestDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { modalIsOpen, handleConfirm, toggleModal } = useJoinContestModal({
-    contestId,
+    contestId: contestId ? contestId : '',
     handleIsLoading,
   });
 
@@ -90,7 +90,7 @@ const ContestDetail = () => {
               title="대회에 참가하시겠습니까?"
               confirmText="참가하기"
               cancelText="돌아가기"
-              // isOpen={modalIsOpen}
+              isOpen={modalIsOpen}
               handleConfirm={handleConfirm}
               handleCancel={toggleModal}
               isLoading={isLoading}

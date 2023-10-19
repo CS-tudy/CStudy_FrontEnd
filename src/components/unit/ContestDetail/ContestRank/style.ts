@@ -12,7 +12,7 @@ export const ContestRanking = styled.div`
   width: 100%;
   padding: 2rem 4rem 3rem 3rem;
   background-color: #fff;
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid #dbdbdb;
   border-radius: 1.2rem;
   margin-left: 3rem;
 `;

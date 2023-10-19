@@ -11,17 +11,6 @@ export const getRequest = async (
 };
 
 // 게시판 전체 리스트 / 내가 요청한 문제 조회
-// export const getToggleRequestList = async ({
-//   page = 0,
-//   size = 10,
-//   sort = 'list',
-// }): Promise<ToggleRequestList> => {
-//   const response = await instance.get(
-//     `/api/request/requests?page=${page}&size=${size}&$sort=${sort}`,
-//   );
-//   return response.data;
-// };
-
 export const getToggleRequestList = async ({
   query = 'requests',
   page = 0,
@@ -90,7 +79,7 @@ export const approveRequest = (RequestForm: FieldValues) => {
 
 // 게시글 수정
 export const editRequest = (RequestForm: FieldValues) => {
-  const response = instance.put('/api/request', RequestForm);
+  const response = instance.patch('/api/request', RequestForm);
   return response;
 };
 

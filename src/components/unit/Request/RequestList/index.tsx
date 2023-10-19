@@ -34,39 +34,23 @@ const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
 
   return (
     <>
-      {modalIsOpen && (
-        <Modal toggleModal={toggleModal}>
-          <ConfirmModal
-            title="대회에 참가하시겠습니까?"
-            confirmText="참가하기"
-            cancelText="돌아가기"
-            isOpen={modalIsOpen}
-            // handleConfirm={handleConfirm}
-            // handleCancel={handleCancel}
-            // isLoading={isLoading}
-          />
-        </Modal>
-      )}
-      <>
-        <button onClick={openModal}>ConfirmModal</button>
-        <S.ContentWrapper>
-          {requestList?.totalElements === 0 && (
-            <NoData>문제 요청 글이 없습니다.</NoData>
-          )}
-          {requestList?.content?.map(props => (
-            <RequestItem key={props.id} {...props} />
-          ))}
-        </S.ContentWrapper>
-        {(requestList?.totalPages as number) > 0 && (
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={requestList?.totalPages as number}
-              handlePage={handlePage}
-              page={page}
-            />{' '}
-          </S.PaginationWrapper>
+      <S.ContentWrapper>
+        {requestList?.totalElements === 0 && (
+          <NoData>문제 요청 글이 없습니다.</NoData>
         )}
-      </>
+        {requestList?.content?.map(props => (
+          <RequestItem key={props.id} {...props} />
+        ))}
+      </S.ContentWrapper>
+      {(requestList?.totalPages as number) > 0 && (
+        <S.PaginationWrapper>
+          <Pagination
+            totalPages={requestList?.totalPages as number}
+            handlePage={handlePage}
+            page={page}
+          />{' '}
+        </S.PaginationWrapper>
+      )}
     </>
   );
 };

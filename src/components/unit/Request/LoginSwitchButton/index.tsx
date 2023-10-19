@@ -1,10 +1,10 @@
-// import useLoginModal from 'hooks/@zustand/useLoginModal';
 import { useSelector } from 'react-redux';
 
 import Button from 'components/commons/Button/Button';
 import StyleLink from 'components/commons/StyleLink';
 import Filter from 'components/commons/Filter';
 import { useNavigate } from 'react-router-dom';
+import { isLogin } from 'repository/auth';
 
 interface LoginSwitchButtonProps {
   handleToggle: () => void;
@@ -15,15 +15,10 @@ const LoginSwitchButton = ({
   isActive,
   handleToggle,
 }: LoginSwitchButtonProps) => {
-  //   const loginModal = useLoginModal();
-  const isAuthenticated = useSelector(
-    (state: any) => state.rootReducer.auth.isAuthenticated,
-  );
-
   const navigate = useNavigate();
 
   const checkLogin = () => {
-    if (!isAuthenticated) {
+    if (!isLogin()) {
       alert('로그인 후 이용하실 수 있습니다.');
     } else {
       navigate('/request/new');
@@ -31,7 +26,7 @@ const LoginSwitchButton = ({
   };
   return (
     <>
-      {isAuthenticated ? (
+      {isLogin() ? (
         <>
           <div>
             <Filter className={isActive} onClick={handleToggle}>

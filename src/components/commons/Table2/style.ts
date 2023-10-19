@@ -13,7 +13,7 @@ interface Props {
 export const Table = styled.table<Props>`
   width: 100%;
   max-height: ${({ maxHeight }) => maxHeight && '32rem'};
-  border: 0.1rem solid #ddd;
+  border: 0.1rem solid #dbdbdb;
   background-color: #fff;
   padding: 10px;
   border-radius: ${({ narrow }) => (narrow ? '2rem' : '5rem')};

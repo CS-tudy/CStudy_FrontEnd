@@ -19,9 +19,6 @@ import { isAdmin, isLogin } from 'repository/auth';
 const Header = () => {
   const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
-  // const isAuthenticated = useSelector(
-  //   (state: any) => state.auth.isAuthenticated,
-  // );
   const { mutate: signOut } = useSignOut();
 
   const openModal = () => {

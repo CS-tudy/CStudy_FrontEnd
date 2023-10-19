@@ -56,7 +56,7 @@ const categoryFilterSlice = createSlice({
   name: 'categoryFilter',
   initialState: {
     category: '카테고리',
-    categoryValue: '네트워크',
+    categoryValue: '',
     categoryActive: false,
   },
   reducers: {

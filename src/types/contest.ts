@@ -9,6 +9,6 @@ export interface UseJoinContestProps {
 // component: Quiz
 
 export interface UseSubmitContestProps {
-  competitionId: string;
+  competitionId?: string;
   handleIsLoading: (isLoading: boolean) => void;
 }

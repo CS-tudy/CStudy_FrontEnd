@@ -14,7 +14,6 @@ import ProblemDetailContent from '../ProblemDetailContent';
 import ProblemDetailSubmit from '../ProblemDetailSubmit';
 import ProblemDetailTitle from '../ProblemDetailTitle';
 import { useParams } from 'react-router-dom';
-import { useGetProblem } from 'hooks/@query/problem/useGetProblem';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
 import ResultImage from 'components/commons/ResultImage';
 
@@ -43,7 +42,7 @@ const ProblemDetail = ({
   children,
 }: PropsWithChildren<ProblemDetailProps>) => {
   const { problemId } = useParams();
-  // const problem = useGetProblem(problemId as string);
+  // const problem = use(problemId as string);
   // const { register, handleSubmit } = useForm<FieldValues>();
 
   if (!problem) {

@@ -41,7 +41,7 @@ export const getProblemListSearch = (search: string) => {
 };
 
 //  단일 문제 조회
-export const getProblem = async (problemId: string): Promise<IProblem> => {
+export const getProblem = async (problemId: any): Promise<IProblem> => {
   const response = await instance.get(`/api/questions/${problemId}`);
   return response.data;
 };

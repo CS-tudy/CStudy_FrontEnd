@@ -3,35 +3,35 @@ import { useJoinContest } from 'hooks/@query/contest/useJoinContest';
 import { UseJoinContestProps } from 'types/contest';
 
 interface JoinContestProps {
-  contestId: string;
+  competitionId: string;
   handleIsLoading: (isLoading: boolean) => void;
 }
 
 const useJoinContestModal = ({
   handleIsLoading,
-  contestId,
+  competitionId,
 }: JoinContestProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const joinContest = useJoinContest({
-    contestId,
+    competitionId,
     handleIsLoading,
-    setIsModalOpen,
+    setModalIsOpen,
   } as UseJoinContestProps);
 
   const handleConfirm = () => {
-    joinContest(contestId as string);
+    joinContest(competitionId as string);
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setModalIsOpen(false);
   };
 
   const handleJoinContestModal = () => {
-    setIsModalOpen(true);
+    setModalIsOpen(true);
   };
   return {
-    isModalOpen,
+    modalIsOpen,
     handleConfirm,
     handleCancel,
     handleJoinContestModal,

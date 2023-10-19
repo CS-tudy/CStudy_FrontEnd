@@ -13,13 +13,17 @@ class Toast {
   private rootInstance?: ReactDOM.Root;
   private messages: Message[];
   private defaultDuration = 2500;
+
   private closeMessage(idToDelete: string) {
+    console.log(idToDelete);
+
     const indexToDelete = this.messages.findIndex(
       ({ id }) => id === idToDelete,
     );
     this.messages.splice(indexToDelete, 1);
     this.rootInstance?.render(<ToastMessage messages={this.messages} />);
   }
+
   private autoCloseMessage(duration: number, id: string) {
     setTimeout(
       () => {

@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import useGetWorkbookList from 'hooks/@query/workbook/useGetWorkbookList';
 import { useUploadImgWorkbook } from 'hooks/@query/workbook/useUploadWorkbook';
 import * as S from './style';
+import Toast from 'libs/Toast';
 
 interface handleIsModalProps {
   handleIsModal: (isModalOpen: boolean) => void;
@@ -26,7 +27,7 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
     if (!selectedFile) return;
 
     setUploading(true);
-
+    Toast.success('문제집 생성에 성공했습니다.');
     const formData = new FormData();
     formData.append('file', selectedFile);
 
@@ -41,6 +42,7 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
         <S.XButton onClick={() => handleIsModal(false)}>
           <AiOutlineClose size={20} />
         </S.XButton>
+
         <S.FileInput type="file" onChange={handleFileChange} />
         <S.PreviewImage
           src={previewUrl ? previewUrl : workbook}

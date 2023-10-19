@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateWorkbook, uploadimageWorkbook } from 'api/workbook';
+import Toast from 'libs/Toast';
 
 interface UploadImgWorkbookProps {
   handleIsModal: (isModalOpen: boolean) => void;
@@ -13,7 +14,7 @@ export const useUploadImgWorkbook = ({
     onSuccess: () => {
       queryClient.invalidateQueries(['workbookimage']);
 
-      alert('이미지 저장에 성공했습니다.');
+      Toast.success('이미지 저장에 성공했습니다.');
     },
     onError: () => {
       alert('이미지 저장에 실패했습니다.');

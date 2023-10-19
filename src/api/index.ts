@@ -27,7 +27,6 @@ instance.interceptors.response.use(
   },
   async error => {
     const { config, response } = error;
-    console.log(config);
     console.log(response);
     if (response.status == 401) {
       // if (response.status == 401 && response.status == 500) {

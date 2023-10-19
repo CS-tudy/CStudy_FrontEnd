@@ -7,6 +7,7 @@ import { ProblemContent } from 'types/api';
 import { TBodyTd } from 'components/commons/Table/style';
 import { useSelector } from 'react-redux';
 import SolveStatus from '../SolveStatus';
+import { isLogin } from 'repository/auth';
 
 interface ProblemItemProps {
   problem: ProblemContent;
@@ -16,23 +17,9 @@ const ProblemItem = ({ problem }: ProblemItemProps) => {
   const { questionId, status, questionTitle, categoryTitle } = problem;
 
   const navigate = useNavigate();
-  const isAuthenticated = useSelector(
-    (state: any) => state.persistedReducer.auth.isAuthenticated,
-  );
-  // const loginModal = useLoginModal();
-
-  // const checkAndDisplayLoginModal = useCallback(
-  //     (e: React.MouseEvent) => {
-  //         if (!isLogin()) {
-  //             e.preventDefault();
-  //             loginModal.onOpen();
-  //         }
-  //     },
-  //     [loginModal],
-  // );
 
   const checkLogin = () => {
-    if (!isAuthenticated) {
+    if (!isLogin()) {
       alert('로그인 후 이용하실 수 있습니다.');
       navigate('/problem');
     }

@@ -48,7 +48,7 @@ const WorkbookQuestionAdminOptionGroup = ({
     <>
       {isAdmin() && (
         <>
-          <Link to="adminadd" className="navy xl style">
+          <Link to="question" className="navy xl style">
             문제 추가하기
           </Link>
           <button

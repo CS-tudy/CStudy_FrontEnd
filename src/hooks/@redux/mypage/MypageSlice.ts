@@ -30,7 +30,7 @@ const MypageSlice = createSlice({
     builder.addCase(useGetMypage.pending, state => {
       state.loading = false;
     });
-    builder.addCase(useGetMypage.fulfilled, (state, action) => {
+    builder.addCase(useGetMypage.fulfilled, (state: any, action) => {
       state.info = action.payload;
     });
     builder.addCase(useGetMypage.rejected, state => {

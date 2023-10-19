@@ -5,9 +5,10 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import Input from '../Input';
 import StyleLink from '../StyleLink';
 
-import * as Styled from './style';
+import * as S from './style';
 import { isAdmin } from 'repository/auth';
 import { useUpdateWorkbook } from 'hooks/@query/workbook/useUpdateWorkbook';
+import { Button } from '../Button/Style';
 
 interface CreateContestProps {
   desc?: string;
@@ -47,17 +48,18 @@ const ContentHeaderWrapper = ({
   };
 
   return (
-    <Styled.Header>
+    <S.Header>
       <div>
         {isAdmin() && admin && (
-          <Styled.AdminWrapper>
-            <button
+          <S.AdminWrapper>
+            <Button
               type="button"
-              className="lg navy style"
               onClick={() => setIsActive(active => !active)}
+              variant="primary"
+              size="mideum"
             >
               문제집 정보 수정
-            </button>
+            </Button>
             {isActive && (
               <>
                 <button
@@ -76,7 +78,7 @@ const ContentHeaderWrapper = ({
                 </button>
               </>
             )}
-          </Styled.AdminWrapper>
+          </S.AdminWrapper>
         )}
         {isAdmin() && adminLink && (
           <StyleLink className="lg navy style" to="admin/CreateWorkbook">
@@ -85,7 +87,7 @@ const ContentHeaderWrapper = ({
         )}
 
         {desc && (
-          <Styled.Desc>
+          <S.Desc>
             {isActive ? (
               <Input
                 id="description"
@@ -97,12 +99,12 @@ const ContentHeaderWrapper = ({
             ) : (
               desc
             )}
-          </Styled.Desc>
+          </S.Desc>
         )}
       </div>
       {children}
-    </Styled.Header>
+    </S.Header>
   );
 };
 
-export default memo(ContentHeaderWrapper);
+export default ContentHeaderWrapper;

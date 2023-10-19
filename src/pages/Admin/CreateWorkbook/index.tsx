@@ -8,11 +8,13 @@ import { FormBody } from 'components/commons/Admin/FormBody/style';
 import AdminInput from 'components/commons/Admin/AdminInput';
 import FormSection from 'components/commons/Admin/FormSection';
 import { useWorkbookSet } from 'hooks/@query/workbook/useWorkbookSet';
+import { Button } from 'components/commons/Button/Style';
+import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
 
 const CreateWorkbook = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -27,8 +29,11 @@ const CreateWorkbook = () => {
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
   };
+  const handleIsModal = (isModalOpen: boolean) => {
+    setIsModalOpen(isModalOpen);
+  };
 
-  const WorkbookSet = useWorkbookSet({ handleIsLoading });
+  const WorkbookSet = useWorkbookSet({ handleIsLoading, handleIsModal });
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
     setIsLoading(true);
@@ -64,12 +69,20 @@ const CreateWorkbook = () => {
                 required
               />
             </FormSection>
-            <button type="submit">문제집 등록하기</button>
-            <button type="button" onClick={() => navigate(-1)}>
+            <Button type="submit" variant="primary" size="mideum">
+              문제집 등록하기
+            </Button>
+            <Button
+              type="button"
+              onClick={() => navigate(-1)}
+              variant="gray"
+              size="mideum"
+            >
               돌아가기
-            </button>
+            </Button>
           </FormBody>
         </form>
+        {isModalOpen && <WorkbookImageUpload handleIsModal={handleIsModal} />}
       </ContentBodyWrapper>
     </ContentContainer>
   );

@@ -144,13 +144,13 @@ const NoticeFilterSlice = createSlice({
 const workbookFilterSlice = createSlice({
   name: 'workbookFilter',
   initialState: {
-    pageNumber: 0,
+    pageNum: 0,
     title: '',
     description: '',
   },
   reducers: {
-    setPageNumber(state, action) {
-      state.pageNumber = action.payload;
+    setPageNum(state, action) {
+      state.pageNum = action.payload;
     },
     setTitle(state, action) {
       state.title = action.payload;
@@ -158,8 +158,9 @@ const workbookFilterSlice = createSlice({
     setDescription(state, action) {
       state.description = action.payload;
     },
-    reset(state) {
-      state.pageNumber = 0;
+
+    setReset(state) {
+      state.pageNum = 0;
       state.title = '';
       state.description = '';
     },
@@ -187,7 +188,8 @@ export const {
   setContenthInput: setNoticeFilterSearchContent,
   setSearchReset: setNoticeFilterSearchReset,
 } = NoticeFilterSlice.actions;
-export const { setTitle, setDescription } = workbookFilterSlice.actions;
+export const { setTitle, setDescription, setPageNum, setReset } =
+  workbookFilterSlice.actions;
 
 export const { setStatus, setStatusValue, toggleStatusActive } =
   statusFilterSlice.actions;

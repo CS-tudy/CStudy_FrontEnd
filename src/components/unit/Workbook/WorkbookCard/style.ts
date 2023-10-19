@@ -4,36 +4,48 @@ import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 
 export const WorkBookCard = styled.article`
-  width: 24rem;
-  height: 35.2rem;
-  padding: 2rem;
-  background-color: ${COLOR.WHITE};
-  border: 0.1rem solid ${COLOR.WHITE};
-  border-radius: 1.6rem;
-  box-shadow: ${SHADOW.CONTENTBOX_LG};
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid #dce1e5;
+  border-radius: 16px;
 `;
 
 export const Title = styled.div`
-  ${FONT.H1}
+  ${FONT.BOLD_20};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 16px;
+  color: ${COLOR.BLACK};
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 `;
 
 export const Time = styled.div`
   font-size: ${FONT.REGULAR_12};
   color: #949494;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #dce1e5;
+  margin-top: auto;
 `;
 
-export const Img = styled.div<{ category?: string }>``;
-
-export const Description = styled.div`
-  display: -webkit-box;
-  margin-top: 2rem;
-  font-size: ${FONT.REGULAR_14};
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-  overflow: hidden;
+export const Img = styled.img`
+  display: block;
+  width: 100%;
+  object-fit: cover;
 `;
+
+export const Info = styled.div`
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 24px;
+`;
+
+export const Description = styled.div``;

@@ -13,7 +13,7 @@ const OAuthRedirect = () => {
 
   if (!accessToken || !refreshToken)
     // return toast.error('로그인에 실패했습니다.');
-    return alert('실패');
+    return alert('로그인에 실패했습니다.');
 
   userStorage.set({
     accessToken,
@@ -21,7 +21,7 @@ const OAuthRedirect = () => {
   });
   dispatch(login());
 
-  window.location.replace(`http://localhost:3000`);
+  // window.location.replace(`http://localhost:3000`);
 
   return <div>Login...</div>;
 };

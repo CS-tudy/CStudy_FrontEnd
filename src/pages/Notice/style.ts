@@ -1,3 +1,4 @@
+import { COLOR } from 'constants/Color';
 import styled from 'styled-components';
 
 export const SearchWrapper = styled.div`
@@ -13,7 +14,7 @@ export const SearchInput = styled.input`
   padding: 1.2rem;
   border-radius: 0.8rem;
   margin-right: 1rem;
-  border: 1px solid #000;
+  border: 1px solid ${COLOR.GRAY_200};
 `;
 
 export const PaginationWrapper = styled.div`

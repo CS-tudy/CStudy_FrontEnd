@@ -1,12 +1,17 @@
-import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import * as Styled from './style';
+import * as S from './style';
+import workbook from 'assets/workbook.png';
+import { isLogin } from 'repository/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'stroe';
+import useModal from 'hooks/useModal';
 
 interface WorkBookCardProps {
   id: number;
   title: string;
   description: string;
   createdAt: string;
+  fileName: string;
 }
 
 const WorkBookCard = ({
@@ -14,35 +19,28 @@ const WorkBookCard = ({
   title,
   createdAt,
   description,
+  fileName,
 }: WorkBookCardProps) => {
-  //   const loginModal = useLoginModal();
-  //   const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
-  //     if (!isLogin()) {
-  //       e.preventDefault();
-  //       loginModal.onOpen();
-  //     }
-  //   };
+  const dispatch = useDispatch();
+  const isOpen = useModal();
 
-  const getCategory = useCallback((title: string) => {
-    const categories = ['자바', '데이터베이스', '네트워크', '운영체제'];
-
-    for (const category of categories) {
-      if (title.includes(category)) {
-        return category;
-      }
+  const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
+    if (!isLogin()) {
+      e.preventDefault();
     }
-    return '';
-  }, []);
+  };
 
   return (
-    <Styled.WorkBookCard>
-      <Link to={`${id}`}>
-        <Styled.Title>{title}</Styled.Title>
-        <Styled.Time>{createdAt}</Styled.Time>
-        <Styled.Img category={getCategory(title)} />
-        <Styled.Description>{description}</Styled.Description>
+    <S.WorkBookCard>
+      <Link to={`${id}`} onClick={checkAndDisplayLoginModal}>
+        <S.Img src={fileName ? fileName : workbook} />
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Description>{description}</S.Description>
+          <S.Time>{createdAt}</S.Time>
+        </S.Info>
       </Link>
-    </Styled.WorkBookCard>
+    </S.WorkBookCard>
   );
 };
 

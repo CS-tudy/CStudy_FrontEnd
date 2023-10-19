@@ -34,6 +34,7 @@ const Notice = () => {
     title: noticeFilter.SearchTitle,
     content: noticeFilter.SearchContent,
   });
+  console.log(noticeList);
 
   return (
     <Container>

@@ -12,6 +12,8 @@ import WorkbookQuestionTableLists from 'components/unit/WorkbookQuestion/Workboo
 import { isAdmin } from 'repository/auth';
 import WorkbookQuestionAdminOptionGroup from 'components/unit/WorkbookQuestion/WorkbookQuestionAdminOption';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
+import { Button } from 'components/commons/Button/Style';
+import NoData from 'components/commons/NoData';
 
 const WorkbookQuestion = () => {
   const { questionId } = useParams();
@@ -36,8 +38,7 @@ const WorkbookQuestion = () => {
     questionId: string;
     page: number;
   });
-
-  console.log(workbookQuestion);
+  console.log();
 
   const handlePage = useCallback((page: number) => {
     setPage(page);
@@ -48,13 +49,14 @@ const WorkbookQuestion = () => {
       <ContentHeaderWrapper admin desc={workbook?.description}>
         <S.CreateInfo>
           출시일: {workbook?.createdAt}
-          <button
+          <Button
             type="button"
-            className="gray style mt xl2"
             onClick={() => navigate(-1)}
+            variant="gray"
+            size="mideum"
           >
             돌아가기
-          </button>
+          </Button>
         </S.CreateInfo>
       </ContentHeaderWrapper>
       <ContentBodyWrapper>
@@ -66,29 +68,35 @@ const WorkbookQuestion = () => {
           />
         </S.AdminWrapper>
 
-        <Table
-          colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
-          title={
-            isAdmin()
-              ? ['문제번호', '문제이름', '문제삭제']
-              : ['문제번호', '문제이름']
-          }
-        >
-          <WorkbookQuestionTableLists
-            workbookContent={
-              workbookQuestion?.content as WorkbookQuestionContent[]
+        {workbookQuestion?.content[0]?.questionId ? (
+          <Table
+            colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
+            title={
+              isAdmin()
+                ? ['문제번호', '문제이름', '문제삭제']
+                : ['문제번호', '문제이름']
             }
-            register={register}
-            errors={errors}
-          />
-        </Table>
-        <S.PaginationWrapper>
-          <Pagination
-            totalPages={workbookQuestion?.totalPages as number}
-            handlePage={handlePage}
-            page={page}
-          />
-        </S.PaginationWrapper>
+          >
+            <WorkbookQuestionTableLists
+              workbookContent={
+                workbookQuestion?.content as WorkbookQuestionContent[]
+              }
+              register={register}
+              errors={errors}
+            />
+          </Table>
+        ) : (
+          <NoData>문제집에 문제가 없습니다.</NoData>
+        )}
+        {(workbookQuestion?.totalPages as number) > 1 && (
+          <S.PaginationWrapper>
+            <Pagination
+              totalPages={workbookQuestion?.totalPages as number}
+              handlePage={handlePage}
+              page={page}
+            />
+          </S.PaginationWrapper>
+        )}
       </ContentBodyWrapper>
     </ContentContainer>
   );

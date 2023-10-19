@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
-import filterArrow from 'assets/filterArrow.png';
 import { FONT } from 'constants/Font';
 
 export const SelectBox = styled.div`
@@ -16,13 +15,8 @@ export const SelectBox = styled.div`
   .arrow {
     display: inline-block;
     position: absolute;
-    top: 55%;
+    top: 20%;
     right: 1.3rem;
-    width: 1rem;
-    height: 1rem;
-    background: url(${filterArrow}) no-repeat;
-    background-size: 100%;
-    transform: translateY(-50%);
   }
 
   &::after {
@@ -41,11 +35,6 @@ export const SelectBox = styled.div`
       max-height: 50rem;
       transition: all 0.25s ease-in;
       opacity: 100;
-    }
-
-    .arrow {
-      transform: translateY(-50%) rotate(180deg);
-      transition: all 0.25s ease-in;
     }
   }
 

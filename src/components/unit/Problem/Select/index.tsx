@@ -1,4 +1,5 @@
 import * as S from './style';
+import { RxTriangleDown } from 'react-icons/rx';
 
 interface SelectProps {
   name: string;
@@ -28,7 +29,9 @@ const Select = ({
     >
       <S.Button>
         {name}
-        <span className="arrow" />
+        <span className="arrow">
+          <RxTriangleDown size={20} />
+        </span>
       </S.Button>
       <S.OptionList className="optionList">
         {options?.map((option, index) => (

@@ -5,6 +5,7 @@ import Table from 'components/commons/Table';
 import ContestList from 'components/unit/Contest/ContestListTableBody';
 import useGetContestList from 'hooks/@query/contest/useGetContestList';
 import { ContestInfo } from 'types/api';
+import * as S from './style';
 
 const Contest = () => {
   const tableRate = ['45%', '15%', '40%'];
@@ -15,7 +16,11 @@ const Contest = () => {
 
   return (
     <>
-      <Filter>종료된 대회 보기</Filter>
+      <S.ContainerHeader>
+        {/* <S.Div> */}
+        <Filter>종료된 대회 보기</Filter>
+        {/* </S.Div> */}
+      </S.ContainerHeader>
       <Container>
         <Table colRate={tableRate} title={tableTitle}>
           {contestList?.totalElements === 0 && (

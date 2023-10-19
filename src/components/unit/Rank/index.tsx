@@ -2,8 +2,9 @@ import Table from 'components/commons/Table';
 import { TBodyTd } from 'components/commons/Table/style';
 import { useGetRanks } from 'hooks/@query/rank/useGetRanks';
 import rank1 from 'assets/rank/1rank.png';
+import { PiMedalFill } from 'react-icons/pi';
 
-const Ranking = () => {
+const Rank = () => {
   const membersRanks = useGetRanks();
 
   if (Array.isArray(membersRanks)) {
@@ -17,7 +18,18 @@ const Ranking = () => {
   const TBodyContent = (Array.isArray(membersRanks) ? membersRanks : [])?.map(
     ({ score, value }, index: number) => (
       <tr key={index}>
-        <TBodyTd className="white" white narrow rank={index + 1} />
+        <TBodyTd className="white" white narrow rank={index + 1}>
+          {index + 1 === 1 ? (
+            <PiMedalFill size="28" color="#f7d100" />
+          ) : index + 1 === 2 ? (
+            <PiMedalFill size="28" color="silver" />
+          ) : // <MdStars size="30" color="silver" />
+          index + 1 === 3 ? (
+            <PiMedalFill size="28" color="#ba9964" />
+          ) : (
+            ''
+          )}
+        </TBodyTd>
         <TBodyTd className="white" white narrow rankFont={index + 1}>
           {index + 1 !== 1 ? (
             index + 1
@@ -47,4 +59,4 @@ const Ranking = () => {
   );
 };
 
-export default Ranking;
+export default Rank;

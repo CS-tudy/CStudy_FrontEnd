@@ -27,6 +27,8 @@ import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import CreateWorkbook from 'pages/Admin/CreateWorkbook';
 import WorkbookQuestion from 'pages/WorkbookQuestion';
+import Review from 'pages/Review';
+import ContestResultPage from 'pages/ContestResult';
 import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 
 const Router = () => {
@@ -110,8 +112,16 @@ const Router = () => {
           />
 
           <Route path="/oauth2/login" element={<OAuthRedirect />} />
-          <Route path="/contestinfo" element={<ContestDetail />} />
-          <Route path="/contestproblem" element={<ContestProblem />} />
+          <Route path="/contest/:contestId" element={<ContestDetail />} />
+          <Route
+            path="/contest/:contestId/contestproblem"
+            element={<ContestProblem />}
+          />
+          <Route
+            path="/contest/:contestId/result"
+            element={<ContestResultPage />}
+          />
+          <Route path="/review" element={<Review />} />
         </Routes>
       </Layout>
     </BrowserRouter>

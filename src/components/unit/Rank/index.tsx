@@ -1,12 +1,9 @@
 import Table from 'components/commons/Table';
 import { TBodyTd } from 'components/commons/Table/style';
 import { useGetRanks } from 'hooks/@query/rank/useGetRanks';
-import rank1 from 'assets/rank/1rank-3.png';
-import rank2 from 'assets/rank/2rank.png';
-import rank3 from 'assets/rank/3rank.png';
 import { PiMedalFill } from 'react-icons/pi';
 
-const Ranking = () => {
+const Rank = () => {
   const membersRanks = useGetRanks();
 
   if (Array.isArray(membersRanks)) {
@@ -25,7 +22,8 @@ const Ranking = () => {
             <PiMedalFill size="28" color="#f7d100" />
           ) : index + 1 === 2 ? (
             <PiMedalFill size="28" color="silver" />
-          ) : index + 1 === 3 ? (
+          ) : // <MdStars size="30" color="silver" />
+          index + 1 === 3 ? (
             <PiMedalFill size="28" color="#ba9964" />
           ) : (
             ''
@@ -68,4 +66,4 @@ const Ranking = () => {
   );
 };
 
-export default Ranking;
+export default Rank;

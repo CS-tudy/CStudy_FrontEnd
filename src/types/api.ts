@@ -126,7 +126,7 @@ type ContestPageAble = {
   unpaged: boolean;
 };
 
-export type ContestContent = {
+export type ContestInfo = {
   id: number;
   title: string;
   startTime: string;
@@ -135,7 +135,7 @@ export type ContestContent = {
 };
 
 export interface ContestList {
-  content: ContestContent[];
+  content: ContestInfo[];
   empty: boolean;
   first: boolean;
   last: boolean;
@@ -154,24 +154,24 @@ type ContestDetail = {
   correct: boolean;
 };
 
-export interface ContestResult {
+export interface IContestResult {
   score: number;
   total: number;
   details: ContestDetail[];
 }
 
-export type ContestRankingContent = {
+export type ContestRankContent = {
   memberId: number;
   name: string;
   score: number;
   endTime: number | null;
 };
 
-export interface ContestRanking extends Omit<ContestList, 'content'> {
-  content: ContestRankingContent[];
+export interface IContestRank extends Omit<ContestList, 'content'> {
+  content: ContestRankContent[];
 }
 
-export interface ContestMyRanking {
+export interface ContestMyRank {
   ranking: boolean | null;
 }
 

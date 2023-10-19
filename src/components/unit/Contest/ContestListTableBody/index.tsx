@@ -1,7 +1,19 @@
-import ContestListTableItem from '../ContestListTableItem';
+import { ContestInfo } from 'types/api';
+import ContestItem from '../ContestItem';
 
-const ContestListTableBody = () => {
-  return <ContestListTableItem />;
+interface ContestListProps {
+  contestList: ContestInfo[];
+}
+
+const ContestList = (props: ContestListProps) => {
+  const { contestList } = props;
+  return (
+    <>
+      {contestList?.map(contestItem => (
+        <ContestItem key={contestItem.id} contestItem={contestItem} />
+      ))}
+    </>
+  );
 };
 
-export default ContestListTableBody;
+export default ContestList;

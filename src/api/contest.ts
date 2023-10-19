@@ -4,10 +4,10 @@ import { ContestSetForm } from 'types/Form';
 import {
   Contest,
   ContestList,
-  ContestMyRanking,
+  ContestMyRank,
   ContestProblem,
-  ContestRanking,
-  ContestResult,
+  IContestRank,
+  IContestResult,
 } from 'types/api';
 
 /* -------- Get 요청 -------- */
@@ -32,10 +32,10 @@ export const getContestProblem = async (
 export const getContestList = async ({
   page = 0,
   size = 10,
-  query = '',
+  query = 'active',
 }): Promise<ContestList> => {
   const response = await instance.get(
-    `/api/competition/list${query}?page=${page}&size=${size}`,
+    `/api/competitions/${query}?page=${page}&size=${size}&sort=`,
   );
   return response.data;
 };
@@ -45,33 +45,31 @@ export const getContestRanking = async ({
   contestId = '',
   page = 0,
   size = 10,
-}): Promise<ContestRanking> => {
+  sort = '',
+}): Promise<IContestRank> => {
   const response = await instance.get(
-    `/api/competition/ranking/${contestId}?page=${page}&size=${size}`,
+    `/api/competitions/${contestId}/ranks?page=${page}&size=${size}&sort=`,
   );
   return response.data;
 };
-// /api/competitions/:competitionId/ranks?page=<integer>&size=<integer>&sort=<string>,<string>
 
 // 대회 나의 랭킹
 export const getContestMyRanking = async (
   contestId: string,
-): Promise<ContestMyRanking> => {
+): Promise<ContestMyRank> => {
   const response = await instance.get(
-    `/api/competition/myranking/${contestId}`,
+    `/api/competitions/${contestId}/member/rank`,
   );
   return response.data;
 };
-// /api/competitions/:competitionId/member/rank
 
 // 대회 점수 조회
 export const getContestResult = async (
   contestId: string,
-): Promise<ContestResult> => {
-  const response = await instance.get(`/api/competition/result/${contestId}`);
+): Promise<IContestResult> => {
+  const response = await instance.get(`/api/competitions/scores/${contestId}`);
   return response.data;
 };
-// /api/competitions/scores/:competitionId
 
 /* -------- POST 요청 -------- */
 
@@ -99,7 +97,7 @@ export const submitContest = (ContestAnswerForm: FieldValues) => {
 // 대회 문제 추가
 export const addContestProblem = (AddContestProblemForm: FieldValues) => {
   const response = instance.post(
-    '/api/competitions/questions/add',
+    '/api/competitions/questions',
     AddContestProblemForm,
   );
   return response;
@@ -108,7 +106,7 @@ export const addContestProblem = (AddContestProblemForm: FieldValues) => {
 // 대회 문제 삭제
 export const deleteContestProblem = (DeleteContestProblemForm: FieldValues) => {
   const response = instance.post(
-    '/api/competitions/questions/delete',
+    '/api/competitions/questions',
     DeleteContestProblemForm,
   );
   return response;

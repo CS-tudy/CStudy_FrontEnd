@@ -9,7 +9,7 @@ interface problemListProps {
 }
 
 const ProblemList = ({ problemList }: problemListProps) => {
-  // console.log('problemlist', problemList);
+  console.log('problemlist', problemList);
   return (
     <>
       {problemList?.totalElements === 0 && (
@@ -21,19 +21,8 @@ const ProblemList = ({ problemList }: problemListProps) => {
       )}
       {problemList?.content?.map(problem => {
         // console.log('problem', problem);
-        return (
-          <ProblemItem
-            // key={problem.questionId}
-            problem={problem}
-          />
-        );
+        return <ProblemItem key={problem.questionId} problem={problem} />;
       })}
-      {/* {problemList?.content?.map(problem => (
-        <ProblemItem
-          // key={problem.questionId}
-          problem={problem}
-        />
-      ))} */}
     </>
   );
 };

@@ -3,13 +3,17 @@ import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const ContestRanking = styled.div`
   width: 100%;
   padding: 2rem 4rem 3rem 3rem;
-  background-color: ${COLOR.WHITE};
-  border: 0.2rem solid ${COLOR.WHITE};
+  background-color: #fff;
+  border: 0.1rem solid #dbdbdb;
   border-radius: 1.2rem;
-  box-shadow: ${SHADOW.CONTENTBOX_XLG};
   margin-left: 3rem;
 `;
 
@@ -30,8 +34,6 @@ export const StyledTable = styled.table`
   border-collapse: separate;
   border-spacing: 0 1rem;
   margin-top: 1.8rem;
-  background-color: ${COLOR.GRAY_50};
-  box-shadow: ${SHADOW.RANKING_TABLE};
 `;
 
 export const PaginationWrapper = styled.div`

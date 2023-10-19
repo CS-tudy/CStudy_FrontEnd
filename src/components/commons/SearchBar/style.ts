@@ -14,6 +14,7 @@ export const Searchbar = styled.div`
 export const SearchIcon = styled.div`
   margin-right: 10px;
   cursor: pointer;
+  margin-bottom: 6px;
 `;
 
 export const SearchbarInput = styled.input`

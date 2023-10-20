@@ -27,7 +27,6 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
     if (!selectedFile) return;
 
     setUploading(true);
-    Toast.success('문제집 생성에 성공했습니다.');
     const formData = new FormData();
     formData.append('file', selectedFile);
 

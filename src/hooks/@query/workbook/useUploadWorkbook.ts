@@ -13,11 +13,10 @@ export const useUploadImgWorkbook = ({
   const { mutate: useUploadImgWorkbook } = useMutation(uploadimageWorkbook, {
     onSuccess: () => {
       queryClient.invalidateQueries(['workbookimage']);
-
       Toast.success('이미지 저장에 성공했습니다.');
     },
     onError: () => {
-      alert('이미지 저장에 실패했습니다.');
+      Toast.success('이미지 저장에 실패했습니다.');
     },
     onSettled: () => {
       handleIsModal(false);

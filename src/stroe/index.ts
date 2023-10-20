@@ -5,12 +5,14 @@ import { persistStore } from 'redux-persist';
 import problemSlice from 'hooks/@redux/problemSlice';
 import registerModalSlice from 'hooks/@redux/registerModalSlice';
 import loginModalSlice from 'hooks/@redux/loginModalSlice';
+import loginfilterSlice from 'hooks/@redux/admin/loginfilterSlice';
 const store = configureStore({
   reducer: {
     rootReducer,
     problem: problemSlice,
     registerModal: registerModalSlice,
     loginModal: loginModalSlice,
+    loginfilter: loginfilterSlice,
   },
 });
 

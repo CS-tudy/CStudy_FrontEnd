@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import Pagination from 'components/commons/Pagination';
 import useRequestFilter from 'hooks/Request/useRequestFilter';
 import NoData from 'components/commons/NoData';
+import LoginSwitchButton from '../LoginSwitchButton';
 
 interface RequestListsProps {
   requestList: ToggleRequestList;
@@ -42,7 +43,7 @@ const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
           <RequestItem key={props.id} {...props} />
         ))}
       </S.ContentWrapper>
-      {(requestList?.totalPages as number) > 0 && (
+      {/* {(requestList?.totalPages as number) > 0 && (
         <S.PaginationWrapper>
           <Pagination
             totalPages={requestList?.totalPages as number}
@@ -50,7 +51,7 @@ const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
             page={page}
           />{' '}
         </S.PaginationWrapper>
-      )}
+      )} */}
     </>
   );
 };

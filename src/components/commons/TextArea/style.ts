@@ -20,5 +20,5 @@ export const TextArea = styled.textarea<TextAreaStyleProps>`
   border: 0.1rem solid
     ${({ errors, id }) => (errors[id] ? `${COLOR.RED}` : `${COLOR.WHITE}`)};
   resize: none;
-  border: 0.16rem solid ${COLOR.GRAY_50};
+  border: 0.12rem solid ${COLOR.GRAY_80};
 `;

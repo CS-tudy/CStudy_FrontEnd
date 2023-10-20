@@ -20,9 +20,9 @@ export const Input = styled.input<InputStyleProps>`
       padding: 1.2rem;
       font-size: ${FONT.REGULAR_18};
       border-radius: 0.4rem;
-      border: 0.16rem solid
+      border: 0.12rem solid
         ${({ errors, id }) =>
-          errors[id] ? `${COLOR.RED}` : `${COLOR.GRAY_50};`};
+          errors[id] ? `${COLOR.RED}` : `${COLOR.GRAY_80};`};
     `}
 `;
 

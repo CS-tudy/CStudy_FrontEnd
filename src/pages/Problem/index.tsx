@@ -132,16 +132,16 @@ const Problem = () => {
         <Table colRate={tableColRate} title={tableTitle}>
           <ProblemList problemList={problemList as IProblem} />
         </Table>
-        {(problemList?.totalPages as number) > 0 && (
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={problemList?.totalPages as number}
-              handlePage={handlePage}
-              page={problemFilter.pageNumber}
-            />
-          </S.PaginationWrapper>
-        )}
       </Container>
+      {(problemList?.totalPages as number) > 0 && (
+        <S.PaginationWrapper>
+          <Pagination
+            totalPages={problemList?.totalPages as number}
+            handlePage={handlePage}
+            page={problemFilter.pageNumber}
+          />
+        </S.PaginationWrapper>
+      )}
     </>
   );
 };

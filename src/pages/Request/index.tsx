@@ -11,6 +11,7 @@ import useRequestFilter from 'hooks/Request/useRequestFilter';
 import { setTokenSourceMapRange } from 'typescript';
 import { CiTimer } from 'react-icons/ci';
 import { IoIosTimer } from 'react-icons/io';
+import Pagination from 'components/commons/Pagination';
 
 const Request = () => {
   const { requestFilter, handlePage, handleToggle, isActive } =
@@ -23,16 +24,30 @@ const Request = () => {
   });
 
   return (
-    <Container>
-      <S.Header>
+    <>
+      <S.ContainerHeader>
         <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
-      </S.Header>
-      <RequestList
-        requestList={requestList as ToggleRequestList}
-        handlePage={handlePage}
-        page={requestFilter.pageNumber}
-      />
-    </Container>
+      </S.ContainerHeader>
+      <Container>
+        <S.Header>
+          {/* <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} /> */}
+        </S.Header>
+        <RequestList
+          requestList={requestList as ToggleRequestList}
+          handlePage={handlePage}
+          page={requestFilter.pageNumber}
+        />
+      </Container>
+      {(requestList?.totalPages as number) > 0 && (
+        <S.PaginationWrapper>
+          <Pagination
+            totalPages={requestList?.totalPages as number}
+            handlePage={handlePage}
+            page={requestList?.page}
+          />{' '}
+        </S.PaginationWrapper>
+      )}
+    </>
   );
 };
 

@@ -68,6 +68,7 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
             register={register}
             errors={errors}
           />
+          <S.Div></S.Div>
           <TextArea
             id="description"
             label="내용"

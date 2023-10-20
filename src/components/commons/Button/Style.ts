@@ -27,6 +27,7 @@ const variantCSS: VariantCSS = {
   green: css`
     background: ${COLOR.GREEN};
     color: ${COLOR.WHITE};
+  `,
 
   white: css`
     background: ${COLOR.WHITE};

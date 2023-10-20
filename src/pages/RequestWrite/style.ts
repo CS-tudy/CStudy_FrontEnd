@@ -12,8 +12,12 @@ export const Form = styled.form`
   border-radius: 5rem;
 `;
 
+export const Div = styled.div`
+  height: 20px;
+`;
+
 export const ButtonWrapper = styled.div`
-  margin: 2rem 0 0 auto;
+  margin: 2.5rem 0 0 auto;
   display: flex;
   justify-content: center;
   width: 100%;

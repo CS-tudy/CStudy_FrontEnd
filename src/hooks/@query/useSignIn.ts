@@ -4,6 +4,7 @@ import { userStorage } from 'repository/userStorage';
 import { useDispatch } from 'react-redux';
 import { login } from 'hooks/@redux/authSlice';
 import { useNavigate } from 'react-router-dom';
+import Toast from 'libs/Toast';
 
 export const useSignIn = () => {
   const queryClient = useQueryClient();
@@ -18,7 +19,7 @@ export const useSignIn = () => {
         refreshToken: response.refreshToken,
       });
       dispatch(login());
-      alert('로그인 되었습니다.');
+      Toast.success('로그인 되었습니다.');
       const get = userStorage.get();
       if (get) {
         if (response.name === '관리자') {
@@ -27,7 +28,7 @@ export const useSignIn = () => {
       }
     },
     onError: () => {
-      alert('로그인에 실패했습니다.');
+      Toast.error('로그인에 실패했습니다.');
     },
   });
 };

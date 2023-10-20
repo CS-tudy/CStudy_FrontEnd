@@ -16,13 +16,13 @@ export const useWorkbookSet = ({
     onSuccess: () => {
       queryClient.invalidateQueries(['woorkbookList']);
       Toast.success('문제집 생성에 성공했습니다.');
+      handleIsModal(true);
     },
     onError: () => {
       Toast.error('문제집 생성에 실패했습니다.');
     },
     onSettled: () => {
       handleIsLoading(false);
-      handleIsModal(true);
     },
   });
 

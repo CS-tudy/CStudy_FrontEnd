@@ -1,5 +1,6 @@
 import { login } from 'hooks/@redux/authSlice';
 import Cookies from 'js-cookie';
+import Toast from 'libs/Toast';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -12,8 +13,7 @@ const OAuthRedirect = () => {
   const refreshToken = Cookies.get('refreshToken');
 
   if (!accessToken || !refreshToken)
-    // return toast.error('로그인에 실패했습니다.');
-    return alert('로그인에 실패했습니다.');
+    return Toast.error('로그인에 실패했습니다.');
 
   userStorage.set({
     accessToken,
@@ -21,7 +21,7 @@ const OAuthRedirect = () => {
   });
   dispatch(login());
 
-  // window.location.replace(`http://localhost:3000`);
+  window.location.replace(`http://localhost:3000`);
 
   return <div>Login...</div>;
 };

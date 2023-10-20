@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addCommentList } from 'api/comment';
 import useReplyButton from 'hooks/Comment/useReplyButton';
+import Toast from 'libs/Toast';
 
 export const useAddCommentList = () => {
   const queryClient = useQueryClient();
@@ -9,13 +10,11 @@ export const useAddCommentList = () => {
   return useMutation(addCommentList, {
     onSuccess: () => {
       queryClient.invalidateQueries(['commentList']);
-      // toast.success('공지사항 게시글 생성에 성공했습니다');
       toggleReplyingHandler('');
-      alert('댓글 생성되었습니다.');
+      Toast.success('댓글 생성되었습니다.');
     },
     onError: error => {
-      // toast.error(error as string);
-      alert(error as string);
+      Toast.error('댓글 생성 실패하였습니다.');
     },
   });
 };

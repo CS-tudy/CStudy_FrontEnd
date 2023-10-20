@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { updateNoticeList } from 'api/board';
+import Toast from 'libs/Toast';
 
 interface UpdateNoticeProps {
   id: number;
@@ -9,11 +10,11 @@ export const useUpdateNoticeList = ({ handleIsActive }: UpdateNoticeProps) => {
   const queryClient = useQueryClient();
   const { mutate: UpdateNotice } = useMutation(updateNoticeList, {
     onSuccess: () => {
-      alert(' 게시글 수정에 성공했습니다.');
+      Toast.success(' 게시글 수정에 성공했습니다.');
       queryClient.invalidateQueries(['noticeList']);
     },
     onError: () => {
-      alert('게시글 수정에 실패했습니다.');
+      Toast.error('게시글 수정에 실패했습니다.');
     },
     onSettled: () => {
       handleIsActive(false);

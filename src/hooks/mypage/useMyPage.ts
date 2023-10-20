@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { FieldValues, UseFormGetValues, UseFormReset } from 'react-hook-form';
-import { usePwdEdit } from './usePwdEdit';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from 'stroe';
-import { useUploadImg } from './useUploadImg';
-import { useGetImg } from './useGetImg';
+import { usePwdEdit } from './../@query/mypage/usePwdEdit';
+import { useUploadImg } from './../@query/mypage/useUploadImg';
+import { useGetImg } from './../@query/mypage/useGetImg';
 import { useNavigate } from 'react-router-dom';
 
 interface useMyPageProp {
@@ -15,7 +13,7 @@ interface useMyPageProp {
 const useMyPage = ({ reset, getValues }: useMyPageProp) => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const dispatch = useDispatch<AppDispatch>();
+
   const navigate = useNavigate();
 
   const passwordPattern = {
@@ -27,19 +25,31 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     setIsActive(isActive => !isActive);
   };
 
-  const handleChangePwdSubmit = (formData: FieldValues) => {
-    dispatch(usePwdEdit(formData));
-    console.log(formData);
+  const handleChangePwdSubmit = () => {
+    const { mutate: PwdEdit } = usePwdEdit();
+    const oldPassword = getValues('oldPassword');
+    const newPassword = getValues('newPassword');
+    const edit = {
+      oldPassword,
+      newPassword,
+    };
+    PwdEdit(edit);
     reset();
   };
 
-  const onValid = async () => {
-    const data = getValues();
+  const { mutate: uploadImg } = useUploadImg();
+  const img = useGetImg();
+
+  const onValid = () => {
+    const data = getValues('files');
+    console.log(data);
     const formData = new FormData();
-    formData.append('files', data.files[0]);
-    await dispatch(useUploadImg(formData));
-    dispatch(useGetImg());
+    formData.append('files', data[0]);
+
+    uploadImg(formData);
+    img;
   };
+
   const handleDetail = (id: number) => {
     navigate(`/request/${id}`);
   };
@@ -52,6 +62,7 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     passwordPattern,
     handleChangePwdSubmit,
     onValid,
+    setIsActive,
   };
 };
 

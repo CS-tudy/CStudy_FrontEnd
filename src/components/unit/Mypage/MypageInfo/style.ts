@@ -11,7 +11,7 @@ export const MyInfoImg = styled.div`
   padding: 2rem 3rem;
   margin-top: 1rem;
   &:nth-child(2) {
-    margin-left: 20rem;
+    margin-left: 13rem;
   }
 `;
 export const MyImg = styled.img`
@@ -69,6 +69,6 @@ export const MyEmail = styled.span`
 
 export const ButtonDiv = styled.div`
   position: absolute;
-  left: -20%;
-  top: -15%;
+  left: 25%;
+  bottom: -30%;
 `;

@@ -12,6 +12,8 @@ import { setTokenSourceMapRange } from 'typescript';
 import { CiTimer } from 'react-icons/ci';
 import { IoIosTimer } from 'react-icons/io';
 import Pagination from 'components/commons/Pagination';
+import ContainerBottom from 'components/commons/ContainerBottom';
+import ContainerTop from 'components/commons/ContainerTop';
 
 const Request = () => {
   const { requestFilter, handlePage, handleToggle, isActive } =
@@ -25,9 +27,12 @@ const Request = () => {
 
   return (
     <>
-      <S.ContainerHeader>
+      {/* <S.ContainerHeader>
         <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
-      </S.ContainerHeader>
+      </S.ContainerHeader> */}
+      <ContainerTop>
+        <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
+      </ContainerTop>
       <Container>
         <S.Header>
           {/* <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} /> */}
@@ -38,15 +43,17 @@ const Request = () => {
           page={requestFilter.pageNumber}
         />
       </Container>
-      {(requestList?.totalPages as number) > 0 && (
-        <S.PaginationWrapper>
-          <Pagination
-            totalPages={requestList?.totalPages as number}
-            handlePage={handlePage}
-            page={requestFilter.pageNumber}
-          />{' '}
-        </S.PaginationWrapper>
-      )}
+      <ContainerBottom>
+        {(requestList?.totalPages as number) > 0 && (
+          <S.PaginationWrapper>
+            <Pagination
+              totalPages={requestList?.totalPages as number}
+              handlePage={handlePage}
+              page={requestFilter.pageNumber}
+            />{' '}
+          </S.PaginationWrapper>
+        )}
+      </ContainerBottom>
     </>
   );
 };

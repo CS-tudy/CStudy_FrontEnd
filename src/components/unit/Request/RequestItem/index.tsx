@@ -27,7 +27,7 @@ const RequestItem = (props: RequestListProps) => {
           </S.ArticleHeader>
           <S.Content>{description}</S.Content>
           <S.Detail>
-            <span>{memberName}</span>·<span>{createAt}</span>
+            <span>{memberName}</span> · <span>{createAt}</span>
           </S.Detail>
         </S.Article>
       </Link>

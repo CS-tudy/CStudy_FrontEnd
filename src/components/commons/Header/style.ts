@@ -110,5 +110,6 @@ export const HamburgerBt = styled.button`
     position: absolute;
     right: 32px;
     height: 97px;
+    z-index: 5;
   }
 `;

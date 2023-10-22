@@ -43,7 +43,7 @@ const Request = () => {
           <Pagination
             totalPages={requestList?.totalPages as number}
             handlePage={handlePage}
-            page={requestList?.page}
+            page={requestFilter.pageNumber}
           />{' '}
         </S.PaginationWrapper>
       )}

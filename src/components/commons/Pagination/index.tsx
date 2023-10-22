@@ -1,6 +1,8 @@
 import { PaginationProps } from 'types/pagination';
 import usePagination from '../../../hooks/usePagination';
 import * as Styled from './style';
+import { SlArrowLeft } from 'react-icons/sl';
+import { SlArrowRight } from 'react-icons/sl';
 
 const Pagination = ({
   totalPages,
@@ -25,19 +27,33 @@ const Pagination = ({
       {
         //   totalPages > 1 &&
         <Styled.Pagination>
-          <Styled.LeftArrowButton
+          {/* <Styled.LeftArrowButton
             white={white}
             onClick={handlePrevPageGroupClick}
             disabled={currentPage === 1}
-          />
+          /> */}
+          <div
+            white={white}
+            onClick={handlePrevPageGroupClick}
+            disabled={currentPage === 1}
+          >
+            <SlArrowLeft size="15" />
+          </div>
           <Styled.PaginationButtonWrapper white={white}>
             {paginationButtons}
           </Styled.PaginationButtonWrapper>
-          <Styled.RightArrowButton
+          {/* <Styled.RightArrowButton
             white={white}
             onClick={handleNextPageGroupClick}
             disabled={currentPage === totalGroups}
-          />
+          /> */}
+          <div
+            white={white}
+            onClick={handlePrevPageGroupClick}
+            disabled={currentPage === 1}
+          >
+            <SlArrowRight size="15" />
+          </div>
         </Styled.Pagination>
       }
     </>

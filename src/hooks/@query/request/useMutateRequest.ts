@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createRequest, deleteRequest, editRequest } from 'api/request';
+import Toast from 'libs/Toast';
 import { useNavigate } from 'react-router-dom';
-// import toast from 'provider/Toast';
 
 // 작성
 export const useCreateRequest = () => {
@@ -11,14 +11,12 @@ export const useCreateRequest = () => {
   return useMutation(createRequest, {
     onSuccess: () => {
       queryClient.invalidateQueries(['requestList']);
-      //   toast.success('글이 등록되었습니다.');
-      alert('글이 등록되었습니다.');
+      Toast.success('글이 등록되었습니다.');
       navigate('/request');
       window.scrollTo(0, 0);
     },
     onError: () => {
-      //   toast.error('글 등록에 실패했습니다.');
-      alert('글 등록에 실패했습니다.');
+      Toast.error('글 등록에 실패했습니다.');
       navigate('/request');
     },
   });

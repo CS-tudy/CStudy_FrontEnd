@@ -3,7 +3,8 @@ import { FONT } from 'constants/Font';
 import { COLOR } from 'constants/Color';
 
 export const PaginationButton = styled.button`
-  ${FONT.BOLD_18}
+  ${FONT.REGULAR_20}
+  font-weight: 600;
   position: relative;
 
   &.active {

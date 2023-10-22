@@ -84,7 +84,7 @@ export const OptionList = styled.ul`
     background: #303030;
   }
   border: 1px solid #dbdbdb;
-  z-index: 1000;
+  z-index: 1;
 `;
 
 export const OptionItem = styled.li`

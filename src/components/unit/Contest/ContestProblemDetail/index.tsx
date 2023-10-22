@@ -64,14 +64,14 @@ const ContestProblemDetail = ({
 
   const { fields } = useFieldArray({ control, name: 'questions' });
   console.log('field', fields);
-  // const SubmitContest = useSubmitContest({
-  //   handleIsLoading,
-  //   competitionId,
-  // } as UseSubmitContestProps);
+  const SubmitContest = useSubmitContest({
+    handleIsLoading,
+    competitionId,
+  } as UseSubmitContestProps);
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
     console.log(data);
-    // SubmitContest(data);
+    SubmitContest(data);
   };
 
   useEffect(() => {
@@ -144,7 +144,14 @@ const ContestProblemDetail = ({
               // >
               //   제출
               // </Button>
-              <button>test</button>
+              <S.SubmitButton
+                type="submit"
+                variant="primary"
+                size="medium"
+                disabled={isLoading}
+              >
+                제출
+              </S.SubmitButton>
             )}
           </S.ButtonWrapper>
         </div>

@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import { SHADOW } from 'constants/Shadow';
+
+export const Title = styled.div`
+  font-size: ${FONT.H2};
+  font-weight: 700;
+  margin-bottom: 8px;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 
 export const ContestRanking = styled.div`
@@ -37,5 +43,9 @@ export const StyledTable = styled.table`
 `;
 
 export const PaginationWrapper = styled.div`
+  width: 100%;
   margin-top: 1.8rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
 `;

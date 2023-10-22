@@ -21,7 +21,7 @@ const ContestRank = ({
   return (
     <S.Wrapper>
       <div style={{ marginLeft: '3rem' }}>
-        <h2>대회랭킹</h2>
+        <S.Title>랭킹</S.Title>
       </div>
       <S.ContestRanking>
         <S.RankingTitle>
@@ -37,17 +37,17 @@ const ContestRank = ({
             totalQuestion={totalQuestion}
           />
         </S.StyledTable>
-        {contestRank?.totalPages > 0 && (
-          <S.PaginationWrapper>
-            <Pagination
-              white
-              totalPages={contestRank?.totalPages as number}
-              handlePage={handlePage}
-              page={page}
-            />
-          </S.PaginationWrapper>
-        )}
       </S.ContestRanking>
+      {contestRank?.totalPages > 0 && (
+        <S.PaginationWrapper>
+          <Pagination
+            white
+            totalPages={contestRank?.totalPages as number}
+            handlePage={handlePage}
+            page={page}
+          />
+        </S.PaginationWrapper>
+      )}
     </S.Wrapper>
   );
 };

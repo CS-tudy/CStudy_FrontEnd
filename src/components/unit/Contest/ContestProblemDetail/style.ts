@@ -97,3 +97,11 @@ export const ButtonWrapper = styled.div`
     margin-left: 1.2rem;
   }
 `;
+
+export const SubmitButton = styled.button`
+  padding: 1.2rem 1.6rem;
+  width: 96px;
+  background-color: ${COLOR.MAIN};
+  color: #fff;
+  border-radius: 1rem;
+`;

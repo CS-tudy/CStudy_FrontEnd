@@ -1,5 +1,5 @@
 import * as S from './style';
-import { GoSearch } from 'react-icons/go';
+import { HiOutlineSearch } from 'react-icons/hi';
 
 const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
@@ -38,7 +38,7 @@ const SearchBar = (props: any) => {
         onKeyDown={handleLoadSearch}
       />
       <S.SearchIcon>
-        <GoSearch size="18" />
+        <HiOutlineSearch size="17" color="#3d3d3d" />
       </S.SearchIcon>
     </S.Searchbar>
   );

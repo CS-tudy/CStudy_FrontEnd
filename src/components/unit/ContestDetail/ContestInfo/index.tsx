@@ -2,6 +2,7 @@ import Table from 'components/commons/Table';
 import { TBodyTd, TBodyTh } from 'components/commons/Table/style';
 import Table2 from 'components/commons/Table2';
 import { Contest } from 'types/api';
+import * as S from './style';
 
 interface ContestInfoProps {
   contest: Contest;
@@ -19,7 +20,7 @@ const ContestInfo = ({ contest }: ContestInfoProps) => {
         // padding: '10px',
       }}
     >
-      <h2>대회정보</h2>
+      <S.Title>정보</S.Title>
       <Table2 maxHeight colRate={tableColRate} title={tableTitle}>
         <tr>
           <TBodyTd>{contest?.startTime}</TBodyTd>

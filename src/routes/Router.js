@@ -35,6 +35,7 @@ import Review from 'pages/Review';
 import ContestResultPage from 'pages/ContestResult';
 import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 import CreateNotice from 'pages/Admin/CreateNotice';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -45,10 +46,9 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: '/notice',
         children: [
           {
-            index: true,
+            path: 'notice',
             element: <Notice />,
           },
           {
@@ -56,22 +56,21 @@ const router = createBrowserRouter([
             element: <NoticeRequestDetail />,
           },
           {
-            path: 'admin',
+            path: 'admin/notice',
             loader: checkAdminLoader,
             element: <AdminNoticeRequest />,
           },
           {
-            path: 'admin/create/notice',
+            path: 'admin/createnotice',
             loader: checkAdminLoader,
             element: <CreateNotice />,
           },
         ],
       },
       {
-        path: 'request',
         children: [
           {
-            index: true,
+            path: 'request',
             element: <Request />,
           },
           {
@@ -95,10 +94,9 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'workbook',
         children: [
           {
-            index: true,
+            path: 'workbook',
             element: <Workbook />,
           },
           {
@@ -118,10 +116,9 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'contest',
         children: [
           {
-            index: true,
+            path: 'contest',
             element: <Contest />,
           },
           {
@@ -145,10 +142,9 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'problem',
         children: [
           {
-            index: true,
+            path: 'problem',
             element: <Problem />,
           },
           {
@@ -157,25 +153,24 @@ const router = createBrowserRouter([
           },
           {
             path: 'admin/CreateProblem',
-            element: <ProblemDetailPage />,
+            loader: checkAdminLoader,
+            element: <CreateProblem />,
           },
         ],
       },
       {
-        path: 'membersranks',
         children: [
           {
-            index: true,
+            path: 'membersranks',
             element: <MembersRanks />,
           },
         ],
       },
       {
-        path: 'mypage',
         loader: checkAdminLoader,
         children: [
           {
-            index: true,
+            path: 'mypage',
             element: <MyPage />,
           },
         ],

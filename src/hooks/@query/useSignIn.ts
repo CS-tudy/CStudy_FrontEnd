@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Toast from 'libs/Toast';
 import { Navigate } from 'react-router-dom';
 import { adminLogin } from 'hooks/@redux/admin/loginfilterSlice';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 export const useSignIn = () => {
   const queryClient = useQueryClient();
@@ -19,8 +20,9 @@ export const useSignIn = () => {
         accessToken: response.accessToken,
         refreshToken: response.refreshToken,
       });
-      dispatch(login());
       Toast.success('로그인 되었습니다.');
+      dispatch(login());
+      dispatch(Logintoggle());
       dispatch(adminLogin({ type: 'adminLogin', payload: response.name }));
     },
     onError: () => {

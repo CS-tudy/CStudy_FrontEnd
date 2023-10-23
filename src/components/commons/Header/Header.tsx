@@ -4,10 +4,7 @@ import { StyleNavLink } from 'components/NavLinkStyles';
 import Logo_Png from 'assets/Logo.png';
 import { Button } from 'components/commons/Button/Style';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { openModal } from 'hooks/@redux/modalSlice';
 import { useSignOut } from 'hooks/@query/useSignOut';
-import { logout } from 'hooks/@redux/authSlice';
 import useModal from 'hooks/useModal';
 import Modal from '../../unit/Modal';
 import SignInModal from 'components/unit/SignIn';
@@ -15,24 +12,50 @@ import SignModal from '../Modal/SignModal';
 import SignUp from 'components/unit/SignUp';
 import { useState } from 'react';
 import { isAdmin, isLogin } from 'repository/auth';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { RootState } from 'stroe';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle } from 'hooks/@redux/registerModalSlice';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
+
+export interface PrevToogle {
+  active: boolean;
+}
 
 const Header = () => {
-  const { modalIsOpen, toggleModal } = useModal();
+  // const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
-  // const isAuthenticated = useSelector(
-  //   (state: any) => state.auth.isAuthenticated,
-  // );
+  const [active, setActive] = useState(false);
+
+  const isRegisterModalOpen = useSelector(
+    (state: RootState) => state.registerModal.isOpen,
+  );
+  const isLoginModalOpen = useSelector(
+    (state: RootState) => state.loginModal.isOpen,
+  );
+
+  const dispatch = useDispatch();
   const { mutate: signOut } = useSignOut();
 
-  const openModal = () => {
-    toggleModal();
-    setSignupModal(false);
-  };
-  const openSignupModal = () => {
-    toggleModal();
-    setSignupModal(true);
+  const RegistertoggleModal = () => {
+    dispatch(toggle());
   };
 
+  const LogintoggleModal = () => {
+    dispatch(Logintoggle());
+  };
+
+  // const openModal = () => {
+  //   toggleModal();
+  //   setSignupModal(false);
+  // };
+  // const openSignupModal = () => {
+  //   toggleModal();
+  //   setSignupModal(true);
+  // };
+  const HandleClickToogle = () => {
+    setActive(active => !active);
+  };
   return (
     <>
       <S.Wrapper>
@@ -44,7 +67,7 @@ const Header = () => {
           </Link>
         </S.LogoWrap>
         <S.Nav>
-          <S.NavList>
+          <S.NavList active={active}>
             <S.NavItem>
               <StyleNavLink to="/notice">공지사항</StyleNavLink>
             </S.NavItem>
@@ -65,22 +88,25 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
+        <S.HamburgerBt onClick={HandleClickToogle}>
+          <GiHamburgerMenu />
+        </S.HamburgerBt>
         {isAdmin() && (
           <S.Admin>
             <StyleNavLink to="/admin/createProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
-        <S.Sign>
-          {modalIsOpen && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
+        <S.Sign active={active}>
+          {isLoginModalOpen && (
+            <Modal toggleModal={LogintoggleModal}>
+              <SignModal toggleModal={LogintoggleModal}>
                 <SignInModal />
               </SignModal>
             </Modal>
           )}
-          {modalIsOpen && signupModal && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
+          {isRegisterModalOpen && (
+            <Modal toggleModal={RegistertoggleModal}>
+              <SignModal toggleModal={RegistertoggleModal}>
                 <SignUp />
               </SignModal>
             </Modal>
@@ -88,15 +114,16 @@ const Header = () => {
           {isLogin() ? (
             <>
               <button onClick={() => signOut()}>로그아웃</button>
-              <Link to="/">마이페이지</Link>
+              <S.MypageLink to="/mypage">마이페이지</S.MypageLink>
             </>
           ) : (
             <>
-              <button onClick={openModal}>로그인</button>
-              <button onClick={openSignupModal}>회원가입</button>
+              {/* <button onClick={openModal}>로그인</button>
+              <button onClick={openSignupModal}>회원가입</button> */}
+              <button onClick={LogintoggleModal}>로그인</button>
+              <button onClick={RegistertoggleModal}>회원가입</button>
             </>
           )}
-          {/* )} */}
         </S.Sign>
       </S.Wrapper>
     </>

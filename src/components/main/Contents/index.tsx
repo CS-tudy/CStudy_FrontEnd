@@ -40,7 +40,7 @@ const Contents = () => {
         </S.ContentWrapper>
       </S.ContentSection>
       <S.ContentSection>
-        <S.ContentWrapper>
+        <S.ContentWrapperReverse>
           <S.ContentTexts>
             <p>
               <S.TextTitle>
@@ -71,7 +71,7 @@ const Contents = () => {
             </S.ContentTitle>
             <S.ContentImg src={competition_jpg} alt="competition_jpg" />
           </S.ContentTitleImg>
-        </S.ContentWrapper>
+        </S.ContentWrapperReverse>
       </S.ContentSection>
       <S.ContentSection>
         <S.ContentWrapper>

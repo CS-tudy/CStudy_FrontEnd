@@ -2,6 +2,7 @@ export const COLOR = {
   MAIN: '#0078FF',
 
   GRAY_50: '#f1f2f3',
+  GRAY_80: '#dbdbdb',
   GRAY_100: '#c4c4c4',
   GRAY_200: '#818181',
 

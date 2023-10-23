@@ -10,8 +10,7 @@ interface QueryFilterActionProps {
 interface QueryFilterActionState {
   queryFilter: QueryFilterStoreType;
   query: string;
-  isActive: string;
-  queryActive: boolean;
+  queryActive: string;
   handleToggle: () => void;
 }
 
@@ -23,7 +22,7 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
   // queryFilterState.queryActive =
   //   queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
 
-  const isActive =
+  const queryActive =
     queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
 
   const handleToggle = () => {
@@ -35,7 +34,7 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
     );
   };
 
-  return { ...queryFilterState, handleToggle, isActive };
+  return { ...queryFilterState, handleToggle, queryActive };
 };
 
 export default useQueryFilterSlice;

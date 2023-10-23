@@ -8,8 +8,8 @@ interface ConfirmModalProps {
   isLoading?: boolean;
   confirmText: string;
   cancelText: string;
-  // handleConfirm: () => void;
-  // handleCancel: () => void;
+  handleConfirm: () => void;
+  handleCancel: () => void;
 }
 
 const ConfirmModal = ({
@@ -17,7 +17,9 @@ const ConfirmModal = ({
   title,
   isOpen,
   confirmText,
-  cancelText, // handleConfirm,handleCancel,
+  cancelText,
+  handleConfirm,
+  handleCancel,
 }: ConfirmModalProps) => {
   return (
     // <Modal toggleModal={handleCancel}>
@@ -30,7 +32,7 @@ const ConfirmModal = ({
         // disabled={isLoading}
         >
         </button> */}
-        <Button variant="primary" size="medium">
+        <Button variant="primary" size="medium" onClick={handleConfirm}>
           {confirmText}
         </Button>
         {/* <button
@@ -41,7 +43,7 @@ const ConfirmModal = ({
         >
           {cancelText}
         </button> */}
-        <Button variant="gray" size="medium">
+        <Button variant="gray" size="medium" onClick={handleCancel}>
           {cancelText}
         </Button>
       </S.ButtonRow>

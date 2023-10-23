@@ -5,19 +5,22 @@ import useGetWorkbookList from 'hooks/@query/workbook/useGetWorkbookList';
 import { useUploadImgWorkbook } from 'hooks/@query/workbook/useUploadWorkbook';
 import * as S from './style';
 import Toast from 'libs/Toast';
+import { Button } from 'components/commons/Button/Style';
 
 interface handleIsModalProps {
   handleIsModal: (isModalOpen: boolean) => void;
 }
 
 const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState('');
 
-  const handleFileChange = (e: any) => {
-    setSelectedFile(e.target.files[0]);
-    setPreviewUrl(URL.createObjectURL(e.target.files[0])); // 생성된 URL로 미리보기 이미지 설정
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedFile(e.target.files[0]);
+      setPreviewUrl(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   const workbookList = useGetWorkbookList({ title: '', description: '' });
@@ -48,9 +51,14 @@ const WorkbookImageUpload = ({ handleIsModal }: handleIsModalProps) => {
           alt="Preview"
           style={{ maxWidth: '100%', maxHeight: '200px' }}
         />
-        <button onClick={handleUpload} disabled={!selectedFile || uploading}>
-          Upload Image
-        </button>
+        <Button
+          onClick={handleUpload}
+          variant="primary"
+          size="mideum"
+          disabled={!selectedFile || uploading}
+        >
+          문제집 이미지 업로드
+        </Button>
       </S.Container>
     </S.Backdrop>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { WorkbookSetForm } from 'types/Form';
 import ContentContainer from 'components/commons/ContentContainer';
@@ -37,7 +37,7 @@ const CreateWorkbook = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
     setIsLoading(true);
-    WorkbookSet(data as any);
+    WorkbookSet(data as WorkbookSetForm);
   };
 
   return (
@@ -55,6 +55,7 @@ const CreateWorkbook = () => {
                 errors={errors}
                 disabled={isLoading}
                 required
+                placeholder="문제집 제목을 입력해주세요"
               />
             </FormSection>
             <FormSection title="문제집 설명을 입력해 주세요">
@@ -67,6 +68,7 @@ const CreateWorkbook = () => {
                 errors={errors}
                 disabled={isLoading}
                 required
+                placeholder="문제집 내용을 입력해주세요"
               />
             </FormSection>
             <Button type="submit" variant="primary" size="mideum">

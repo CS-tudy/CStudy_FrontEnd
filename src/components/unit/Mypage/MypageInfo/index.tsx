@@ -1,18 +1,19 @@
-import { useSelector } from 'react-redux';
 import * as S from './style';
 import Button from 'components/commons/Button/Button';
-import { RootState } from 'stroe';
 import {
   FieldValues,
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
+import { myPageDownloadState, myPageState } from 'types/mypage';
 
 interface MyPageMyInfoProps {
   HandleClickPwd: () => void;
   onValid: () => void;
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
+  myPageInfo: myPageState;
+  img: any;
 }
 
 const MyPageInfo = ({
@@ -20,17 +21,15 @@ const MyPageInfo = ({
   HandleClickPwd,
   register,
   handleSubmit,
+  myPageInfo,
+  img,
 }: MyPageMyInfoProps) => {
-  const infoSelector = useSelector((state: RootState) => state.Mypage.info);
-  const imgSelector = useSelector(
-    (state: RootState) => state.MyPageDownload.image,
-  );
   return (
     <>
       <S.MyInfoImg>
         <S.MyImgDiv>
           <picture>
-            {imgSelector && <S.MyImg src={imgSelector} alt="프로필" />}
+            {img !== undefined && <S.MyImg src={img} alt="프로필" />}
           </picture>
           <S.Form onSubmit={handleSubmit(onValid)}>
             <S.Label htmlFor="image_file">이미지 수정</S.Label>
@@ -48,10 +47,10 @@ const MyPageInfo = ({
           </S.Form>
         </S.MyImgDiv>
         <S.MyInfo>
-          {infoSelector !== undefined && (
+          {myPageInfo && (
             <>
-              <S.MyId>{infoSelector.name}</S.MyId>
-              <S.MyEmail>{infoSelector.email}</S.MyEmail>
+              <S.MyId>{myPageInfo.data?.name}</S.MyId>
+              <S.MyEmail>{myPageInfo.data?.email}</S.MyEmail>
             </>
           )}
           <Button onClick={HandleClickPwd} variant={'gray'} size={'large'}>

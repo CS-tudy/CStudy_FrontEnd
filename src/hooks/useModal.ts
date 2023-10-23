@@ -7,13 +7,13 @@ const useModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
 
-  useEffect(() => {
-    if (modalIsOpen) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'auto';
-    }
-  }, [modalIsOpen]);
+  // useEffect(() => {
+  //   if (modalIsOpen) {
+  //     document.body.style.overflowY = 'hidden';
+  //   } else {
+  //     document.body.style.overflowY = 'auto';
+  //   }
+  // }, [modalIsOpen]);
 
   return {
     modalIsOpen,

@@ -2,22 +2,22 @@ import { useSelector } from 'react-redux';
 import * as S from './style';
 import { RootState } from 'stroe';
 import ApproveStatus from 'components/commons/Status';
-import { useNavigate } from 'react-router-dom';
 
 interface statusMap {
+  content: [];
   id: number;
   title: string;
   flag: boolean;
+  status: {
+    content?: [];
+  };
 }
 interface boardProps {
   handleDetail: (id: number) => void;
+  status: statusMap;
 }
 
-const MypageBoard = ({ handleDetail }: boardProps) => {
-  const statusSelector = useSelector(
-    (state: RootState) => state.MypageStatus.status,
-  );
-
+const MypageBoard = ({ handleDetail, status }: boardProps) => {
   return (
     <S.MypageBoardWrapper>
       <S.BoardTitle>나의 게시판 승인 현황</S.BoardTitle>
@@ -36,12 +36,12 @@ const MypageBoard = ({ handleDetail }: boardProps) => {
             </tr>
           </thead>
           <tbody>
-            {statusSelector.content.map((status: statusMap) => (
-              <S.Tr onClick={() => handleDetail(status?.id)} key={status?.id}>
-                <S.Tbody>{status?.id}</S.Tbody>
-                <S.Tbody>{status?.title}</S.Tbody>
+            {status?.content.map((content: statusMap) => (
+              <S.Tr onClick={() => handleDetail(content?.id)} key={content?.id}>
+                <S.Tbody>{content?.id}</S.Tbody>
+                <S.Tbody>{content?.title}</S.Tbody>
                 <S.Tbody>
-                  <ApproveStatus flag={status?.flag} />
+                  <ApproveStatus flag={content?.flag} />
                 </S.Tbody>
               </S.Tr>
             ))}

@@ -1,33 +1,41 @@
 import styled from 'styled-components';
 
-export const Div = styled.div`
+export const ContainerHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 6rem;
+  margin-bottom: 12rem;
   width: 100%;
   height: 100%;
 `;
 
-export const Contents = styled.div`
+export const FilterWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   width: 100%;
   position: absolute;
-  margin-right: 5vw;
-  padding-right: 16rem;
+  padding-right: 5vw;
 `;
 
-export const Content1 = styled.div`
-  /* width: 20%; */
+export const SearchWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
 `;
 
-export const Content2 = styled.div`
-  /* width: 15%; */
+export const FilterWrapper2 = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
-export const Content3 = styled.div`
-  /* width: 15%; */
+export const QueryFilterWrapper = styled.div``;
+
+export const StatusFilterWrapper = styled.div`
+  margin-right: 1rem;
 `;
+
+export const CategoryFilterWrapper = styled.div``;
 
 export const PaginationWrapper = styled.div`
   padding: 4rem 0 6rem;

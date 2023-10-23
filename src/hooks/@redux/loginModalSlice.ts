@@ -12,11 +12,11 @@ const loginModalSlice = createSlice({
   name: 'loginModal',
   initialState,
   reducers: {
-    toggleLoginModal: state => {
+    Logintoggle: state => {
       state.isOpen = !state.isOpen;
     },
   },
 });
 
-export const { toggleLoginModal } = loginModalSlice.actions;
+export const { Logintoggle } = loginModalSlice.actions;
 export default loginModalSlice.reducer;

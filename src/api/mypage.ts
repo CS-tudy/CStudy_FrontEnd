@@ -9,6 +9,7 @@ export const getMyPage = () => {
 // 비밀번호변경
 export const PwdEdit = async (formData: FieldValues) => {
   const response = await instance.put('api/member/member', formData);
+
   return response.data;
 };
 
@@ -37,5 +38,11 @@ export const ImgDownload = async () => {
 // 승인현황
 export const ApprovalStatus = async () => {
   const response = await instance.get(`api/request/member`);
+  return response.data;
+};
+
+// 오답노트
+export const getReview = async () => {
+  const response = await instance.get(`api/review`);
   return response.data;
 };

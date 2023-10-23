@@ -4,8 +4,6 @@ import { useSignIn } from 'hooks/@query/useSignIn';
 import * as S from './style';
 import { Button } from 'components/commons/Button/Style';
 
-import { signIn } from 'api/auth';
-
 const SignInModal = () => {
   const {
     register,

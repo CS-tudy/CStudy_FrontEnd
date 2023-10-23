@@ -1,13 +1,15 @@
 import { styled } from 'styled-components';
 import Footer from './Footer/footer';
 import Header from './Header/Header';
+import { Outlet } from 'react-router-dom';
 
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <Wrapper>
       <Header />
-      {children}
-      <Footer />
+      <Outlet />
+      {/* {children} */}
+      {/* <Footer /> */}
     </Wrapper>
   );
 };

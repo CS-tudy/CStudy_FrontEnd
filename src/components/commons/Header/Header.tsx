@@ -53,6 +53,7 @@ const Header = () => {
   //   toggleModal();
   //   setSignupModal(true);
   // };
+
   const HandleClickToogle = () => {
     setActive(active => !active);
   };
@@ -120,7 +121,7 @@ const Header = () => {
         </S.HamburgerBt>
         {isAdmin() && (
           <S.Admin>
-            <StyleNavLink to="/admin/createProblem">관리자</StyleNavLink>
+            <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
         <S.Sign active={active}>

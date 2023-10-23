@@ -61,7 +61,7 @@ const CreateNotice = () => {
             </Button>
             <Button
               type="button"
-              variant="primary"
+              variant="gray"
               size="medium"
               onClick={() => navigate(-1)}
             >

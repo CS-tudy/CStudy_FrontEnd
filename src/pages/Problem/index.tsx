@@ -57,6 +57,8 @@ const Problem = () => {
   });
 
   console.log(problemList);
+  console.log(categoryValue);
+  console.log(inputValue);
 
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];

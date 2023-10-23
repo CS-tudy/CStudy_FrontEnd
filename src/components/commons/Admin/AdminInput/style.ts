@@ -24,16 +24,14 @@ export const AdminBasicInput = styled.input<AdminInputStyleProps>`
   border: ${props =>
     props.errors[props.name]
       ? `0.1rem solid ${COLOR.RED}`
-      : `0.1rem solid ${COLOR.WHITE}`};
-  box-shadow: ${SHADOW.CONTENTBOX_MD};
+      : `0.1rem solid #dbdbdb`};
   border-radius: 0.4rem;
 `;
 
 export const AdminTextArea = styled.textarea<AdminInputStyleProps>`
   margin-top: 1rem;
   padding: 1.2rem;
-  border: 0.1rem solid ${COLOR.RED};
-  box-shadow: ${SHADOW.CONTENTBOX_MD};
+  border: 0.1rem solid #dbdbdb;
   border-radius: 0.4rem;
   resize: none;
 `;
@@ -60,9 +58,8 @@ export const AdminRadioInput = styled.input<AdminInputStyleProps>`
   border: ${props =>
     props.errors[props.name]
       ? `0.2rem solid ${COLOR.RED}`
-      : `0.2rem solid ${COLOR.WHITE}`};
+      : `0.2rem solid #dbdbdb`};
   border-radius: 100%;
-  box-shadow: ${SHADOW.CONTENTBOX_LG};
 
   &:checked {
   }
@@ -81,7 +78,6 @@ export const AdminRadioInput = styled.input<AdminInputStyleProps>`
     border-top: none;
     border-right: none;
     transform-origin: top left;
-    box-shadow: ${SHADOW.QUESTION};
     animation: start 0.3s ease forwards;
   }
 

@@ -13,26 +13,46 @@ import SignUp from 'components/unit/SignUp';
 import { useState } from 'react';
 import { isAdmin, isLogin } from 'repository/auth';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { RootState } from 'stroe';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggle } from 'hooks/@redux/registerModalSlice';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 export interface PrevToogle {
   active: boolean;
 }
 
 const Header = () => {
-  const { modalIsOpen, toggleModal } = useModal();
+  // const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
   const [active, setActive] = useState(false);
 
+  const isRegisterModalOpen = useSelector(
+    (state: RootState) => state.registerModal.isOpen,
+  );
+  const isLoginModalOpen = useSelector(
+    (state: RootState) => state.loginModal.isOpen,
+  );
+
+  const dispatch = useDispatch();
   const { mutate: signOut } = useSignOut();
 
-  const openModal = () => {
-    toggleModal();
-    setSignupModal(false);
+  const RegistertoggleModal = () => {
+    dispatch(toggle());
   };
-  const openSignupModal = () => {
-    toggleModal();
-    setSignupModal(true);
+
+  const LogintoggleModal = () => {
+    dispatch(Logintoggle());
   };
+
+  // const openModal = () => {
+  //   toggleModal();
+  //   setSignupModal(false);
+  // };
+  // const openSignupModal = () => {
+  //   toggleModal();
+  //   setSignupModal(true);
+  // };
   const HandleClickToogle = () => {
     setActive(active => !active);
   };
@@ -104,16 +124,16 @@ const Header = () => {
           </S.Admin>
         )}
         <S.Sign active={active}>
-          {modalIsOpen && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
+          {isLoginModalOpen && (
+            <Modal toggleModal={LogintoggleModal}>
+              <SignModal toggleModal={LogintoggleModal}>
                 <SignInModal />
               </SignModal>
             </Modal>
           )}
-          {modalIsOpen && signupModal && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
+          {isRegisterModalOpen && (
+            <Modal toggleModal={RegistertoggleModal}>
+              <SignModal toggleModal={RegistertoggleModal}>
                 <SignUp />
               </SignModal>
             </Modal>
@@ -125,8 +145,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <button onClick={openModal}>로그인</button>
-              <button onClick={openSignupModal}>회원가입</button>
+              {/* <button onClick={openModal}>로그인</button>
+              <button onClick={openSignupModal}>회원가입</button> */}
+              <button onClick={LogintoggleModal}>로그인</button>
+              <button onClick={RegistertoggleModal}>회원가입</button>
             </>
           )}
         </S.Sign>

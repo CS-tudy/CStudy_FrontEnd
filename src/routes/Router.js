@@ -22,7 +22,7 @@ import CreateContest from 'pages/Admin/CreateContest';
 import RequestQuestion from 'pages/Admin/RequestQuestion';
 import { checkAdminLoader } from '../../src/repository/auth';
 import RequestEdit from 'pages/Request/RequestEdit';
-import AdminNoticeRequest from 'pages/Admin/Notice';
+import CreateBoard from 'pages/Admin/Notice';
 import Problem from 'pages/Problem';
 import ProblemDetailPage from 'pages/ProblemDetail';
 import CreateBoard from 'pages/Admin/Board';

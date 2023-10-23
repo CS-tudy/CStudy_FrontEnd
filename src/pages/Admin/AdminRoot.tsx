@@ -1,10 +1,8 @@
 import { styled } from 'styled-components';
-import Container from './Container';
-import Footer from './Footer/footer';
-import Header from './Header/Header';
 import { Outlet } from 'react-router-dom';
+import { Header } from 'pages/Request/style';
 
-const Layout = ({ children }: React.PropsWithChildren) => {
+const AdminRoot = ({ children }: React.PropsWithChildren) => {
   return (
     <Wrapper>
       <Header />
@@ -15,7 +13,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-export default Layout;
+export default AdminRoot;
 
 const Wrapper = styled.div`
   position: relative;

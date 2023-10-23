@@ -7,8 +7,6 @@ import { logout } from 'hooks/@redux/authSlice';
 import { useDispatch } from 'react-redux';
 import { useSignOut } from 'hooks/@query/useSignOut';
 
-import { signIn } from 'api/auth';
-
 const SignInModal = () => {
   const {
     register,

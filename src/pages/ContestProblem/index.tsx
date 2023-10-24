@@ -4,7 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ContestProblem as TContestProblem } from 'types/api';
 
 const ContestProblem = () => {
-  const { contestId } = useParams();
+  const { contestId: TContestId } = useParams();
+  const contestId: string = TContestId ?? '';
   const navigate = useNavigate();
 
   const contestProblem = useGetContestProblem(contestId as string);

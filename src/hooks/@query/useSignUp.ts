@@ -82,6 +82,12 @@ export const useSignUp = () => {
   const onSendAuthNumberToEmail = async () => {
     setAuthenticating(true);
     const data = await sendAuthNumberToEmail(watchedEmail);
+    try {
+      Toast.success('인증번호가 전송됐습니다.');
+    } catch (error) {
+      console.error(error);
+      throw new Error('오류가 발생했습니다.');
+    }
     console.log(data); // Yf7fH9HI
     authNumber.current = data;
   };

@@ -5,6 +5,7 @@ import StyleLink from 'components/commons/StyleLink';
 import Filter from 'components/commons/Filter';
 import { useNavigate } from 'react-router-dom';
 import { isLogin } from 'repository/auth';
+import Toast from 'libs/Toast';
 
 interface LoginSwitchButtonProps {
   handleToggle: () => void;
@@ -19,7 +20,7 @@ const LoginSwitchButton = ({
 
   const checkLogin = () => {
     if (!isLogin()) {
-      alert('로그인 후 이용하실 수 있습니다.');
+      Toast.error('로그인 후 이용하실 수 있습니다.');
     } else {
       navigate('/request/new');
     }

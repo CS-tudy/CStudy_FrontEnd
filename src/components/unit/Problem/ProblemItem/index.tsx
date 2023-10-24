@@ -8,6 +8,7 @@ import { TBodyTd } from 'components/commons/Table/style';
 import { useSelector } from 'react-redux';
 import SolveStatus from '../SolveStatus';
 import { isLogin } from 'repository/auth';
+import Toast from 'libs/Toast';
 
 interface ProblemItemProps {
   problem: ProblemContent;
@@ -20,7 +21,7 @@ const ProblemItem = ({ problem }: ProblemItemProps) => {
 
   const checkLogin = () => {
     if (!isLogin()) {
-      alert('로그인 후 이용하실 수 있습니다.');
+      Toast.error('로그인 후 이용하실 수 있습니다.');
       navigate('/problem');
     }
   };

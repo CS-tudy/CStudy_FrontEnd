@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Outlet } from 'react-router-dom';
-import { Header } from 'pages/Request/style';
+import Header from 'components/commons/Header/Header';
+import Footer from 'components/commons/Footer/footer';
 
 const AdminRoot = ({ children }: React.PropsWithChildren) => {
   return (
@@ -8,7 +9,7 @@ const AdminRoot = ({ children }: React.PropsWithChildren) => {
       <Header />
       <Outlet />
       {/* {children} */}
-      {/* <Footer /> */}
+      <Footer />
     </Wrapper>
   );
 };

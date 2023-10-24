@@ -15,7 +15,7 @@ import { UseSubmitContestProps } from 'types/contest';
 
 interface ContestProblemDetailProps {
   quizData: ContestProblem[];
-  competitionId: string;
+  competitionId?: string;
 }
 
 const ContestProblemDetail = ({
@@ -144,12 +144,7 @@ const ContestProblemDetail = ({
               // >
               //   제출
               // </Button>
-              <S.SubmitButton
-                type="submit"
-                variant="primary"
-                size="medium"
-                disabled={isLoading}
-              >
+              <S.SubmitButton type="submit" disabled={isLoading}>
                 제출
               </S.SubmitButton>
             )}

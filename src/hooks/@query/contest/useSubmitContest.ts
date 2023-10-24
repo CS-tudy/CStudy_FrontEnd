@@ -4,13 +4,13 @@ import { submitContest } from 'api/contest';
 // import toast from 'provider/Toast';
 
 interface useSubmitContestProps {
-  contestId: string;
+  competitionId: string;
   handleIsLoading: (isLoading: boolean) => void;
 }
 
 export const useSubmitContest = ({
   handleIsLoading,
-  contestId,
+  competitionId,
 }: useSubmitContestProps) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -19,7 +19,7 @@ export const useSubmitContest = ({
       queryClient.invalidateQueries();
       //   toast.success('답안 제출에 성공했습니다.');
       alert('답안 제출에 성공했습니다.');
-      navigate(`/contest/${contestId}`, { replace: true });
+      navigate(`/contest/${competitionId}`, { replace: true });
     },
     onError: () => {
       //   toast.error('답안 제출에 실패했습니다.');

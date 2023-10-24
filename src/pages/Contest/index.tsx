@@ -8,6 +8,8 @@ import { ContestInfo } from 'types/api';
 import * as S from './style';
 import ContainerTop from 'components/commons/ContainerTop';
 import useContestFilter from 'hooks/Contest/useContestFilter';
+import ContainerBottom from 'components/commons/ContainerBottom';
+import Pagination from 'components/commons/Pagination';
 
 const Contest = () => {
   const tableRate = ['45%', '15%', '40%'];
@@ -38,9 +40,25 @@ const Contest = () => {
               </td>
             </tr>
           )}
-          <ContestList contestList={contestList?.content as ContestInfo[]} />
+          <ContestList
+            contestList={contestList?.content as ContestInfo[]}
+            contestFilter={contestFilter}
+            isActive={isActive}
+            totalPages={contestList?.totalPages as number}
+            handlePage={handlePage}
+          />
         </Table>
       </Container>
+      <ContainerBottom>
+        {(contestList?.totalPages as number) > 0 && (
+          <Pagination
+            totalPages={contestList?.totalPages as number}
+            handlePage={handlePage}
+            page={contestFilter.pageNumber}
+            white
+          />
+        )}
+      </ContainerBottom>
     </>
   );
 };

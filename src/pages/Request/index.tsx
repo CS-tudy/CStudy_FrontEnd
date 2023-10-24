@@ -27,16 +27,13 @@ const Request = () => {
 
   return (
     <>
-      {/* <S.ContainerHeader>
-        <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
-      </S.ContainerHeader> */}
       <ContainerTop>
-        <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
+        <S.ButtonWrapper>
+          <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
+        </S.ButtonWrapper>
       </ContainerTop>
+      {/* <S.ContainerMarginTop /> */}
       <Container>
-        <S.Header>
-          {/* <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} /> */}
-        </S.Header>
         <RequestList
           requestList={requestList as ToggleRequestList}
           handlePage={handlePage}
@@ -45,13 +42,11 @@ const Request = () => {
       </Container>
       <ContainerBottom>
         {(requestList?.totalPages as number) > 0 && (
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={requestList?.totalPages as number}
-              handlePage={handlePage}
-              page={requestFilter.pageNumber}
-            />{' '}
-          </S.PaginationWrapper>
+          <Pagination
+            totalPages={requestList?.totalPages as number}
+            handlePage={handlePage}
+            page={requestFilter.pageNumber}
+          />
         )}
       </ContainerBottom>
     </>

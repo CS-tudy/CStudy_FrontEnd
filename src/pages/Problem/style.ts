@@ -9,6 +9,11 @@ export const ContainerHeader = styled.div`
   height: 100%;
 `;
 
+export const Test = styled.div`
+  margin-top: 6rem;
+  /* margin-bottom: 12rem; */
+`;
+
 export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,6 +41,10 @@ export const StatusFilterWrapper = styled.div`
 `;
 
 export const CategoryFilterWrapper = styled.div``;
+
+export const ContainerMarginTop = styled.div`
+  width: 200px;
+`;
 
 export const PaginationWrapper = styled.div`
   padding: 4rem 0 6rem;

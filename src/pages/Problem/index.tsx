@@ -24,6 +24,8 @@ import { useForm } from 'react-hook-form';
 import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
 import SearchBar from 'components/commons/SearchBar';
 import Select from 'components/commons/Select';
+import ContainerTop from 'components/commons/ContainerTop';
+import ContainerBottom from 'components/commons/ContainerBottom';
 
 const Problem = () => {
   const [problemList, setProblemList] = useState<IProblem>();
@@ -145,8 +147,6 @@ const Problem = () => {
   return (
     <>
       {' '}
-      {/* <SearchBar inputValue={inputValue} setInputValue={setInputValue} /> */}
-      {/* <div></div> */}
       <S.ContainerHeader>
         <S.FilterWrapper>
           <S.SearchWrapper>
@@ -196,15 +196,15 @@ const Problem = () => {
           <ProblemList problemList={problemList as IProblem} />
         </Table>
       </Container>
-      {(problemList?.totalPages as number) > 0 && (
-        <S.PaginationWrapper>
+      <ContainerBottom>
+        {(problemList?.totalPages as number) > 0 && (
           <Pagination
             totalPages={problemList?.totalPages as number}
             handlePage={handlePage}
             page={problemFilter.pageNumber}
           />
-        </S.PaginationWrapper>
-      )}
+        )}
+      </ContainerBottom>
     </>
   );
 };

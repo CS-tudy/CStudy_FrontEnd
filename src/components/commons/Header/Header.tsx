@@ -142,7 +142,9 @@ const Header = () => {
         </S.HamburgerBt>
         {isAdmin() && (
           <S.Admin>
-            <StyleNavLink to="/notice/admin/list">관리자</StyleNavLink>
+            <StyleNavLink to="/problem/admin/CreateProblem">
+              관리자
+            </StyleNavLink>
           </S.Admin>
         )}
         <S.Sign active={active}>

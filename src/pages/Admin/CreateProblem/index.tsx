@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import List from '../../../components/admin/List';
 import { FieldValues } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { useCreateProblem } from 'hooks/useCreateProblem';
-import { useNavigate } from 'react-router-dom';
 import CreateProblemSelect from '../../../components/unit/CreateProblem/CreateProblemSelect';
 import CreateProblemInput from '../../../components/unit/CreateProblem/CreateProblemInput';
-import { AppDispatch } from 'stroe';
+import { useCreateProblem } from 'hooks/@query/problem/useCreateProblem';
 
 const CreateProblem = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
   const {
     register,
     handleSubmit,
+    getValues,
+    reset,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -52,10 +49,12 @@ const CreateProblem = () => {
       ],
     },
   });
+  const { mutate: CreateProblem } = useCreateProblem();
 
-  const onSubmit = (formData: FieldValues) => {
-    console.log(formData);
-    dispatch(useCreateProblem(formData));
+  const onSubmit = () => {
+    const create = getValues();
+    CreateProblem(create);
+    reset();
   };
 
   return (
@@ -74,6 +73,7 @@ const CreateProblem = () => {
                 register={register}
                 resgiterName="createQuestionRequestDto.questionTitle"
                 required
+                errors={errors}
               />
               <CreateProblemInput
                 id="questionExplain"
@@ -83,6 +83,7 @@ const CreateProblem = () => {
                 register={register}
                 resgiterName="createQuestionRequestDto.questionExplain"
                 required
+                errors={errors}
               />
 
               <CreateProblemInput
@@ -93,6 +94,7 @@ const CreateProblem = () => {
                 register={register}
                 resgiterName="createQuestionRequestDto.questionDesc"
                 required
+                errors={errors}
               />
               <CreateProblemSelect
                 name="categoryRequestDto.catagory"
@@ -109,6 +111,7 @@ const CreateProblem = () => {
                   register={register}
                   resgiterName="createChoicesAboutQuestionDto.0.content"
                   required
+                  errors={errors}
                 />
                 <CreateProblemInput
                   id="1"
@@ -117,6 +120,8 @@ const CreateProblem = () => {
                   name="problem"
                   resgiterName="createChoicesAboutQuestionDto.0.answer"
                   value="정답"
+                  required
+                  errors={errors}
                 />
               </S.Ex>
               <S.Ex>
@@ -128,6 +133,7 @@ const CreateProblem = () => {
                   register={register}
                   resgiterName="createChoicesAboutQuestionDto.1.content"
                   required
+                  errors={errors}
                 />
                 <CreateProblemInput
                   id="2"
@@ -136,6 +142,8 @@ const CreateProblem = () => {
                   name="problem"
                   resgiterName="createChoicesAboutQuestionDto.1.answer"
                   value="정답"
+                  required
+                  errors={errors}
                 />
               </S.Ex>
               <S.Ex>
@@ -147,6 +155,7 @@ const CreateProblem = () => {
                   register={register}
                   resgiterName="createChoicesAboutQuestionDto.2.content"
                   required
+                  errors={errors}
                 />
                 <CreateProblemInput
                   id="3"
@@ -155,6 +164,8 @@ const CreateProblem = () => {
                   name="problem"
                   resgiterName="createChoicesAboutQuestionDto.2.answer"
                   value="정답"
+                  required
+                  errors={errors}
                 />
               </S.Ex>
               <S.Ex>
@@ -166,6 +177,7 @@ const CreateProblem = () => {
                   register={register}
                   resgiterName="createChoicesAboutQuestionDto.3.content"
                   required
+                  errors={errors}
                 />
                 <CreateProblemInput
                   id="4"
@@ -174,6 +186,8 @@ const CreateProblem = () => {
                   name="problem"
                   resgiterName="createChoicesAboutQuestionDto.3.answer"
                   value="정답"
+                  required
+                  errors={errors}
                 />
               </S.Ex>
               <S.CpButton>

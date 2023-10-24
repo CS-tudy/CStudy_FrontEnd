@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FieldValues, UseFormGetValues, UseFormReset } from 'react-hook-form';
 import { usePwdEdit } from './../@query/mypage/usePwdEdit';
 import { useUploadImg } from './../@query/mypage/useUploadImg';
@@ -21,11 +21,11 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
   };
 
-  const HandleClickPwd = () => {
+  const HandleClickPwd = useCallback(() => {
     setIsActive(isActive => !isActive);
-  };
+  }, [isActive]);
 
-  const handleChangePwdSubmit = () => {
+  const handleChangePwdSubmit = useCallback(() => {
     const { mutate: PwdEdit } = usePwdEdit();
     const oldPassword = getValues('oldPassword');
     const newPassword = getValues('newPassword');
@@ -35,24 +35,23 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     };
     PwdEdit(edit);
     reset();
-  };
+  }, []);
 
   const { mutate: uploadImg } = useUploadImg();
   const img = useGetImg();
 
-  const onValid = () => {
+  const onValid = useCallback(() => {
     const data = getValues('files');
-    console.log(data);
     const formData = new FormData();
     formData.append('files', data[0]);
 
     uploadImg(formData);
     img;
-  };
+  }, []);
 
-  const handleDetail = (id: number) => {
+  const handleDetail = useCallback((id: number) => {
     navigate(`/request/${id}`);
-  };
+  }, []);
 
   return {
     handleDetail,

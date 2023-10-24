@@ -13,7 +13,6 @@ import { useState } from 'react';
 import { isAdmin, isLogin } from 'repository/auth';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
-import { media, tablet } from 'constants/media';
 
 export interface PrevToogle {
   active: boolean;

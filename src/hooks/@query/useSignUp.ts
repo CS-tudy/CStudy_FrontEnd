@@ -8,6 +8,7 @@ import {
 } from 'api/auth';
 import { signUp as signUpApi } from 'api/auth';
 import { SignUpForm } from 'types/Form';
+import Toast from 'libs/Toast';
 
 export const useSignUp = () => {
   const [noDuplicatedEmail, SetNoDuplicatedEmail] = useState(false);
@@ -33,9 +34,9 @@ export const useSignUp = () => {
       console.log(data);
 
       if (data.verify === 'true') {
-        alert('사용할 수 있는 닉네임입니다.');
+        Toast.success('사용할 수 있는 닉네임입니다.');
       } else if (data.verify === 'false') {
-        alert('이미 존재하는 닉네임입니다.');
+        Toast.error('이미 존재하는 닉네임입니다.');
       } else {
         throw new Error('잘못된 응답 데이터입니다.');
       }
@@ -52,10 +53,10 @@ export const useSignUp = () => {
 
     try {
       if (data.verify === 'true') {
-        alert('사용할 수 있는 이메일입니다.');
+        Toast.success('사용할 수 있는 이메일입니다.');
         SetNoDuplicatedEmail(true);
       } else if (data.verify === 'false') {
-        alert('이미 존재하는 이메일입니다.');
+        Toast.error('이미 존재하는 이메일입니다.');
       } else {
         throw new Error('잘못된 응답 데이터입니다.');
       }
@@ -77,19 +78,19 @@ export const useSignUp = () => {
     console.log('test', authNumber.current);
 
     if (String(authNumber.current) === watchedEmailAuthNumber)
-      alert('인증번호가 일치합니다.');
-    else alert('인증번호가 일치하지 않습니다.');
+      Toast.success('인증번호가 일치합니다.');
+    else Toast.error('인증번호가 일치하지 않습니다.');
   };
 
   const signUpMutation = useMutation(signUpApi, {
     onSuccess: () => {
       // toast.success('회원가입 되었습니다.');
       // closeSignUpModal();
-      alert('회원가입 성공');
+      Toast.success('회원가입 성공');
     },
     onError: () => {
       // toast.error('가입에 실패했습니다.');
-      alert('회원가입 실패');
+      Toast.error('회원가입 실패');
     },
   });
 

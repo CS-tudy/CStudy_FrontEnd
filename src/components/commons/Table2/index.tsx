@@ -8,6 +8,7 @@ interface TableProps {
   white?: boolean;
   maxHeight?: boolean;
   narrow?: boolean;
+  narrow2?: boolean;
 }
 
 const Table2 = ({
@@ -17,6 +18,7 @@ const Table2 = ({
   children,
   white,
   narrow,
+  narrow2,
 }: PropsWithChildren<TableProps>) => {
   return (
     <Styled.Table
@@ -24,6 +26,7 @@ const Table2 = ({
       white={white}
       maxHeight={maxHeight}
       narrow={narrow}
+      narrow2={narrow2}
     >
       <TableHead colRate={colRate} title={title} narrow={narrow} />
       <tbody>{children}</tbody>

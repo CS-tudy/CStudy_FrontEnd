@@ -81,7 +81,7 @@ const ContentHeaderWrapper = ({
           </S.AdminWrapper>
         )}
         {isAdmin() && adminLink && (
-          <StyleLink className="lg navy style" to="admin/CreateWorkbook">
+          <StyleLink className="lg navy style" to="/admin/CreateWorkbook">
             {adminLink}
           </StyleLink>
         )}

@@ -8,6 +8,5 @@ export const List = styled.ul`
       display: inline-block;
       color: ${COLOR.BLACK};
     }
-    }
   }
 `;

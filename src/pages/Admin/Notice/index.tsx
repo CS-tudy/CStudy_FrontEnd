@@ -7,7 +7,7 @@ import AdminNoticeList from 'components/commons/Admin/AdminNotice';
 import Pagination from 'components/commons/Pagination';
 import useNoticeFilter from 'hooks/Notice/useNoticeFilter';
 
-const AdminNotice = () => {
+const AdminNoticeRequest = () => {
   const { noticeFilter, handlePage } = useNoticeFilter();
 
   const adminnoticeList = useGetAdminNoticeList({
@@ -15,7 +15,6 @@ const AdminNotice = () => {
     title: '',
     content: '',
   });
-  console.log(adminnoticeList);
 
   return (
     <>
@@ -38,4 +37,4 @@ const AdminNotice = () => {
   );
 };
 
-export default AdminNotice;
+export default AdminNoticeRequest;

@@ -1,6 +1,5 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { Form, useNavigate } from 'react-router-dom';
-import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import ContentContainer from 'components/commons/ContentContainer';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
@@ -9,9 +8,8 @@ import { Button } from 'components/commons/Button/Style';
 import FormSection from 'components/commons/Admin/FormSection';
 import AdminInput from 'components/commons/Admin/AdminInput';
 import { useAddBoardList } from 'hooks/@query/board/useCreateBoard';
-import { AddboardListForm } from 'types/api';
 
-const CreateBoard = () => {
+const CreateNotice = () => {
   const navigate = useNavigate();
 
   const {
@@ -63,7 +61,7 @@ const CreateBoard = () => {
             </Button>
             <Button
               type="button"
-              variant="primary"
+              variant="gray"
               size="medium"
               onClick={() => navigate(-1)}
             >
@@ -76,4 +74,4 @@ const CreateBoard = () => {
   );
 };
 
-export default CreateBoard;
+export default CreateNotice;

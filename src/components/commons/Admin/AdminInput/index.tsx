@@ -21,6 +21,7 @@ const AdminInput = ({
   name,
   type,
   textarea,
+  placeholder,
   disabled,
   required,
   register,
@@ -38,6 +39,7 @@ const AdminInput = ({
             disabled={disabled}
             type={type}
             errors={errors}
+            placeholder={placeholder}
             {...register(name, { required })}
           />
         </S.AdminInputWrapper>
@@ -50,6 +52,7 @@ const AdminInput = ({
             rows={5}
             disabled={disabled}
             errors={errors}
+            placeholder={placeholder}
             {...register(name, { required })}
           />
         </S.AdminInputWrapper>

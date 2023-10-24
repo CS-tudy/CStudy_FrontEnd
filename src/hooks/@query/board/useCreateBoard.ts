@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { addBoardList } from 'api/board';
+import Toast from 'libs/Toast';
 import { AddboardListForm } from 'types/api';
 
 export const useAddBoardList = () => {
@@ -7,12 +8,10 @@ export const useAddBoardList = () => {
   return useMutation(addBoardList, {
     onSuccess: () => {
       queryClient.invalidateQueries(['noticeList']);
-      //   toast.success('공지사항 게시글 생성에 성공했습니다');
-      alert('공지사항 게시글 생성에 성공했습니다');
+      Toast.success('공지사항 게시글 생성에 성공했습니다');
     },
     onError: error => {
-      //   toast.error(error as string);
-      alert(error as string);
+      Toast.error(error as string);
     },
   });
 };

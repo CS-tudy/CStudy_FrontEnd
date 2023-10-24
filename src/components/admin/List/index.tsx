@@ -5,7 +5,7 @@ const List = () => {
     <>
       <S.List>
         <li>
-          <StyleNavLink to="/admin/Notion">공지 사항</StyleNavLink>
+          <StyleNavLink to="/admin/notice">공지 사항</StyleNavLink>
         </li>
         <li>
           <StyleNavLink to="/admin/CreateProblem">문제 생성</StyleNavLink>

@@ -1,12 +1,14 @@
 import { ROUTE } from 'constants/Route';
 import {
   ContestFilterStoreType,
-  useContestFilterStore,
-} from 'hooks/@zustand/filterStore';
+  setContestQuery,
+  setContestPageNumber,
+  reset,
+} from 'hooks/@redux/filterSlice';
 // import useLoginModal from 'hooks/@zustand/useLoginModal';
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { isLogin } from 'utils/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { isLogin } from 'repository/auth';
 
 interface ContestFilterType {
   contestFilter: ContestFilterStoreType;
@@ -18,23 +20,28 @@ interface ContestFilterType {
 
 const useContestFilter = (): ContestFilterType => {
   const dispatch = useDispatch();
-  const contestFilter = useContestFilterStore();
+  // const contestFilter = useContestFilterStore();
   //   const loginModal = loginModal();
-  const isActive = contestFilter.query === ROUTE.CONTEST_FINISH ? 'active' : '';
-
-  const handlePage = useCallback(
-    (page: number) => {
-      contestFilter.setPageNumber(page);
-    },
-    [contestFilter],
+  const contestFilter = useSelector(
+    (state: any) => state.rootReducer.contestFilter,
   );
 
-  const handleToggle = useCallback(() => {
-    contestFilter.reset();
-    contestFilter.setQuery(
-      contestFilter.query === '' ? ROUTE.CONTEST_FINISH : '',
+  const isActive = contestFilter.query === ROUTE.CONTEST_FINISH ? 'active' : '';
+
+  const handlePage = (page: number) => {
+    //   boardFilter.setPageNumber(page);
+    dispatch(setContestPageNumber(page));
+  };
+
+  const handleToggle = () => {
+    // contestFilter.reset();
+    dispatch(reset());
+    dispatch(
+      setContestQuery(
+        contestFilter.query === 'active' ? ROUTE.CONTEST_FINISH : 'active',
+      ),
     );
-  }, [contestFilter]);
+  };
 
   const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
     if (!isLogin()) {
@@ -43,13 +50,13 @@ const useContestFilter = (): ContestFilterType => {
     }
   };
 
-  return {
-    contestFilter,
-    isActive,
-    handlePage,
-    handleToggle,
-    checkAndDisplayLoginModal,
-  };
-};
+//   return {
+//     contestFilter,
+//     isActive,
+//     handlePage,
+//     handleToggle,
+//     checkAndDisplayLoginModal,
+//   };
+// };
 
 export default useContestFilter;

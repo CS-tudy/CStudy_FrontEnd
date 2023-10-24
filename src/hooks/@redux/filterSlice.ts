@@ -97,6 +97,14 @@ const queryFilterSlice = createSlice({
   },
 });
 
+export interface ContestFilterStoreType {
+  pageNumber: number;
+  query: string;
+  setQuery: (query: string) => void;
+  setPageNumber: (pageNumber: number) => void;
+  reset: () => void;
+}
+
 const contestFilterSlice = createSlice({
   name: 'contestFilter',
   initialState: {
@@ -241,4 +249,5 @@ export const filterReducer = {
   queryFilter: queryFilterSlice.reducer,
   workbookfilter: workbookFilterSlice.reducer,
   problemFilter: problemFilterSlice.reducer,
+  contestFilter: contestFilterSlice.reducer,
 };

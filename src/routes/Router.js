@@ -132,15 +132,15 @@ const router = createBrowserRouter([
             element: <Contest />,
           },
           {
-            path: ':contestId',
+            path: 'contest/:contestId',
             element: <ContestDetail />,
           },
           {
-            path: ':contestId/contestproblem',
+            path: 'contest/:contestId/contestproblem',
             element: <ContestProblem />,
           },
           {
-            path: ':contestId/result',
+            path: 'contest/:contestId/result',
             loader: checkAdminLoader,
             element: <ContestResultPage />,
           },

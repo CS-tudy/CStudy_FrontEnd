@@ -3,9 +3,12 @@ import { TBodyTd } from 'components/commons/Table/style';
 import { useGetRanks } from 'hooks/@query/rank/useGetRanks';
 import rank1 from 'assets/rank/1rank.png';
 import { PiMedalFill } from 'react-icons/pi';
+import { useSelector } from 'react-redux';
 
 const Rank = () => {
   const membersRanks = useGetRanks();
+  const filter = useSelector((state: any) => state);
+  console.log(filter);
 
   if (Array.isArray(membersRanks)) {
     const emptyDataCount = Math.max(0, 10 - (membersRanks?.length as number));

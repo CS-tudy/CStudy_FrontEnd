@@ -1,5 +1,7 @@
+import * as S from './style';
+
 const ContainerBottom = ({ children }: React.PropsWithChildren) => {
-  return <div>{children}</div>;
+  return <S.ContainerBottom>{children}</S.ContainerBottom>;
 };
 
 export default ContainerBottom;

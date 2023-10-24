@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerHeader = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   position: absolute;

@@ -1,4 +1,3 @@
-import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 import styled from 'styled-components';
 
@@ -12,8 +11,4 @@ export const OldNewdPwd = styled.div`
 
 export const PwdLabel = styled.label`
   ${FONT.BOLD_14}
-`;
-
-export const Error = styled.span`
-  color: ${COLOR.RED};
 `;

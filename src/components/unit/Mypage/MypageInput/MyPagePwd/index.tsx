@@ -1,12 +1,8 @@
 import Input from 'components/commons/Input';
 import React from 'react';
 import * as S from './style';
-import {
-  FieldErrors,
-  FieldValues,
-  UseFormHandleSubmit,
-  UseFormRegister,
-} from 'react-hook-form';
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import MyPagePwdError from '../MyPagePwdError';
 
 interface MypagePwdProps {
   register: UseFormRegister<FieldValues>;
@@ -20,7 +16,7 @@ interface MypagePwdProps {
 const MyPagePwd = ({ errors, passwordPattern, register }: MypagePwdProps) => {
   return (
     <S.OldNewdPwd>
-      <S.PwdLabel htmlFor="newPassword">{} 비밀번호</S.PwdLabel>
+      <S.PwdLabel htmlFor="newPassword">바꿀 비밀번호</S.PwdLabel>
       <Input
         id="newPassword"
         type="text"
@@ -28,7 +24,7 @@ const MyPagePwd = ({ errors, passwordPattern, register }: MypagePwdProps) => {
         register={register}
         errors={errors}
       />
-      <S.Error>{errors.newPassword && passwordPattern.message}</S.Error>
+      <MyPagePwdError errors={errors} passwordPattern={passwordPattern} />
       <S.PwdLabel htmlFor="oldPassword">현재 비밀번호</S.PwdLabel>
       <Input
         id="oldPassword"
@@ -37,7 +33,7 @@ const MyPagePwd = ({ errors, passwordPattern, register }: MypagePwdProps) => {
         register={register}
         errors={errors}
       />
-      <S.Error>{errors.oldPassword && passwordPattern.message}</S.Error>
+      <MyPagePwdError errors={errors} passwordPattern={passwordPattern} />
     </S.OldNewdPwd>
   );
 };

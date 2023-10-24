@@ -9,6 +9,7 @@ import { useGetStatus } from 'hooks/@query/mypage/useGetStatus';
 import useMyPage from 'hooks/mypage/useMyPage';
 import { FieldValues, useForm } from 'react-hook-form';
 import { myPageDownloadState, myPageState } from 'types/mypage';
+import { useEffect } from 'react';
 const MyPage = () => {
   const {
     register,

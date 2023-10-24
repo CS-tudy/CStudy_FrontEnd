@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
-import { media, tablet } from 'constants/media';
 
 export interface PrevToogle {
   active: boolean;

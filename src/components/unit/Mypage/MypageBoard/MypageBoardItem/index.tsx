@@ -1,6 +1,6 @@
 import ApproveStatus from 'components/commons/Status';
 import { TBodyTd } from 'components/commons/Table/style';
-import React from 'react';
+import React, { memo } from 'react';
 import { statusMap } from 'types/mypage';
 
 interface boardProps {
@@ -25,4 +25,4 @@ const MypaegBoardItem = ({ handleDetail, content }: boardProps) => {
   );
 };
 
-export default MypaegBoardItem;
+export default memo(MypaegBoardItem);

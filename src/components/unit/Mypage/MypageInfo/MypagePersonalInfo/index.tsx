@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { myPageState } from 'types/mypage';
 import * as S from './style';
 
@@ -18,4 +18,4 @@ function MypagePersonnalInfo({ myPageInfo }: MypagePersonnalInfoProps) {
   );
 }
 
-export default MypagePersonnalInfo;
+export default memo(MypagePersonnalInfo);

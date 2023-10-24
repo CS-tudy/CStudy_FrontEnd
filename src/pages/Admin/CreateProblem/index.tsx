@@ -13,7 +13,6 @@ import { AppDispatch } from 'stroe';
 
 const CreateProblem = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
 
   const {
     register,

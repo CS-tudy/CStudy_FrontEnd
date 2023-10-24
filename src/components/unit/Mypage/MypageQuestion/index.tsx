@@ -1,40 +1,26 @@
 import React from 'react';
 import {
-  BoardTable,
   BoardTitle,
   MypageBoardInner,
   MypageBoardWrapper,
-  Thead,
-} from '../MypageBoard/style';
+} from '../MypageBoard/MypageBoardIConbine/style';
+import Table2 from 'components/commons/Table2';
 
 function MypageQuestion() {
   return (
     <MypageBoardWrapper>
       <BoardTitle>내가 풀은 문제</BoardTitle>
       <MypageBoardInner>
-        <BoardTable cellSpacing={0}>
-          <colgroup>
-            <col width={'10%'} />
-            <col width={'45%'} />
-            <col width={'25%'} />
-            <col width={'10%'} />
-            <col width={'10%'} />
-          </colgroup>
-          <thead>
-            <tr>
-              <Thead>NO.</Thead>
-              <Thead>문제이름</Thead>
-              <Thead>카테고리</Thead>
-              <Thead>맞춘문제</Thead>
-              <Thead>틀린문제</Thead>
-            </tr>
-          </thead>
+        <Table2
+          title={['NO.', '문제이름', '카테고리', '맞춘문제', '틀린문제']}
+          colRate={['10%', '45%', '25%', '10%', '10%']}
+        >
           <tbody>
             <tr>
               <td></td>
             </tr>
           </tbody>
-        </BoardTable>
+        </Table2>
       </MypageBoardInner>
     </MypageBoardWrapper>
   );

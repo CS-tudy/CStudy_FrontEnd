@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { PwdEdit } from 'api/mypage';
+import Toast from 'libs/Toast';
 
 export const usePwdEdit = () => {
   const queryClient = useQueryClient();
@@ -7,11 +8,10 @@ export const usePwdEdit = () => {
   return useMutation(PwdEdit, {
     onSuccess: () => {
       queryClient.invalidateQueries(['PwdEdit']);
-      alert('비밀번호가 변경되었습니다.');
+      Toast.success('비밀번호가 변경되었습니다.');
     },
     onError: error => {
-      console.log(error);
-      alert(error as string);
+      Toast.error('비밀번호가 변경에 실패했습니다.');
     },
   });
 };

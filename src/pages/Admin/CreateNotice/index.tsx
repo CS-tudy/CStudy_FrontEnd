@@ -43,6 +43,7 @@ const CreateNotice = () => {
                 register={register}
                 errors={errors}
                 required
+                placeholder="공지사항 제목 입력해주세요"
               />
             </FormSection>
             <FormSection title="공지사항 내용을 입력해주세요">
@@ -54,6 +55,7 @@ const CreateNotice = () => {
                 register={register}
                 errors={errors}
                 required
+                placeholder="공지사항 내용 입력해주세요"
               />
             </FormSection>
             <Button type="submit" variant="primary" size="medium">

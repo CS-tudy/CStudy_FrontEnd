@@ -58,12 +58,11 @@ export const AdminRadioInput = styled.input<AdminInputStyleProps>`
   border: ${props =>
     props.errors[props.name]
       ? `0.2rem solid ${COLOR.RED}`
-      : `0.2rem solid #dbdbdb`};
+      : `0.2rem solid ${COLOR.WHITE}`};
   border-radius: 100%;
-
+  box-shadow: ${SHADOW.CONTENTBOX_LG};
   &:checked {
   }
-
   &:checked::before {
     content: '';
     position: absolute;
@@ -78,16 +77,15 @@ export const AdminRadioInput = styled.input<AdminInputStyleProps>`
     border-top: none;
     border-right: none;
     transform-origin: top left;
+    box-shadow: ${SHADOW.QUESTION};
     animation: start 0.3s ease forwards;
   }
-
   @keyframes start {
     0% {
       opacity: 0;
       width: 0;
       height: 0;
     }
-
     50% {
       opacity: 1;
       width: 0;

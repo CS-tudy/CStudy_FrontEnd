@@ -9,11 +9,13 @@ import NoticeList from 'components/unit/Board';
 import { RequestNoticeList } from 'types/api';
 import NoData from 'components/commons/NoData';
 import { useState } from 'react';
-import { Button } from 'components/commons/Button/Style';
 import Container from 'components/commons/Container';
 import { GoSearch } from 'react-icons/go';
-import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice';
-import Select from 'components/commons/Select';
+import ContentHeaderWrapper from 'components/commons/ContentHeaderWrapper';
+import ContainerBottom from 'components/commons/ContainerBottom';
+import ContainerTop from 'components/commons/ContainerTop';
+import { RxTriangleDown } from 'react-icons/rx';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const Notice = () => {
   const { register, handleSubmit } = useForm<FieldValues>({
@@ -25,21 +27,11 @@ const Notice = () => {
   });
   const { noticeFilter, onSubmit, handlePage } = useNoticeFilter();
   const [selectedSearchOption, setSelectedSearchOption] = useState('title');
-  const { category, categoryValue, categoryActive, handleCategoryClick } =
-    useCategoryFilterSlice();
 
-  // const options = [
-  //   { label: '제목', value: 'title' },
-  //   { label: '내용', value: 'content' },
-  // ];
   const options = [
     { label: '제목', value: 'title' },
     { label: '내용', value: 'content' },
   ];
-
-  const catagorys = ['제목', '내용'];
-
-  const filterSelectIndex = [0, 1, 2];
 
   const noticeList = useGetNoticeList({
     page: noticeFilter.pageNumber,
@@ -50,63 +42,73 @@ const Notice = () => {
 
   return (
     <>
-      <S.SearchWrapper>
-        <S.Searchbar>
-          <S.SearchInput
-            type="text"
-            {...register(selectedSearchOption, {
-              required: '검색어를 입력해주세요.',
-            })}
-          />
-          <S.SearchIcon>
-            <button
-              type="submit"
-              onClick={handleSubmit(onSubmit)}
-              // variant="primary"
-              // size="medium"
-            >
-              <GoSearch size="18" />
-            </button>
-          </S.SearchIcon>
-        </S.Searchbar>
-        {/* <Select
-          name={'제목'}
-          handleActive={handleCategoryClick}
-          isActive={categoryActive}
-          options={catagorys}
-          optionsValue={category}
-          selectedIndex={filterSelectIndex}
-        /> */}
-        <label>
-          <S.Select
-            {...register('searchOption')}
-            onChange={e => {
-              setSelectedSearchOption(e.target.value);
-            }}
-          >
-            {options.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </S.Select>
-        </label>
-      </S.SearchWrapper>
-      <Container>
-        <NoticeList noticeList={noticeList as RequestNoticeList} />
-        {noticeList?.numberOfElements === 0 && (
-          <NoData>게시글이 없습니다 다른 제목으로 입력해주세요.</NoData>
-        )}
+      <ContentContainer>
+        {/* <S.FilterWrapper> */}
+        <ContentHeaderWrapper
+          Text="공지사항 생성"
+          adminLink="/notice/admin/Createnotice"
+        >
+          <S.SearchWrapper>
+            <S.Searchbar>
+              <S.SearchInput
+                type="text"
+                {...register(selectedSearchOption, {
+                  required: '검색어를 입력해주세요.',
+                })}
+              />
+              <S.SearchIcon>
+                <button
+                  type="submit"
+                  onClick={handleSubmit(onSubmit)}
+                  // variant="primary"
+                  // size="medium"
+                >
+                  <GoSearch size="18" />
+                </button>
+              </S.SearchIcon>
+            </S.Searchbar>
+            {/* <label> */}
+            <S.Select>
+              <S.OptionList
+                className="optionList"
+                {...register('searchOption')}
+                onChange={e => {
+                  setSelectedSearchOption(e.target.value);
+                }}
+              >
+                {options.map(option => (
+                  <S.OptionItem key={option.value} value={option.value}>
+                    {option.label}
+                  </S.OptionItem>
+                ))}
+              </S.OptionList>
+              <S.Button>
+                <span className="arrow">
+                  <RxTriangleDown size={20} />
+                </span>
+              </S.Button>
+            </S.Select>
+            {/* </label> */}
+          </S.SearchWrapper>
+        </ContentHeaderWrapper>
+        {/* </S.FilterWrapper> */}
+
+        <Container>
+          <NoticeList noticeList={noticeList as RequestNoticeList} />
+          {noticeList?.numberOfElements === 0 && (
+            <NoData>게시글이 없습니다 다른 제목으로 입력해주세요.</NoData>
+          )}
+        </Container>
         {(noticeList?.totalPages as number) > 0 && (
-          <S.PaginationWrapper>
+          <ContainerBottom>
             <Pagination
               totalPages={noticeList?.totalPages as number}
               handlePage={handlePage}
               page={noticeFilter.pageNumber as number}
             />{' '}
-          </S.PaginationWrapper>
+          </ContainerBottom>
         )}
-      </Container>
+      </ContentContainer>
     </>
   );
 };

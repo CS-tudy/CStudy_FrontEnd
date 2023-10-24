@@ -10,7 +10,7 @@ const Layout = ({ children }: React.PropsWithChildren) => {
       <Header />
       <Outlet />
       {/* {children} */}
-      {/* <Footer /> */}
+      <Footer />
     </Wrapper>
   );
 };
@@ -19,5 +19,5 @@ export default Layout;
 
 const Wrapper = styled.div`
   position: relative;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 `;

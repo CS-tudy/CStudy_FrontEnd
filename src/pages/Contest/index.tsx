@@ -7,19 +7,28 @@ import useGetContestList from 'hooks/@query/contest/useGetContestList';
 import { ContestInfo } from 'types/api';
 import * as S from './style';
 import ContainerTop from 'components/commons/ContainerTop';
+import useContestFilter from 'hooks/Contest/useContestFilter';
+import ContainerBottom from 'components/commons/ContainerBottom';
+import Pagination from 'components/commons/Pagination';
 
 const Contest = () => {
   const tableRate = ['45%', '15%', '40%'];
   const tableTitle = ['대회명', '최대 인원수', '기간'];
 
-  const contestList = useGetContestList({ query: 'active', page: 0 });
-  console.log('list', contestList);
+  const { contestFilter, isActive, handlePage, handleToggle } =
+    useContestFilter();
+  const contestList = useGetContestList({
+    query: contestFilter.query,
+    page: 0,
+  });
 
   return (
     <>
       <ContainerTop>
         <S.ButtonWrapper>
-          <Filter>종료된 대회 보기</Filter>
+          <Filter className={isActive} onClick={handleToggle}>
+            종료된 대회 보기
+          </Filter>
         </S.ButtonWrapper>
       </ContainerTop>
       <Container>
@@ -31,9 +40,25 @@ const Contest = () => {
               </td>
             </tr>
           )}
-          <ContestList contestList={contestList?.content as ContestInfo[]} />
+          <ContestList
+            contestList={contestList?.content as ContestInfo[]}
+            contestFilter={contestFilter}
+            isActive={isActive}
+            totalPages={contestList?.totalPages as number}
+            handlePage={handlePage}
+          />
         </Table>
       </Container>
+      <ContainerBottom>
+        {(contestList?.totalPages as number) > 0 && (
+          <Pagination
+            totalPages={contestList?.totalPages as number}
+            handlePage={handlePage}
+            page={contestFilter.pageNumber}
+            white
+          />
+        )}
+      </ContainerBottom>
     </>
   );
 };

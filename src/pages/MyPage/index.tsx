@@ -1,6 +1,6 @@
 import Container from 'components/commons/Container';
 import * as S from './style';
-import MypageBoard from 'components/unit/Mypage/MypageBoard';
+import MypageBoard from 'components/unit/Mypage/MypageBoard/MypageBoardIConbine';
 import MypageMyInfo from 'components/unit/Mypage/MypageMyInfo';
 import MypageQuestion from 'components/unit/Mypage/MypageQuestion';
 import { useGetImg } from 'hooks/@query/mypage/useGetImg';
@@ -9,6 +9,7 @@ import { useGetStatus } from 'hooks/@query/mypage/useGetStatus';
 import useMyPage from 'hooks/mypage/useMyPage';
 import { FieldValues, useForm } from 'react-hook-form';
 import { myPageDownloadState, myPageState } from 'types/mypage';
+import { useEffect } from 'react';
 const MyPage = () => {
   const {
     register,
@@ -41,7 +42,7 @@ const MyPage = () => {
     <Container>
       <S.MyPageInfoWrapper>
         <MypageMyInfo
-          img={Img as myPageDownloadState}
+          img={Img as unknown as myPageDownloadState}
           myPageInfo={myPageInfo as myPageState}
           isActive={isActive}
           isLoading={isLoading}

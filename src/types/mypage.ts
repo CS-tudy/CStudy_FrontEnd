@@ -6,6 +6,16 @@ export interface myPageState {
   };
 }
 
+export interface statusMap {
+  content: [];
+  id: number;
+  title: string;
+  flag: boolean;
+  status: {
+    content?: [];
+  };
+}
+
 export interface myPageStatusState {
   content: [
     {
@@ -47,4 +57,5 @@ export interface myPageStatusState {
 
 export interface myPageDownloadState {
   image?: any;
+  src: string;
 }

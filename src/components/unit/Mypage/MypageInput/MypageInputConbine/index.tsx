@@ -1,4 +1,3 @@
-import { MyInfoImg } from '../MypageInfo/style';
 import Input from 'components/commons/Input';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
@@ -9,6 +8,8 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 import Modal from 'components/unit/Modal';
+import MyPagePwd from '../MyPagePwd';
+import MypageClose from '../MypageClose';
 
 interface MypageInputProps {
   register: UseFormRegister<FieldValues>;
@@ -20,7 +21,7 @@ interface MypageInputProps {
   };
   handleChangePwdSubmit: (formData: FieldValues) => void;
   isActive: boolean;
-  setIsActive: any;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MypageInput = ({
@@ -36,38 +37,15 @@ const MypageInput = ({
     <Modal toggleModal={() => isActive}>
       <S.PwdDiv>
         <S.PwdInner>
-          <S.Close
-            onClick={() => setIsActive((isActive: boolean) => !isActive)}
-          >
-            X
-          </S.Close>
+          <MypageClose setIsActive={setIsActive} />
           <S.PwdButton>
             <form method="put" onSubmit={handleSubmit(handleChangePwdSubmit)}>
               <S.Pwd>
-                <S.OldNewdPwd>
-                  <S.PwdLabel htmlFor="oldPassword">현재 비밀번호</S.PwdLabel>
-                  <Input
-                    id="oldPassword"
-                    type="text"
-                    pattern={passwordPattern}
-                    register={register}
-                    errors={errors}
-                  />
-                  <S.Error>
-                    {errors.oldPassword && passwordPattern.message}
-                  </S.Error>
-                </S.OldNewdPwd>
-                <S.OldNewdPwd>
-                  <S.PwdLabel htmlFor="newPassword">바꿀 비밀번호</S.PwdLabel>
-                  <Input
-                    id="newPassword"
-                    type="text"
-                    pattern={passwordPattern}
-                    register={register}
-                    errors={errors}
-                  />
-                  <S.Error>{errors.newPwd && passwordPattern.message}</S.Error>
-                </S.OldNewdPwd>
+                <MyPagePwd
+                  register={register}
+                  passwordPattern={passwordPattern}
+                  errors={errors}
+                />
               </S.Pwd>
               <Button type="submit" variant={'primary'} size={'full'}>
                 변경하기

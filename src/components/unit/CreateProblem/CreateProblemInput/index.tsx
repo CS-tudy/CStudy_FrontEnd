@@ -1,5 +1,11 @@
-import { ChangeHandler, FieldValues, UseFormRegister } from 'react-hook-form';
+import {
+  ChangeHandler,
+  FieldErrors,
+  FieldValues,
+  UseFormRegister,
+} from 'react-hook-form';
 import * as S from './style';
+import { memo } from 'react';
 
 interface CreateProblemInputProps {
   label?: string;
@@ -14,6 +20,7 @@ interface CreateProblemInputProps {
   value?: string;
   onChange?: ChangeHandler;
   checked?: boolean;
+  errors: FieldErrors;
 }
 
 const CreateProblemInput = ({
@@ -27,6 +34,7 @@ const CreateProblemInput = ({
   value,
   onChange,
   checked,
+  errors,
 }: CreateProblemInputProps) => {
   return (
     <>
@@ -38,6 +46,7 @@ const CreateProblemInput = ({
             placeholder={placeholder}
             type={type}
             {...register(resgiterName)}
+            {...errors}
           />
         </>
       )}
@@ -48,6 +57,7 @@ const CreateProblemInput = ({
           value={value}
           checked={checked}
           name={name}
+          {...errors}
           {...(register(resgiterName), { onChange: () => onChange })}
         />
       )}
@@ -55,4 +65,4 @@ const CreateProblemInput = ({
   );
 };
 
-export default CreateProblemInput;
+export default memo(CreateProblemInput);

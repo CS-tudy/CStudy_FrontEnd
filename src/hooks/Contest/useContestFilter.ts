@@ -1,56 +1,62 @@
-// import { ROUTE } from 'constants/Route';
-// // import {
-// //   ContestFilterStoreType,
-// //   useContestFilterStore,
-// // } from 'hooks/@zustand/filterStore';
-// // import useLoginModal from 'hooks/@zustand/useLoginModal';
-// import { useCallback } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { isLogin } from 'repository/auth';
+import { ROUTE } from 'constants/Route';
+import {
+  ContestFilterStoreType,
+  setContestQuery,
+  setContestPageNumber,
+  reset,
+} from 'hooks/@redux/filterSlice';
+// import useLoginModal from 'hooks/@zustand/useLoginModal';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isLogin } from 'repository/auth';
 
-// interface ContestFilterType {
-//   contestFilter: ContestFilterStoreType;
-//   isActive: string;
-//   handlePage: (page: number) => void;
-//   handleToggle: () => void;
-//   checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
-// }
+interface ContestFilterType {
+  contestFilter: ContestFilterStoreType;
+  isActive: string;
+  handlePage: (page: number) => void;
+  handleToggle: () => void;
+  // checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
+}
 
-// const useContestFilter = (): ContestFilterType => {
-//   const dispatch = useDispatch();
-//   // const contestFilter = useContestFilterStore();
-//   //   const loginModal = loginModal();
-//   const isActive = contestFilter.query === ROUTE.CONTEST_FINISH ? 'active' : '';
+const useContestFilter = (): ContestFilterType => {
+  const dispatch = useDispatch();
+  // const contestFilter = useContestFilterStore();
+  //   const loginModal = loginModal();
+  const contestFilter = useSelector(
+    (state: any) => state.rootReducer.contestFilter,
+  );
 
-//   const handlePage = useCallback(
-//     (page: number) => {
-//       contestFilter.setPageNumber(page);
-//     },
-//     [contestFilter],
-//   );
+  const isActive = contestFilter.query === ROUTE.CONTEST_FINISH ? 'active' : '';
 
-//   const handleToggle = useCallback(() => {
-//     contestFilter.reset();
-//     contestFilter.setQuery(
-//       contestFilter.query === '' ? ROUTE.CONTEST_FINISH : '',
-//     );
-//   }, [contestFilter]);
+  const handlePage = (page: number) => {
+    //   boardFilter.setPageNumber(page);
+    dispatch(setContestPageNumber(page));
+  };
 
-//   const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
-//     if (!isLogin()) {
-//       e.preventDefault();
-//       // loginModal.onOpen();
-//     }
-//   };
+  const handleToggle = () => {
+    // contestFilter.reset();
+    dispatch(reset());
+    dispatch(
+      setContestQuery(
+        contestFilter.query === 'active' ? ROUTE.CONTEST_FINISH : 'active',
+      ),
+    );
+  };
 
-//   return {
-//     contestFilter,
-//     isActive,
-//     handlePage,
-//     handleToggle,
-//     checkAndDisplayLoginModal,
-//   };
-// };
+  //   const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
+  //     if (!isLogin()) {
+  //       e.preventDefault();
+  //       // loginModal.onOpen();
+  //     }
+  //   };
 
-// export default useContestFilter;
-export {};
+  return {
+    contestFilter,
+    isActive,
+    handlePage,
+    handleToggle,
+    // checkAndDisplayLoginModal,
+  };
+};
+
+export default useContestFilter;

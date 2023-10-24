@@ -47,5 +47,5 @@ export const PaginationWrapper = styled.div`
   margin-top: 1.8rem;
   display: flex;
   justify-content: center;
-  margin-left: 20px;
+  margin-left: 30px;
 `;

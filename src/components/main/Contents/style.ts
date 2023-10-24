@@ -29,6 +29,7 @@ export const ContentWrapperReverse = styled(ContentWrapper)`
 
 export const ContentTitle = styled.h2`
     font-size:${FONT.H2}
+    padding-left:2rem;
     ${media.tablet} {
       font-size:${FONT.H1}
     }
@@ -107,6 +108,7 @@ export const TextTitle = styled.strong`
 export const Texts = styled.span`
   display: inline-block;
   font-size: ${FONT.REGULAR_14};
+  line-height: 2.5rem;
   margin-top: 1rem;
   ${media.tablet} {
     font-size: ${FONT.REGULAR_12};
@@ -134,6 +136,7 @@ export const ContentLink = styled(NavLink)`
   border-radius: 1rem;
   &:hover {
     opacity: 0.8;
+    color: ${COLOR.WHITE};
   }
   ${media.tablet} {
     font-size: ${FONT.REGULAR_14};

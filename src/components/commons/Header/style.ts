@@ -22,41 +22,49 @@ export const Wrapper = styled.header`
 
 export const LogoWrap = styled.h1`
   padding-left: 1.8rem;
+  ${media.tablet} {
+    position: relative;
+    z-index: 99;
+  }
 `;
 export const LogoImg = styled.img`
   height: 6rem;
 `;
-export const Nav = styled.nav`
-  flex: 3;
+
+export const Nav = styled.nav<PrevToogle>`
+  flex: 2;
+  ${media.tablet} {
+    display: ${props => (props.active ? 'block' : 'none')};
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+  }
 `;
-export const NavList = styled.ul<PrevToogle>`
+export const NavList = styled.ul`
   display: flex;
   justify-content: center;
   font-size: ${FONT.REGULAR_14};
   color: #181818;
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
     position: absolute;
-    right: 0;
     top: 91px;
+    left: 0;
     flex-direction: column;
-    background-color: #fff;
-    justify-content: flex-start;
-    width: 30rem;
-    height: calc(100vh - 91px);
+    width: 100%;
+  }
   }
 `;
 
 export const NavItem = styled.li`
-  margin-left: 1rem;
+  margin: 0 2rem;
 
-  & > a {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-  }
   ${media.tablet} {
-    margin: 2rem 2rem 2rem 0;
-    text-align: right;
+    text-align: left;
+    border-bottom: 1px solid #e6e7e9;
   }
 `;
 
@@ -68,18 +76,27 @@ export const Sign = styled.div<PrevToogle>`
     padding: 0.5rem;
     font-size: ${FONT.REGULAR_14};
   }
-
   & > button:first-child {
     margin-right: 1.4rem;
   }
   ${media.tablet} {
     display: ${props => (props.active ? 'block' : 'none')};
     position: absolute;
-    right: 0;
-    bottom: -50rem;
+    right: 5rem;
     margin-left: 1rem;
     padding-right: 3rem;
   }
+`;
+export const NavLink = styled(Link)`
+  &.active {
+    font-weight: bold;
+  }
+  display: block;
+  font-size: ${FONT.REGULAR_14};
+  color: ${COLOR.BLACK};
+  padding: 2rem 2rem 2rem 0;
+  ${media.tablet} {
+    ${FONT.BOLD_16}
 `;
 
 export const MypageLink = styled(Link)`
@@ -100,13 +117,12 @@ export const Admin = styled.div`
 `;
 
 // 반응형
-
 export const HamburgerBt = styled.button`
   display: none;
   ${media.tablet} {
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 3rem;
     position: absolute;
     right: 32px;
     height: 97px;

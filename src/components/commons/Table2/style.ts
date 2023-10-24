@@ -8,6 +8,7 @@ interface Props {
   narrow?: boolean;
   rank?: number;
   rankFont?: number;
+  narrow2?: boolean;
 }
 
 export const Table = styled.table<Props>`
@@ -25,6 +26,7 @@ export const THeadTh = styled.th<Props>`
 
 export const TBodyTd = styled.td<Props>`
   padding: ${({ narrow }) => (narrow ? '0' : '3rem 0')};
+  padding: ${({ narrow2 }) => narrow2 && '1rem 0'};
   background-size: ${({ rank }) => rank && '70%'};
   background-repeat: ${({ rank }) => rank && 'no-repeat'};
   background-position: ${({ rank }) => rank && 'center center'};

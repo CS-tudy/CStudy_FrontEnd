@@ -5,9 +5,9 @@ import {
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
-import MyPageInfo from '../MypageInfo';
+import MyPageInfo from '../MypageInfo/MypageInfoConbine';
 import * as S from './style';
-import MypageInput from '../MypageInput';
+import MypageInput from '../MypageInput/MypageInputConbine';
 import { myPageDownloadState, myPageState } from 'types/mypage';
 import { Statement } from 'typescript';
 

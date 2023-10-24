@@ -3,9 +3,8 @@ import Container from 'components/commons/Container';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggle, close } from 'hooks/@redux/registerModalSlice';
-import Modal from 'components/unit/Modal';
-import AuthModalFrame from 'components/commons/Modal/SignModal';
+import { signupClose, signupToggle } from 'hooks/@redux/registerModalSlice';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 const SignUp = () => {
   const {
@@ -31,7 +30,8 @@ const SignUp = () => {
   const changeModalHandler = () => {
     // closeSignUpModal();
     // loginModalOpen();
-    dispatch(toggle());
+    dispatch(signupToggle());
+    dispatch(Logintoggle());
   };
 
   return (
@@ -44,7 +44,10 @@ const SignUp = () => {
           placeholder="이름"
           {...register('name', {
             required: '이름을 입력해주세요.',
-
+            pattern: {
+              value: /^[a-zA-Z0-9가-힣]{2,8}$/,
+              message: '2~8글자의 한글,영어를 입력해주세요.',
+            },
             onChange: e =>
               setValue('name', e.target.value, {
                 shouldValidate: true,
@@ -167,7 +170,9 @@ const SignUp = () => {
       <S.Button type="submit">회원가입</S.Button>
       <S.Suggestion>
         <S.TextSuggestionLabel>회원이신가요?</S.TextSuggestionLabel>
-        <button type="button">로그인</button>
+        <button type="button" onClick={changeModalHandler}>
+          로그인
+        </button>
       </S.Suggestion>
     </form>
     //   </AuthModalFrame>

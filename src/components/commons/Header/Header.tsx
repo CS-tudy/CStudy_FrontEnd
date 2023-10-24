@@ -15,7 +15,7 @@ import { isAdmin, isLogin } from 'repository/auth';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RootState } from 'stroe';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggle } from 'hooks/@redux/registerModalSlice';
+import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 export interface PrevToogle {
@@ -38,7 +38,7 @@ const Header = () => {
   const { mutate: signOut } = useSignOut();
 
   const RegistertoggleModal = () => {
-    dispatch(toggle());
+    dispatch(signupToggle());
   };
 
   const LogintoggleModal = () => {

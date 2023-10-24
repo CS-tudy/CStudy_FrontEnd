@@ -9,6 +9,7 @@ import {
 import { signUp as signUpApi } from 'api/auth';
 import { SignUpForm } from 'types/Form';
 import Toast from 'libs/Toast';
+import { signupToggle } from 'hooks/@redux/registerModalSlice';
 
 export const useSignUp = () => {
   const [noDuplicatedEmail, SetNoDuplicatedEmail] = useState(false);
@@ -30,15 +31,21 @@ export const useSignUp = () => {
   const onCheckDuplicatedName = async () => {
     try {
       const data = await CheckDuplicatedName(watchedName);
-      console.log(watchedName);
-      console.log(data);
+      const nameRegex = /^[a-zA-Z0-9가-힣]{2,8}$/;
+      console.log('watch', watchedName);
+      console.log('data', data);
 
-      if (data.verify === 'true') {
-        Toast.success('사용할 수 있는 닉네임입니다.');
-      } else if (data.verify === 'false') {
-        Toast.error('이미 존재하는 닉네임입니다.');
-      } else {
-        throw new Error('잘못된 응답 데이터입니다.');
+      if (watchedName === '') Toast.error('이름을 입력해주세요.');
+      else if (!nameRegex.test(watchedName))
+        Toast.error('2~8글자의 한글,영어를 입력해주세요.');
+      else {
+        if (data.verify === 'true') {
+          Toast.success('사용할 수 있는 닉네임입니다.');
+        } else if (data.verify === 'false') {
+          Toast.error('이미 존재하는 닉네임입니다.');
+        } else {
+          throw new Error('잘못된 응답 데이터입니다.');
+        }
       }
     } catch (error) {
       console.error(error);
@@ -48,17 +55,23 @@ export const useSignUp = () => {
 
   const onCheckDuplicatedEmail = async () => {
     const data = await CheckDuplicatedEmail(watchedEmail);
+    const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
     console.log(watchedEmail);
     console.log(data);
 
     try {
-      if (data.verify === 'true') {
-        Toast.success('사용할 수 있는 이메일입니다.');
-        SetNoDuplicatedEmail(true);
-      } else if (data.verify === 'false') {
-        Toast.error('이미 존재하는 이메일입니다.');
-      } else {
-        throw new Error('잘못된 응답 데이터입니다.');
+      if (watchedEmail === '') Toast.error('이메일을 입력해주세요.');
+      else if (!emailRegex.test(watchedEmail))
+        Toast.error('올바른 이메일 형식을 입력해주세요.');
+      else {
+        if (data.verify === 'true') {
+          Toast.success('사용할 수 있는 이메일입니다.');
+          SetNoDuplicatedEmail(true);
+        } else if (data.verify === 'false') {
+          Toast.error('이미 존재하는 이메일입니다.');
+        } else {
+          throw new Error('잘못된 응답 데이터입니다.');
+        }
       }
     } catch (error) {
       console.error(error);
@@ -84,12 +97,10 @@ export const useSignUp = () => {
 
   const signUpMutation = useMutation(signUpApi, {
     onSuccess: () => {
-      // toast.success('회원가입 되었습니다.');
-      // closeSignUpModal();
       Toast.success('회원가입 성공');
+      signupToggle();
     },
     onError: () => {
-      // toast.error('가입에 실패했습니다.');
       Toast.error('회원가입 실패');
     },
   });

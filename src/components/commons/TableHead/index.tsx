@@ -5,9 +5,10 @@ interface TableHeadProps {
   colRate: string[];
   title: string[];
   narrow?: boolean;
+  narrow2?: boolean;
 }
 
-const TableHead = ({ colRate, title, narrow }: TableHeadProps) => {
+const TableHead = ({ colRate, title, narrow, narrow2 }: TableHeadProps) => {
   return (
     <>
       <colgroup>
@@ -16,7 +17,7 @@ const TableHead = ({ colRate, title, narrow }: TableHeadProps) => {
       <thead>
         <tr>
           {title?.map((t, index) => (
-            <THeadTh narrow={narrow} key={index}>
+            <THeadTh narrow={narrow} narrow2={narrow2} key={index}>
               {t}
             </THeadTh>
           ))}

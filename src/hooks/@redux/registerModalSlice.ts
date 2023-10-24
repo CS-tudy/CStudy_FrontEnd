@@ -12,14 +12,14 @@ const registerModalSlice = createSlice({
   name: 'registerModal',
   initialState,
   reducers: {
-    toggle: (state: any) => {
+    signupToggle: (state: any) => {
       state.isOpen = !state.isOpen;
     },
-    close: (state: any) => {
+    signupClose: (state: any) => {
       state.isOpen = false;
     },
   },
 });
 
-export const { toggle, close } = registerModalSlice.actions;
+export const { signupToggle, signupClose } = registerModalSlice.actions;
 export default registerModalSlice.reducer;

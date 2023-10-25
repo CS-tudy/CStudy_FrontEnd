@@ -30,14 +30,12 @@ export const useEditRequest = () => {
   return useMutation(editRequest, {
     onSuccess: () => {
       queryClient.invalidateQueries(['requestList']);
-      //   toast.success('글이 등록되었습니다.');
-      alert('글이 수정되었습니다.');
+      Toast.success('글이 수정되었습니다.');
       navigate('/request');
       window.scrollTo(0, 0);
     },
     onError: () => {
-      //   toast.error('글 등록에 실패했습니다.');
-      alert('글 수정에 실패했습니다.');
+      Toast.error('글 수정에 실패했습니다.');
     },
   });
 };
@@ -50,14 +48,12 @@ export const useDeleteRequest = () => {
   return useMutation(deleteRequest, {
     onSuccess: () => {
       queryClient.invalidateQueries(['requestList']);
-      //   toast.success('글이 등록되었습니다.');
-      alert('글이 삭제되었습니다.');
+      Toast.success('글이 삭제되었습니다.');
       navigate('/request');
       window.scrollTo(0, 0);
     },
     onError: () => {
-      //   toast.error('글 등록에 실패했습니다.');
-      alert('글 삭제에 실패했습니다.');
+      Toast.error('글 삭제에 실패했습니다.');
     },
   });
 };

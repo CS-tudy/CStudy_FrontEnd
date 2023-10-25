@@ -14,6 +14,7 @@ interface CreateContestProps {
   desc?: string;
   admin?: boolean;
   adminLink?: string;
+  Text?: string;
 }
 
 const ContentHeaderWrapper = ({
@@ -21,6 +22,7 @@ const ContentHeaderWrapper = ({
   admin,
   adminLink,
   children,
+  Text,
 }: PropsWithChildren<CreateContestProps>) => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -81,8 +83,8 @@ const ContentHeaderWrapper = ({
           </S.AdminWrapper>
         )}
         {isAdmin() && adminLink && (
-          <StyleLink className="lg navy style" to="/admin/CreateWorkbook">
-            {adminLink}
+          <StyleLink className="lg navy style" to={adminLink}>
+            {Text}
           </StyleLink>
         )}
 

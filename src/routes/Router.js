@@ -46,9 +46,10 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: 'notice',
         children: [
           {
-            path: 'notice',
+            index: true,
             element: <Notice />,
           },
           {
@@ -56,29 +57,30 @@ const router = createBrowserRouter([
             element: <NoticeRequestDetail />,
           },
           {
-            path: 'admin/notice',
+            path: 'admin/list',
             loader: checkAdminLoader,
             element: <AdminNoticeRequest />,
           },
           {
-            path: 'admin/createnotice',
+            path: 'admin/Createnotice',
             loader: checkAdminLoader,
             element: <CreateNotice />,
           },
         ],
       },
       {
+        path: 'request',
         children: [
           {
-            path: 'request',
+            index: true,
             element: <Request />,
           },
           {
-            path: 'request/:requestId',
+            path: ':requestId',
             element: <RequestDetailPage />,
           },
           {
-            path: 'request/new',
+            path: 'new',
             element: <RequestWrite />,
           },
           {
@@ -94,9 +96,10 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: 'workbook',
         children: [
           {
-            path: 'workbook',
+            index: true,
             element: <Workbook />,
           },
           {
@@ -116,9 +119,10 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: 'contest',
         children: [
           {
-            path: 'contest',
+            index: true,
             element: <Contest />,
           },
           {
@@ -142,9 +146,10 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: 'problem',
         children: [
           {
-            path: 'problem',
+            index: true,
             element: <Problem />,
           },
           {
@@ -159,18 +164,20 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: 'membersranks',
         children: [
           {
-            path: 'membersranks',
+            index: true,
             element: <MembersRanks />,
           },
         ],
       },
       {
-        loader: checkAdminLoader,
+        path: 'mypage',
         children: [
           {
-            path: 'mypage',
+            index: true,
+            loader: checkAdminLoader,
             element: <MyPage />,
           },
         ],

@@ -8,7 +8,6 @@ interface ContestItemProps {
 
 const ContestItem = ({ contestItem }: ContestItemProps) => {
   const { id, title, participants, startTime, endTime } = contestItem;
-  console.log('item', contestItem);
   return (
     <tr>
       <TBodyTd>

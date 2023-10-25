@@ -5,16 +5,22 @@ const List = () => {
     <>
       <S.List>
         <li>
-          <StyleNavLink to="/admin/notice">공지 사항</StyleNavLink>
+          <StyleNavLink to="/notice/admin/list">공지 사항</StyleNavLink>
         </li>
         <li>
-          <StyleNavLink to="/admin/CreateProblem">문제 생성</StyleNavLink>
+          <StyleNavLink to="/problem/admin/CreateProblem">
+            문제 생성
+          </StyleNavLink>
         </li>
         <li>
-          <StyleNavLink to="/admin/CreateContest">대회 생성</StyleNavLink>
+          <StyleNavLink to="/contest/admin/CreateContest">
+            대회 생성
+          </StyleNavLink>
         </li>
         <li>
-          <StyleNavLink to="/admin/RequestQuestion">요청 문제</StyleNavLink>
+          <StyleNavLink to="/request/admin/RequestQuestion">
+            요청 문제
+          </StyleNavLink>
         </li>
       </S.List>
     </>

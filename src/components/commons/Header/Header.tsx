@@ -14,7 +14,7 @@ import { isAdmin, isLogin } from 'repository/auth';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { RootState } from 'stroe';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggle } from 'hooks/@redux/registerModalSlice';
+import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -39,7 +39,7 @@ const Header = () => {
   const { mutate: signOut } = useSignOut();
 
   const RegistertoggleModal = () => {
-    dispatch(toggle());
+    dispatch(signupToggle());
   };
 
   const LogintoggleModal = () => {
@@ -117,7 +117,9 @@ const Header = () => {
         </S.HamburgerBt>
         {isAdmin() && (
           <S.Admin active={active}>
-            <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
+            <StyleNavLink to="/problem/admin/CreateProblem">
+              관리자
+            </StyleNavLink>
           </S.Admin>
         )}
         <S.Sign active={active}>

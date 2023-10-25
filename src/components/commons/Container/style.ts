@@ -4,10 +4,10 @@ import { styled } from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10rem;
+  margin-top: 2rem;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  /* background-color: #fff; */
   /* margin-bottom: 10rem; */
 `;
 

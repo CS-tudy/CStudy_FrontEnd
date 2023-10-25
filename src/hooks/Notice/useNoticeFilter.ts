@@ -32,14 +32,12 @@ const useNoticeFilter = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(
     formData => {
-      const { searchOption, title, content } = formData; // Destructure searchOption from formData
-      console.log(searchOption);
+      const { searchOption, title, content } = formData;
 
       if (searchOption === 'title') {
         dispatch(setNoticeFilterSearchTitle(title));
-        dispatch(setNoticeFilterSearchContent('')); // Reset content search
+        dispatch(setNoticeFilterSearchContent(''));
       } else if (searchOption === 'content') {
-        console.log(content);
         dispatch(setNoticeFilterSearchContent(content));
         dispatch(setNoticeFilterSearchTitle(''));
       }

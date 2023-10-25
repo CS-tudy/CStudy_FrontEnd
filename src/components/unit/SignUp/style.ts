@@ -18,6 +18,8 @@ export const Input = styled.input`
 export const ErrorMessage = styled.div`
   color: ${COLOR.RED};
   margin-top: 1rem;
+  margin-left: 0.5rem;
+  font-size: ${FONT.REGULAR_12};
 `;
 
 export const Button = styled.button`

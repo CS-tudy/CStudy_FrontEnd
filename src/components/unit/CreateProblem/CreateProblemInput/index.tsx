@@ -35,6 +35,7 @@ const CreateProblemInput = ({
   onChange,
   checked,
   errors,
+  required,
 }: CreateProblemInputProps) => {
   return (
     <>
@@ -47,6 +48,7 @@ const CreateProblemInput = ({
             type={type}
             {...register(resgiterName)}
             {...errors}
+            required
           />
         </>
       )}
@@ -59,6 +61,7 @@ const CreateProblemInput = ({
           name={name}
           {...errors}
           {...(register(resgiterName), { onChange: () => onChange })}
+          required
         />
       )}
     </>

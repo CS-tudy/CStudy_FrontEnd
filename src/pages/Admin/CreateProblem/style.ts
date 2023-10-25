@@ -1,17 +1,19 @@
 import { styled } from 'styled-components';
 
 export const CPWrapper = styled.div`
-  padding-top: 10rem;
-  max-width: 1200px;
+  width: calc(100% - 250px);
   margin: 0 auto;
 `;
 
 export const innerCP = styled.div`
+  height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CpDiv = styled.div`
+  width: 100%;
   padding: 3rem 6rem;
   border-radius: 1.2rem;
   background-color: rgb(219, 236, 244);
@@ -25,6 +27,7 @@ export const CpForm = styled.form`
 `;
 
 export const CpInputSelect = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
   margin-right: 10rem;
@@ -41,6 +44,7 @@ export const CpInputSelect = styled.div`
 `;
 
 export const CpInput = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
   label {

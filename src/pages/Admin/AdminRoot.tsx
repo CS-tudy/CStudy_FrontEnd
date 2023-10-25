@@ -2,14 +2,15 @@ import { styled } from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import Header from 'components/commons/Header/Header';
 import Footer from 'components/commons/Footer/footer';
+import Navbar from 'components/admin/List';
 
-const AdminRoot = ({ children }: React.PropsWithChildren) => {
+const AdminRoot = () => {
   return (
     <Wrapper>
-      <Header />
+      <Navbar />
       <Outlet />
       {/* {children} */}
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   );
 };
@@ -17,6 +18,5 @@ const AdminRoot = ({ children }: React.PropsWithChildren) => {
 export default AdminRoot;
 
 const Wrapper = styled.div`
-  position: relative;
-  min-height: 100vh;
+  display: flex;
 `;

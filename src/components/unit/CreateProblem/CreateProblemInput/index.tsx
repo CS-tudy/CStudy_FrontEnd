@@ -35,7 +35,6 @@ const CreateProblemInput = ({
   onChange,
   checked,
   errors,
-  required,
 }: CreateProblemInputProps) => {
   return (
     <>

@@ -29,10 +29,7 @@ const Workbook = () => {
 
   return (
     <ContentContainer>
-      <ContentHeaderWrapper
-        Text="문제집생성"
-        adminLink="/workbook/admin/CreateWorkbook"
-      >
+      <ContentHeaderWrapper Text="문제집생성" adminLink="/admin/CreateWorkbook">
         <S.SearchWrapper>
           <S.SearchInput
             type="text"

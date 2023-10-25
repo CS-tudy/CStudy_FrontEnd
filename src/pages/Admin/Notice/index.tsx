@@ -7,6 +7,8 @@ import AdminNoticeList from 'components/commons/Admin/AdminNotice';
 import Pagination from 'components/commons/Pagination';
 import useNoticeFilter from 'hooks/Notice/useNoticeFilter';
 
+import AdminContainer from '../AdminContainer';
+
 const AdminNoticeRequest = () => {
   const { noticeFilter, handlePage } = useNoticeFilter();
 
@@ -17,23 +19,20 @@ const AdminNoticeRequest = () => {
   });
 
   return (
-    <>
-      <ContentContainer>
-        <ContentBodyWrapper>
-          <AdminNoticeList
-            adminnoticeList={adminnoticeList as RequestNoticeList}
+    <AdminContainer>
+      <ContentBodyWrapper>
+        <AdminNoticeList
+          adminnoticeList={adminnoticeList as RequestNoticeList}
+        />
+        <S.PaginationWrapper>
+          <Pagination
+            totalPages={adminnoticeList?.totalPages as number}
+            handlePage={handlePage}
+            page={adminnoticeList?.number as number}
           />
-          <S.PaginationWrapper>
-            <Pagination
-              totalPages={adminnoticeList?.totalPages as number}
-              handlePage={handlePage}
-              page={adminnoticeList?.number as number}
-            />
-          </S.PaginationWrapper>
-        </ContentBodyWrapper>
-      </ContentContainer>
-      ;
-    </>
+        </S.PaginationWrapper>
+      </ContentBodyWrapper>
+    </AdminContainer>
   );
 };
 

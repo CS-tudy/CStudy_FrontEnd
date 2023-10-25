@@ -8,6 +8,7 @@ import { Button } from 'components/commons/Button/Style';
 import FormSection from 'components/commons/Admin/FormSection';
 import AdminInput from 'components/commons/Admin/AdminInput';
 import { useAddBoardList } from 'hooks/@query/board/useCreateBoard';
+import AdminContainer from '../AdminContainer';
 
 const CreateNotice = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const CreateNotice = () => {
   };
 
   return (
-    <ContentContainer>
+    <AdminContainer>
       <ContentBodyWrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormBody>
@@ -72,7 +73,7 @@ const CreateNotice = () => {
           </FormBody>
         </form>
       </ContentBodyWrapper>
-    </ContentContainer>
+    </AdminContainer>
   );
 };
 

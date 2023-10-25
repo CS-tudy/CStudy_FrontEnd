@@ -16,6 +16,7 @@ import { getProblemList } from 'api/problem';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
 import { Button } from 'components/commons/Button/Style';
+import AdminContainer from '../AdminContainer';
 
 const WorkbookProblemAdd = () => {
   const { questionId } = useParams();
@@ -84,7 +85,7 @@ const WorkbookProblemAdd = () => {
   const tableTitle = useMemo(() => ['선택', '문제목록', '카테고리'], []);
 
   return (
-    <ContentContainer>
+    <AdminContainer>
       <ContentHeaderWrapper />
       <ContentBodyWrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -116,7 +117,7 @@ const WorkbookProblemAdd = () => {
           </FormBody>
         </form>
       </ContentBodyWrapper>
-    </ContentContainer>
+    </AdminContainer>
   );
 };
 

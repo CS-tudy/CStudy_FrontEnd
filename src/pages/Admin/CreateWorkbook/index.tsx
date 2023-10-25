@@ -10,6 +10,7 @@ import FormSection from 'components/commons/Admin/FormSection';
 import { useWorkbookSet } from 'hooks/@query/workbook/useWorkbookSet';
 import { Button } from 'components/commons/Button/Style';
 import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
+import AdminContainer from '../AdminContainer';
 
 const CreateWorkbook = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const CreateWorkbook = () => {
   };
 
   return (
-    <ContentContainer>
+    <AdminContainer>
       <ContentBodyWrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormBody>
@@ -86,7 +87,7 @@ const CreateWorkbook = () => {
         </form>
         {isModalOpen && <WorkbookImageUpload handleIsModal={handleIsModal} />}
       </ContentBodyWrapper>
-    </ContentContainer>
+    </AdminContainer>
   );
 };
 

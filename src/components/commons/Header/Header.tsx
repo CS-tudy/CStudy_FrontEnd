@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import * as S from './style';
 import { StyleNavLink } from 'components/NavLinkStyles';
 import Logo_Png from 'assets/Logo.png';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignOut } from 'hooks/@query/useSignOut';
 import useModal from 'hooks/useModal';
 import Modal from '../../unit/Modal';
@@ -67,6 +67,7 @@ const Header = () => {
       }
     }
   };
+
   return (
     <>
       <S.Wrapper>
@@ -115,7 +116,7 @@ const Header = () => {
           {active ? <AiOutlineClose /> : <GiHamburgerMenu />}
         </S.HamburgerBt>
         {isAdmin() && (
-          <S.Admin>
+          <S.Admin active={active}>
             <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}

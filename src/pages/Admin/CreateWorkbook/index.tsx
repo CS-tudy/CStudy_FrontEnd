@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { WorkbookSetForm } from 'types/Form';
 import ContentContainer from 'components/commons/ContentContainer';
@@ -11,6 +11,7 @@ import { useWorkbookSet } from 'hooks/@query/workbook/useWorkbookSet';
 import { Button } from 'components/commons/Button/Style';
 import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
 import AdminContainer from '../AdminContainer';
+import { isAdmin } from 'repository/auth';
 
 const CreateWorkbook = () => {
   const navigate = useNavigate();
@@ -42,52 +43,60 @@ const CreateWorkbook = () => {
   };
 
   return (
-    <AdminContainer>
-      <ContentBodyWrapper>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormBody>
-            <FormSection title="문제집 이름을 입력해 주세요">
-              <AdminInput
-                type="text"
-                id="title"
-                name="title"
-                label="문제집 이름"
-                register={register}
-                errors={errors}
-                disabled={isLoading}
-                required
-                placeholder="문제집 제목을 입력해주세요"
-              />
-            </FormSection>
-            <FormSection title="문제집 설명을 입력해 주세요">
-              <AdminInput
-                type="textarea"
-                id="description"
-                name="description"
-                label="문제집 설명"
-                register={register}
-                errors={errors}
-                disabled={isLoading}
-                required
-                placeholder="문제집 내용을 입력해주세요"
-              />
-            </FormSection>
-            <Button type="submit" variant="primary" size="mideum">
-              문제집 등록하기
-            </Button>
-            <Button
-              type="button"
-              onClick={() => navigate(-1)}
-              variant="gray"
-              size="mideum"
-            >
-              돌아가기
-            </Button>
-          </FormBody>
-        </form>
-        {isModalOpen && <WorkbookImageUpload handleIsModal={handleIsModal} />}
-      </ContentBodyWrapper>
-    </AdminContainer>
+    <>
+      {isAdmin() ? (
+        <AdminContainer>
+          <ContentBodyWrapper>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormBody>
+                <FormSection title="문제집 이름을 입력해 주세요">
+                  <AdminInput
+                    type="text"
+                    id="title"
+                    name="title"
+                    label="문제집 이름"
+                    register={register}
+                    errors={errors}
+                    disabled={isLoading}
+                    required
+                    placeholder="문제집 제목을 입력해주세요"
+                  />
+                </FormSection>
+                <FormSection title="문제집 설명을 입력해 주세요">
+                  <AdminInput
+                    type="textarea"
+                    id="description"
+                    name="description"
+                    label="문제집 설명"
+                    register={register}
+                    errors={errors}
+                    disabled={isLoading}
+                    required
+                    placeholder="문제집 내용을 입력해주세요"
+                  />
+                </FormSection>
+                <Button type="submit" variant="primary" size="mideum">
+                  문제집 등록하기
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => navigate(-1)}
+                  variant="gray"
+                  size="mideum"
+                >
+                  돌아가기
+                </Button>
+              </FormBody>
+            </form>
+            {isModalOpen && (
+              <WorkbookImageUpload handleIsModal={handleIsModal} />
+            )}
+          </ContentBodyWrapper>
+        </AdminContainer>
+      ) : (
+        <Navigate to="/" />
+      )}
+    </>
   );
 };
 

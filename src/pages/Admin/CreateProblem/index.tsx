@@ -9,10 +9,16 @@ import CreateProblemInput from '../../../components/unit/CreateProblem/CreatePro
 import { useCreateProblem } from 'hooks/@query/problem/useCreateProblem';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import { isAdmin } from 'repository/auth';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import AdminContainer from '../AdminContainer';
+import { useSelector } from 'react-redux';
+import { RootState } from 'stroe';
 
 const CreateProblem = () => {
+  const forbidden = useSelector(
+    (state: RootState) => state.loginfilter.loginInfo,
+  );
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -197,7 +203,12 @@ const CreateProblem = () => {
                   <Button type="submit" variant="primary" size="medium">
                     확인
                   </Button>
-                  <Button type="button" variant="gray" size="medium">
+                  <Button
+                    onClick={() => navigate(-1)}
+                    type="button"
+                    variant="gray"
+                    size="medium"
+                  >
                     취소
                   </Button>
                 </S.CpButton>
@@ -206,7 +217,7 @@ const CreateProblem = () => {
           </ContentBodyWrapper>
         </AdminContainer>
       ) : (
-        <Navigate to="/" />
+        <Navigate to="/" {...() => forbidden} />
       )}
     </>
   );

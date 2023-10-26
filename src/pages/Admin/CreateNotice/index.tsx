@@ -10,8 +10,13 @@ import AdminInput from 'components/commons/Admin/AdminInput';
 import { useAddBoardList } from 'hooks/@query/board/useCreateBoard';
 import AdminContainer from '../AdminContainer';
 import { isAdmin } from 'repository/auth';
+import { RootState } from 'stroe';
+import { useSelector } from 'react-redux';
 
 const CreateNotice = () => {
+  const forbidden = useSelector(
+    (state: RootState) => state.loginfilter.loginInfo,
+  );
   const navigate = useNavigate();
 
   const {
@@ -78,7 +83,7 @@ const CreateNotice = () => {
           </ContentBodyWrapper>
         </AdminContainer>
       ) : (
-        <Navigate to="/" />
+        <Navigate to="/" {...() => forbidden} />
       )}
     </>
   );

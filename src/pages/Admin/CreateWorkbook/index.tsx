@@ -12,8 +12,13 @@ import { Button } from 'components/commons/Button/Style';
 import WorkbookImageUpload from 'components/commons/Admin/WorkbookImgModal';
 import AdminContainer from '../AdminContainer';
 import { isAdmin } from 'repository/auth';
+import { useSelector } from 'react-redux';
+import { RootState } from 'stroe';
 
 const CreateWorkbook = () => {
+  const forbidden = useSelector(
+    (state: RootState) => state.loginfilter.loginInfo,
+  );
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -94,7 +99,7 @@ const CreateWorkbook = () => {
           </ContentBodyWrapper>
         </AdminContainer>
       ) : (
-        <Navigate to="/" />
+        <Navigate to="/" {...() => forbidden} />
       )}
     </>
   );

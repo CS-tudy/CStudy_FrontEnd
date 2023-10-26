@@ -12,6 +12,7 @@ import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 export const useSignIn = () => {
   const queryClient = useQueryClient();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return useMutation(signIn, {
     onSuccess: response => {
@@ -23,7 +24,9 @@ export const useSignIn = () => {
       Toast.success('로그인 되었습니다.');
       dispatch(login());
       dispatch(Logintoggle());
-      dispatch(adminLogin({ type: 'adminLogin', payload: response.name }));
+      if (response.name === '관리자') {
+        navigate('admin/CreateProblem');
+      }
     },
     onError: () => {
       Toast.error('로그인에 실패했습니다.');

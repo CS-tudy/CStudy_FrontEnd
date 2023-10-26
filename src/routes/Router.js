@@ -148,7 +148,7 @@ const router = createBrowserRouter([
             element: <Problem />,
           },
           {
-            path: ':problemId',
+            path: 'problem/:problemId',
             element: <ProblemDetailPage />,
           },
           {

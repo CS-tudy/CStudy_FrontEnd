@@ -3,19 +3,21 @@ import { StyleNavLink } from 'components/NavLinkStyles';
 import { LuClipboardList } from 'react-icons/lu';
 import { MdOutlineContentPaste } from 'react-icons/md';
 import Logo_Png from 'assets/Logo.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { isAdmin } from 'repository/auth';
 
 const Navbar = () => {
   return (
     <>
-      <S.Nav>
-        <S.LogoWrap>
-          <Link to="/">
-            <picture>
-              <S.LogoImg src={Logo_Png} alt="CStudy logo" />
-            </picture>
-          </Link>
-        </S.LogoWrap>
+      {isAdmin() ? (
+        <S.Nav>
+          <S.LogoWrap>
+            <Link to="/">
+              <picture>
+                <S.LogoImg src={Logo_Png} alt="CStudy logo" />
+              </picture>
+            </Link>
+          </S.LogoWrap>
 
         <S.Sidebar>
           <S.ItemWrapper>

@@ -25,8 +25,9 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     setIsActive(isActive => !isActive);
   }, [isActive]);
 
+  const { mutate: PwdEdit } = usePwdEdit();
+
   const handleChangePwdSubmit = useCallback(() => {
-    const { mutate: PwdEdit } = usePwdEdit();
     const oldPassword = getValues('oldPassword');
     const newPassword = getValues('newPassword');
     const edit = {
@@ -34,6 +35,7 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
       newPassword,
     };
     PwdEdit(edit);
+    console.log(edit);
     reset();
   }, []);
 

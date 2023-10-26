@@ -1,7 +1,8 @@
+import { media } from 'constants/media';
 import styled from 'styled-components';
 
 export const Searchbar = styled.div`
-  width: 387px;
+  width: 37vw;
   height: 45px;
   border-radius: 10px;
   background-color: #fff;
@@ -9,6 +10,13 @@ export const Searchbar = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  ${media.mobildL} {
+    width: 386px;
+  }
+  ${media.mobileM} {
+    width: 95%;
+  }
 `;
 
 export const SearchIcon = styled.div`

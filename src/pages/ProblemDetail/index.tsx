@@ -14,6 +14,7 @@ import { userInfo } from 'repository/auth';
 import { RxLapTimer } from 'react-icons/rx';
 import ProblemDetailFooter from 'components/unit/Problem/ProblemDetailFooter';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const ProblemDetailPage = () => {
   const { problemId } = useParams();
@@ -82,29 +83,34 @@ const ProblemDetailPage = () => {
   };
 
   return (
-    <Container>
-      <div>
-        {/* <Button variant="gray" size="medium" onClick={handleNavigateBack}>
+    <ContentContainer>
+      <Container>
+        <div>
+          {/* <Button variant="gray" size="medium" onClick={handleNavigateBack}>
           돌아가기
         </Button> */}
-      </div>
-      <div>
+        </div>
+        {/* <div>
         <RxLapTimer size={20} /> {time}
-      </div>
-      <ProblemDetail
-        isLoading={isLoading}
-        problem={problem as IProblem}
-        register={register}
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        Answer={Answer}
-        isAnswer={isAnswer}
-        isAction={isAction}
-        timeCheck={timeCheck}
-      ></ProblemDetail>
-      {/* {isAction && isAnswer ? <div>정답</div> : <div>오답</div>} */}
-      {isAnswer && <ProblemDetailFooter explain={problem?.explain as string} />}
-    </Container>
+      </div> */}
+        <ProblemDetail
+          isLoading={isLoading}
+          problem={problem as IProblem}
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          Answer={Answer}
+          isAnswer={isAnswer}
+          isAction={isAction}
+          timeCheck={timeCheck}
+          time={time}
+        ></ProblemDetail>
+        {/* {isAction && isAnswer ? <div>정답</div> : <div>오답</div>} */}
+        {isAnswer && (
+          <ProblemDetailFooter explain={problem?.explain as string} />
+        )}
+      </Container>
+    </ContentContainer>
   );
 };
 

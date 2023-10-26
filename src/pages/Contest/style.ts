@@ -7,7 +7,7 @@ export const ButtonWrapper = styled.div`
   top: 70px;
   margin-top: 6rem;
   width: 100%;
-  padding-right: 4vw;
+  /* padding-right: 4vw; */
   /* height: 100%; */
 `;
 

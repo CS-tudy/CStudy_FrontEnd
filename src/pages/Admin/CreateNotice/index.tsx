@@ -8,6 +8,7 @@ import { Button } from 'components/commons/Button/Style';
 import FormSection from 'components/commons/Admin/FormSection';
 import AdminInput from 'components/commons/Admin/AdminInput';
 import { useAddBoardList } from 'hooks/@query/board/useCreateBoard';
+import AdminContainer from '../AdminContainer';
 
 const CreateNotice = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const CreateNotice = () => {
   };
 
   return (
-    <ContentContainer>
+    <AdminContainer>
       <ContentBodyWrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormBody>
@@ -43,6 +44,7 @@ const CreateNotice = () => {
                 register={register}
                 errors={errors}
                 required
+                placeholder="공지사항 제목 입력해주세요"
               />
             </FormSection>
             <FormSection title="공지사항 내용을 입력해주세요">
@@ -54,6 +56,7 @@ const CreateNotice = () => {
                 register={register}
                 errors={errors}
                 required
+                placeholder="공지사항 내용 입력해주세요"
               />
             </FormSection>
             <Button type="submit" variant="primary" size="medium">
@@ -70,7 +73,7 @@ const CreateNotice = () => {
           </FormBody>
         </form>
       </ContentBodyWrapper>
-    </ContentContainer>
+    </AdminContainer>
   );
 };
 

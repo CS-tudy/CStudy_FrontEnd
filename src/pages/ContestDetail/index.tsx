@@ -11,6 +11,7 @@ import { useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
 import { Contest, IContestRank } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
+import * as S from './style';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
@@ -98,7 +99,7 @@ const ContestDetail = () => {
           </Modal>
         )}
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
+      <S.ContestDetailContent>
         <ContestInfo contest={contest as Contest} />
         <ContestRank
           contestRank={contestRank as IContestRank}
@@ -106,7 +107,7 @@ const ContestDetail = () => {
           handlePage={handlePage}
           page={page}
         />
-      </div>
+      </S.ContestDetailContent>
     </MiniContainer>
   );
 };

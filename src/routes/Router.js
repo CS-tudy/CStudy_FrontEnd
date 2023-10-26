@@ -35,6 +35,7 @@ import Review from 'pages/Review';
 import ContestResultPage from 'pages/ContestResult';
 import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 import CreateNotice from 'pages/Admin/CreateNotice';
+import AdminRoot from 'pages/Admin/AdminRoot';
 
 const router = createBrowserRouter([
   {
@@ -46,22 +47,132 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: 'notice',
         children: [
           {
-            path: 'notice',
+            index: true,
             element: <Notice />,
           },
           {
             path: ':Id',
             element: <NoticeRequestDetail />,
           },
+        ],
+      },
+      {
+        path: 'request',
+        children: [
           {
-            path: 'admin/notice',
+            index: true,
+            element: <Request />,
+          },
+          {
+            path: ':requestId',
+            element: <RequestDetailPage />,
+          },
+          {
+            path: 'new',
+            element: <RequestWrite />,
+          },
+          {
+            path: ':requestId/edit',
+            // loader: checkAdminLoader,
+            element: <RequestEdit />,
+          },
+        ],
+      },
+      {
+        path: 'workbook',
+        children: [
+          {
+            index: true,
+            element: <Workbook />,
+          },
+
+          {
+            path: ':questionId',
+            element: <WorkbookQuestion />,
+          },
+        ],
+      },
+      {
+        path: 'contest',
+        children: [
+          {
+            index: true,
+            element: <Contest />,
+          },
+          {
+            path: ':contestId',
+            element: <ContestDetail />,
+          },
+          {
+            path: ':contestId/contestproblem',
+            element: <ContestProblem />,
+          },
+          {
+            path: ':contestId/result',
+            element: <ContestResultPage />,
+          },
+        ],
+      },
+      {
+        path: 'problem',
+        children: [
+          {
+            index: true,
+            element: <Problem />,
+          },
+          {
+            path: ':problemId',
+            element: <ProblemDetailPage />,
+          },
+        ],
+      },
+      {
+        path: 'membersranks',
+        children: [
+          {
+            index: true,
+            element: <MembersRanks />,
+          },
+        ],
+      },
+      {
+        path: 'mypage',
+        children: [
+          {
+            index: true,
+            loader: checkAdminLoader,
+            element: <MyPage />,
+          },
+        ],
+      },
+      { path: 'oauth2/login', element: <OAuthRedirect /> },
+    ],
+  },
+  {
+    path: '/admin',
+    element: <AdminRoot />,
+    children: [
+      {
+        children: [
+          {
+            path: 'CreateProblem',
+            loader: checkAdminLoader,
+            element: <CreateProblem />,
+          },
+        ],
+      },
+      {
+        children: [
+          {
+            path: 'list',
             loader: checkAdminLoader,
             element: <AdminNoticeRequest />,
           },
           {
-            path: 'admin/createnotice',
+            path: 'Createnotice',
             loader: checkAdminLoader,
             element: <CreateNotice />,
           },
@@ -70,24 +181,7 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'request',
-            element: <Request />,
-          },
-          {
-            path: 'request/:requestId',
-            element: <RequestDetailPage />,
-          },
-          {
-            path: 'request/new',
-            element: <RequestWrite />,
-          },
-          {
-            path: ':requestId/edit',
-            loader: checkAdminLoader,
-            element: <RequestWrite />,
-          },
-          {
-            path: 'admin/RequestQuestion',
+            path: 'RequestQuestion',
             loader: checkAdminLoader,
             element: <RequestQuestion />,
           },
@@ -96,17 +190,9 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'workbook',
-            element: <Workbook />,
-          },
-          {
-            path: 'admin/CreateWorkbook',
+            path: 'CreateWorkbook',
             loader: checkAdminLoader,
             element: <CreateWorkbook />,
-          },
-          {
-            path: ':questionId',
-            element: <WorkbookQuestion />,
           },
           {
             path: ':questionId/question',
@@ -118,60 +204,9 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'contest',
-            element: <Contest />,
-          },
-          {
-            path: 'contest/:contestId',
-            element: <ContestDetail />,
-          },
-          {
-            path: 'contest/:contestId/contestproblem',
-            element: <ContestProblem />,
-          },
-          {
-            path: 'contest/:contestId/result',
-            loader: checkAdminLoader,
-            element: <ContestResultPage />,
-          },
-          {
-            path: 'admin/CreateContest',
+            path: 'CreateContest',
             loader: checkAdminLoader,
             element: <CreateContest />,
-          },
-        ],
-      },
-      {
-        children: [
-          {
-            path: 'problem',
-            element: <Problem />,
-          },
-          {
-            path: 'problem/:problemId',
-            element: <ProblemDetailPage />,
-          },
-          {
-            path: 'admin/CreateProblem',
-            loader: checkAdminLoader,
-            element: <CreateProblem />,
-          },
-        ],
-      },
-      {
-        children: [
-          {
-            path: 'membersranks',
-            element: <MembersRanks />,
-          },
-        ],
-      },
-      {
-        loader: checkAdminLoader,
-        children: [
-          {
-            path: 'mypage',
-            element: <MyPage />,
           },
         ],
       },

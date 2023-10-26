@@ -83,6 +83,7 @@ export const Sign = styled.div<PrevToogle>`
     display: ${props => (props.active ? 'block' : 'none')};
     position: absolute;
     right: 5rem;
+    top: 3rem;
     margin-left: 1rem;
     padding-right: 3rem;
   }
@@ -105,7 +106,7 @@ export const MypageLink = styled(Link)`
   color: ${COLOR.BLACK};
 `;
 
-export const Admin = styled.div`
+export const Admin = styled.div<PrevToogle>`
   padding-right: 2rem;
   a {
     color: ${COLOR.RED};
@@ -113,6 +114,12 @@ export const Admin = styled.div`
     &:hover {
       color: ${COLOR.RED};
     }
+  }
+  ${media.tablet} {
+    display: ${props => (props.active ? 'block' : 'none')};
+    position: absolute;
+    right: 25rem;
+    top: 3rem;
   }
 `;
 

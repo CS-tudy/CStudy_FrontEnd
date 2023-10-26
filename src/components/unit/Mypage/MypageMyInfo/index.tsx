@@ -9,7 +9,6 @@ import MyPageInfo from '../MypageInfo/MypageInfoConbine';
 import * as S from './style';
 import MypageInput from '../MypageInput/MypageInputConbine';
 import { myPageDownloadState, myPageState } from 'types/mypage';
-import { Statement } from 'typescript';
 
 interface MypageMyInfoProps {
   isLoading: boolean;
@@ -26,7 +25,7 @@ interface MypageMyInfoProps {
   onValid: () => void;
   myPageInfo: myPageState;
   img: myPageDownloadState;
-  setIsActive: any;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MypageMyInfo = ({

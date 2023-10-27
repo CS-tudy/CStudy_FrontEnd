@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import List from '../../../components/admin/List';
@@ -11,13 +11,8 @@ import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import { isAdmin } from 'repository/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AdminContainer from '../AdminContainer';
-import { useSelector } from 'react-redux';
-import { RootState } from 'stroe';
 
 const CreateProblem = () => {
-  const forbidden = useSelector(
-    (state: RootState) => state.loginfilter.loginInfo,
-  );
   const navigate = useNavigate();
   const {
     register,
@@ -217,7 +212,9 @@ const CreateProblem = () => {
           </ContentBodyWrapper>
         </AdminContainer>
       ) : (
-        <Navigate to="/" {...() => forbidden} />
+        <>
+          <Navigate to="/" />
+        </>
       )}
     </>
   );

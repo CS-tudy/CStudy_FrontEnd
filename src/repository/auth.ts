@@ -1,7 +1,6 @@
 import { jwtDecodeProps } from 'types/repository';
 import { userStorage } from './userStorage';
 import jwtDecode from 'jwt-decode';
-import { redirect } from 'react-router-dom';
 
 export const getUserTokens = () => {
   const userTokens = userStorage.get();

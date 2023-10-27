@@ -25,7 +25,6 @@ import Problem from 'pages/Problem';
 import ProblemDetailPage from 'pages/ProblemDetail';
 import Notice from 'pages/Notice';
 
-import AdminRoute from './AdminRouter';
 import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';

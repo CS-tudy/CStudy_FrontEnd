@@ -23,10 +23,10 @@ const Table2 = ({
   return (
     <Styled.Table
       cellSpacing={0}
-      white={white}
+      $white={white}
       maxHeight={maxHeight}
       narrow={narrow}
-      narrow2={narrow2}
+      $narrow2={narrow2}
     >
       <TableHead colRate={colRate} title={title} narrow={narrow} />
       <tbody>{children}</tbody>

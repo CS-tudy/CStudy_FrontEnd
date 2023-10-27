@@ -19,7 +19,7 @@ import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export interface PrevToogle {
-  active: boolean;
+  $active: boolean;
 }
 
 const Header = () => {
@@ -78,7 +78,7 @@ const Header = () => {
             </picture>
           </Link>
         </S.LogoWrap>
-        <S.Nav active={active}>
+        <S.Nav $active={active}>
           <S.NavList>
             <S.NavItem>
               <S.NavLink onClick={HandleClickToogle} to="/notice">
@@ -116,11 +116,11 @@ const Header = () => {
           {active ? <AiOutlineClose /> : <GiHamburgerMenu />}
         </S.HamburgerBt>
         {isAdmin() && (
-          <S.Admin active={active}>
+          <S.Admin $active={active}>
             <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
-        <S.Sign active={active}>
+        <S.Sign $active={active}>
           {isLoginModalOpen && (
             <Modal toggleModal={LogintoggleModal}>
               <SignModal toggleModal={LogintoggleModal}>

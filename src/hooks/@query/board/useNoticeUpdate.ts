@@ -10,8 +10,8 @@ export const useUpdateNoticeList = ({ handleIsActive }: UpdateNoticeProps) => {
   const queryClient = useQueryClient();
   const { mutate: UpdateNotice } = useMutation(updateNoticeList, {
     onSuccess: () => {
-      Toast.success(' 게시글 수정에 성공했습니다.');
       queryClient.invalidateQueries(['noticeList']);
+      Toast.success(' 게시글 수정에 성공했습니다.');
     },
     onError: () => {
       Toast.error('게시글 수정에 실패했습니다.');

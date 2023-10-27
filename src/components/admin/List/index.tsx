@@ -20,34 +20,34 @@ const Navbar = () => {
         <S.Sidebar>
           <S.ItemWrapper>
             <S.Item>
-              <S.Icon>
+              {/* <S.Icon>
                 <LuClipboardList size={30} />
-              </S.Icon>
+              </S.Icon> */}
               <StyleNavLink to="/admin/list">
                 <p>공지 사항</p>
               </StyleNavLink>
             </S.Item>
             <S.Item>
-              <S.Icon>
+              {/* <S.Icon>
                 <MdOutlineContentPaste size={30} />
-              </S.Icon>
-              <StyleNavLink to="/admin/CreateProblem">
+              </S.Icon> */}
+              <StyleNavLink to="/admin/createproblem">
                 <p>문제 생성</p>
               </StyleNavLink>
             </S.Item>
             <S.Item>
-              <S.Icon>
+              {/* <S.Icon>
                 <LuClipboardList size={30} />
-              </S.Icon>
-              <StyleNavLink to="/admin/CreateContest">
+              </S.Icon> */}
+              <StyleNavLink to="/admin/createcontest">
                 <p>대회 생성</p>
               </StyleNavLink>
             </S.Item>
             <S.Item>
-              <S.Icon>
+              {/* <S.Icon>
                 <LuClipboardList size={30} />
-              </S.Icon>
-              <StyleNavLink to="/admin/RequestQuestion">
+              </S.Icon> */}
+              <StyleNavLink to="/admin/createworkbook">
                 <p>요청 문제</p>
               </StyleNavLink>
             </S.Item>

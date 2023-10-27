@@ -71,6 +71,10 @@ const router = createBrowserRouter([
             element: <RequestDetailPage />,
           },
           {
+            path: ':requestId/edit',
+            element: <RequestWrite />,
+          },
+          {
             path: 'new',
             element: <RequestWrite />,
           },
@@ -100,6 +104,10 @@ const router = createBrowserRouter([
           {
             path: ':contestId',
             element: <ContestDetail />,
+          },
+          {
+            path: ':contestId/result',
+            element: <ContestResultPage />,
           },
           {
             path: ':contestId/contestproblem',
@@ -149,7 +157,7 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'CreateProblem',
+            path: 'createproblem',
             loader: checkAdminLoader,
             element: <CreateProblem />,
           },
@@ -163,30 +171,17 @@ const router = createBrowserRouter([
             element: <AdminNoticeRequest />,
           },
           {
-            path: 'Createnotice',
+            path: 'createnotice',
             loader: checkAdminLoader,
             element: <CreateNotice />,
           },
         ],
       },
+
       {
         children: [
           {
-            path: ':requestId/edit',
-            loader: checkAdminLoader,
-            element: <RequestWrite />,
-          },
-          {
-            path: 'RequestQuestion',
-            loader: checkAdminLoader,
-            element: <RequestQuestion />,
-          },
-        ],
-      },
-      {
-        children: [
-          {
-            path: 'CreateWorkbook',
+            path: 'createworkbook',
             loader: checkAdminLoader,
             element: <CreateWorkbook />,
           },
@@ -200,12 +195,7 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: ':contestId/result',
-            loader: checkAdminLoader,
-            element: <ContestResultPage />,
-          },
-          {
-            path: 'CreateContest',
+            path: 'createcontest',
             loader: checkAdminLoader,
             element: <CreateContest />,
           },

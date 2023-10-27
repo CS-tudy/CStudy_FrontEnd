@@ -46,7 +46,7 @@ const WorkbookQuestion = () => {
 
   return (
     <ContentContainer>
-      <ContentHeaderWrapper admin desc={workbook?.description}>
+      <ContentHeaderWrapper desc={workbook?.description}>
         <S.CreateInfo>
           출시일: {workbook?.createdAt}
           <Button

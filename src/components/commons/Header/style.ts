@@ -34,7 +34,7 @@ export const LogoImg = styled.img`
 export const Nav = styled.nav<PrevToogle>`
   flex: 2;
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: fixed;
     top: 0;
     left: 0;
@@ -80,7 +80,7 @@ export const Sign = styled.div<PrevToogle>`
     margin-right: 1.4rem;
   }
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
     right: 5rem;
     top: 3rem;
@@ -116,7 +116,7 @@ export const Admin = styled.div<PrevToogle>`
     }
   }
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
     right: 25rem;
     top: 3rem;

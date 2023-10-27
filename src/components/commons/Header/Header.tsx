@@ -19,13 +19,14 @@ import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export interface PrevToogle {
-  active: boolean;
+  $active: boolean;
 }
 
 const Header = () => {
   // const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
   const [active, setActive] = useState(false);
+  const [moblie, setmoblie] = useState(false);
 
   const isRegisterModalOpen = useSelector(
     (state: RootState) => state.registerModal.isOpen,
@@ -77,35 +78,8 @@ const Header = () => {
             </picture>
           </Link>
         </S.LogoWrap>
-        <S.Sign>
-          {modalIsOpen && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
-                <SignInModal />
-              </SignModal>
-            </Modal>
-          )}
-          {modalIsOpen && signupModal && (
-            <Modal toggleModal={toggleModal}>
-              <SignModal toggleModal={toggleModal}>
-                <SignUp />
-              </SignModal>
-            </Modal>
-          )}
-          {isAuthenticated ? (
-            <>
-              <button onClick={() => signOut()}>로그아웃</button>
-              <Link to="/">마이페이지</Link>
-            </>
-          ) : (
-            <>
-              <button onClick={openModal}>로그인</button>
-              <button onClick={openSignupModal}>회원가입</button>
-            </>
-          )}
-        </S.Sign>
-        <S.Nav>
-          <S.NavList active={active}>
+        <S.Nav $active={active}>
+          <S.NavList>
             <S.NavItem>
               <S.NavLink onClick={HandleClickToogle} to="/notice">
                 공지사항
@@ -142,11 +116,11 @@ const Header = () => {
           {active ? <AiOutlineClose /> : <GiHamburgerMenu />}
         </S.HamburgerBt>
         {isAdmin() && (
-          <S.Admin active={active}>
+          <S.Admin $active={active}>
             <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
-        <S.Sign active={active}>
+        <S.Sign $active={active}>
           {isLoginModalOpen && (
             <Modal toggleModal={LogintoggleModal}>
               <SignModal toggleModal={LogintoggleModal}>

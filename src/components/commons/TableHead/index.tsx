@@ -17,7 +17,7 @@ const TableHead = ({ colRate, title, narrow, narrow2 }: TableHeadProps) => {
       <thead>
         <tr>
           {title?.map((t, index) => (
-            <THeadTh narrow={narrow} narrow2={narrow2} key={index}>
+            <THeadTh narrow={narrow} $narrow2={narrow2} key={index}>
               {t}
             </THeadTh>
           ))}

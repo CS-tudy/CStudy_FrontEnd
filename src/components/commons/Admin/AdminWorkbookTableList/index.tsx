@@ -28,7 +28,7 @@ const AdminWorkbookTableList = ({
         />
       </TBodyTd>
       <TBodyTd>{questionTitle}</TBodyTd>
-      <TBodyTd white>{categoryTitle}</TBodyTd>
+      <TBodyTd $white>{categoryTitle}</TBodyTd>
     </tr>
   );
 };

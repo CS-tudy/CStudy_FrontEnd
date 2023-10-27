@@ -31,7 +31,7 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   margin: 8px 0;
-  padding: 25px 12px;
+  padding: 0 20px;
   border-radius: 8px;
   align-items: center;
   height: 50px;

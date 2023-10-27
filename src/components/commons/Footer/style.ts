@@ -4,6 +4,7 @@ import { FONT } from 'constants/Font';
 
 export const FooterWrapper = styled.footer`
   position: relative;
+  width: 100%;
   height: 50px;
   transform: translateY(0%);
   display: flex;

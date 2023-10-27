@@ -14,13 +14,7 @@ function MypageQuestion() {
         <Table2
           title={['NO.', '문제이름', '카테고리', '맞춘문제', '틀린문제']}
           colRate={['10%', '45%', '25%', '10%', '10%']}
-        >
-          <tbody>
-            <tr>
-              <td></td>
-            </tr>
-          </tbody>
-        </Table2>
+        ></Table2>
       </MypageBoardInner>
     </MypageBoardWrapper>
   );

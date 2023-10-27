@@ -11,14 +11,14 @@ interface boardProps {
 const MypaegBoardItem = ({ handleDetail, content }: boardProps) => {
   const { id, title, flag } = content;
   return (
-    <tr onClick={() => handleDetail(id)}>
-      <TBodyTd white={true} narrow2>
+    <tr style={{ cursor: 'pointer' }} onClick={() => handleDetail(id)}>
+      <TBodyTd $white={true} $narrow2>
         {id}
       </TBodyTd>
-      <TBodyTd white={true} narrow2>
+      <TBodyTd $white={true} $narrow2>
         {title}
       </TBodyTd>
-      <TBodyTd white={true} narrow2>
+      <TBodyTd $white={true} $narrow2>
         <ApproveStatus flag={flag} />
       </TBodyTd>
     </tr>

@@ -1,27 +1,16 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { contestSet } from 'api/contest';
-// import toast from 'provider/Toast';
+import Toast from 'libs/Toast';
 
-interface useContestSetProps {
-  handleIsLoading: (isLoading: boolean) => void;
-}
-
-export const useContestSet = ({ handleIsLoading }: useContestSetProps) => {
+export const useContestSet = () => {
   const queryClient = useQueryClient();
-  const { mutate: ContestSet } = useMutation(contestSet, {
+  return useMutation(contestSet, {
     onSuccess: () => {
       queryClient.invalidateQueries(['contestList']);
-      // toast.success('대회 생성에 성공했습니다');
-      alert('대회 생성에 성공했습니다');
+      Toast.success('대회 생성에 성공했습니다');
     },
     onError: error => {
-      //   toast.error(error as string);
-      alert(error as string);
-    },
-    onSettled: () => {
-      handleIsLoading(false);
+      Toast.error('대회 생성에 실패했습니다.');
     },
   });
-
-  return ContestSet;
 };

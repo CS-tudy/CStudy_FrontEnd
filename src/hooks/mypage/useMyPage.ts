@@ -35,8 +35,8 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
       newPassword,
     };
     PwdEdit(edit);
-    console.log(edit);
     reset();
+    setIsActive(isActive => !isActive);
   }, []);
 
   const { mutate: uploadImg } = useUploadImg();

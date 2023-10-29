@@ -97,8 +97,17 @@ export const AdminRadioInput = styled.input<AdminInputStyleProps>`
   }
 `;
 
+export const AdminDateLabel = styled(AdminBasicLabel)``;
+
+export const AdminDateInput = styled(AdminBasicInput)``;
+
 export const AdminCheckboxLabel = styled(AdminRadioLabel)`
   justify-content: center;
 `;
 
 export const AdminCheckboxInput = styled(AdminRadioInput)``;
+
+export const AdminBtn = styled.div`
+  margin-top: 4rem;
+  text-align: right;
+`;

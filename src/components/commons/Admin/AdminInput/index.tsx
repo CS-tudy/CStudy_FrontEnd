@@ -103,6 +103,19 @@ const AdminInput = ({
           </S.AdminCheckboxLabel>
         </S.AdminInputWrapper>
       )}
+      {type === 'date' && (
+        <S.AdminInputWrapper>
+          <S.AdminDateLabel htmlFor={id}>{label}</S.AdminDateLabel>
+          <S.AdminDateInput
+            id={id}
+            disabled={disabled}
+            type={type}
+            errors={errors}
+            value={value}
+            {...register(name, { required })}
+          />
+        </S.AdminInputWrapper>
+      )}
     </>
   );
 };

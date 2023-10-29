@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
-import List from '../../../components/admin/List';
+import List from '../../../components/unit/admin/List';
 import { FieldValues } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import CreateProblemSelect from '../../../components/unit/CreateProblem/CreateProblemSelect';
-import CreateProblemInput from '../../../components/unit/CreateProblem/CreateProblemInput';
 import { useCreateProblem } from 'hooks/@query/problem/useCreateProblem';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
 import { isAdmin } from 'repository/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
 import AdminContainer from '../AdminContainer';
+import { AdminBtn } from 'components/commons/Admin/AdminInput/style';
+import CreateProblemInput from 'components/commons/Admin/AdminCreateProblem/CreateProblemInput';
+import CreateProblemSelect from 'components/commons/Admin/AdminCreateProblem/CreateProblemSelect';
 
 const CreateProblem = () => {
   const navigate = useNavigate();
@@ -194,7 +195,7 @@ const CreateProblem = () => {
                     errors={errors}
                   />
                 </S.Ex>
-                <S.CpButton>
+                <AdminBtn>
                   <Button type="submit" variant="primary" size="medium">
                     확인
                   </Button>
@@ -206,7 +207,7 @@ const CreateProblem = () => {
                   >
                     취소
                   </Button>
-                </S.CpButton>
+                </AdminBtn>
               </S.CpInput>
             </S.CpForm>
           </ContentBodyWrapper>

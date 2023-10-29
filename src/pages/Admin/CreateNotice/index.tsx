@@ -7,7 +7,7 @@ import { FormBody } from 'components/commons/Admin/FormBody/style';
 import { Button } from 'components/commons/Button/Style';
 import FormSection from 'components/commons/Admin/FormSection';
 import AdminInput from 'components/commons/Admin/AdminInput';
-import { useAddBoardList } from 'hooks/@query/board/useCreateBoard';
+import { useAddNoticeList } from 'hooks/@query/board/useCreateNotice';
 import AdminContainer from '../AdminContainer';
 import { isAdmin } from 'repository/auth';
 
@@ -25,7 +25,7 @@ const CreateNotice = () => {
       boardcontent: '',
     },
   });
-  const { mutate: addboard } = useAddBoardList();
+  const { mutate: addboard } = useAddNoticeList();
 
   const onSubmit: SubmitHandler<FieldValues> = async formData => {
     addboard({ ...formData });

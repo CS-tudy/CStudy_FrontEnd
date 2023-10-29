@@ -39,6 +39,7 @@ export const CpInputSelect = styled.div`
   select {
     padding: 1rem 1rem;
     margin-bottom: 2rem;
+    border: 1px solid #dedede;
   }
 `;
 

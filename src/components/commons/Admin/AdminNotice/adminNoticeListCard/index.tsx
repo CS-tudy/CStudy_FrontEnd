@@ -16,7 +16,6 @@ const AdminNoticeListCard = ({
   createdDate,
 }: AdminNoticeCardProps) => {
   const [isActive, setIsActive] = useState(false);
-  console.log(id);
 
   return (
     <S.Container>

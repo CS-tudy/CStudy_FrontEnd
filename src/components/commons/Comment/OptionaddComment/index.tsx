@@ -2,8 +2,11 @@ import { useAddCommentList } from 'hooks/@query/comment/useCreateComment';
 import * as S from 'components/commons/Comment/OptionaddComment/style';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from 'components/commons/Button/Style';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stroe';
+import { isLogin } from 'repository/auth';
+import Toast from 'libs/Toast';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 interface AddCommentFormProps {
   parentId?: string | null;
 }
@@ -18,29 +21,21 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
   const pageNumber = useSelector(
     (state: RootState) => state.rootReducer.comment.pageNumber,
   );
-
+  const dispatch = useDispatch();
   const { mutate: addComment } = useAddCommentList();
   const onSubmit: SubmitHandler<FieldValues> = async FormData => {
+    if (!isLogin()) return dispatch(Logintoggle());
+
     const { content } = FormData;
     const noticeId = pageNumber;
     const parentCommentId = parentId || null;
+    let formData;
+    // 부모 댓글이 없는 경우
+    if (parentId === null) formData = { noticeId, content };
+    // 부모 댓글이 있는 경우
+    else formData = { noticeId, content, parentCommentId };
 
-    if (parentId === null) {
-      // 부모 댓글이 없는 경우
-      const formData = {
-        noticeId,
-        content,
-      };
-      addComment({ formData });
-    } else {
-      // 부모 댓글이 있는 경우
-      const formData = {
-        noticeId,
-        content,
-        parentCommentId,
-      };
-      addComment({ formData });
-    }
+    addComment({ formData });
   };
 
   return (

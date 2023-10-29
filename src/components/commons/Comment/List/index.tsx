@@ -4,6 +4,7 @@ import AddComment from '../OptionaddComment';
 import * as S from './style';
 import useReplyButton from 'hooks/Comment/useReplyButton';
 import DeleteComment from '../OptionDeleteComment';
+import comment from 'hooks/@redux/comment';
 
 interface CommentListProps {
   commentList: RequestComment[];
@@ -11,7 +12,6 @@ interface CommentListProps {
 
 const CommentList = ({ commentList }: CommentListProps) => {
   const { selectedCommentid, toggleReplyingHandler } = useReplyButton();
-  //   console.log(commentList);
 
   return (
     <S.Wrapper>
@@ -20,7 +20,10 @@ const CommentList = ({ commentList }: CommentListProps) => {
           <S.Profile>
             <S.Pheader>
               <p> {comment.author}</p>
-              <DeleteComment commentId={comment.id} />
+              <DeleteComment
+                commentId={comment.id}
+                memberId={comment.memberId}
+              />
             </S.Pheader>
             <S.Pboay>
               <p> {comment.content}</p>

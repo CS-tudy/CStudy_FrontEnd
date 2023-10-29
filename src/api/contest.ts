@@ -74,7 +74,7 @@ export const getContestResult = async (
 /* -------- POST 요청 -------- */
 
 // 대회 생성하기
-export const contestSet = async (formData: ContestSetForm) => {
+export const contestSet = async (formData: FieldValues) => {
   const response = await instance.post('/api/competitions', formData);
   return response;
 };

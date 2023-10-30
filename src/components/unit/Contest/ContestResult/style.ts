@@ -16,6 +16,7 @@ export const ProgressBarContainer = styled.div`
   background-color: ${COLOR.GRAY_50};
   border-radius: 1rem;
   padding: 0.5rem;
+  margin-top: 2rem;
 `;
 
 export const ProgressBar = styled.div<{ score: number; total: number }>`
@@ -29,12 +30,20 @@ export const ProgressBar = styled.div<{ score: number; total: number }>`
 
 export const ScoreIndicator = styled.div`
   display: flex;
-  margin-top: 1rem;
+  margin-top: 4rem;
   font-size: 1.2rem;
 
   p + p {
     margin-left: 0.8rem;
   }
+`;
+
+export const ResultNumber = styled.span`
+  display: inline-block;
+  margin-left: 10px;
+  color: #bbb;
+  font-size: ${FONT.REGULAR_18};
+  margin-bottom: 4px;
 `;
 
 export const Correct = styled.p`
@@ -56,6 +65,7 @@ export const ResultListContainer = styled.div`
 
 export const ResultProblemWrapper = styled.div`
   flex: 1;
+  margin-top: 2rem;
 `;
 
 export const ResultProblemTitle = styled.h3`

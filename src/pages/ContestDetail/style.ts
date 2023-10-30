@@ -7,5 +7,6 @@ export const ContestDetailContent = styled.div`
 
   ${media.tablet} {
     flex-direction: column;
+    margin-bottom: 200px;
   }
 `;

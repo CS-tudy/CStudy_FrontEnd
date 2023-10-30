@@ -2,7 +2,8 @@ import { media } from 'constants/media';
 import styled from 'styled-components';
 
 export const Searchbar = styled.div`
-  width: 37vw;
+  /* width: 37vw; */
+  width: 386px;
   height: 45px;
   border-radius: 10px;
   background-color: #fff;
@@ -11,12 +12,9 @@ export const Searchbar = styled.div`
   flex-direction: row;
   align-items: center;
 
-  ${media.mobildL} {
+  /* ${media.mobildL} {
     width: 386px;
-  }
-  ${media.mobileM} {
-    width: 95%;
-  }
+  } */
 `;
 
 export const SearchIcon = styled.div`

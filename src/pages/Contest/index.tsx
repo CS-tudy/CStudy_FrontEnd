@@ -32,6 +32,7 @@ const Contest = () => {
           종료된 대회 보기
         </Filter>
       </ContainerTop>
+      <S.ContainerMarginTop />
       <Container>
         <Table colRate={tableRate} title={tableTitle}>
           {contestList?.totalElements === 0 && (

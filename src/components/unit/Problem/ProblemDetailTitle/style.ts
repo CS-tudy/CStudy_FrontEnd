@@ -23,12 +23,13 @@ export const Div1 = styled.div`
 export const Div2 = styled.div``;
 
 export const Timer = styled.div`
-  background-color: ${COLOR.GRAY_50};
-  padding: 12px 15px;
+  background-color: #f8f8f8;
+  padding: 12px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid ${COLOR.GRAY_80};
 `;
 
 export const Time = styled.span`

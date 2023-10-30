@@ -7,8 +7,6 @@ import {
   useForm,
 } from 'react-hook-form';
 import { IProblem } from 'types/api';
-// import ProblemRenderTitle from '../ProblemRenderTitle';
-// import ResultImage from 'components/@shared/ResultImage';
 import * as S from './style';
 import ProblemDetailContent from '../ProblemDetailContent';
 import ProblemDetailSubmit from '../ProblemDetailSubmit';
@@ -27,6 +25,7 @@ interface ProblemDetailProps {
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   onSubmit: SubmitHandler<FieldValues>;
   isLoading: boolean;
+  time: number;
 }
 
 const ProblemDetail = ({

@@ -59,7 +59,7 @@ export const ButtonInsideInput = styled.button`
 
 export const MovingLogin = styled.span`
   display: inline-block;
-  color: #3a82d3;
+  color: ${COLOR.MAIN};
   font-size: 15px;
   margin-bottom: 0.5px;
 `;

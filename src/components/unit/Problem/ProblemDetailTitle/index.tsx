@@ -4,6 +4,7 @@ import { RxLapTimer } from 'react-icons/rx';
 
 interface ProblemDetailTitleProps {
   problem: IProblem;
+  time: number;
 }
 
 const ProblemDetailTitle = ({ problem, time }: ProblemDetailTitleProps) => {

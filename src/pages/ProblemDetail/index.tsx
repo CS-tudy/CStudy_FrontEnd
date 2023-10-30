@@ -46,7 +46,6 @@ const ProblemDetailPage = () => {
       setTime(count);
     }, 1000);
 
-    // Component unmount 시점 혹은 dependency 변경 시점에 interval 정리
     return () => clearInterval(timer);
   }, []);
 

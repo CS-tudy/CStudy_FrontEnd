@@ -86,72 +86,74 @@ const ContestProblemDetail = ({
   }, [quizData, competitionId, reset]);
 
   return (
-    <S.Form onSubmit={handleSubmit(onSubmit)}>
-      {fields?.map((field, index) => (
-        <div
-          key={field.id}
-          style={{ display: currentIndex === index ? 'block' : 'none' }}
-        >
-          <S.ContestProblemDesc>
-            {index + 1}. {quizData[index].description}
-          </S.ContestProblemDesc>
-          <S.ContestFieldWrapper>
-            {quizData[index].choices?.map(choice => (
-              <S.ContestField key={choice.number}>
-                <S.ContestInput
-                  type="radio"
-                  {...register(`questions.${index}.choiceNumber`)}
-                  value={choice.number}
-                  errors={errors}
-                  data-count={choice.number}
-                />
-                <span>{choice.content}</span>
-              </S.ContestField>
-            ))}
-          </S.ContestFieldWrapper>
-          <input
-            type="hidden"
-            {...register(`questions.${index}.questionId`, { required: true })}
-            value={quizData[index].questionId}
-          />
-          <S.ButtonWrapper>
-            {currentIndex > 0 && (
-              <Button
-                type="button"
-                variant="gray"
-                size="medium"
-                onClick={handlePrevClick}
-              >
-                이전
-              </Button>
-            )}
-            {currentIndex < quizData.length - 1 ? (
-              <Button
-                type="button"
-                variant="primary"
-                size="medium"
-                disabled={isLoading}
-                onClick={handleNextClick}
-              >
-                다음
-              </Button>
-            ) : (
-              // <Button
-              //   type="submit"
-              //   variant="primary"
-              //   size="medium"
-              //   disabled={isLoading}
-              // >
-              //   제출
-              // </Button>
-              <S.SubmitButton type="submit" disabled={isLoading}>
-                제출
-              </S.SubmitButton>
-            )}
-          </S.ButtonWrapper>
-        </div>
-      ))}
-    </S.Form>
+    <S.FormContainer>
+      <S.Form onSubmit={handleSubmit(onSubmit)}>
+        {fields?.map((field, index) => (
+          <div
+            key={field.id}
+            style={{ display: currentIndex === index ? 'block' : 'none' }}
+          >
+            <S.ContestProblemDesc>
+              {index + 1}. {quizData[index].description}
+            </S.ContestProblemDesc>
+            <S.ContestFieldWrapper>
+              {quizData[index].choices?.map(choice => (
+                <S.ContestField key={choice.number}>
+                  <S.ContestInput
+                    type="radio"
+                    {...register(`questions.${index}.choiceNumber`)}
+                    value={choice.number}
+                    errors={errors}
+                    data-count={choice.number}
+                  />
+                  <span>{choice.content}</span>
+                </S.ContestField>
+              ))}
+            </S.ContestFieldWrapper>
+            <input
+              type="hidden"
+              {...register(`questions.${index}.questionId`, { required: true })}
+              value={quizData[index].questionId}
+            />
+            <S.ButtonWrapper>
+              {currentIndex > 0 && (
+                <Button
+                  type="button"
+                  variant="gray"
+                  size="medium"
+                  onClick={handlePrevClick}
+                >
+                  이전
+                </Button>
+              )}
+              {currentIndex < quizData.length - 1 ? (
+                <Button
+                  type="button"
+                  variant="primary"
+                  size="medium"
+                  disabled={isLoading}
+                  onClick={handleNextClick}
+                >
+                  다음
+                </Button>
+              ) : (
+                // <Button
+                //   type="submit"
+                //   variant="primary"
+                //   size="medium"
+                //   disabled={isLoading}
+                // >
+                //   제출
+                // </Button>
+                <S.SubmitButton type="submit" disabled={isLoading}>
+                  제출
+                </S.SubmitButton>
+              )}
+            </S.ButtonWrapper>
+          </div>
+        ))}
+      </S.Form>
+    </S.FormContainer>
   );
 };
 

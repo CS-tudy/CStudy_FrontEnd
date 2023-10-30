@@ -3,6 +3,7 @@ import * as S from './style';
 
 interface ProblemDetailTitleProps {
   problem: IProblem;
+  time: number;
 }
 
 const ProblemDetailTitle = ({ problem }: ProblemDetailTitleProps) => {

@@ -17,8 +17,15 @@ export const TextArea = styled.textarea<TextAreaStyleProps>`
   padding: 1.2rem;
   font-size: ${FONT.REGULAR_18};
   border-radius: 0.4rem;
-  border: 0.1rem solid
-    ${({ errors, id }) => (errors[id] ? `${COLOR.RED}` : `${COLOR.WHITE}`)};
+  border: 0.12rem solid
+    ${({ errors, id }) =>
+      errors[id] ? `${COLOR.GRAY_80}` : `${COLOR.GRAY_80}`};
   resize: none;
-  border: 0.12rem solid ${COLOR.GRAY_80};
+  /* border: 0.12rem solid ${COLOR.GRAY_80}; */
+`;
+
+export const ErrorMsg = styled.span`
+  font-size: ${FONT.REGULAR_14};
+  color: ${COLOR.RED};
+  padding-top: 0.5rem;
 `;

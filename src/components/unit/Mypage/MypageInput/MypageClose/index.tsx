@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 import * as S from './style';
 
 interface MypageCloseProps {
@@ -8,7 +9,7 @@ interface MypageCloseProps {
 const MypageClose = ({ setIsActive }: MypageCloseProps) => {
   return (
     <S.Close onClick={() => setIsActive((isActive: boolean) => !isActive)}>
-      X
+      <AiOutlineClose />
     </S.Close>
   );
 };

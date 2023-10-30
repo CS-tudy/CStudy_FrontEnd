@@ -1,8 +1,6 @@
 import { COLOR } from 'constants/Color';
-import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 import { media } from 'constants/media';
-import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const Nav = styled.nav`
@@ -30,10 +28,8 @@ export const LogoImg = styled.img`
 export const Item = styled.li`
   display: flex;
   align-items: center;
-  margin: 8px 0;
-  padding: 0 20px;
-  border-radius: 8px;
-  align-items: center;
+  padding: 3rem 1rem;
+  border-radius: 0.5rem;
   height: 50px;
   cursor: pointer;
   border-bottom: 1px solid #dbdbdb;
@@ -51,6 +47,7 @@ export const Item = styled.li`
   }
   & > a {
     width: calc(100% - 45px);
+    padding: 3rem 1rem;
   }
 `;
 

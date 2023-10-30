@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as S from './style';
 import rank_jpg from 'assets/rank.jpg';
 import inquiry_jpg from 'assets/inquiry.jpg';

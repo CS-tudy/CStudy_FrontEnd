@@ -1,17 +1,9 @@
 import { useDeleteNoticeList } from 'hooks/@query/board/useNoticeDelete';
 import { useUpdateNoticeList } from 'hooks/@query/board/useNoticeUpdate';
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import * as S from './style';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import {
-  FieldValues,
-  SubmitHandler,
-  UseFormHandleSubmit,
-  UseFormReset,
-  useForm,
-} from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import { isAdmin } from 'repository/auth';
 import Input from 'components/commons/Input';
 
 interface AdminNoticeCardProps {
@@ -20,7 +12,7 @@ interface AdminNoticeCardProps {
   content: string;
   createdDate: string;
   isActive: boolean;
-  setIsActive: any;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const NoticeAdminOptionGroup = ({
@@ -28,7 +20,6 @@ const NoticeAdminOptionGroup = ({
   title,
   content,
   createdDate,
-  //   handleSubmit,
   isActive,
   setIsActive,
 }: AdminNoticeCardProps) => {
@@ -40,15 +31,20 @@ const NoticeAdminOptionGroup = ({
   } = useForm<FieldValues>({
     defaultValues: {
       title: title,
+      content: content,
     },
   });
+
   const handleIsActive = useCallback((isActive: boolean) => {
     setIsActive(isActive);
   }, []);
+
   const { mutate: deleteComment } = useDeleteNoticeList();
   const UpdateNotice = useUpdateNoticeList({ id, handleIsActive });
 
   const handleDelete = () => {
+    console.log(id);
+
     deleteComment(id);
   };
 
@@ -87,18 +83,18 @@ const NoticeAdminOptionGroup = ({
       )}
       {isActive ? (
         <>
-          <button onClick={handleSubmit(onSubmit)}>수정하기</button>
-          <button onClick={() => setIsActive(false)}>취소</button>
+          <S.Button onClick={handleSubmit(onSubmit)}>수정하기</S.Button>
+          <S.Button onClick={() => setIsActive(false)}>취소</S.Button>
         </>
       ) : (
         <>
-          <button
+          <S.Button
             type="button"
             onClick={() => setIsActive((active: boolean) => !active)}
           >
             수정
-          </button>
-          <button onClick={handleDelete}>삭제</button>
+          </S.Button>
+          <S.Button onClick={handleDelete}>삭제</S.Button>
           <S.Detail>
             <p>{content}</p>·<span>{createdDate}</span>
           </S.Detail>

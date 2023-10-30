@@ -16,4 +16,4 @@ const NoticeDetail = ({ request }: NoticeDetailProps) => {
   );
 };
 
-export default memo(NoticeDetail);
+export default NoticeDetail;

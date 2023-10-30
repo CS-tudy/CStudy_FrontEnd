@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 import { FONT } from './../../../constants/Font';
 import { COLOR } from 'constants/Color';
 import { Link } from 'react-router-dom';
+
+import { NavLink } from 'react-router-dom';
 import { media } from 'constants/media';
 import { PrevToogle } from './Header';
 
@@ -34,7 +36,7 @@ export const LogoImg = styled.img`
 export const Nav = styled.nav<PrevToogle>`
   flex: 2;
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: fixed;
     top: 0;
     left: 0;
@@ -79,7 +81,7 @@ export const Sign = styled.div<PrevToogle>`
     margin-right: 1.4rem;
   }
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
     right: 5rem;
     top: 3rem;
@@ -87,7 +89,7 @@ export const Sign = styled.div<PrevToogle>`
     padding-right: 3rem;
   }
 `;
-export const NavLink = styled(Link)`
+export const NavLinkStyle = styled(NavLink)`
   &.active {
     font-weight: bold;
   }
@@ -116,7 +118,7 @@ export const Admin = styled.div<PrevToogle>`
     }
   }
   ${media.tablet} {
-    display: ${props => (props.active ? 'block' : 'none')};
+    display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
     right: 25rem;
     top: 3rem;

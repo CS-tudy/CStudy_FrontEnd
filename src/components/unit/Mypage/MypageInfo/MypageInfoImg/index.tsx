@@ -22,9 +22,7 @@ const MypageInfoImg = ({
 }: MyPageInfoImgProps) => {
   return (
     <S.MyImgDiv>
-      <picture>
-        {img !== undefined && <S.MyImg src={img} alt="프로필" />}
-      </picture>
+      <picture>{img ? <S.MyImg src={img} alt="프로필" /> : <img />}</picture>
       <form onSubmit={handleSubmit(onValid)}>
         <S.Label htmlFor="image_file">이미지 수정</S.Label>
         <S.FileInput

@@ -7,11 +7,7 @@ export const StyleNavLink = styled(NavLink)`
   &.active {
     font-weight: bold;
   }
-
+  display: block;
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.BLACK};
-  &.mypage {
-    font-size: ${FONT.REGULAR_14};
-    padding: 0.5rem;
-  }
 `;

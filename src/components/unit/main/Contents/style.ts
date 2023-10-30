@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { FONT } from './../../../constants/Font';
+import { FONT } from './../../../../constants/Font';
 import { NavLink } from 'react-router-dom';
 import { COLOR } from 'constants/Color';
 import { media } from 'constants/media';

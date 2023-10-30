@@ -28,6 +28,12 @@ export const LeftArrowButton = styled.button<PaginationOptionProps>`
     border-top: 0.2rem solid ${COLOR.BLACK};
     border-left: 0.2rem solid ${COLOR.BLACK};
   }
+
+  &[disabled]::before {
+    /* display: none; */
+    border-top: 0.2rem solid ${COLOR.GRAY_100};
+    border-left: 0.2rem solid ${COLOR.GRAY_100};
+  }
 `;
 
 export const PaginationButtonWrapper = styled.div<PaginationOptionProps>`
@@ -79,5 +85,11 @@ export const RightArrowButton = styled.button<PaginationOptionProps>`
     height: 0.7rem;
     border-top: 0.2rem solid ${COLOR.BLACK};
     border-right: 0.2rem solid ${COLOR.BLACK};
+  }
+
+  &[disabled]::before {
+    /* display: none; */
+    border-top: 0.2rem solid ${COLOR.GRAY_100};
+    border-right: 0.2rem solid ${COLOR.GRAY_100};
   }
 `;

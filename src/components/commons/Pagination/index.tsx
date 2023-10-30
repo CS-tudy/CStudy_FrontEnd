@@ -20,6 +20,9 @@ const Pagination = ({
     page,
   });
 
+  console.log('current', currentPage);
+  console.log('total', totalGroups);
+
   return (
     <>
       {

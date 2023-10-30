@@ -33,22 +33,23 @@ const Contest = () => {
       </ContainerTop>
       <S.ContainerMarginTop />
       <Container>
-        <Table colRate={tableRate} title={tableTitle}>
-          {contestList?.totalElements === 0 && (
-            <tr>
-              <td colSpan={3}>
-                <NoData>대회가 없습니다.</NoData>
-              </td>
-            </tr>
-          )}
-          <ContestList
-            contestList={contestList?.content as ContestInfo[]}
-            contestFilter={contestFilter}
-            isActive={isActive}
-            totalPages={contestList?.totalPages as number}
-            handlePage={handlePage}
-          />
-        </Table>
+        {contestList?.totalElements === 0 ? (
+          <tr>
+            <td colSpan={3}>
+              <NoData>대회가 없습니다.</NoData>
+            </td>
+          </tr>
+        ) : (
+          <Table colRate={tableRate} title={tableTitle}>
+            <ContestList
+              contestList={contestList?.content as ContestInfo[]}
+              contestFilter={contestFilter}
+              isActive={isActive}
+              totalPages={contestList?.totalPages as number}
+              handlePage={handlePage}
+            />
+          </Table>
+        )}
       </Container>
       <ContainerBottom>
         {(contestList?.totalPages as number) > 0 && (

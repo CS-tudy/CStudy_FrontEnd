@@ -4,7 +4,7 @@ import { FONT } from 'constants/Font';
 
 export const Container = styled.div`
   /* min-height: 60vh; */
-  padding: 6rem;
+  padding: 6rem 5vw;
   background-color: ${COLOR.WHITE};
   border: 0.1rem solid ${COLOR.WHITE};
   border-radius: 5rem;

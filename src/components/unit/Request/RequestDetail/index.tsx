@@ -17,6 +17,7 @@ import { LoginUserDto } from 'types/problem';
 import Modal from 'components/unit/Modal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import useModal from 'hooks/useModal';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const RequestDetail = () => {
   const [userInfoData, setUserInfoData] = useState<LoginUserDto | null>();
@@ -71,56 +72,62 @@ const RequestDetail = () => {
           />
         </Modal>
       )}
-      <Container>
-        <S.Container>
-          <S.Header>
-            <S.PostInfo>
-              <ApproveStatus flag={request?.flag} />
-              <S.Title>{request?.title}</S.Title>
-              <S.Detail>
-                {request?.memberName}
-                <span>·</span>
-                {request?.createAt}
-              </S.Detail>
-            </S.PostInfo>
-            {/* 수정삭제버튼 */}
-            {request?.memberId === userInfoData?.memberId ? (
-              <S.Options>
-                <button onClick={handleNavigateEdit}>
-                  <AiFillEdit size={20} color="#aaa" />
-                </button>{' '}
-                <button onClick={toggleModal}>
-                  <AiFillDelete size={20} color="#aaa" />
-                </button>
-              </S.Options>
+      <ContentContainer>
+        <Container>
+          <S.Container>
+            <S.Header>
+              <S.PostInfo>
+                <ApproveStatus flag={request?.flag} />
+                <S.Title>{request?.title}</S.Title>
+                <S.Detail>
+                  {request?.memberName}
+                  <span>·</span>
+                  {request?.createAt}
+                </S.Detail>
+              </S.PostInfo>
+              {/* 수정삭제버튼 */}
+              {request?.memberId === userInfoData?.memberId ? (
+                <S.Options>
+                  <button onClick={handleNavigateEdit}>
+                    <AiFillEdit size={20} color="#aaa" />
+                  </button>{' '}
+                  <button onClick={toggleModal}>
+                    <AiFillDelete size={20} color="#aaa" />
+                  </button>
+                </S.Options>
+              ) : (
+                ''
+              )}
+            </S.Header>
+            <S.Content>{request?.description}</S.Content>
+          </S.Container>
+          <S.ButtonWrapper>
+            {isAdmin() ? (
+              <>
+                <Button
+                  variant="primary"
+                  size="medium"
+                  disabled={request?.flag}
+                  onClick={handleSubmit(onSubmit)}
+                >
+                  승인하기
+                </Button>
+                <Button
+                  variant="gray"
+                  size="medium"
+                  onClick={handleNavigateBack}
+                >
+                  돌아가기
+                </Button>
+              </>
             ) : (
-              ''
-            )}
-          </S.Header>
-          <S.Content>{request?.description}</S.Content>
-        </S.Container>
-        <S.ButtonWrapper>
-          {isAdmin() ? (
-            <>
-              <Button
-                variant="primary"
-                size="medium"
-                disabled={request?.flag}
-                onClick={handleSubmit(onSubmit)}
-              >
-                승인하기
-              </Button>
               <Button variant="gray" size="medium" onClick={handleNavigateBack}>
                 돌아가기
               </Button>
-            </>
-          ) : (
-            <Button variant="gray" size="medium" onClick={handleNavigateBack}>
-              돌아가기
-            </Button>
-          )}
-        </S.ButtonWrapper>
-      </Container>
+            )}
+          </S.ButtonWrapper>
+        </Container>
+      </ContentContainer>
     </>
   );
 };

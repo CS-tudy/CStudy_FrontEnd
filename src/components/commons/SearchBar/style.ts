@@ -1,3 +1,4 @@
+import { COLOR } from 'constants/Color';
 import { media } from 'constants/media';
 import styled from 'styled-components';
 
@@ -7,7 +8,7 @@ export const Searchbar = styled.div`
   height: 45px;
   border-radius: 10px;
   background-color: #fff;
-  border: 1px solid #dbdbdb;
+  border: 1px solid ${COLOR.GRAY_80};
   display: flex;
   flex-direction: row;
   align-items: center;

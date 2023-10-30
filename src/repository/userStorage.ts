@@ -41,6 +41,7 @@ export const userStorage = {
   },
   remove() {
     localStorage.removeItem(USER_TOKENS);
+    localStorage.removeItem(REFRESH_TOKEN_COOKIE);
     Cookies.remove(REFRESH_TOKEN_COOKIE);
   },
 };

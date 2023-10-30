@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import Header from 'components/commons/Header/Header';
 import Footer from 'components/commons/Footer/footer';
-import Navbar from 'components/admin/List';
+import Navbar from 'components/unit/admin/List';
 
 const AdminRoot = () => {
   return (

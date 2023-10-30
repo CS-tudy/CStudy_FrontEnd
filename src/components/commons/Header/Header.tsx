@@ -19,7 +19,7 @@ import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export interface PrevToogle {
-  active: boolean;
+  $active: boolean;
 }
 
 const Header = () => {
@@ -78,37 +78,37 @@ const Header = () => {
             </picture>
           </Link>
         </S.LogoWrap>
-        <S.Nav active={active}>
+        <S.Nav $active={active}>
           <S.NavList>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/notice">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/notice">
                 공지사항
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/request">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/request">
                 문제요청
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/problem">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/problem">
                 문제풀이
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/contest">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/contest">
                 대회
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/workbook">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/workbook">
                 문제집
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLink onClick={HandleClickToogle} to="/membersranks">
+              <S.NavLinkStyle onClick={HandleClickToogle} to="/membersranks">
                 전체랭킹
-              </S.NavLink>
+              </S.NavLinkStyle>
             </S.NavItem>
           </S.NavList>
         </S.Nav>
@@ -116,11 +116,11 @@ const Header = () => {
           {active ? <AiOutlineClose /> : <GiHamburgerMenu />}
         </S.HamburgerBt>
         {isAdmin() && (
-          <S.Admin active={active}>
+          <S.Admin $active={active}>
             <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
-        <S.Sign active={active}>
+        <S.Sign $active={active}>
           {isLoginModalOpen && (
             <Modal toggleModal={LogintoggleModal}>
               <SignModal toggleModal={LogintoggleModal}>

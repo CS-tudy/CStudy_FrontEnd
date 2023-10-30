@@ -55,13 +55,6 @@ export const CpInput = styled.div`
   }
 `;
 
-export const CpButton = styled.div`
-  display: flex;
-  button {
-    margin: 2rem 2rem 0 0;
-  }
-`;
-
 export const Ex = styled.div`
   position: relative;
   display: flex;

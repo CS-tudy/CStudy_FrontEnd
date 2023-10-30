@@ -1,16 +1,6 @@
 import * as S from './style';
 import NoticeAdminOptionGroup from '../noticeAdminOption';
-import { useDeleteNoticeList } from 'hooks/@query/board/useNoticeDelete';
-import { useUpdateNoticeList } from 'hooks/@query/board/useNoticeUpdate';
-import { useState, useCallback } from 'react';
-import {
-  FieldValues,
-  SubmitHandler,
-  UseFormHandleSubmit,
-  UseFormReset,
-  useForm,
-} from 'react-hook-form';
-import Input from 'components/commons/Input';
+import { useState } from 'react';
 
 interface AdminNoticeCardProps {
   id: number;
@@ -31,8 +21,9 @@ const AdminNoticeListCard = ({
     <S.Container>
       <S.Article>
         <S.ContentWrapper>
-          <S.Content>
+          <S.Content key={id}>
             <NoticeAdminOptionGroup
+              key={id}
               id={id}
               title={title}
               content={content}

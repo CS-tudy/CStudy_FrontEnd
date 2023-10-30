@@ -20,7 +20,7 @@ const Rank = () => {
   const TBodyContent = (Array.isArray(membersRanks) ? membersRanks : [])?.map(
     ({ score, value }, index: number) => (
       <tr key={index}>
-        <TBodyTd className="white" white narrow rank={index + 1}>
+        <TBodyTd className="white" $white narrow rank={index + 1}>
           {index + 1 === 1 ? (
             <PiMedalFill size="28" color="#f7d100" />
           ) : index + 1 === 2 ? (
@@ -32,7 +32,7 @@ const Rank = () => {
             ''
           )}
         </TBodyTd>
-        <TBodyTd className="white" white narrow rankFont={index + 1}>
+        <TBodyTd className="white" $white narrow rankFont={index + 1}>
           {index + 1 === 1 ? (
             <div style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}>
               {index + 1}
@@ -49,10 +49,10 @@ const Rank = () => {
             index + 1
           )}
         </TBodyTd>
-        <TBodyTd className="title center white" white narrow>
+        <TBodyTd className="title center white" $white narrow>
           {value}
         </TBodyTd>
-        <TBodyTd className="white" white narrow>
+        <TBodyTd className="white" $white narrow>
           {Math.floor(score as number)}
         </TBodyTd>
       </tr>

@@ -25,7 +25,6 @@ import Problem from 'pages/Problem';
 import ProblemDetailPage from 'pages/ProblemDetail';
 import Notice from 'pages/Notice';
 
-import AdminRoute from './AdminRouter';
 import NoticeRequestDetail from 'pages/NoticeDetail';
 import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
@@ -71,13 +70,12 @@ const router = createBrowserRouter([
             element: <RequestDetailPage />,
           },
           {
-            path: 'new',
+            path: ':requestId/edit',
             element: <RequestWrite />,
           },
           {
-            path: ':requestId/edit',
-            // loader: checkAdminLoader,
-            element: <RequestEdit />,
+            path: 'new',
+            element: <RequestWrite />,
           },
         ],
       },
@@ -107,12 +105,12 @@ const router = createBrowserRouter([
             element: <ContestDetail />,
           },
           {
-            path: ':contestId/contestproblem',
-            element: <ContestProblem />,
-          },
-          {
             path: ':contestId/result',
             element: <ContestResultPage />,
+          },
+          {
+            path: ':contestId/contestproblem',
+            element: <ContestProblem />,
           },
         ],
       },
@@ -158,7 +156,7 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'CreateProblem',
+            path: 'createproblem',
             loader: checkAdminLoader,
             element: <CreateProblem />,
           },
@@ -172,25 +170,17 @@ const router = createBrowserRouter([
             element: <AdminNoticeRequest />,
           },
           {
-            path: 'Createnotice',
+            path: 'createnotice',
             loader: checkAdminLoader,
             element: <CreateNotice />,
           },
         ],
       },
+
       {
         children: [
           {
-            path: 'RequestQuestion',
-            loader: checkAdminLoader,
-            element: <RequestQuestion />,
-          },
-        ],
-      },
-      {
-        children: [
-          {
-            path: 'CreateWorkbook',
+            path: 'createworkbook',
             loader: checkAdminLoader,
             element: <CreateWorkbook />,
           },
@@ -204,113 +194,14 @@ const router = createBrowserRouter([
       {
         children: [
           {
-            path: 'CreateContest',
+            path: 'createcontest',
             loader: checkAdminLoader,
             element: <CreateContest />,
           },
         ],
       },
-      { path: 'oauth2/login', element: <OAuthRedirect /> },
     ],
   },
 ]);
-
-// const Router = () => {
-//   return (
-//     <BrowserRouter>
-//       <Layout>
-//         <Routes>
-//           {/* path = 경로  element = 컴포넌트*/}
-//           <Route path="/" element={<Main />} />
-//           <Route path="/notice" element={<Notice />} />
-//           <Route path="/notice/:Id" eleme={<NoticeRequestDetail />} />
-//           <Route path="/admin/notice" element={<CreateBoard />} />
-
-//           <Route path="/request" element={<Request />} />
-//           <Route path="/request/:requestId" element={<RequestDetailPage />} />
-//           <Route path="/request/new" element={<RequestWrite />} />
-//           <Route path="/request/:requestId/edit" element={<RequestEdit />} />
-//           <Route path="/workbook" element={<Workbook />} />
-//           <Route path="/contest" element={<Contest />} />
-//           <Route path="/problem" element={<Problem />} />
-//           <Route path="/problem/:problemId" element={<ProblemDetailPage />} />
-//           <Route path="/membersranks" element={<MembersRanks />} />
-//           <Route path="/mypage" element={<MyPage />} />
-//           <Route path="/signup" element={<Signup />} />
-//           <Route
-//             path="/admin/CreateProblem"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<CreateProblem />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="/admin/Notion"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<CreateNotice />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="/admin/CreateContest"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<CreateContest />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="/admin/RequestQuestion"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<RequestQuestion />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="workbook/admin/CreateWorkbook"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<CreateWorkbook />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="workbook/:questionId"
-//             element={
-//               <AdminRoute
-//                 authenticated={checkAdminLoader()}
-//                 component={<WorkbookQuestion />}
-//               />
-//             }
-//           />
-//           <Route
-//             path="/workbook/:questionId/question"
-//             element={<WorkbookProblemAdd />}
-//           />
-
-//           <Route path="/oauth2/login" element={<OAuthRedirect />} />
-//           <Route path="/contest/:contestId" element={<ContestDetail />} />
-//           <Route
-//             path="/contest/:contestId/contestproblem"
-//             element={<ContestProblem />}
-//           />
-//           <Route
-//             path="/contest/:contestId/result"
-//             element={<ContestResultPage />}
-//           />
-//           <Route path="/review" element={<Review />} />
-//         </Routes>
-//       </Layout>
-//     </BrowserRouter>
-//   );
-// };
 
 export default router;

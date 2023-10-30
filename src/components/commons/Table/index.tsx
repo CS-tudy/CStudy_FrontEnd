@@ -21,7 +21,7 @@ const Table = ({
   return (
     <S.Table
       cellSpacing={0}
-      white={white}
+      $white={white}
       maxHeight={maxHeight}
       narrow={narrow}
     >

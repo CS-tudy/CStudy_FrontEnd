@@ -46,3 +46,9 @@ export const Detail = styled.div`
   color: ${COLOR.GRAY_200};
   margin-top: 1.2rem;
 `;
+
+export const Button = styled.button`
+  & + button {
+    margin-left: 0.5rem;
+  }
+`;

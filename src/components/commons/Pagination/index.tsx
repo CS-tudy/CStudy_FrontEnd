@@ -1,8 +1,6 @@
 import { PaginationProps } from 'types/pagination';
 import usePagination from '../../../hooks/usePagination';
 import * as S from './style';
-import { SlArrowLeft } from 'react-icons/sl';
-import { SlArrowRight } from 'react-icons/sl';
 
 const Pagination = ({
   totalPages,

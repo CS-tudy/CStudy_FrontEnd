@@ -5,16 +5,13 @@ import {
   useEditRequest,
 } from 'hooks/@query/request/useMutateRequest';
 
-// import ContentContainer from 'components/@shared/ContentContainer';
-// import ContentHeaderWrapper from 'components/@shared/ContentHeaderWrapper';
-// import ContentBodyWrapper from 'components/@shared/ContentBodyWrapper';
-// import Input from 'components/@shared/Input';
-// import TextArea from 'components/@shared/TextArea';
 import * as S from './style';
 import Container from 'components/commons/Container';
 import TextArea from 'components/commons/TextArea';
 import Button from 'components/commons/Button/Button';
 import Input from 'components/commons/Input';
+import ContentContainer from 'components/commons/ContentContainer';
+import Toast from 'libs/Toast';
 
 interface RequesetWriteProps {
   isEdit: boolean;
@@ -27,11 +24,12 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      title: '',
-      description: '',
+      title: data?.title || '',
+      description: data?.description || '',
     },
   });
 
@@ -43,12 +41,26 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const { mutate: editRequest } = useEditRequest();
 
   const submitForm: SubmitHandler<FieldValues> = FormData => {
-    console.log(FormData);
-    const updateRequestInput = {
-      title: FormData?.title,
-      description: FormData?.description,
-      id: data?.id,
-    };
+    console.log('form', FormData);
+    // const updateRequestInput = {
+    //   title: FormData?.title,
+    //   description: FormData?.description,
+    //   id: data?.id,
+    // };
+    setValue('title', data?.title || '');
+    setValue('description', data?.description || '');
+
+    // const updateRequestInput = { id: data?.id };
+    const updateRequestInput: {
+      id: string;
+      title?: string;
+      description?: string;
+    } = { id: data?.id };
+
+    if (FormData.title) updateRequestInput.title = FormData.title;
+    if (FormData.description)
+      updateRequestInput.description = FormData.description;
+
     // if(title)
     // if(description)
     if (isEdit) editRequest(updateRequestInput);
@@ -56,9 +68,9 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   };
 
   return (
-    <div>
+    <ContentContainer>
       <Container>
-        <S.Form onSubmit={handleSubmit(submitForm)}>
+        <S.Form onSubmit={handleSubmit(submitForm)} noValidate>
           <Input
             id="title"
             label="제목"
@@ -68,7 +80,7 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
             register={register}
             errors={errors}
           />
-          <S.Div></S.Div>
+          <S.Div />
           <TextArea
             id="description"
             label="내용"
@@ -88,7 +100,7 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
           </S.ButtonWrapper>
         </S.Form>
       </Container>
-    </div>
+    </ContentContainer>
   );
 };
 

@@ -28,6 +28,15 @@ export const Title = styled.span`
   text-overflow: ellipsis;
 `;
 
+// export const Title = styled.div`
+//   display: block;
+//   margin-left: 1rem;
+//   ${FONT.BOLD_20};
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// `;
+
 export const Content = styled.div`
   margin-top: 1rem;
   font-size: ${FONT.REGULAR_16};

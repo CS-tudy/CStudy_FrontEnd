@@ -1,4 +1,5 @@
 import { COLOR } from 'constants/Color';
+import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 import styled from 'styled-components';
 
@@ -11,8 +12,9 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   z-index: 100;
-  width: 58rem;
-  height: 57rem;
+  width: 48rem;
+  /* height: 57rem; */
+  padding: 7rem 0;
   border-radius: 3.2rem;
   background-color: ${COLOR.WHITE};
   transform: translate(-50%, -50%);
@@ -39,8 +41,10 @@ export const XButton = styled.span`
 
 export const Title = styled.div`
   text-align: center;
-  font-size: 20px;
+  /* font-size: 20px; */
   margin-bottom: 1.4rem;
+  font-size: ${FONT.BOLD_20};
+  font-weight: 500;
 `;
 
 export const Line = styled.div`

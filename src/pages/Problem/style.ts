@@ -9,18 +9,36 @@ export const ContainerHeader = styled.div`
   height: 100%;
 `;
 
-export const Test = styled.div`
-  margin-top: 6rem;
-  /* margin-bottom: 12rem; */
+export const ButtonWrapper = styled.div`
+  /* display: flex; */
+  /* justify-content: flex-end; */
+  position: absolute;
+  right: 5vw;
+  top: 95px;
+  /* left: 20px; */
+  /* padding-left: vw; */
+  /* width: 100%; */
+  /* padding-right: 5vw; */
+
+  ${media.mobildL} {
+  }
 `;
 
 export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  /* flex-direction: row;
+  justify-content: flex-end; */
   width: 100%;
   position: absolute;
   padding-right: 5vw;
+  top: 0px;
+
+  ${media.mobildL} {
+    flex-direction: column;
+    top: 0px;
+  }
 `;
 
 export const SearchWrapper = styled.div`

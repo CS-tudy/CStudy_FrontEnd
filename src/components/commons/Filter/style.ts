@@ -12,7 +12,7 @@ export const Filter = styled.button`
     color: ${COLOR.WHITE};
   }
 
-  padding: 1.2rem;
+  padding: 1.2rem 1.4rem;
   border-radius: 5rem;
   background: ${COLOR.GRAY_50};
   margin-right: 2rem;

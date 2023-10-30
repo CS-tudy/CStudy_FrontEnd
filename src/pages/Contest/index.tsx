@@ -31,6 +31,7 @@ const Contest = () => {
           </Filter>
         </S.ButtonWrapper>
       </ContainerTop>
+      <S.ContainerMarginTop />
       <Container>
         <Table colRate={tableRate} title={tableTitle}>
           {contestList?.totalElements === 0 && (

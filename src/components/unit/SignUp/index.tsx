@@ -1,9 +1,8 @@
 import React from 'react';
-import Container from 'components/commons/Container';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
 import { useDispatch, useSelector } from 'react-redux';
-import { signupClose, signupToggle } from 'hooks/@redux/registerModalSlice';
+import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 const SignUp = () => {
@@ -28,17 +27,13 @@ const SignUp = () => {
   );
 
   const changeModalHandler = () => {
-    // closeSignUpModal();
-    // loginModalOpen();
     dispatch(signupToggle());
     dispatch(Logintoggle());
   };
 
   return (
-    // <Modal toggleModal={() => dispatch(toggle())}>
-    //   <AuthModalFrame toggleModal={() => dispatch(close())}>
     <form onSubmit={handleSubmit(submitForm)}>
-      <S.InputDiv>
+      <S.InputWrapper>
         <S.Input
           type="text"
           placeholder="이름"
@@ -56,12 +51,12 @@ const SignUp = () => {
               }),
           })}
         />
-        <S.InputButton type="button" onClick={onCheckDuplicatedName}>
+        <S.ButtonInsideInput type="button" onClick={onCheckDuplicatedName}>
           중복확인
-        </S.InputButton>
-      </S.InputDiv>
+        </S.ButtonInsideInput>
+      </S.InputWrapper>
       <S.ErrorMessage>{errors.name?.message as string}</S.ErrorMessage>
-      <S.InputDiv>
+      <S.InputWrapper>
         <S.Input
           type="email"
           placeholder="이메일"
@@ -79,21 +74,21 @@ const SignUp = () => {
               }),
           })}
         />
-        <S.InputButton
+        <S.ButtonInsideInput
           type="button"
           onClick={
             noDuplicatedEmail ? onSendAuthNumberToEmail : onCheckDuplicatedEmail
           }
         >
           {noDuplicatedEmail ? '인증번호 전송' : '중복확인'}
-        </S.InputButton>
-      </S.InputDiv>
+        </S.ButtonInsideInput>
+      </S.InputWrapper>
       <S.ErrorMessage>
         {errors.email?.message as React.ReactNode}
       </S.ErrorMessage>
 
       {authenticating && (
-        <S.InputDiv>
+        <S.InputWrapper>
           {authenticating && (
             <S.Input
               type="text"
@@ -114,11 +109,11 @@ const SignUp = () => {
             />
           )}
           {authenticating && (
-            <S.InputButton type="button" onClick={onCheckAuthNumber}>
+            <S.ButtonInsideInput type="button" onClick={onCheckAuthNumber}>
               인증
-            </S.InputButton>
+            </S.ButtonInsideInput>
           )}
-        </S.InputDiv>
+        </S.InputWrapper>
       )}
       <S.ErrorMessage>
         {errors.emailAuthNumber?.message as string}
@@ -149,10 +144,6 @@ const SignUp = () => {
         placeholder="비밀번호 확인"
         {...register('passwordConfirm', {
           required: '비밀번호를 입력해주세요.',
-          // pattern: {
-          //   value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*\W).{8,20}$/,
-          //   message: '문자, 숫자, 기호를 포함한 8~20자를 입력해주세요.',
-          // },
           onChange: e =>
             setValue('passwordConfirm', e.target.value, {
               shouldValidate: true,
@@ -171,12 +162,10 @@ const SignUp = () => {
       <S.Suggestion>
         <S.TextSuggestionLabel>회원이신가요?</S.TextSuggestionLabel>
         <button type="button" onClick={changeModalHandler}>
-          로그인
+          <S.MovingLogin>로그인</S.MovingLogin>
         </button>
       </S.Suggestion>
     </form>
-    //   </AuthModalFrame>
-    // </Modal>
   );
 };
 

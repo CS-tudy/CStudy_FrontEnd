@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 
+export const InputWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
 export const Input = styled.input`
   &:focus {
     border: 0.1rem solid #0078ff;
@@ -43,16 +48,18 @@ export const TextSuggestionLabel = styled.span`
   padding-right: 1rem;
 `;
 
-export const InputDiv = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-export const InputButton = styled.button`
+export const ButtonInsideInput = styled.button`
   position: absolute;
   right: 0.8rem;
   top: 1.8rem;
   background-color: ${COLOR.GRAY};
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
+`;
+
+export const MovingLogin = styled.span`
+  display: inline-block;
+  color: #3a82d3;
+  font-size: 15px;
+  margin-bottom: 0.5px;
 `;

@@ -109,7 +109,7 @@ const contestFilterSlice = createSlice({
   name: 'contestFilter',
   initialState: {
     pageNumber: 0,
-    query: '',
+    query: 'active',
   },
   reducers: {
     setContestQuery(state, action) {

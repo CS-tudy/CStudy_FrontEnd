@@ -1,4 +1,5 @@
 import { COLOR } from 'constants/Color';
+import { media } from 'constants/media';
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -8,6 +9,11 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fff;
+  margin-bottom: 700px;
+
+  ${media.tablet} {
+    margin-bottom: 1000px;
+  }
 `;
 
 export const BodyWrapper = styled.div`

@@ -1,5 +1,5 @@
 import { IContestResult } from 'types/api';
-import * as Styled from './style';
+import * as S from './style';
 
 interface ContestResultProps {
   contestResult: IContestResult;
@@ -24,67 +24,71 @@ const ContestResult = ({ contestResult }: ContestResultProps) => {
     <>
       {contestResult ? (
         <>
-          <Styled.RecordTitle>
+          <S.RecordTitle>
             성적
             <span>
               {' '}
               (70% 이상인 경우 녹색으로, 그렇지 않으면 빨간색으로 표시됩니다.)
             </span>
-          </Styled.RecordTitle>
-          <Styled.ProgressBarContainer>
-            <Styled.ProgressBar
+          </S.RecordTitle>
+          <S.ProgressBarContainer>
+            <S.ProgressBar
               score={contestResult?.score}
               total={contestResult?.total}
             />
-          </Styled.ProgressBarContainer>
-          <Styled.ScoreIndicator>
-            <Styled.Correct>
+          </S.ProgressBarContainer>
+          {/* <S.ScoreIndicator>
+            <S.Correct>
               맞은 개수:
               {contestResult?.score}
-            </Styled.Correct>
-            <Styled.Wrong>
+            </S.Correct>
+            <S.Wrong>
               틀린 개수:
               {contestResult?.total - contestResult?.score}
-            </Styled.Wrong>
-          </Styled.ScoreIndicator>
-          <Styled.ResultListContainer>
-            <Styled.ResultProblemWrapper>
-              <Styled.ResultProblemTitle>맞은 문제</Styled.ResultProblemTitle>
-              <Styled.ResultList>
+            </S.Wrong>
+          </S.ScoreIndicator> */}
+          <S.ResultListContainer>
+            <S.ResultProblemWrapper>
+              <S.ResultProblemTitle>
+                맞은 문제
+                <S.ResultNumber>{contestResult?.score}개</S.ResultNumber>
+              </S.ResultProblemTitle>
+              <S.ResultList>
                 {questions?.map(
                   (detail, index) =>
                     detail.correct && (
-                      <Styled.ListItem key={index}>
-                        <Styled.QuestionTitle>
-                          문제 {index + 1}
-                        </Styled.QuestionTitle>
-                        <Styled.ChoiceLabel correct={detail.correct}>
+                      <S.ListItem key={index}>
+                        <S.QuestionTitle>문제 {index + 1}</S.QuestionTitle>
+                        <S.ChoiceLabel correct={detail.correct}>
                           선택한 정답: {detail.choiceNumber}
-                        </Styled.ChoiceLabel>
-                      </Styled.ListItem>
+                        </S.ChoiceLabel>
+                      </S.ListItem>
                     ),
                 )}
-              </Styled.ResultList>
-            </Styled.ResultProblemWrapper>
-            <Styled.ResultProblemWrapper>
-              <Styled.ResultProblemTitle>틀린 문제</Styled.ResultProblemTitle>
-              <Styled.ResultList>
+              </S.ResultList>
+            </S.ResultProblemWrapper>
+            <S.ResultProblemWrapper>
+              <S.ResultProblemTitle>
+                틀린 문제
+                <S.ResultNumber>
+                  {contestResult?.total - contestResult?.score}개
+                </S.ResultNumber>
+              </S.ResultProblemTitle>
+              <S.ResultList>
                 {questions?.map(
                   (detail, index) =>
                     !detail.correct && (
-                      <Styled.ListItem key={index}>
-                        <Styled.QuestionTitle>
-                          문제 {index + 1}
-                        </Styled.QuestionTitle>
-                        <Styled.ChoiceLabel correct={detail.correct}>
+                      <S.ListItem key={index}>
+                        <S.QuestionTitle>문제 {index + 1}</S.QuestionTitle>
+                        <S.ChoiceLabel correct={detail.correct}>
                           선택한 정답: {detail.choiceNumber}
-                        </Styled.ChoiceLabel>
-                      </Styled.ListItem>
+                        </S.ChoiceLabel>
+                      </S.ListItem>
                     ),
                 )}
-              </Styled.ResultList>
-            </Styled.ResultProblemWrapper>
-          </Styled.ResultListContainer>
+              </S.ResultList>
+            </S.ResultProblemWrapper>
+          </S.ResultListContainer>
         </>
       ) : (
         <div>대회에 참여한 이력이 없습니다.</div>

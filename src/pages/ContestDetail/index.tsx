@@ -1,6 +1,5 @@
 import Button from 'components/commons/Button/Button';
 import Container from 'components/commons/Container';
-import MiniContainer from 'components/commons/MiniContainer';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
@@ -11,6 +10,8 @@ import { useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
 import { Contest, IContestRank } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
+import * as S from './style';
+import ContestDetailContainer from 'components/commons/ContestDetailContainer';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
@@ -61,7 +62,7 @@ const ContestDetail = () => {
   console.log('rank', contestRank);
 
   return (
-    <MiniContainer>
+    <ContestDetailContainer>
       <div
         style={{
           width: '100%',
@@ -78,7 +79,7 @@ const ContestDetail = () => {
           }}
         >
           <Button variant="green" size="large" onClick={handleNavigateMyResult}>
-            나의 대회 결과
+            <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
           </Button>
           <Button variant="primary" size="medium" onClick={toggleModal}>
             대회 참여
@@ -98,7 +99,7 @@ const ContestDetail = () => {
           </Modal>
         )}
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
+      <S.ContestDetailContent>
         <ContestInfo contest={contest as Contest} />
         <ContestRank
           contestRank={contestRank as IContestRank}
@@ -106,8 +107,8 @@ const ContestDetail = () => {
           handlePage={handlePage}
           page={page}
         />
-      </div>
-    </MiniContainer>
+      </S.ContestDetailContent>
+    </ContestDetailContainer>
   );
 };
 

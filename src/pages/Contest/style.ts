@@ -7,8 +7,12 @@ export const ButtonWrapper = styled.div`
   top: 70px;
   margin-top: 6rem;
   width: 100%;
-  padding-right: 4vw;
+  /* padding-right: 4vw; */
   /* height: 100%; */
+`;
+
+export const ContainerMarginTop = styled.div`
+  height: 60px;
 `;
 
 // export const Div = styled.div`

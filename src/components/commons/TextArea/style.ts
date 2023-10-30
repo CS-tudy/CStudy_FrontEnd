@@ -22,6 +22,10 @@ export const TextArea = styled.textarea<TextAreaStyleProps>`
       errors[id] ? `${COLOR.GRAY_80}` : `${COLOR.GRAY_80}`};
   resize: none;
   /* border: 0.12rem solid ${COLOR.GRAY_80}; */
+  &:focus {
+    border: 0.16rem solid ${COLOR.GRAY_100};
+    outline: none;
+  }
 `;
 
 export const ErrorMsg = styled.span`

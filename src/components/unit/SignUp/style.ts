@@ -9,7 +9,8 @@ export const InputWrapper = styled.div`
 
 export const Input = styled.input`
   &:focus {
-    border: 0.1rem solid #0078ff;
+    border: 0.16rem solid ${COLOR.GRAY_100};
+    outline: none;
   }
 
   width: 33.6rem;

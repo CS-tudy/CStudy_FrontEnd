@@ -78,4 +78,8 @@ export const Button = styled.button<ButtonComponent>`
   & + & {
     margin-left: 1.1rem;
   }
+
+  & + a {
+    margin-left: 1.1rem;
+  }
 `;

@@ -5,10 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ProblemContent } from 'types/api';
 // import StatusLabel from '../StatusLabel';
 import { TBodyTd } from 'components/commons/Table/style';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SolveStatus from '../SolveStatus';
 import { isLogin } from 'repository/auth';
 import Toast from 'libs/Toast';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 interface ProblemItemProps {
   problem: ProblemContent;
@@ -18,10 +19,13 @@ const ProblemItem = ({ problem }: ProblemItemProps) => {
   const { questionId, status, questionTitle, categoryTitle } = problem;
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const checkLogin = () => {
+  const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
-      Toast.error('로그인 후 이용하실 수 있습니다.');
+      // Toast.error('로그인 후 이용하실 수 있습니다.');
+      e.preventDefault();
+      dispatch(Logintoggle());
       navigate('/problem');
     }
   };

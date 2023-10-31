@@ -222,7 +222,3 @@ export type WorkbookQuestionContent = {
 export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
   content: WorkbookQuestionContent[];
 }
-
-export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
-  content: WorkbookQuestionContent[];
-}

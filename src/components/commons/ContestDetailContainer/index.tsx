@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './style';
 
-const MiniContainer = ({ children }: React.PropsWithChildren) => {
+const ContestDetailContainer = ({ children }: React.PropsWithChildren) => {
   return (
     <S.Wrapper>
       <S.BodyWrapper>
@@ -11,4 +11,4 @@ const MiniContainer = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-export default MiniContainer;
+export default ContestDetailContainer;

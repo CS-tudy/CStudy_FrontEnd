@@ -1,5 +1,5 @@
 import * as S from './style';
-import banner_gif from '../../../assets/CSutdybanner.gif';
+import banner_gif from '../../../../assets/CSutdybanner.gif';
 const Banner = () => {
   return (
     <div>

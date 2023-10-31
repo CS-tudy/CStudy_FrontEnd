@@ -4,7 +4,7 @@ import { FONT } from 'constants/Font';
 
 export const Container = styled.div`
   /* min-height: 60vh; */
-  padding: 6rem;
+  padding: 6rem 5vw;
   background-color: ${COLOR.WHITE};
   border: 0.1rem solid ${COLOR.WHITE};
   border-radius: 5rem;
@@ -18,10 +18,17 @@ export const Header = styled.div`
   border-bottom: 0.1rem solid ${COLOR.GRAY_100};
 `;
 
-export const PostInfo = styled.div``;
+export const PostInfo = styled.div`
+  margin-left: 1rem;
+`;
 
 export const Options = styled.div`
   color: ${COLOR.GRAY_200};
+  margin-right: 1rem;
+
+  & > button {
+    margin: 0.3rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -38,14 +45,14 @@ export const Detail = styled.div`
 
 export const Content = styled.div`
   margin-top: 4rem;
+  margin-left: 1rem;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-
-  & > button {
+  margin-top: 2rem & > button {
     margin: 0.5rem;
   }
 `;

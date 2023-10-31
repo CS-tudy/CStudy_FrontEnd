@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { FONT } from './../../../constants/Font';
+import { FONT } from './../../../../constants/Font';
 import { NavLink } from 'react-router-dom';
 import { COLOR } from 'constants/Color';
 import { media } from 'constants/media';
@@ -123,25 +123,5 @@ export const BoldText = styled.span`
   ${FONT.BOLD_14};
   ${media.mobildL} {
     ${FONT.BOLD_12};
-  }
-`;
-
-export const ContentLink = styled(NavLink)`
-  margin-top: 2rem;
-  padding: 1.2rem 1.6rem;
-  display: inline-block;
-  background-color: ${COLOR.MAIN};
-  color: ${COLOR.WHITE};
-  font-size: ${FONT.REGULAR_16};
-  border-radius: 1rem;
-  &:hover {
-    opacity: 0.8;
-    color: ${COLOR.WHITE};
-  }
-  ${media.tablet} {
-    font-size: ${FONT.REGULAR_14};
-  }
-  ${media.mobildL} {
-    font-size: ${FONT.REGULAR_12};
   }
 `;

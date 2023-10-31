@@ -14,6 +14,7 @@ import { IoIosTimer } from 'react-icons/io';
 import Pagination from 'components/commons/Pagination';
 import ContainerBottom from 'components/commons/ContainerBottom';
 import ContainerTop from 'components/commons/ContainerTop';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const Request = () => {
   const { requestFilter, handlePage, handleToggle, isActive } =
@@ -26,13 +27,11 @@ const Request = () => {
   });
 
   return (
-    <>
+    <ContentContainer>
       <ContainerTop>
-        <S.ButtonWrapper>
-          <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
-        </S.ButtonWrapper>
+        <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
       </ContainerTop>
-      {/* <S.ContainerMarginTop /> */}
+      <S.ContainerMarginTop />
       <Container>
         <RequestList
           requestList={requestList as ToggleRequestList}
@@ -49,7 +48,7 @@ const Request = () => {
           />
         )}
       </ContainerBottom>
-    </>
+    </ContentContainer>
   );
 };
 

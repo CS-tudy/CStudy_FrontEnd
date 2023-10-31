@@ -3,6 +3,14 @@ import { AdminInputStyleProps } from 'types/style';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 50px;
+  margin-bottom: 600px;
+`;
+
 export const ContestProblemDesc = styled.h3`
   ${FONT.H3}
 `;
@@ -12,7 +20,7 @@ export const Form = styled.form`
   margin-top: 3rem;
   padding: 3rem 4rem 3rem 7rem;
   background-color: ${COLOR.WHITE};
-  border: 0.2rem solid ${COLOR.WHITE};
+  border: 0.15rem solid ${COLOR.GRAY_80};
   border-radius: 1.2rem;
 `;
 
@@ -53,7 +61,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   }
 
   &:checked {
-    border: 0.4rem solid ${COLOR.GREEN};
+    /* border: 0.4rem solid ${COLOR.GREEN}; */
   }
 
   &:checked::after {

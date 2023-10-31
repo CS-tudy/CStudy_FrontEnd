@@ -33,7 +33,6 @@ const CreateProblemInput = ({
   label,
   value,
   onChange,
-  checked,
   errors,
 }: CreateProblemInputProps) => {
   return (
@@ -56,7 +55,6 @@ const CreateProblemInput = ({
           id={id}
           type={type}
           value={value}
-          checked={checked}
           name={name}
           {...errors}
           {...(register(resgiterName), { onChange: () => onChange })}

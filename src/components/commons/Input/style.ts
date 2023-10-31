@@ -22,11 +22,17 @@ export const Input = styled.input<InputStyleProps>`
       border-radius: 0.4rem;
       border: 0.12rem solid
         ${({ errors, id }) =>
-          errors[id] ? `${COLOR.RED}` : `${COLOR.GRAY_80};`};
+          errors[id] ? `${COLOR.GRAY_80}` : `${COLOR.GRAY_80};`};
     `}
+
+  &:focus {
+    border: 0.16rem solid ${COLOR.GRAY_100};
+    outline: none;
+  }
 `;
 
 export const ErrorMsg = styled.span<InputStyleProps>`
-  ${FONT.BOLD_14};
+  font-size: ${FONT.REGULAR_14};
   color: ${COLOR.RED};
+  padding-top: 0.5rem;
 `;

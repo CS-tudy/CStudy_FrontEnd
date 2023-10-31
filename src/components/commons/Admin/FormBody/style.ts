@@ -1,5 +1,3 @@
-import { COLOR } from 'constants/Color';
-import { SHADOW } from 'constants/Shadow';
 import styled from 'styled-components';
 
 export const FormBody = styled.div`

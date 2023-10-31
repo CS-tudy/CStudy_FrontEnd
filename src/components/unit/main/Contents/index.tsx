@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as S from './style';
 import rank_jpg from 'assets/rank.jpg';
 import inquiry_jpg from 'assets/inquiry.jpg';
 import competition_jpg from 'assets/competition.jpg';
+import LinkButton from 'components/commons/LinkButton';
 
 const Contents = () => {
   return (
@@ -34,7 +34,9 @@ const Contents = () => {
                 <br />
                 퀴즈 형태로 더욱 쉽게 접근 하고 학습 할 수 있게 도와줍니다.
               </S.Texts>
-              <S.ContentLink to="/board">게시판 보러 가기</S.ContentLink>
+              <LinkButton variant="primary" size="large" to="/board">
+                게시판 보러 가기
+              </LinkButton>
             </p>
           </S.ContentTexts>
         </S.ContentWrapper>
@@ -59,7 +61,9 @@ const Contents = () => {
                 <br />
                 대회를 통해 성장한 자신을 확인하고, 더욱 성장하세요!
               </S.Texts>
-              <S.ContentLink to="/contest">대회 보러 가기</S.ContentLink>
+              <LinkButton variant="primary" size="large" to="/contest">
+                대회 보러 가기
+              </LinkButton>
             </p>
           </S.ContentTexts>
 
@@ -100,7 +104,9 @@ const Contents = () => {
                 <br />
                 위해 노력하는 동료들을 확인하고 선의의 경쟁을 위해 준비했습니다.
               </S.Texts>
-              <S.ContentLink to="/membersranks">랭킹 확인 하기</S.ContentLink>
+              <LinkButton variant="primary" size="large" to="/membersranks">
+                랭킹 확인 하기
+              </LinkButton>
             </p>
           </S.ContentTexts>
         </S.ContentWrapper>

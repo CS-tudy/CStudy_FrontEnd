@@ -35,6 +35,7 @@ import ContestResultPage from 'pages/ContestResult';
 import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 import CreateNotice from 'pages/Admin/CreateNotice';
 import AdminRoot from 'pages/Admin/AdminRoot';
+import ContestQuestionsAdd from 'pages/Admin/ContestQuestionsAdd';
 
 const router = createBrowserRouter([
   {
@@ -197,6 +198,11 @@ const router = createBrowserRouter([
             path: 'createcontest',
             loader: checkAdminLoader,
             element: <CreateContest />,
+          },
+          {
+            path: ':contestId/contestproblem',
+            loader: checkAdminLoader,
+            element: <ContestQuestionsAdd />,
           },
         ],
       },

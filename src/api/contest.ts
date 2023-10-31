@@ -96,19 +96,23 @@ export const submitContest = (ContestAnswerForm: FieldValues) => {
 
 // 대회 문제 추가
 export const addContestProblem = (AddContestProblemForm: FieldValues) => {
-  const response = instance.post(
-    '/api/competitions/questions',
-    AddContestProblemForm,
-  );
+  const { competitionId, questionIds } = AddContestProblemForm;
+  const response = instance.post('/api/competitions/questions', {
+    competitionId,
+    questionIds,
+  });
   return response;
 };
 
 // 대회 문제 삭제
 export const deleteContestProblem = (DeleteContestProblemForm: FieldValues) => {
-  const response = instance.post(
-    '/api/competitions/questions',
-    DeleteContestProblemForm,
-  );
+  const { competitionId, questionIds } = DeleteContestProblemForm;
+  const response = instance.delete('/api/competitions/questions', {
+    data: {
+      competitionId,
+      questionIds,
+    },
+  });
   return response;
 };
 

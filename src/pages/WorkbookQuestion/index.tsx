@@ -38,7 +38,6 @@ const WorkbookQuestion = () => {
     questionId: string;
     page: number;
   });
-  console.log();
 
   const handlePage = useCallback((page: number) => {
     setPage(page);

@@ -17,17 +17,16 @@ import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { useMixWorkbookWorkbookQuestion } from 'hooks/@query/workbook/useMixWorkbookWorkbookQuestion';
 import { Button } from 'components/commons/Button/Style';
 import AdminContainer from '../AdminContainer';
+import { AdminBtn } from 'components/commons/Admin/AdminInput/style';
 
 const WorkbookProblemAdd = () => {
   const { questionId } = useParams();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
   const problemList = useGetProblemList({
     questionTitle: '',
     categoryTitle: '',
   });
-  console.log(problemList);
 
   const page = 0;
   const { workbookQuestion } = useMixWorkbookWorkbookQuestion({
@@ -60,7 +59,6 @@ const WorkbookProblemAdd = () => {
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
   };
-  console.log('asd');
 
   const AddWorkbookQuestion = useAddWorkbookQuestion({ handleIsLoading });
 
@@ -97,23 +95,25 @@ const WorkbookProblemAdd = () => {
                 errors={errors}
               />
             </Table>
-            <Button
-              type="submit"
-              variant="primary"
-              size="large"
-              disabled={isLoading}
-            >
-              문제등록하기
-            </Button>
-            <Button
-              type="button"
-              variant="gray"
-              size="large"
-              onClick={() => navigate(-1)}
-              disabled={isLoading}
-            >
-              돌아가기
-            </Button>
+            <AdminBtn>
+              <Button
+                type="submit"
+                variant="primary"
+                size="large"
+                disabled={isLoading}
+              >
+                문제등록하기
+              </Button>
+              <Button
+                type="button"
+                variant="gray"
+                size="large"
+                onClick={() => navigate(-1)}
+                disabled={isLoading}
+              >
+                돌아가기
+              </Button>
+            </AdminBtn>
           </FormBody>
         </form>
       </ContentBodyWrapper>

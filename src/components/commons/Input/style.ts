@@ -23,6 +23,17 @@ export const Input = styled.input<InputStyleProps>`
       border: 0.12rem solid
         ${({ errors, id }) =>
           errors[id] ? `${COLOR.GRAY_80}` : `${COLOR.GRAY_80};`};
+    `} ${({ type }) =>
+    type === 'password' &&
+    css<InputStyleProps>`
+      margin-top: 1rem;
+      padding: 1.2rem;
+      width: 35rem;
+      font-size: ${FONT.REGULAR_18};
+      border-radius: 0.4rem;
+      border: 0.12rem solid
+        ${({ errors, id }) =>
+          errors[id] ? `${COLOR.GRAY_80}` : `${COLOR.GRAY_80};`};
     `}
 
   &:focus {

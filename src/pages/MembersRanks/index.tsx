@@ -1,4 +1,5 @@
 import Container from 'components/commons/Container';
+import ContentContainer from 'components/commons/ContentContainer';
 import Rank from 'components/unit/Rank';
 import { useSelector } from 'react-redux';
 
@@ -7,9 +8,11 @@ const MembersRanks = () => {
   console.log(requestFilter);
 
   return (
-    <Container>
-      <Rank />
-    </Container>
+    <ContentContainer>
+      <Container>
+        <Rank />
+      </Container>
+    </ContentContainer>
   );
 };
 

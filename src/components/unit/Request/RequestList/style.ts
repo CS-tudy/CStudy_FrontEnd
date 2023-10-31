@@ -7,7 +7,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  margin: 2rem 0;
+  // margin: 10rem 10rem;
 `;
 
 // export const PaginationWrapper = styled.div`

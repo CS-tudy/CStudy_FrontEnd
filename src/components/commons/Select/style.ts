@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { media } from 'constants/media';
 
 export const SelectBox = styled.div`
   position: relative;
@@ -40,6 +41,10 @@ export const SelectBox = styled.div`
 
   & + & {
     margin-left: 1rem;
+  }
+
+  ${media.mobileM} {
+    min-width: 9.4rem;
   }
 `;
 

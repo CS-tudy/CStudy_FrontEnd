@@ -10,6 +10,7 @@ import ContainerTop from 'components/commons/ContainerTop';
 import useContestFilter from 'hooks/Contest/useContestFilter';
 import ContainerBottom from 'components/commons/ContainerBottom';
 import Pagination from 'components/commons/Pagination';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const Contest = () => {
   const tableRate = ['45%', '15%', '40%'];
@@ -22,32 +23,34 @@ const Contest = () => {
     page: 0,
   });
 
+  console.log('query', contestFilter.query);
+
   return (
-    <>
+    <ContentContainer>
       <ContainerTop>
-        <S.ButtonWrapper>
-          <Filter className={isActive} onClick={handleToggle}>
-            종료된 대회 보기
-          </Filter>
-        </S.ButtonWrapper>
+        <Filter className={isActive} onClick={handleToggle}>
+          종료된 대회 보기
+        </Filter>
       </ContainerTop>
+      <S.ContainerMarginTop />
       <Container>
-        <Table colRate={tableRate} title={tableTitle}>
-          {contestList?.totalElements === 0 && (
-            <tr>
-              <td colSpan={3}>
-                <NoData>대회가 없습니다.</NoData>
-              </td>
-            </tr>
-          )}
-          <ContestList
-            contestList={contestList?.content as ContestInfo[]}
-            contestFilter={contestFilter}
-            isActive={isActive}
-            totalPages={contestList?.totalPages as number}
-            handlePage={handlePage}
-          />
-        </Table>
+        {contestList?.totalElements === 0 ? (
+          <tr>
+            <td colSpan={3}>
+              <NoData>대회가 없습니다.</NoData>
+            </td>
+          </tr>
+        ) : (
+          <Table colRate={tableRate} title={tableTitle}>
+            <ContestList
+              contestList={contestList?.content as ContestInfo[]}
+              contestFilter={contestFilter}
+              isActive={isActive}
+              totalPages={contestList?.totalPages as number}
+              handlePage={handlePage}
+            />
+          </Table>
+        )}
       </Container>
       <ContainerBottom>
         {(contestList?.totalPages as number) > 0 && (
@@ -59,7 +62,7 @@ const Contest = () => {
           />
         )}
       </ContainerBottom>
-    </>
+    </ContentContainer>
   );
 };
 

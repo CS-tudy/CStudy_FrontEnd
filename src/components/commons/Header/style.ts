@@ -58,7 +58,6 @@ export const NavList = styled.ul`
     flex-direction: column;
     width: 100%;
   }
-  }
 `;
 
 export const NavItem = styled.li`
@@ -100,6 +99,7 @@ export const NavLinkStyle = styled(NavLink)`
   padding: 2rem 2rem 2rem 0;
   ${media.tablet} {
     ${FONT.BOLD_16}
+  }
 `;
 
 export const MypageLink = styled(Link)`

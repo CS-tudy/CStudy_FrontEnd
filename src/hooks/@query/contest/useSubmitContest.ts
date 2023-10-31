@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { submitContest } from 'api/contest';
+import Toast from 'libs/Toast';
 // import toast from 'provider/Toast';
 
 interface useSubmitContestProps {
@@ -17,13 +18,11 @@ export const useSubmitContest = ({
   const { mutate: SubmitContest } = useMutation(submitContest, {
     onSuccess: () => {
       queryClient.invalidateQueries();
-      //   toast.success('답안 제출에 성공했습니다.');
-      alert('답안 제출에 성공했습니다.');
+      Toast.success('답안 제출에 성공했습니다.');
       navigate(`/contest/${competitionId}`, { replace: true });
     },
     onError: () => {
-      //   toast.error('답안 제출에 실패했습니다.');
-      alert('답안 제출에 실패했습니다.');
+      Toast.error('답안 제출에 실패했습니다.');
     },
     onSettled: () => {
       handleIsLoading(false);

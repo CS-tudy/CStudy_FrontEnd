@@ -1,17 +1,26 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { media } from 'constants/media';
 
 export const Title = styled.div`
   font-size: ${FONT.H2};
   font-weight: 700;
   margin-bottom: 8px;
+  width: 100%;
+  margin-left: 3rem;
+
+  ${media.tablet} {
+    margin-left: 0;
+    margin-top: 3rem;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 `;
 
 export const ContestRanking = styled.div`
@@ -21,6 +30,10 @@ export const ContestRanking = styled.div`
   border: 0.1rem solid #dbdbdb;
   border-radius: 1.2rem;
   margin-left: 3rem;
+
+  ${media.tablet} {
+    margin-left: 0;
+  }
 `;
 
 export const RankingTitle = styled.h4`
@@ -48,4 +61,8 @@ export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-left: 30px;
+
+  ${media.tablet} {
+    margin-left: 0;
+  }
 `;

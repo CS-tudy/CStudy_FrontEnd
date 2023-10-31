@@ -58,6 +58,7 @@ export const GlobalStyles = createGlobalStyle`
   a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
+    color: #000;
 }
 a:hover{
     color: #000;

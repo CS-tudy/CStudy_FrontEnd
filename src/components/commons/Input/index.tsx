@@ -1,5 +1,5 @@
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
-import * as Styled from './style';
+import * as S from './style';
 
 interface InputProps {
   id: string;
@@ -34,28 +34,29 @@ const Input = ({
   smallLabel,
 }: InputProps) => {
   return (
-    <Styled.Field>
+    <S.Field>
       {label && (
-        <Styled.Label smallLabel={smallLabel} htmlFor={id}>
+        <S.Label smallLabel={smallLabel} htmlFor={id}>
           {label}
-        </Styled.Label>
+        </S.Label>
       )}
-      <Styled.Input
+      <S.Input
         id={id}
         type={type}
         placeholder={placeholder}
         disabled={disabled}
         {...register(id, { required, pattern })}
+        // {...register(id, { required: '값을 입력해주세요.', pattern })}
         errors={errors}
         defaultValue={defaultValue}
         required={required}
       />
-      {onErrorMsg && errors[id] && (
-        <Styled.ErrorMsg errors={errors} id={id}>
+      {errors[id] && (
+        <S.ErrorMsg errors={errors} id={id}>
           {errors[id]?.message as string}
-        </Styled.ErrorMsg>
+        </S.ErrorMsg>
       )}
-    </Styled.Field>
+    </S.Field>
   );
 };
 

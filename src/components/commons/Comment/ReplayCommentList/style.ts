@@ -2,10 +2,6 @@ import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 
-interface ChildCommentProps {
-  isFirst: boolean;
-}
-
 interface ChildCommentCurrent {
   currentDepth: number;
 }

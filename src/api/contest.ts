@@ -1,6 +1,5 @@
 import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
-import { ContestSetForm } from 'types/Form';
 import {
   Contest,
   ContestList,
@@ -115,41 +114,3 @@ export const deleteContestProblem = (DeleteContestProblemForm: FieldValues) => {
   });
   return response;
 };
-
-// ### Competition(대회)
-
-// - [ ]  **GET 대회 정보**
-
-// http://localhost:8080/api/competition/:competitionId
-
-// - [ ]  **POST 대회 답안 제출**
-
-// http://localhost:8080/api/competition/submit
-
-// - [ ]  **GET 대회 랭킹**
-
-// http://localhost:8080/api/competition/ranking/:id?page=<integer>&size=<integer>
-
-// - [ ]  **GET 종료된 대회 리스트**
-
-// http://localhost:8080/api/competition/list/finish?page=<integer>&size=<integer>
-
-// - [ ]  **GET 참여 가능 대회 리스트**
-
-// http://localhost:8080/api/competition/list?page=<integer>&size=<integer>
-
-// - [ ]  **POST 대회 참여하기**
-
-// http://localhost:8080/api/competition/join/:competitionId
-
-// - [ ]  **GET 대회 문제 조회**
-
-// http://localhost:8080/api/competition/question/:competitionId
-
-// - [ ]  **GET 대회 점수 조회**
-
-// http://localhost:8080/api/competition/result/:competitionId
-
-// - [ ]  **POST 대회 생성하기**
-
-// http://localhost:8080/api/competition

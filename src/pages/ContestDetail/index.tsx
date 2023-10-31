@@ -5,11 +5,19 @@ import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
 import Modal from 'components/unit/Modal';
 import useGetContest from 'hooks/@query/contest/useGetContest';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
-import { Contest, IContestRank } from 'types/api';
+import { Contest, IContestRank, ProblemContent } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
+import AdminContestQuestionOptionGroup from 'components/unit/ContestQuestion/AdminContestQuestionOptionGroup';
+import { FieldValues, useForm } from 'react-hook-form';
+import { AdminWrapper } from 'pages/WorkbookQuestion/style';
+import { isAdmin } from 'repository/auth';
+import Table from 'components/commons/Table';
+import AdminContestTablelists from 'components/unit/ContestQuestion/AdminContestTablelists';
+import NoData from 'components/commons/NoData';
+import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
 
@@ -20,22 +28,40 @@ const ContestDetail = () => {
     navigate(`/contest/1/result`);
   };
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    getValues,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    defaultValues: {
+      competitionId: contestId,
+      questionIds: [],
+    },
+  });
+
   const [page, setPage] = useState(0);
+  const { contestQuestion, contest, contestRank } = useMixContestDetailAll({
+    contestId,
+    page,
+  } as {
+    contestId: string;
+    page: number;
+  });
+  const problemList = useGetProblemList({
+    questionTitle: '',
+    categoryTitle: '',
+  });
 
-  const { problem, contestQuestion, myRank, contest, contestRank } =
-    useMixContestDetailAll({
-      contestId: contestId ? contestId : '',
-      page,
-    } as { contestId: string });
-
-  // const filterQuestion = problem?.content?.filter(
-  //   ({ questionId: problemQuestionId }: { questionId: number }) => {
-  //     return contestQuestion?.some(
-  //       ({ questionId: contestQuestionId }: { questionId: number }) =>
-  //         problemQuestionId === contestQuestionId,
-  //     );
-  //   },
-  // );
+  const filterQuestion = problemList?.content?.filter(
+    ({ questionId: problemQuestionId }: { questionId: number }) => {
+      return contestQuestion?.some(
+        ({ questionId: contestQuestionId }: { questionId: number }) =>
+          problemQuestionId === contestQuestionId,
+      );
+    },
+  );
   // const totalQuestion = filterQuestion?.length;
   // console.log('filter', filterQuestion);
   // console.log('problem', problem);
@@ -84,6 +110,12 @@ const ContestDetail = () => {
           <Button variant="primary" size="medium" onClick={toggleModal}>
             대회 참여
           </Button>
+          <AdminContestQuestionOptionGroup
+            handleSubmit={handleSubmit}
+            reset={reset}
+            contestId={contestId as string}
+            getValues={getValues}
+          />
         </div>
         {modalIsOpen && (
           <Modal toggleModal={toggleModal}>
@@ -99,7 +131,7 @@ const ContestDetail = () => {
           </Modal>
         )}
       </div>
-      <S.ContestDetailContent>
+      <div style={{ width: '100%', display: 'flex' }}>
         <ContestInfo contest={contest as Contest} />
         <ContestRank
           contestRank={contestRank as IContestRank}

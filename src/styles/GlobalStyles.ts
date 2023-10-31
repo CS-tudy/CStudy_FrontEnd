@@ -45,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   button,
   input,
+  a,
   textarea {
     font-family: 'Noto Sans CJK KR', sans-serif;
     font-size: 14px;

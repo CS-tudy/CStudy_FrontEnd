@@ -3,44 +3,56 @@ import AdminContainer from '../AdminContainer';
 import { useForm } from 'react-hook-form';
 import AdminInput from 'components/commons/Admin/AdminInput';
 import FormSection from 'components/commons/Admin/FormSection';
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldValues } from 'react-hook-form';
 import Button from 'components/commons/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
-import ContainerBottom from 'components/commons/ContainerBottom';
 import { AdminBtn } from 'components/commons/Admin/AdminInput/style';
-
-interface ContestInputProps {
-  label?: string;
-  id?: string;
-  placeholder?: string;
-  type?: string;
-  register: UseFormRegister<FieldValues>;
-  name?: string;
-  required?: boolean;
-  disabled?: boolean;
-  value?: string;
-  errors: FieldErrors;
-}
+import { useContestSet } from 'hooks/@query/contest/useContestSet';
 
 const CreateContest = () => {
   const {
     register,
+    handleSubmit,
+    getValues,
     formState: { errors },
-  } = useForm();
+  } = useForm<FieldValues>({
+    defaultValues: {
+      competitionStart: '',
+      competitionEnd: '',
+      competitionTitle: '',
+      participants: 5,
+    },
+  });
 
   const navigate = useNavigate();
+
+  const { mutate: ContestSet } = useContestSet();
+  const handleContest = () => {
+    const contest = getValues();
+
+    const competitionStart = contest.competitionStart.replace('T', ' ');
+    const competitionEnd = contest.competitionEnd.replace('T', ' ');
+    const date = {
+      competitionStart,
+      competitionEnd,
+      competitionTitle: contest.competitionTitle,
+      participants: contest.participants,
+    };
+    console.log(date);
+    ContestSet(date);
+  };
   return (
     <AdminContainer>
       <ContentBodyWrapper>
-        <form>
+        <form onSubmit={handleSubmit(handleContest)}>
           <FormSection title="대회 생성">
             <AdminInput
               id="start"
               errors={errors}
               register={register}
-              type="date"
-              name="dd"
+              type="datetime-local"
+              name="competitionStart"
               label="대회 시작일"
               required
             />
@@ -48,9 +60,9 @@ const CreateContest = () => {
               id="end"
               errors={errors}
               register={register}
-              type="date"
+              type="datetime-local"
               label="대회 종료일"
-              name="대회 종료일"
+              name="competitionEnd"
               required
             />
             <AdminInput
@@ -59,7 +71,7 @@ const CreateContest = () => {
               register={register}
               type="text"
               label="대회 제목"
-              name="대회 제목"
+              name="competitionTitle"
               required
             />
             <AdminInput
@@ -68,7 +80,7 @@ const CreateContest = () => {
               register={register}
               type="number"
               label="참여 인원"
-              name="참여 인원"
+              name="participants"
               required
             />
             <AdminBtn>

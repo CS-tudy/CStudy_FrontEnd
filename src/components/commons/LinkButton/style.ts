@@ -1,5 +1,6 @@
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { Link } from 'react-router-dom';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ButtonComponent, SizeCSS, VariantCSS } from 'types/button';
 
@@ -63,7 +64,7 @@ const sizeCSS: SizeCSS = {
   `,
 };
 
-export const Button = styled.button<ButtonComponent>`
+export const LinkButton = styled(Link)<ButtonComponent>`
   ${({ variant }) => variantCSS[variant]}
   ${({ size }) => sizeCSS[size]}
   cursor: pointer;
@@ -74,12 +75,13 @@ export const Button = styled.button<ButtonComponent>`
   border-radius: 1rem;
   &:hover {
     opacity: 0.8;
+    color: #fff;
   }
-  & + & {
+  & + button {
     margin-left: 1.1rem;
   }
 
-  & + a {
+  & + & {
     margin-left: 1.1rem;
   }
 `;

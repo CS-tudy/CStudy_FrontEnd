@@ -109,7 +109,7 @@ export const Texts = styled.span`
   display: inline-block;
   font-size: ${FONT.REGULAR_14};
   line-height: 2.5rem;
-  margin-top: 1rem;
+  margin: 1rem 3rem;
   ${media.tablet} {
     font-size: ${FONT.REGULAR_12};
   }

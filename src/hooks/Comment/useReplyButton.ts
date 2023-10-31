@@ -1,10 +1,14 @@
 import { setCommentId } from 'hooks/@redux/comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stroe';
+import { useState } from 'react';
 
-const useReplyButton = () => {
+const useReplyFilter = () => {
   const selectedCommentid = useSelector(
     (state: RootState) => state.rootReducer.comment.selectedCommentid,
+  );
+  const currentDepth = useSelector(
+    (state: RootState) => state.rootReducer.comment.depth.currentDepth,
   );
   const dispatch = useDispatch();
 
@@ -12,7 +16,7 @@ const useReplyButton = () => {
     dispatch(setCommentId(commentId));
   };
 
-  return { selectedCommentid, toggleReplyingHandler };
+  return { selectedCommentid, currentDepth, toggleReplyingHandler };
 };
 
-export default useReplyButton;
+export default useReplyFilter;

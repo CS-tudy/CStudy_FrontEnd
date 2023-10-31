@@ -16,6 +16,7 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
     handleSubmit,
     setValue,
     formState: { errors },
+    reset,
   } = useForm<FieldValues>();
 
   const pageNumber = useSelector(
@@ -36,6 +37,7 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
     else formData = { noticeId, content, parentCommentId };
 
     addComment({ formData });
+    reset();
   };
 
   return (

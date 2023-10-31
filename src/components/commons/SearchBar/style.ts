@@ -13,9 +13,12 @@ export const Searchbar = styled.div`
   flex-direction: row;
   align-items: center;
 
-  /* ${media.mobildL} {
-    width: 386px;
-  } */
+  ${media.mobileM} {
+    width: 320px;
+  }
+  ${media.mobileS} {
+    width: 300px;
+  }
 `;
 
 export const SearchIcon = styled.div`

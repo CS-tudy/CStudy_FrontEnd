@@ -2,13 +2,13 @@ import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
 
 export const getMyPage = () => {
-  const response = instance.get('/api/member/member');
+  const response = instance.get('/api/member');
   return response;
 };
 
 // 비밀번호변경
 export const PwdEdit = async (formData: FieldValues) => {
-  const response = await instance.patch('api/member/member', formData);
+  const response = await instance.patch('api/member', formData);
 
   return response.data;
 };

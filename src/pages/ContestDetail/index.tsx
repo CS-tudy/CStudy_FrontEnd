@@ -87,74 +87,62 @@ const ContestDetail = () => {
 
   return (
     <ContestDetailContainer>
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div>
-          <h2>자바대회</h2>
-        </div>
+      <S.ContestDetailContent>
         <div
           style={{
-            marginBottom: '3rem',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
-          <Button variant="green" size="large" onClick={handleNavigateMyResult}>
-            <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
-          </Button>
-          <Button variant="primary" size="medium" onClick={toggleModal}>
-            대회 참여
-          </Button>
-          <AdminContestQuestionOptionGroup
-            handleSubmit={handleSubmit}
-            reset={reset}
-            contestId={contestId as string}
-            getValues={getValues}
+          <div>
+            <h2>자바대회</h2>
+          </div>
+          <div
+            style={{
+              marginBottom: '3rem',
+            }}
+          >
+            <Button
+              variant="green"
+              size="large"
+              onClick={handleNavigateMyResult}
+            >
+              <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
+            </Button>
+            <Button variant="primary" size="medium" onClick={toggleModal}>
+              대회 참여
+            </Button>
+            <AdminContestQuestionOptionGroup
+              handleSubmit={handleSubmit}
+              reset={reset}
+              contestId={contestId as string}
+              getValues={getValues}
+            />
+          </div>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <ConfirmModal
+                title="대회에 참가하시겠습니까?"
+                confirmText="참가하기"
+                cancelText="돌아가기"
+                isOpen={modalIsOpen}
+                handleConfirm={handleConfirm}
+                handleCancel={toggleModal}
+                isLoading={isLoading}
+              />
+            </Modal>
+          )}
+        </div>
+        <div style={{ width: '100%', display: 'flex' }}>
+          <ContestInfo contest={contest as Contest} />
+          <ContestRank
+            contestRank={contestRank as IContestRank}
+            totalQuestion={totalQuestion as number}
+            handlePage={handlePage}
+            page={page}
           />
         </div>
-        {modalIsOpen && (
-          <Modal toggleModal={toggleModal}>
-            <ConfirmModal
-              title="대회에 참가하시겠습니까?"
-              confirmText="참가하기"
-              cancelText="돌아가기"
-              isOpen={modalIsOpen}
-              handleConfirm={handleConfirm}
-              handleCancel={toggleModal}
-              isLoading={isLoading}
-            />
-          </Modal>
-        )}
-      </div>
-      {contestQuestion ? (
-        <Table
-          colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
-          title={
-            isAdmin()
-              ? ['문제번호', '문제이름', '문제삭제']
-              : ['문제번호', '문제이름']
-          }
-        >
-          <AdminContestTablelists
-            register={register}
-            errors={errors}
-            filterQuestion={filterQuestion as ProblemContent[]}
-          />
-        </Table>
-      ) : (
-        <NoData>문제집에 문제가 없습니다.</NoData>
-      )}
-      <div style={{ width: '100%', display: 'flex' }}>
-        <ContestInfo contest={contest as Contest} />
-        <ContestRank
-          contestRank={contestRank as IContestRank}
-          totalQuestion={totalQuestion as number}
-          handlePage={handlePage}
-          page={page}
-        />
       </S.ContestDetailContent>
     </ContestDetailContainer>
   );

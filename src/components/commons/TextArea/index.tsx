@@ -33,11 +33,11 @@ const TextArea = ({
         // {...register(id, { required: '값을 입력해주세요.' })}
         errors={errors}
       />
-      {errors[id] && (
+      {/* {errors[id] && (
         <S.ErrorMsg errors={errors} id={id}>
           {errors[id]?.message as string}
         </S.ErrorMsg>
-      )}
+      )} */}
     </S.Field>
   );
 };

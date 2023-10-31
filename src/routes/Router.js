@@ -71,7 +71,7 @@ const router = createBrowserRouter([
           },
           {
             path: ':requestId/edit',
-            element: <RequestWrite />,
+            element: <RequestEdit />,
           },
           {
             path: 'new',

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { media } from 'constants/media';
 
 interface Props {
   $white?: boolean;
@@ -83,7 +84,6 @@ export const TBodyTd = styled.td<Props>`
     a {
       display: block;
       padding: 2rem 3rem;
-    }
     }
   }
 

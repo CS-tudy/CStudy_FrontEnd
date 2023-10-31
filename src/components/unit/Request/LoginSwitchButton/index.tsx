@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { isLogin } from 'repository/auth';
 import Toast from 'libs/Toast';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
+import Modal from 'components/unit/Modal';
+import SignModal from 'components/commons/Modal/SignModal';
+import SignInModal from 'components/unit/SignIn';
 
 interface LoginSwitchButtonProps {
   handleToggle: () => void;
@@ -21,14 +24,16 @@ const LoginSwitchButton = ({
 
   const dispatch = useDispatch();
 
-  const checkLogin = () => {
+  const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
-      Toast.error('로그인 후 이용하실 수 있습니다.');
-      // dispatch(Logintoggle());
+      // Toast.error('로그인 후 이용하실 수 있습니다.');
+      e.preventDefault();
+      dispatch(Logintoggle());
     } else {
       navigate('/request/new');
     }
   };
+
   return (
     <>
       {isLogin() ? (

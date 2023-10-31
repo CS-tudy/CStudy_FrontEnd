@@ -177,6 +177,9 @@ export interface ContestMyRank {
 
 /* hsw comment type*/
 export interface RequestComment {
+  map(
+    arg0: (comment: RequestComment) => import('react/jsx-runtime').JSX.Element,
+  ): import('react').ReactNode;
   id: string;
   content: string;
   memberId: string;

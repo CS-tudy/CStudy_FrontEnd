@@ -24,7 +24,7 @@ const WorkbookQuestionTableList = ({
     <tr>
       <TBodyTd>{questionId}</TBodyTd>
       <TBodyTd className="bold">
-        <Link to={`/problemset/${questionId}`}>{title}</Link>
+        <Link to={`/problem/${questionId}`}>{title}</Link>
       </TBodyTd>
       {isAdmin() && (
         <TBodyTd>

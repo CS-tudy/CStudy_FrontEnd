@@ -131,7 +131,7 @@ const ContestDetail = () => {
           </Modal>
         )}
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
+      <S.ContestDetailContent>
         <ContestInfo contest={contest as Contest} />
         <ContestRank
           contestRank={contestRank as IContestRank}

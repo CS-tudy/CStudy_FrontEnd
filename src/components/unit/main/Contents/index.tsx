@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './style';
-import rank_jpg from 'assets/rank.jpg';
-import inquiry_jpg from 'assets/inquiry.jpg';
-import competition_jpg from 'assets/competition.jpg';
+import rank_webp from 'assets/content/rank.webp';
+import inquiry_webp from 'assets/content/inquiry.webp';
+import competition_webp from 'assets/content/competition.webp';
 import LinkButton from 'components/commons/LinkButton';
 
 const Contents = () => {
@@ -16,7 +16,7 @@ const Contents = () => {
               <br />
               해외 전공서적으로 공부하시나요?
             </S.ContentTitle>
-            <S.ContentImg src={inquiry_jpg} alt="inquiry_jpg" />
+            <S.ContentImg src={inquiry_webp} alt="inquiry_webp" />
           </S.ContentTitleImg>
           <S.ContentTexts>
             <p>
@@ -34,7 +34,7 @@ const Contents = () => {
                 <br />
                 퀴즈 형태로 더욱 쉽게 접근 하고 학습 할 수 있게 도와줍니다.
               </S.Texts>
-              <LinkButton variant="primary" size="large" to="/board">
+              <LinkButton variant="primary" size="large" to="/notice">
                 게시판 보러 가기
               </LinkButton>
             </p>
@@ -73,7 +73,7 @@ const Contents = () => {
               <br />
               공부한것에 대한 확신이 없으신가요?
             </S.ContentTitle>
-            <S.ContentImg src={competition_jpg} alt="competition_jpg" />
+            <S.ContentImg src={competition_webp} alt="competition_webp" />
           </S.ContentTitleImg>
         </S.ContentWrapperReverse>
       </S.ContentSection>
@@ -83,7 +83,7 @@ const Contents = () => {
             <S.ContentTitle>
               점수와 랭킹을 올려 랭커에 도전 하세요!
             </S.ContentTitle>
-            <S.ContentImg src={rank_jpg} alt="membersRank이미지" />
+            <S.ContentImg src={rank_webp} alt="membersRank_webp" />
           </S.ContentTitleImg>
           <S.ContentTexts>
             <p>

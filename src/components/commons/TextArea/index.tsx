@@ -34,9 +34,7 @@ const TextArea = ({
         errors={errors}
       />
       {errors[id] && (
-        <S.ErrorMsg errors={errors} id={id}>
-          {errors[id]?.message as string}
-        </S.ErrorMsg>
+        <S.ErrorMsg id={id}>{errors[id]?.message as string}</S.ErrorMsg>
       )}
     </S.Field>
   );

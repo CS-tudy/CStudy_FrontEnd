@@ -94,6 +94,7 @@ const router = createBrowserRouter([
           },
 
           {
+            index: false,
             path: ':questionId',
             element: <WorkbookQuestion />,
           },

@@ -45,8 +45,6 @@ const Problem = () => {
   const { query, queryActive, handleToggle } = useQueryFilterSlice();
   const { problemFilter, handlePage } = UseProblemFilterSlice();
 
-  console.log('filter', problemFilter);
-
   const problemList = useGetProblemList({
     questionTitle: 'Question',
     categoryTitle: categoryValue,
@@ -55,10 +53,6 @@ const Problem = () => {
     page: problemFilter.pageNumber,
     query: query,
   });
-
-  console.log(problemList);
-  console.log(categoryValue);
-  console.log(inputValue);
 
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];
@@ -82,70 +76,11 @@ const Problem = () => {
   const tableColRate = ['10%', '15%', '60%', '15%'];
   const tableTitle = ['번호', '상태', '제목', '카테고리'];
 
-  // const getDebounce = _.debounce(value => {
-  //   // ({ search: value, page: 1 });
-  //   useGetProblemList({ questionTitle: value });
-  // }, 500);
+  const navigate = useNavigate();
 
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   getDebounce(event.target.value);
-  // };
-
-  // =========================================== //
-
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   // getDebounce(event.target.value);
-  //   useGetProblemList({ questionTitle: event.target.value });
-  // };
-
-  // =========================================== //
-
-  // const [inputValue, setInputValue] = useState('');
-
-  // const debouncedSave = _.debounce(value => {
-  //   useGetProblemList({ questionTitle: value });
-  // }, 500);
-
-  // useEffect(() => {
-  //   if (inputValue) {
-  //     debouncedSave(inputValue);
-  //   }
-  // }, [inputValue]);
-
-  // const onChangeSearchbar = event => {
-  //   setInputValue(event.target.value);
-  // };
-
-  // =========================================== //
-
-  // // Debounce the inputValue with lodash's _.debounce function
-  // const debouncedInput = useMemo(() => _.debounce(setInputValue, 500), []);
-
-  // const onChangeSearchbar = (event: ChangeEvent): void => {
-  //   // Cancel the previous debounced value
-  //   debouncedInput.cancel();
-
-  //   // Set the new debounced value
-  //   debouncedInput(event.target.value);
-  // };
-
-  // useEffect(() => {
-  //   if (inputValue) {
-  //     useGetProblemList({ questionTitle: inputValue });
-  //   }
-  // }, [inputValue]);
-
-  // =========================================== //
-
-  const handleLoadSearch = async (e: any) => {
-    if (e.key === 'Enter') {
-      // useGetProblemList({ questionTitle: inputValue });
-      const res = await getProblemListSearch(e.target.value);
-      console.log(e.target.value);
-      // setProblemList(res.data);
-    }
+  const navigateAdmin = () => {
+    navigate('/admin/createproblem');
   };
-
   return (
     <>
       {' '}

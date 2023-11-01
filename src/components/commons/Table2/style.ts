@@ -5,7 +5,7 @@ import { FONT } from 'constants/Font';
 interface Props {
   $white?: boolean;
   maxHeight?: boolean;
-  narrow?: boolean;
+  $narrow?: boolean;
   rank?: number;
   rankFont?: number;
   $narrow2?: boolean;
@@ -14,18 +14,19 @@ interface Props {
 export const Table = styled.table<Props>`
   width: 100%;
   max-height: ${({ maxHeight }) => maxHeight && '32rem'};
-  border: 0.1rem solid #dbdbdb;
   background-color: #fff;
   padding: 10px;
-  border-radius: ${({ narrow }) => (narrow ? '2rem' : '5rem')};
+  box-shadow: 0 0 0 1px #dbdbdb;
+  border-radius: ${({ $narrow }) => ($narrow ? '2rem' : '5rem')};
+  border-radius: ${({ $narrow2 }) => $narrow2 && '2rem'};
 `;
 
 export const THeadTh = styled.th<Props>`
-  padding: ${({ narrow }) => (narrow ? '2rem 0 1rem' : '4rem 0 2rem')};
+  padding: ${({ $narrow }) => ($narrow ? '2rem 0 1rem' : '4rem 0 2rem')};
 `;
 
 export const TBodyTd = styled.td<Props>`
-  padding: ${({ narrow }) => (narrow ? '0' : '3rem 0')};
+  padding: ${({ $narrow }) => ($narrow ? '0' : '3rem 0')};
   padding: ${({ $narrow2 }) => $narrow2 && '1rem 0'};
   background-size: ${({ rank }) => rank && '70%'};
   background-repeat: ${({ rank }) => rank && 'no-repeat'};
@@ -66,7 +67,7 @@ export const TBodyTd = styled.td<Props>`
   &.title {
     ${FONT.BOLD_20}
     text-align: left;
-    padding: ${({ narrow }) => (narrow ? '1.5rem 2rem' : '2rem 3rem')};
+    padding: ${({ $narrow }) => ($narrow ? '1.5rem 2rem' : '2rem 3rem')};
 
     /* a:hover {
       transition: all 0.2s ease-in-out;

@@ -4,7 +4,7 @@ import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
 import Modal from 'components/commons/Modal/Modal';
 import useGetContest from 'hooks/@query/contest/useGetContest';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
 import { Contest, IContestRank, ProblemContent } from 'types/api';
@@ -16,6 +16,9 @@ import Table from 'components/commons/Table';
 import AdminContestTablelists from 'components/unit/ContestQuestion/AdminContestTablelists';
 import NoData from 'components/commons/NoData';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
+import * as S from './style';
+import ContestDetailContainer from 'components/commons/ContestDetailContainer';
+import { isArray } from 'lodash';
 
 const ContestDetail = () => {
   const { contestId } = useParams();

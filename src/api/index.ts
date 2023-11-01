@@ -27,7 +27,7 @@ instance.interceptors.response.use(
   },
   async error => {
     const { config, response } = error;
-    console.log(response);
+
     if (response.status == 401) {
       // if (response.status == 401 && response.status == 500) {
       // 401(Unauthorized): 클라이언트가 인증되지 않았기 때문에 요청을 정상적으로 처리할 수 없음

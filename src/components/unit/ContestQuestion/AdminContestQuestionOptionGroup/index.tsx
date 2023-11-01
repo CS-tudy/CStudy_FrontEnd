@@ -52,8 +52,8 @@ const AdminContestQuestionOptionGroup = ({
           <Button
             onClick={handleSubmit(onSubmit)}
             disabled={isLoading}
-            variant={'primary'}
-            size={'largy'}
+            variant="primary"
+            size="largy"
           >
             문제 삭제하기
           </Button>

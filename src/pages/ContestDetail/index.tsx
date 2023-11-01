@@ -6,7 +6,7 @@ import ContestRank from 'components/unit/ContestDetail/ContestRank';
 import Modal from 'components/unit/Modal';
 import useGetContest from 'hooks/@query/contest/useGetContest';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
 import { Contest, IContestRank, ProblemContent } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
@@ -20,6 +20,7 @@ import NoData from 'components/commons/NoData';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
+import { isArray } from 'lodash';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
@@ -85,7 +86,8 @@ const ContestDetail = () => {
     handleIsLoading,
   });
 
-  console.log('rank', contestRank);
+  const colRate = useMemo(() => ['20%', '60%', '20%'], []);
+  const title = useMemo(() => ['문제번호', '문제이름', '문제삭제'], []);
 
   return (
     <ContestDetailContainer>
@@ -140,6 +142,18 @@ const ContestDetail = () => {
           page={page}
         />
       </S.ContestDetailContent>
+
+      {isAdmin() && filterQuestion?.length !== 0 ? (
+        <Table colRate={colRate} title={title}>
+          <AdminContestTablelists
+            filterQuestion={filterQuestion as ProblemContent[]}
+            register={register}
+            errors={errors}
+          />
+        </Table>
+      ) : (
+        <NoData>문제집에 문제가 없습니다.</NoData>
+      )}
     </ContestDetailContainer>
   );
 };

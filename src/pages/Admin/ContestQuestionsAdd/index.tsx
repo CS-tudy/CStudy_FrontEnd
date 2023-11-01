@@ -61,9 +61,10 @@ const ContestQuestionsAdd = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = () => {
     const form = getValues();
-    console.log(form);
+
     AddContestQuestion(form);
     reset();
+    navigate(-1);
   };
 
   return (

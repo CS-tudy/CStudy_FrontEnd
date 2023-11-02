@@ -4,6 +4,7 @@ import persistedReducer from 'hooks/@redux/persistConfig';
 import { persistStore } from 'redux-persist';
 import registerModalSlice from 'hooks/@redux/registerModalSlice';
 import loginModalSlice from 'hooks/@redux/loginModalSlice';
+
 const store = configureStore({
   reducer: {
     rootReducer,

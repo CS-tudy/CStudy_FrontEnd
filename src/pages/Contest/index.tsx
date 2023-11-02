@@ -10,6 +10,9 @@ import ContainerTop from 'components/commons/ContainerTop';
 import useContestFilter from 'hooks/Contest/useContestFilter';
 import ContainerBottom from 'components/commons/ContainerBottom';
 import Pagination from 'components/commons/Pagination';
+import ContentContainer from 'components/commons/ContentContainer';
+import Button from 'components/commons/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Contest = () => {
   const tableRate = ['45%', '15%', '40%'];
@@ -22,14 +25,24 @@ const Contest = () => {
     page: 0,
   });
 
+  console.log('query', contestFilter.query);
+
+  const navigate = useNavigate();
+  const navigateAdmin = () => {
+    navigate('/admin/CreateContest');
+  };
+
   return (
     <>
       <ContainerTop>
         <S.ButtonWrapper>
-          <Filter className={isActive} onClick={handleToggle}>
-            종료된 대회 보기
-          </Filter>
+          <Button variant="primary" size="medium" onClick={navigateAdmin}>
+            대회 생성
+          </Button>
         </S.ButtonWrapper>
+        <Filter className={isActive} onClick={handleToggle}>
+          종료된 대회 보기
+        </Filter>
       </ContainerTop>
       <S.ContainerMarginTop />
       <Container>

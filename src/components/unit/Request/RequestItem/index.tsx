@@ -3,7 +3,7 @@ import * as S from './style';
 import ApproveStatus from 'components/commons/Status';
 import { useDispatch, useSelector } from 'react-redux';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal/Modal';
 import SignModal from 'components/commons/Modal/SignModal';
 import SignInModal from 'components/unit/SignIn';
 import { isLogin } from 'repository/auth';

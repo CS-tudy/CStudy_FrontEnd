@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux';
 
 const Rank = () => {
   const membersRanks = useGetRanks();
-  const filter = useSelector((state: any) => state);
-  console.log(filter);
+  console.log('rank', membersRanks);
 
   if (Array.isArray(membersRanks)) {
     const emptyDataCount = Math.max(0, 10 - (membersRanks?.length as number));
@@ -19,49 +18,54 @@ const Rank = () => {
   }
 
   const TBodyContent = (Array.isArray(membersRanks) ? membersRanks : [])?.map(
-    ({ score, value }, index: number) => (
-      <tr key={index}>
-        <TBodyTd className="white" $white narrow rank={index + 1}>
-          {index + 1 === 1 ? (
-            <PiMedalFill size="28" color="#f7d100" />
-          ) : index + 1 === 2 ? (
-            <PiMedalFill size="28" color="silver" />
-          ) : // <MdStars size="30" color="silver" />
-          index + 1 === 3 ? (
-            <PiMedalFill size="28" color="#ba9964" />
-          ) : (
-            ''
-          )}
-        </TBodyTd>
-        <TBodyTd className="white" $white narrow rankFont={index + 1}>
-          {index + 1 === 1 ? (
-            <div style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}>
-              {index + 1}
-            </div>
-          ) : index + 1 === 2 ? (
-            <div style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}>
-              {index + 1}
-            </div>
-          ) : index + 1 === 3 ? (
-            <div style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}>
-              {index + 1}
-            </div>
-          ) : (
-            index + 1
-          ) : (
-            <div>
-              <img src={rank1} width={55} />
-            </div>
-          )}
-        </TBodyTd>
-        <TBodyTd className="title center white" $white narrow>
-          {value}
-        </TBodyTd>
-        <TBodyTd className="white" $white narrow>
-          {Math.floor(score as number)}
-        </TBodyTd>
-      </tr>
-    ),
+    ({ score, value }, index: number) =>
+      value !== null ? (
+        <tr key={index}>
+          <TBodyTd className="white" $white narrow rank={index + 1}>
+            {index + 1 === 1 ? (
+              <PiMedalFill size="28" color="#f7d100" />
+            ) : index + 1 === 2 ? (
+              <PiMedalFill size="28" color="silver" />
+            ) : // <MdStars size="30" color="silver" />
+            index + 1 === 3 ? (
+              <PiMedalFill size="28" color="#ba9964" />
+            ) : (
+              ''
+            )}
+          </TBodyTd>
+          <TBodyTd className="white" $white narrow rankFont={index + 1}>
+            {index + 1 === 1 ? (
+              <div
+                style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}
+              >
+                {index + 1}
+              </div>
+            ) : index + 1 === 2 ? (
+              <div
+                style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}
+              >
+                {index + 1}
+              </div>
+            ) : index + 1 === 3 ? (
+              <div
+                style={{ fontSize: '30px', color: '#000', fontWeight: '700' }}
+              >
+                {index + 1}
+              </div>
+            ) : (
+              index + 1
+            )}
+          </TBodyTd>
+          <TBodyTd className="title center white" $white narrow>
+            {value}
+          </TBodyTd>
+          <TBodyTd className="white" $white narrow>
+            {Math.floor(score as number)}
+          </TBodyTd>
+        </tr>
+      ) : (
+        <div></div>
+      ),
   );
   return (
     <Table

@@ -1,5 +1,6 @@
 import { IContestResult } from 'types/api';
 import * as S from './style';
+import NoData from 'components/commons/NoData';
 
 interface ContestResultProps {
   contestResult: IContestResult;
@@ -91,7 +92,7 @@ const ContestResult = ({ contestResult }: ContestResultProps) => {
           </S.ResultListContainer>
         </>
       ) : (
-        <div>대회에 참여한 이력이 없습니다.</div>
+        <NoData>대회에 참여한 이력이 없습니다.</NoData>
       )}
     </>
   );

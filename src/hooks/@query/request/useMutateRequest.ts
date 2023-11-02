@@ -11,13 +11,12 @@ export const useCreateRequest = () => {
   return useMutation(createRequest, {
     onSuccess: () => {
       queryClient.invalidateQueries(['requestList']);
-      Toast.success('글이 등록되었습니다.');
+      Toast.success('문제요청글이 등록되었습니다.');
       navigate('/request');
       window.scrollTo(0, 0);
     },
     onError: () => {
-      Toast.error('글 등록에 실패했습니다.');
-      navigate('/request');
+      Toast.error('문제요청글 등록에 실패했습니다.');
     },
   });
 };

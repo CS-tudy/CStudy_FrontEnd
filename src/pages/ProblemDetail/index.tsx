@@ -14,6 +14,9 @@ import { userInfo } from 'repository/auth';
 import { RxLapTimer } from 'react-icons/rx';
 import ProblemDetailFooter from 'components/unit/Problem/ProblemDetailFooter';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
+import ContentContainer from 'components/commons/ContentContainer';
+import Toast from 'libs/Toast';
+import * as S from './style';
 
 const ProblemDetailPage = () => {
   const { problemId } = useParams();
@@ -32,6 +35,8 @@ const ProblemDetailPage = () => {
     handleIsAnswer,
     actionAnimations,
     animationTimeCheck,
+    setIsToastShown,
+    isToastShown,
   } = useProblemAction();
 
   const problem = useGetProblem(problemId as string);

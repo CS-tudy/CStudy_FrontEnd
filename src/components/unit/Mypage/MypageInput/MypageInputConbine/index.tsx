@@ -7,7 +7,7 @@ import {
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal/Modal';
 import MyPagePwd from '../MyPagePwd';
 import MypageClose from '../MypageClose';
 

@@ -5,5 +5,6 @@ export const ProblemContentWrapper = styled.div`
   padding-top: 3rem;
 `;
 export const ProblemContentTitle = styled.h4`
-  ${FONT.H1}
+  /* ${FONT.H1} */
+  ${FONT.BOLD_20}
 `;

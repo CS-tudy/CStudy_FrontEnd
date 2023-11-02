@@ -8,8 +8,9 @@ export const Filter = styled.button`
   }
 
   &.active {
-    background: #6dd93f;
+    background: ${COLOR.GREEN};
     color: ${COLOR.WHITE};
+    border: ${COLOR.GREEN};
   }
 
   padding: 1.2rem 1.4rem;

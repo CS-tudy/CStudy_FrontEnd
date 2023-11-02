@@ -143,7 +143,7 @@ const ContestDetail = () => {
         />
       </S.ContestDetailContent>
 
-      {isAdmin() && filterQuestion?.length !== 0 ? (
+      {isAdmin() && filterQuestion?.length !== 0 && (
         <Table colRate={colRate} title={title}>
           <AdminContestTablelists
             filterQuestion={filterQuestion as ProblemContent[]}
@@ -151,8 +151,6 @@ const ContestDetail = () => {
             errors={errors}
           />
         </Table>
-      ) : (
-        <NoData>문제집에 문제가 없습니다.</NoData>
       )}
     </ContestDetailContainer>
   );

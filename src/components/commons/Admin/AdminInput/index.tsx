@@ -103,7 +103,7 @@ const AdminInput = ({
           </S.AdminCheckboxLabel>
         </S.AdminInputWrapper>
       )}
-      {type === 'date' && (
+      {type === 'datetime-local' && (
         <S.AdminInputWrapper>
           <S.AdminDateLabel htmlFor={id}>{label}</S.AdminDateLabel>
           <S.AdminDateInput

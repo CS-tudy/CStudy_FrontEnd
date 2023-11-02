@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
-import List from '../../../components/unit/admin/List';
 import { FieldValues } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useCreateProblem } from 'hooks/@query/problem/useCreateProblem';

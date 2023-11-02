@@ -109,7 +109,7 @@ export const Texts = styled.span`
   display: inline-block;
   font-size: ${FONT.REGULAR_14};
   line-height: 2.5rem;
-  margin-top: 1rem;
+  margin: 1rem 0 3rem;
   ${media.tablet} {
     font-size: ${FONT.REGULAR_12};
   }
@@ -123,25 +123,5 @@ export const BoldText = styled.span`
   ${FONT.BOLD_14};
   ${media.mobildL} {
     ${FONT.BOLD_12};
-  }
-`;
-
-export const ContentLink = styled(NavLink)`
-  margin-top: 2rem;
-  padding: 1.2rem 1.6rem;
-  display: inline-block;
-  background-color: ${COLOR.MAIN};
-  color: ${COLOR.WHITE};
-  font-size: ${FONT.REGULAR_16};
-  border-radius: 1rem;
-  &:hover {
-    opacity: 0.8;
-    color: ${COLOR.WHITE};
-  }
-  ${media.tablet} {
-    font-size: ${FONT.REGULAR_14};
-  }
-  ${media.mobildL} {
-    font-size: ${FONT.REGULAR_12};
   }
 `;

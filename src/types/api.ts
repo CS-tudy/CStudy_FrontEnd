@@ -177,6 +177,9 @@ export interface ContestMyRank {
 
 /* hsw comment type*/
 export interface RequestComment {
+  map(
+    arg0: (comment: RequestComment) => import('react/jsx-runtime').JSX.Element,
+  ): import('react').ReactNode;
   id: string;
   content: string;
   memberId: string;
@@ -215,10 +218,6 @@ export type WorkbookQuestionContent = {
   questionId: number;
   workbookQuestionId: number;
 };
-
-export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
-  content: WorkbookQuestionContent[];
-}
 
 export interface WorkbookQuestion extends Omit<ContestList, 'content'> {
   content: WorkbookQuestionContent[];

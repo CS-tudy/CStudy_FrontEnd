@@ -14,7 +14,7 @@ import { getMyPage } from 'api/mypage';
 import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
 import { isAdmin, userInfo } from 'repository/auth';
 import { LoginUserDto } from 'types/problem';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal/Modal';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import useModal from 'hooks/useModal';
 import ContentContainer from 'components/commons/ContentContainer';

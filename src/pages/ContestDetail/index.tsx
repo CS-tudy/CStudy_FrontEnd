@@ -3,7 +3,7 @@ import Container from 'components/commons/Container';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal/Modal';
 import useGetContest from 'hooks/@query/contest/useGetContest';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
@@ -12,6 +12,7 @@ import { Contest, IContestRank } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const ContestDetail = () => {
   const { contestId } = useParams();

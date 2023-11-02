@@ -15,6 +15,8 @@ import { RxLapTimer } from 'react-icons/rx';
 import ProblemDetailFooter from 'components/unit/Problem/ProblemDetailFooter';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
 import ContentContainer from 'components/commons/ContentContainer';
+import Toast from 'libs/Toast';
+import * as S from './style';
 
 const ProblemDetailPage = () => {
   const { problemId } = useParams();
@@ -33,6 +35,8 @@ const ProblemDetailPage = () => {
     handleIsAnswer,
     actionAnimations,
     animationTimeCheck,
+    setIsToastShown,
+    isToastShown,
   } = useProblemAction();
 
   const problem = useGetProblem(problemId as string);
@@ -104,7 +108,7 @@ const ProblemDetailPage = () => {
           timeCheck={timeCheck}
           time={time}
         ></ProblemDetail>
-        {/* {isAction && isAnswer ? <div>정답</div> : <div>오답</div>} */}
+        {/* {isAction && isAnswer ? null : <S.WrongAnswer>오답</S.WrongAnswer>} */}
         {isAnswer && (
           <ProblemDetailFooter explain={problem?.explain as string} />
         )}

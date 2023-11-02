@@ -7,6 +7,7 @@ import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 const SignUp = () => {
   const {
+    noDuplicatedName,
     noDuplicatedEmail,
     authenticating,
     register,
@@ -77,10 +78,12 @@ const SignUp = () => {
         <S.ButtonInsideInput
           type="button"
           onClick={
-            noDuplicatedEmail ? onSendAuthNumberToEmail : onCheckDuplicatedEmail
+            noDuplicatedName && noDuplicatedEmail
+              ? onSendAuthNumberToEmail
+              : onCheckDuplicatedEmail
           }
         >
-          {noDuplicatedEmail ? '인증번호 전송' : '중복확인'}
+          {noDuplicatedName && noDuplicatedEmail ? '인증번호 전송' : '중복확인'}
         </S.ButtonInsideInput>
       </S.InputWrapper>
       <S.ErrorMessage>

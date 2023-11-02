@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { AdminInputStyleProps } from 'types/style';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
+import { SHADOW } from 'constants/Shadow';
 
 export const FormContainer = styled.div`
   display: flex;
@@ -47,11 +48,13 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   justify-content: center;
   align-items: center;
   position: relative;
-  min-width: 6rem;
-  min-height: 6rem;
-  background-color: ${COLOR.GRAY_50};
+  /* min-width: 6rem;
+  min-height: 6rem; */
+  min-width: 4.5rem;
+  min-height: 4.5rem;
   border: 0.2rem solid ${COLOR.WHITE};
-  border-radius: 100%;
+  border-radius: 20%;
+  border: 1px solid ${COLOR.GRAY_100};
 
   cursor: pointer;
 
@@ -76,6 +79,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
     border-top: none;
     border-right: none;
     transform-origin: top left;
+    box-shadow: ${SHADOW.QUESTION};
     animation: start 0.3s ease forwards;
   }
 

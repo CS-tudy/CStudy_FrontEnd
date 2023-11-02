@@ -138,3 +138,11 @@ export const HamburgerBt = styled.button`
     z-index: 5;
   }
 `;
+
+export const AlarmButton = styled.button<PrevToogle>`
+  ${media.tablet} {
+    position: absolute;
+    right: ${props => (props.$active ? '240px' : '70px')};
+    display: ${props => (props.$active ? 'none' : 'block')};
+  }
+`;

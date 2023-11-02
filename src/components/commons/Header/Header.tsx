@@ -73,15 +73,6 @@ const Header = () => {
 
   const HandleClickToogle = () => {
     setActive(active => !active);
-    if (window.innerWidth < 1024) {
-      if (moblie === false) {
-        document.body.style.overflowY = 'hidden';
-        setmoblie(!moblie);
-      } else {
-        document.body.style.overflowY = 'auto';
-        setmoblie(!moblie);
-      }
-    }
   };
 
   return (

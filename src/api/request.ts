@@ -47,11 +47,11 @@ export const getRequestListAsync = async ({
 };
 
 // 내가 요청한 문제 조회
-export const getMyRequestList = ({ page = 0, size = 10, sort = '' }) => {
-  const response = instance.get(
+export const getMyRequestList = async ({ page = 0, size = 5, sort = '' }) => {
+  const response = await instance.get(
     `/api/request/member?page=${page}&size=${size}&sort=${sort}`,
   );
-  return response;
+  return response.data;
 };
 
 export const getMyRequestListAsync = async ({

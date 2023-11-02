@@ -1,11 +1,11 @@
 import ApproveStatus from 'components/commons/Status';
 import { TBodyTd } from 'components/commons/Table/style';
 import React, { memo } from 'react';
-import { statusMap } from 'types/mypage';
+import { StatusContent } from 'types/mypage';
 
 interface boardProps {
   handleDetail: (id: number) => void;
-  content: statusMap;
+  content: StatusContent;
 }
 
 const MypaegBoardItem = ({ handleDetail, content }: boardProps) => {

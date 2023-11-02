@@ -6,7 +6,7 @@ export const MypageBoardWrapper = styled.div`
 `;
 
 export const MypageBoardInner = styled.div`
-  margin-top: 1rem;
+  margin: 1rem 0;
 `;
 
 export const BoardTitle = styled.h3`

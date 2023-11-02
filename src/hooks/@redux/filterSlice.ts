@@ -187,35 +187,19 @@ const problemFilterSlice = createSlice({
   },
 });
 
-const problemFilterSlice = createSlice({
-  name: 'problemFilter',
+const myPageStatusFilterSlice = createSlice({
+  name: 'myPageStatusFilter',
   initialState: {
     pageNumber: 0,
   },
   reducers: {
-    setProblemPageNumber(state, action) {
+    setmyPageStatusPageNumber(state, action) {
       state.pageNumber = action.payload;
     },
   },
 });
 
-const PwdEditSlice = createSlice({
-  name: 'PwdEdit',
-  initialState: {
-    newPassword: '',
-    oldPassword: '',
-  },
-  reducers: {
-    setNewPassword(state, action) {
-      state.newPassword = action.payload;
-    },
-    setOldPassword(state, action) {
-      state.oldPassword = action.payload;
-    },
-  },
-});
-
-export const { setNewPassword, setOldPassword } = PwdEditSlice.actions;
+export const { setmyPageStatusPageNumber } = myPageStatusFilterSlice.actions;
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
@@ -250,4 +234,5 @@ export const filterReducer = {
   workbookfilter: workbookFilterSlice.reducer,
   problemFilter: problemFilterSlice.reducer,
   contestFilter: contestFilterSlice.reducer,
+  myPageStatusFilter: myPageStatusFilterSlice.reducer,
 };

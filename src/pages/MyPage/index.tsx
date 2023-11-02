@@ -5,11 +5,12 @@ import MypageMyInfo from 'components/unit/Mypage/MypageMyInfo';
 import MypageQuestion from 'components/unit/Mypage/MypageQuestion';
 import { useGetImg } from 'hooks/@query/mypage/useGetImg';
 import { useGetMypage } from 'hooks/@query/mypage/useGetMypage';
-import { useGetStatus } from 'hooks/@query/mypage/useGetStatus';
 import useMyPage from 'hooks/mypage/useMyPage';
 import { FieldValues, useForm } from 'react-hook-form';
-import { myPageDownloadState, myPageState } from 'types/mypage';
+import { myPageDownloadState, myPageState, statusMap } from 'types/mypage';
 import ContentContainer from 'components/commons/ContentContainer';
+import { useGetMyRequestList } from 'hooks/@query/request/useGetRequestList';
+import useMypageFilter from 'hooks/mypage/useMypageFilter';
 
 const MyPage = () => {
   const {
@@ -35,10 +36,14 @@ const MyPage = () => {
     setIsActive,
   } = useMyPage({ reset, getValues });
 
+  const { myPageStatusFilter, handlePage } = useMypageFilter();
+
   const Img = useGetImg();
   const myPageInfo = useGetMypage();
-  const status = useGetStatus();
-
+  const statusList = useGetMyRequestList({
+    page: myPageStatusFilter.pageNumber,
+    sort: '',
+  });
   return (
     <ContentContainer>
       <Container>
@@ -57,7 +62,12 @@ const MyPage = () => {
             onValid={onValid}
             setIsActive={setIsActive}
           />
-          <MypageBoard handleDetail={handleDetail} status={status} />
+          <MypageBoard
+            handleDetail={handleDetail}
+            handlePage={handlePage}
+            statusList={statusList as unknown as statusMap}
+            page={myPageStatusFilter.pageNumber}
+          />
           <MypageQuestion />
         </S.MyPageInfoWrapper>
       </Container>

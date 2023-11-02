@@ -30,10 +30,14 @@ const ProblemDetailSubmit = ({
           <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>
         </S.ProblemAnswerWrapper>
       )} */}
-      {isAnswer && (
+      {isAnswer ? (
         <S.ProblemAnswerWrapper>
           <S.ProblemAnswerTitle>정답:</S.ProblemAnswerTitle>
           <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>
+        </S.ProblemAnswerWrapper>
+      ) : (
+        <S.ProblemAnswerWrapper>
+          <S.ProblemAnswerTitle>오답입니다!</S.ProblemAnswerTitle>
         </S.ProblemAnswerWrapper>
       )}
     </S.ProblemSubmitWrapper>

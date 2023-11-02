@@ -187,6 +187,19 @@ const problemFilterSlice = createSlice({
   },
 });
 
+const myPageStatusFilterSlice = createSlice({
+  name: 'myPageStatusFilter',
+  initialState: {
+    pageNumber: 0,
+  },
+  reducers: {
+    setmyPageStatusPageNumber(state, action) {
+      state.pageNumber = action.payload;
+    },
+  },
+});
+
+export const { setmyPageStatusPageNumber } = myPageStatusFilterSlice.actions;
 export const { handlePage, reset } = pageNumberSlice.actions;
 export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
@@ -218,4 +231,5 @@ export const filterReducer = {
   workbookfilter: workbookFilterSlice.reducer,
   problemFilter: problemFilterSlice.reducer,
   contestFilter: contestFilterSlice.reducer,
+  myPageStatusFilter: myPageStatusFilterSlice.reducer,
 };

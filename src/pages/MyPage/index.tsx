@@ -9,6 +9,7 @@ import { useGetStatus } from 'hooks/@query/mypage/useGetStatus';
 import useMyPage from 'hooks/mypage/useMyPage';
 import { FieldValues, useForm } from 'react-hook-form';
 import { myPageDownloadState, myPageState } from 'types/mypage';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const MyPage = () => {
   const {
@@ -39,26 +40,28 @@ const MyPage = () => {
   const status = useGetStatus();
 
   return (
-    <Container>
-      <S.MyPageInfoWrapper>
-        <MypageMyInfo
-          img={Img as unknown as myPageDownloadState}
-          myPageInfo={myPageInfo as myPageState}
-          isActive={isActive}
-          isLoading={isLoading}
-          HandleClickPwd={HandleClickPwd}
-          passwordPattern={passwordPattern}
-          register={register}
-          handleSubmit={handleSubmit}
-          errors={errors}
-          handleChangePwdSubmit={handleChangePwdSubmit}
-          onValid={onValid}
-          setIsActive={setIsActive}
-        />
-        <MypageBoard handleDetail={handleDetail} status={status} />
-        <MypageQuestion />
-      </S.MyPageInfoWrapper>
-    </Container>
+    <ContentContainer>
+      <Container>
+        <S.MyPageInfoWrapper>
+          <MypageMyInfo
+            img={Img as unknown as myPageDownloadState}
+            myPageInfo={myPageInfo as myPageState}
+            isActive={isActive}
+            isLoading={isLoading}
+            HandleClickPwd={HandleClickPwd}
+            passwordPattern={passwordPattern}
+            register={register}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            handleChangePwdSubmit={handleChangePwdSubmit}
+            onValid={onValid}
+            setIsActive={setIsActive}
+          />
+          <MypageBoard handleDetail={handleDetail} status={status} />
+          <MypageQuestion />
+        </S.MyPageInfoWrapper>
+      </Container>
+    </ContentContainer>
   );
 };
 

@@ -21,7 +21,7 @@ const CreateContest = () => {
       competitionStart: '',
       competitionEnd: '',
       competitionTitle: '',
-      participants: 5,
+      participants: 0,
     },
   });
 
@@ -73,6 +73,7 @@ const CreateContest = () => {
               label="대회 제목"
               name="competitionTitle"
               required
+              placeholder="내용을 입력해주세요"
             />
             <AdminInput
               id="personnel"

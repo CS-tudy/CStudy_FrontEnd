@@ -10,9 +10,7 @@ export const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     const tokens = getUserTokens();
-    if (tokens) {
-      config.headers.Authorization = `Bearer ${tokens.accessToken}`;
-    }
+    config.headers.Authorization = `Bearer ${tokens?.accessToken}`;
 
     return config;
   },

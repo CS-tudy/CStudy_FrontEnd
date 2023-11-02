@@ -96,11 +96,13 @@ const Problem = () => {
   return (
     <>
       {' '}
-      <S.ButtonWrapper>
-        <Button variant="primary" size="medium" onClick={navigateAdmin}>
-          문제 생성
-        </Button>
-      </S.ButtonWrapper>
+      {isAdmin() && (
+        <S.ButtonWrapper>
+          <Button variant="primary" size="medium" onClick={navigateAdmin}>
+            문제 생성
+          </Button>
+        </S.ButtonWrapper>
+      )}
       <S.ContainerHeader>
         <S.ButtonWrapper>
           {isAdmin() &&

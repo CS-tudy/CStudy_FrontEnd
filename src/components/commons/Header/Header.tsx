@@ -5,7 +5,7 @@ import Logo_Png from 'assets/Logo.png';
 import React, { useEffect } from 'react';
 import { useSignOut } from 'hooks/@query/useSignOut';
 import useModal from 'hooks/useModal';
-import Modal from '../../unit/Modal';
+import Modal from '../Modal/Modal';
 import SignInModal from 'components/unit/SignIn';
 import SignModal from '../Modal/SignModal';
 import SignUp from 'components/unit/SignUp';
@@ -17,6 +17,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose } from 'react-icons/ai';
+import { MdNotifications } from 'react-icons/md';
+import AlarmModal from '../Modal/AlarmModal';
+import Modal2 from '../Modal/Modal2';
+import { getAlarm } from 'api/alarm';
+import AlarmList from 'components/unit/Alarm/AlarmList';
 
 export interface PrevToogle {
   $active: boolean;
@@ -27,6 +32,17 @@ const Header = () => {
   const [signupModal, setSignupModal] = useState(true);
   const [active, setActive] = useState(false);
   const [moblie, setmoblie] = useState(false);
+  const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
+  const [alarms, setAlarms] = useState(null);
+
+  const toggleModal = () => {
+    setAlarmModalIsOpen(!alarmModalIsOpen);
+  };
+
+  const handleAlarmClick = () => {
+    // fetchAlarm();
+    setAlarmModalIsOpen(!alarmModalIsOpen);
+  };
 
   const isRegisterModalOpen = useSelector(
     (state: RootState) => state.registerModal.isOpen,
@@ -112,6 +128,25 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
+        {isLogin() && (
+          <S.AlarmButton $active={active} onClick={handleAlarmClick}>
+            <MdNotifications size="27px" />
+          </S.AlarmButton>
+        )}
+        {alarmModalIsOpen && (
+          <Modal2 toggleModal={toggleModal}>
+            <AlarmModal
+              title="대회에 참가하시겠습니까?"
+              confirmText="참가하기"
+              cancelText="돌아가기"
+              isOpen={toggleModal}
+              handleConfirm={toggleModal}
+              handleCancel={toggleModal}
+            >
+              <AlarmList />
+            </AlarmModal>
+          </Modal2>
+        )}
         <S.HamburgerBt onClick={HandleClickToogle}>
           {active ? <AiOutlineClose /> : <GiHamburgerMenu />}
         </S.HamburgerBt>

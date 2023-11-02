@@ -5,6 +5,7 @@ const useProblemAction = () => {
   const [isAnswer, setIsAnswer] = useState(false);
   const [isAction, setIsAction] = useState(false);
   const [timeCheck, setTimeCheck] = useState(false);
+  const [isToastShown, setIsToastShown] = useState(false);
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
@@ -31,6 +32,8 @@ const useProblemAction = () => {
     handleIsAnswer,
     actionAnimations,
     animationTimeCheck,
+    setIsToastShown,
+    isToastShown,
   };
 };
 

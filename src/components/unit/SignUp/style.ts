@@ -52,7 +52,7 @@ export const TextSuggestionLabel = styled.span`
 export const ButtonInsideInput = styled.button`
   position: absolute;
   right: 0.8rem;
-  top: 1.8rem;
+  top: 1.75rem;
   background-color: ${COLOR.GRAY};
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;

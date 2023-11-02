@@ -13,6 +13,7 @@ import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { useDispatch } from 'react-redux';
 
 export const useSignUp = () => {
+  const [noDuplicatedName, setNoDuplicatedName] = useState(false);
   const [noDuplicatedEmail, SetNoDuplicatedEmail] = useState(false);
   const [authenticating, setAuthenticating] = useState(false);
   const authNumber = useRef(0);
@@ -43,6 +44,7 @@ export const useSignUp = () => {
       else {
         if (data.verify === 'true') {
           Toast.success('사용할 수 있는 닉네임입니다.');
+          setNoDuplicatedName(true);
         } else if (data.verify === 'false') {
           Toast.error('이미 존재하는 닉네임입니다.');
         } else {
@@ -69,6 +71,8 @@ export const useSignUp = () => {
         if (data.verify === 'true') {
           Toast.success('사용할 수 있는 이메일입니다.');
           SetNoDuplicatedEmail(true);
+          if (noDuplicatedName === false)
+            Toast.error('닉네임 중복 확인해주세요.');
         } else if (data.verify === 'false') {
           Toast.error('이미 존재하는 이메일입니다.');
         } else {
@@ -85,6 +89,7 @@ export const useSignUp = () => {
     setAuthenticating(true);
     const data = await sendAuthNumberToEmail(watchedEmail);
     try {
+      if (watchedEmail === '') Toast.error('인증번호를 입력해주세요.');
       Toast.success('인증번호가 전송됐습니다.');
     } catch (error) {
       console.error(error);
@@ -121,6 +126,7 @@ export const useSignUp = () => {
   };
 
   return {
+    noDuplicatedName,
     noDuplicatedEmail,
     authenticating,
     register,

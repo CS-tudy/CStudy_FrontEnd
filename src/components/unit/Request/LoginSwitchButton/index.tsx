@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { isLogin } from 'repository/auth';
 import Toast from 'libs/Toast';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
-import Modal from 'components/unit/Modal';
+import Modal from 'components/commons/Modal/Modal';
 import SignModal from 'components/commons/Modal/SignModal';
 import SignInModal from 'components/unit/SignIn';
 

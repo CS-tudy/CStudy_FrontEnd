@@ -3,6 +3,9 @@ import { SignInForm } from 'types/Form';
 import { useSignIn } from 'hooks/@query/useSignIn';
 import * as S from './style';
 import { Button } from 'components/commons/Button/Style';
+import { useDispatch } from 'react-redux';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
+import { signupToggle } from 'hooks/@redux/registerModalSlice';
 
 const SignInModal = () => {
   const {
@@ -13,6 +16,11 @@ const SignInModal = () => {
   } = useForm<SignInForm>();
 
   const { mutate: SignIn } = useSignIn();
+  const dispatch = useDispatch();
+  const changeModalHandler = () => {
+    dispatch(Logintoggle());
+    dispatch(signupToggle());
+  };
 
   const onSignInHandler: SubmitHandler<SignInForm> = (formData: SignInForm) => {
     SignIn({ ...formData });
@@ -51,6 +59,12 @@ const SignInModal = () => {
       <Button type="submit" variant="primary" size="full">
         로그인
       </Button>
+      <S.Suggestion>
+        <S.TextSuggestionLabel>아직 가입하지 않으셨나요?</S.TextSuggestionLabel>
+        <button type="button" onClick={changeModalHandler}>
+          <S.MovingLogin>회원가입</S.MovingLogin>
+        </button>
+      </S.Suggestion>
     </form>
   );
 };

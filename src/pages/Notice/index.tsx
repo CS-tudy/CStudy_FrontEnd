@@ -44,7 +44,7 @@ const Notice = () => {
         {/* <S.FilterWrapper> */}
         <ContentHeaderWrapper
           Text="공지사항 생성"
-          adminLink="/admin/Createnotice"
+          adminLink="/admin/createnotice"
         >
           <S.SearchWrapper>
             <S.Searchbar>

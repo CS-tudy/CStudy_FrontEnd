@@ -25,14 +25,21 @@ export const ErrorMessage = styled.div`
   }
 `;
 
-export const SocialLogin = styled.div`
-  margin: 3rem auto 0;
+export const Suggestion = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
 `;
 
-export const GoogleLogo = styled.img`
-  width: 7rem;
-  height: 7rem;
-  padding: 1rem;
-  border-radius: 50%;
-  cursor: pointer;
+export const TextSuggestionLabel = styled.span`
+  font-size: ${FONT.REGULAR_14};
+  padding-right: 1rem;
+`;
+
+export const MovingLogin = styled.span`
+  display: inline-block;
+  color: ${COLOR.MAIN};
+  font-size: 15px;
+  margin-bottom: 0.5px;
 `;

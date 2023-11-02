@@ -5,6 +5,7 @@ import { isLogin } from 'repository/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stroe';
 import useModal from 'hooks/useModal';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 interface WorkBookCardProps {
   id: number;
@@ -22,17 +23,17 @@ const WorkBookCard = ({
   fileName,
 }: WorkBookCardProps) => {
   const dispatch = useDispatch();
-  const isOpen = useModal();
 
-  const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
+  const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
       e.preventDefault();
+      dispatch(Logintoggle());
     }
   };
 
   return (
     <S.WorkBookCard>
-      <Link to={`${id}`} onClick={checkAndDisplayLoginModal}>
+      <Link to={`${id}`} onClick={checkLogin}>
         <S.Img src={fileName ? fileName : workbook} />
         <S.Info>
           <S.Title>{title}</S.Title>

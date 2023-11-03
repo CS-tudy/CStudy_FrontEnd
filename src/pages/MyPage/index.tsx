@@ -44,12 +44,16 @@ const MyPage = () => {
     page: myPageStatusFilter.pageNumber,
     sort: '',
   });
+
+  const blob = new Blob([Img], { type: 'mime-type' });
+  const getImg = URL.createObjectURL(blob);
   return (
     <ContentContainer>
       <Container>
         <S.MyPageInfoWrapper>
           <MypageMyInfo
-            img={Img as unknown as myPageDownloadState}
+            img={Img as string}
+            getImg={getImg}
             myPageInfo={myPageInfo as myPageState}
             isActive={isActive}
             isLoading={isLoading}

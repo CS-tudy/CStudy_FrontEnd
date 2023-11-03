@@ -24,7 +24,8 @@ interface MypageMyInfoProps {
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   onValid: () => void;
   myPageInfo: myPageState;
-  img: myPageDownloadState;
+  img: string;
+  getImg: string;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -40,6 +41,7 @@ const MypageMyInfo = ({
   onValid,
   myPageInfo,
   setIsActive,
+  getImg,
   img,
 }: MypageMyInfoProps) => {
   return (
@@ -47,6 +49,7 @@ const MypageMyInfo = ({
       <MyPageInfo
         myPageInfo={myPageInfo}
         img={img}
+        getImg={getImg}
         register={register}
         onValid={onValid}
         handleSubmit={handleSubmit}

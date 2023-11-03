@@ -46,7 +46,7 @@ export const checkAuthLoader = async () => {
 
   if (!userToken) return redirect('/forbidden');
 
-  return null;
+  return true;
 };
 
 export const checkAdminLoader = () => {

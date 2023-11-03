@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fff;
-  margin-bottom: 700px;
 
   ${media.tablet} {
     margin-bottom: 1000px;
@@ -18,8 +17,6 @@ export const Wrapper = styled.div`
 
 export const BodyWrapper = styled.div`
   width: 100%;
-  position: absolute;
-  top: 20;
 `;
 
 export const ContentWrapper = styled.div`

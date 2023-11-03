@@ -1,4 +1,5 @@
 import { instance } from 'api';
+import { FieldValues } from 'react-hook-form';
 import { RequestNoticeDetail, RequestNoticeList } from 'types/api';
 interface AdminNoticeProps {
   id: number;
@@ -35,7 +36,7 @@ export const getToggleRequestList = async ({
   return response.data;
 };
 
-export const addBoardList = async (formData: any): Promise<any> => {
+export const addBoardList = async (formData: FieldValues) => {
   const response = instance.post('/api/notice', formData);
   return response;
 };

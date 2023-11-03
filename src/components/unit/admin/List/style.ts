@@ -28,7 +28,7 @@ export const LogoImg = styled.img`
 export const Item = styled.li`
   display: flex;
   align-items: center;
-  padding: 3rem 1rem;
+  padding: 0rem 2rem;
   border-radius: 0.5rem;
   height: 50px;
   cursor: pointer;

@@ -10,12 +10,14 @@ import { signUp as signUpApi } from 'api/auth';
 import { SignUpForm } from 'types/Form';
 import Toast from 'libs/Toast';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
+import { useDispatch } from 'react-redux';
 
 export const useSignUp = () => {
   const [noDuplicatedName, setNoDuplicatedName] = useState(false);
   const [noDuplicatedEmail, SetNoDuplicatedEmail] = useState(false);
   const [authenticating, setAuthenticating] = useState(false);
   const authNumber = useRef(0);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -110,6 +112,7 @@ export const useSignUp = () => {
     onSuccess: () => {
       Toast.success('회원가입 성공');
       signupToggle();
+      dispatch(signupToggle());
     },
     onError: () => {
       Toast.error('회원가입 실패');

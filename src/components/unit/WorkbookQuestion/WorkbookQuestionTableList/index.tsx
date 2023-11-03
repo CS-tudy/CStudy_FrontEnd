@@ -18,7 +18,6 @@ const WorkbookQuestionTableList = ({
   errors,
 }: WorkbookQuestionTableListProps) => {
   const { questionId, title } = content;
-  console.log(questionId);
 
   return (
     <tr>

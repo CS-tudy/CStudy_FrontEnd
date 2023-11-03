@@ -33,7 +33,7 @@ const Navbar = () => {
                 {/* <S.Icon>
                   <MdOutlineContentPaste size={30} />
                 </S.Icon> */}
-                <StyleNavLink to="/admin/CreateProblem">
+                <StyleNavLink to="/admin/Createproblem">
                   <p>문제 생성</p>
                 </StyleNavLink>
               </S.Item>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 {/* <S.Icon>
                   <LuClipboardList size={30} />
                 </S.Icon> */}
-                <StyleNavLink to="/admin/CreateContest">
+                <StyleNavLink to="/admin/createcontest">
                   <p>대회 생성</p>
                 </StyleNavLink>
               </S.Item>

@@ -25,10 +25,15 @@ const Table2 = ({
       cellSpacing={0}
       $white={white}
       maxHeight={maxHeight}
-      narrow={narrow}
+      $narrow={narrow}
       $narrow2={narrow2}
     >
-      <TableHead colRate={colRate} title={title} narrow={narrow} />
+      <TableHead
+        colRate={colRate}
+        title={title}
+        narrow={narrow}
+        narrow2={narrow2}
+      />
       <tbody>{children}</tbody>
     </Styled.Table>
   );

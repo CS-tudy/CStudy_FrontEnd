@@ -40,7 +40,6 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
   }, []);
 
   const { mutate: uploadImg } = useUploadImg();
-  const img = useGetImg();
 
   const onValid = useCallback(() => {
     const data = getValues('files');
@@ -48,7 +47,6 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     formData.append('files', data[0]);
 
     uploadImg(formData);
-    img;
   }, []);
 
   const handleDetail = useCallback((id: number) => {

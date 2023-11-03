@@ -51,8 +51,6 @@ const Problem = () => {
   const { query, queryActive, handleToggle } = useQueryFilterSlice();
   const { problemFilter, handlePage } = UseProblemFilterSlice();
 
-  console.log('filter', problemFilter);
-
   const problemList = useGetProblemList({
     questionTitle: inputValue,
     categoryTitle: categoryValue,
@@ -61,10 +59,6 @@ const Problem = () => {
     page: problemFilter.pageNumber,
     query: query,
   });
-
-  console.log('problem', problemList);
-  console.log(categoryValue);
-  console.log(inputValue);
 
   const filterOptionTotal = ['전체'];
   const filterOptionEmpty = [''];
@@ -91,7 +85,7 @@ const Problem = () => {
   const navigate = useNavigate();
 
   const navigateAdmin = () => {
-    navigate('/admin/CreateProblem');
+    navigate('/admin/createproblem');
   };
   return (
     <>

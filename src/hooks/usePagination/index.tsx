@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import * as Styled from './style';
+import * as S from './style';
 import { PaginationProps } from 'types/pagination';
 
 const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
@@ -33,13 +33,13 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
       const pageNumber = startIndex + index + 1;
 
       return (
-        <Styled.PaginationButton
+        <S.PaginationButton
           key={index}
           onClick={() => handlePage(pageNumber - 1)}
           className={pageNumber === currentPageNumber ? 'active' : ''}
         >
           {pageNumber}
-        </Styled.PaginationButton>
+        </S.PaginationButton>
       );
     });
   }, [currentPage, currentPageNumber, handlePage, totalPages]);

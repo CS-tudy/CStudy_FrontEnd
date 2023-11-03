@@ -1,7 +1,7 @@
-import * as Styled from './style';
+import * as S from './style';
 
 const ContentContainer = ({ children }: React.PropsWithChildren) => {
-  return <Styled.Wrapper>{children}</Styled.Wrapper>;
+  return <S.Wrapper>{children}</S.Wrapper>;
 };
 
 export default ContentContainer;

@@ -56,11 +56,11 @@ const ProblemDetail = ({
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <ProblemDetailTitle problem={problem} time={time} />
       {children}
-      <ResultImage
+      {/* <ResultImage
         isAnswer={isAnswer}
         isAction={isAction}
         timeCheck={timeCheck}
-      />
+      /> */}
       <ProblemDetailContent problem={problem} register={register} />
       <ProblemDetailSubmit
         timeCheck={timeCheck}

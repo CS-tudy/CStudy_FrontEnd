@@ -13,7 +13,7 @@ import styled from 'styled-components';
 //   }`;
 
 export const ModalContainer = styled.div`
-  background-color: #fcfcfc;
+  background-color: #fff;
   position: fixed;
   top: 90px;
   right: 170px;

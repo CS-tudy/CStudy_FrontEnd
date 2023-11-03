@@ -111,8 +111,8 @@ export const useSignUp = () => {
   const signUpMutation = useMutation(signUpApi, {
     onSuccess: () => {
       Toast.success('회원가입 성공');
-      signupToggle();
       dispatch(signupToggle());
+      // signupToggle();
     },
     onError: () => {
       Toast.error('회원가입 실패');

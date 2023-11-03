@@ -64,7 +64,7 @@ const router = createBrowserRouter([
           },
           {
             path: ':Id',
-            loader: checkAuthLoader(),
+            loader: checkAuthLoader,
             element: <NoticeRequestDetail />,
           },
         ],
@@ -106,7 +106,7 @@ const router = createBrowserRouter([
           {
             index: false,
             path: ':questionId',
-            loader: checkAuthLoader(),
+            loader: checkAuthLoader,
             element: <WorkbookQuestion />,
           },
         ],

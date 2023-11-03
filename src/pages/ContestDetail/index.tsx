@@ -17,6 +17,7 @@ import AdminContestTablelists from 'components/unit/ContestQuestion/AdminContest
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
+import ContentContainer from 'components/commons/ContentContainer';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
@@ -82,68 +83,76 @@ const ContestDetail = () => {
   const title = useMemo(() => ['문제번호', '문제이름', '문제삭제'], []);
 
   return (
-    <ContestDetailContainer>
-      <div
-        style={{
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div>
-          <h2>자바대회</h2>
-        </div>
+    <ContentContainer>
+      <ContestDetailContainer>
         <div
           style={{
-            marginBottom: '3rem',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
           }}
         >
-          <Button variant="green" size="large" onClick={handleNavigateMyResult}>
-            <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
-          </Button>
-          <Button variant="primary" size="medium" onClick={toggleModal}>
-            대회 참여
-          </Button>
-          <AdminContestQuestionOptionGroup
-            handleSubmit={handleSubmit}
-            reset={reset}
-            contestId={contestId as string}
-            getValues={getValues}
-          />
-        </div>
-        {modalIsOpen && (
-          <Modal toggleModal={toggleModal}>
-            <ConfirmModal
-              title="대회에 참가하시겠습니까?"
-              confirmText="참가하기"
-              cancelText="돌아가기"
-              isOpen={modalIsOpen}
-              handleConfirm={handleConfirm}
-              handleCancel={toggleModal}
-              isLoading={isLoading}
+          <div>
+            <h2>자바대회</h2>
+          </div>
+          <div
+            style={{
+              marginBottom: '3rem',
+            }}
+          >
+            <Button
+              variant="green"
+              size="large"
+              onClick={handleNavigateMyResult}
+            >
+              <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
+            </Button>
+            <Button variant="primary" size="medium" onClick={toggleModal}>
+              대회 참여
+            </Button>
+            <AdminContestQuestionOptionGroup
+              handleSubmit={handleSubmit}
+              reset={reset}
+              contestId={contestId as string}
+              getValues={getValues}
             />
-          </Modal>
-        )}
-      </div>
-      <div style={{ width: '100%', display: 'flex' }} />
-      <ContestInfo contest={contest as Contest} />
-      <ContestRank
-        contestRank={contestRank as IContestRank}
-        totalQuestion={totalQuestion as number}
-        handlePage={handlePage}
-        page={page}
-      />
-      <S.Div />
-      {isAdmin() && filterQuestion?.length !== 0 && (
-        <Table colRate={colRate} title={title}>
-          <AdminContestTablelists
-            filterQuestion={filterQuestion as ProblemContent[]}
-            register={register}
-            errors={errors}
+          </div>
+          {modalIsOpen && (
+            <Modal toggleModal={toggleModal}>
+              <ConfirmModal
+                title="대회에 참가하시겠습니까?"
+                confirmText="참가하기"
+                cancelText="돌아가기"
+                isOpen={modalIsOpen}
+                handleConfirm={handleConfirm}
+                handleCancel={toggleModal}
+                isLoading={isLoading}
+              />
+            </Modal>
+          )}
+        </div>
+
+        <S.ContestDetailContent>
+          <ContestInfo contest={contest as Contest} />
+          <ContestRank
+            contestRank={contestRank as IContestRank}
+            totalQuestion={totalQuestion as number}
+            handlePage={handlePage}
+            page={page}
           />
-        </Table>
-      )}
-    </ContestDetailContainer>
+        </S.ContestDetailContent>
+
+        {isAdmin() && filterQuestion?.length !== 0 && (
+          <Table colRate={colRate} title={title}>
+            <AdminContestTablelists
+              filterQuestion={filterQuestion as ProblemContent[]}
+              register={register}
+              errors={errors}
+            />
+          </Table>
+        )}
+      </ContestDetailContainer>
+    </ContentContainer>
   );
 };
 

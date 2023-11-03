@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FieldValues,
   UseFormHandleSubmit,
@@ -11,18 +11,20 @@ interface MyPageInfoImgProps {
   onValid: () => void;
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
-  img: any;
+  img: string;
+  getImg: string;
 }
 
 const MypageInfoImg = ({
   onValid,
   register,
   handleSubmit,
+  getImg,
   img,
 }: MyPageInfoImgProps) => {
   return (
     <S.MyImgDiv>
-      <picture>{img ? <S.MyImg src={img} alt="프로필" /> : <img />}</picture>
+      <picture>{img && <S.MyImg src={getImg} alt="프로필" />}</picture>
       <form onSubmit={handleSubmit(onValid)}>
         <S.Label htmlFor="image_file">이미지 수정</S.Label>
         <S.FileInput

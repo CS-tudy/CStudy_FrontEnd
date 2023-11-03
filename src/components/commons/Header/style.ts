@@ -62,7 +62,9 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   margin: 0 2rem;
-
+  ${media.custom(1166)} {
+    margin: 0 0.8rem;
+  }
   ${media.tablet} {
     text-align: left;
     border-bottom: 1px solid #e6e7e9;

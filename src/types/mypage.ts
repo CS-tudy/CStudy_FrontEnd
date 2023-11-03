@@ -7,13 +7,20 @@ export interface myPageState {
 }
 
 export interface statusMap {
-  content: [];
-  id: number;
-  title: string;
+  totalPages: number;
+  size: number;
+  page: number;
+  content: StatusContent[];
+}
+
+export interface StatusContent {
+  createAt: string;
+  description: string;
   flag: boolean;
-  status: {
-    content?: [];
-  };
+  id: number;
+  memberId: number;
+  memberName: string;
+  title: string;
 }
 
 export interface myPageStatusState {

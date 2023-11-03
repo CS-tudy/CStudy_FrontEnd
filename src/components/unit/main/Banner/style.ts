@@ -21,7 +21,7 @@ export const Texts = styled.p`
 export const Bold = styled.span`
   font-size: 6rem;
   font-weight: bold;
-  background: linear-gradient(to right top, #cd46f3, #c2d4f7);
+  background: linear-gradient(to right top, #51c2dc, #c2d4f7);
   color: transparent;
   -webkit-background-clip: text;
   ${media.tablet} {

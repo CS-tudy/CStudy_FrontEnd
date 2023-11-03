@@ -88,14 +88,6 @@ const ProblemDetailPage = () => {
   return (
     <ContentContainer>
       <Container>
-        {/* <div>
-          <Button variant="gray" size="medium" onClick={handleNavigateBack}>
-            돌아가기
-          </Button>
-        </div> */}
-        {/* <div>
-        <RxLapTimer size={20} /> {time}
-      </div> */}
         <ProblemDetail
           isLoading={isLoading}
           problem={problem as IProblem}
@@ -108,9 +100,6 @@ const ProblemDetailPage = () => {
           timeCheck={timeCheck}
           time={time}
         ></ProblemDetail>
-        {/* {isAction && isAnswer ? null : (
-          <S.WrongAnswer>틀렸습니다!</S.WrongAnswer>
-        )} */}
         {isAnswer && (
           <ProblemDetailFooter explain={problem?.explain as string} />
         )}

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
-import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 
 export const Container = styled.div`

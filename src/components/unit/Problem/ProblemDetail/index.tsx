@@ -13,7 +13,6 @@ import ProblemDetailSubmit from '../ProblemDetailSubmit';
 import ProblemDetailTitle from '../ProblemDetailTitle';
 import { useParams } from 'react-router-dom';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
-import ResultImage from 'components/commons/ResultImage';
 import LoadingSpinner from 'components/commons/LoadingSpinner';
 
 interface ProblemDetailProps {

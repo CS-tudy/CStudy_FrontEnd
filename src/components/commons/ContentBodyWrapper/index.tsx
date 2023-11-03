@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import * as Styled from './style';
+import * as S from './style';
 
 interface ContentBodyWrapper {
   blue?: boolean;
@@ -9,7 +9,7 @@ const ContentBodyWrapper = ({
   children,
   blue,
 }: PropsWithChildren<ContentBodyWrapper>) => {
-  return <Styled.Body>{children}</Styled.Body>;
+  return <S.Body>{children}</S.Body>;
 };
 
 export default ContentBodyWrapper;

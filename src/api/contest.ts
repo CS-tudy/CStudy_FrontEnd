@@ -9,7 +9,7 @@ import {
   IContestResult,
 } from 'types/api';
 
-/* -------- Get 요청 -------- */
+// -------- Get 요청 -------- //
 
 // 대회 정보
 export const getContest = async (competitionId: string): Promise<Contest> => {
@@ -70,7 +70,7 @@ export const getContestResult = async (
   return response.data;
 };
 
-/* -------- POST 요청 -------- */
+// -------- POST 요청 -------- //
 
 // 대회 생성하기
 export const contestSet = async (formData: FieldValues) => {

@@ -1,6 +1,6 @@
 import { PropsWithChildren, memo } from 'react';
 import FormContentHeader from '../FormContentHeader';
-import * as Styled from './style';
+import * as S from './style';
 
 interface FormSectionProps {
   title: string;
@@ -13,10 +13,10 @@ const FormSection = ({
   subtitle,
 }: PropsWithChildren<FormSectionProps>) => {
   return (
-    <Styled.FormSectionWrapper>
+    <S.FormSectionWrapper>
       <FormContentHeader title={title} subtitle={subtitle} />
-      <Styled.ContentBody>{children}</Styled.ContentBody>
-    </Styled.FormSectionWrapper>
+      <S.ContentBody>{children}</S.ContentBody>
+    </S.FormSectionWrapper>
   );
 };
 

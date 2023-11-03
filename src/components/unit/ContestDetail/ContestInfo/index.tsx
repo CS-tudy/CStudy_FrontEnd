@@ -21,7 +21,7 @@ const ContestInfo = ({ contest }: ContestInfoProps) => {
       }}
     >
       <S.Title>정보</S.Title>
-      <Table2 maxHeight colRate={tableColRate} title={tableTitle}>
+      <Table2 maxHeight narrow={true} colRate={tableColRate} title={tableTitle}>
         <tr>
           <TBodyTd>{contest?.startTime}</TBodyTd>
           <TBodyTd>{contest?.endTime}</TBodyTd>

@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
   a,
   textarea {
     font-family: 'Noto Sans CJK KR', sans-serif;
-    font-size: 14px;
+    /* font-size: 14px; */
   }
   button {
     cursor: pointer;
@@ -58,10 +58,8 @@ export const GlobalStyles = createGlobalStyle`
   a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
-  
-}
-a:hover{
     color: #000;
+  
 }
 
 #toast-root {

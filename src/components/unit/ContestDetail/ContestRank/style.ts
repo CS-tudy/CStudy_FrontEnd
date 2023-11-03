@@ -11,8 +11,8 @@ export const Title = styled.div`
   margin-left: 3rem;
 
   ${media.tablet} {
-    margin-left: 0;
     margin-top: 3rem;
+    margin-left: 0;
   }
 `;
 
@@ -38,6 +38,7 @@ export const RankingTitle = styled.h4`
   justify-content: space-between;
   align-items: flex-end;
   ${FONT.H2}
+  margin-left: 3rem;
 
   & > span {
     font-size: ${FONT.BOLD_14};
@@ -57,7 +58,7 @@ export const PaginationWrapper = styled.div`
   margin-top: 1.8rem;
   display: flex;
   justify-content: center;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 
   ${media.tablet} {
     margin-left: 0;

@@ -4,19 +4,16 @@ import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
 import Modal from 'components/commons/Modal/Modal';
-import useGetContest from 'hooks/@query/contest/useGetContest';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import useJoinContestModal from 'hooks/@redux/Contest/useJoinContestModal';
 import { Contest, IContestRank, ProblemContent } from 'types/api';
 import { useMixContestDetailAll } from 'hooks/@query/@GETmixed/useMixContestDetailAll';
 import AdminContestQuestionOptionGroup from 'components/unit/ContestQuestion/AdminContestQuestionOptionGroup';
 import { FieldValues, useForm } from 'react-hook-form';
-import { AdminWrapper } from 'pages/WorkbookQuestion/style';
 import { isAdmin } from 'repository/auth';
 import Table from 'components/commons/Table';
 import AdminContestTablelists from 'components/unit/ContestQuestion/AdminContestTablelists';
-import NoData from 'components/commons/NoData';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
@@ -63,10 +60,6 @@ const ContestDetail = () => {
       );
     },
   );
-  // const totalQuestion = filterQuestion?.length;
-  // console.log('filter', filterQuestion);
-  // console.log('problem', problem);
-  // console.log('contest', contestQuestion);
 
   const totalQuestion = contestQuestion?.length;
   console.log('total', totalQuestion);

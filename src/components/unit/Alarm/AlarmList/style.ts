@@ -22,11 +22,12 @@ export const AlarmList = styled.div`
 `;
 
 export const AlarmItem = styled.div`
-  padding: 13px;
-  margin: 5px;
+  padding: 17px 15px;
+  /* margin: 5px; */
   background-color: #fff;
-  border-radius: 5px;
-  border: 1px solid ${COLOR.GRAY_80};
+  /* border-radius: 5px;
+  border: 1px solid ${COLOR.GRAY_80}; */
+  border-bottom: 1px solid ${COLOR.GRAY_100};
   /* box-shadow: 1px 1px 2px 0.5px rgba(0, 0, 0, 0.1); */
 `;
 

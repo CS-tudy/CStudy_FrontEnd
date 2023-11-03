@@ -7,9 +7,11 @@ import { useSelector } from 'react-redux';
 import { EventSourcePolyfill } from 'event-source-polyfill';
 import { getUserTokens } from 'repository/auth';
 import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
+import AlarmConnection from 'components/unit/Alarm/AlarmConnection';
 
 const MembersRanks = () => {
   // const tokens = getUserTokens();
+  // const alarms = useGetAlarms();
 
   // const url = 'http://localhost:8080/api/alarm/subscribe';
 
@@ -28,7 +30,6 @@ const MembersRanks = () => {
 
   //   eventSource.addEventListener('alarm', function (event) {
   //     console.log('alarm:', event);
-  //     const alarms = useGetAlarms();
   //     console.log('alarms', alarms);
   //   });
 

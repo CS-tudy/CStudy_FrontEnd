@@ -16,7 +16,7 @@ import { RootState } from 'stroe';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiTwotoneCheckCircle } from 'react-icons/ai';
 import { MdNotifications } from 'react-icons/md';
 import AlarmModal from '../Modal/AlarmModal';
 import Modal2 from '../Modal/Modal2';
@@ -33,7 +33,11 @@ const Header = () => {
   const [active, setActive] = useState(false);
   const [moblie, setmoblie] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
-  const [alarms, setAlarms] = useState(null);
+  // const alarms = useSelector(
+  //   (state: any) => state.rootReducer.alarm.alarms.content,
+  // );
+  // console.log('redux', alarms);
+  const alarms = [];
 
   const toggleModal = () => {
     setAlarmModalIsOpen(!alarmModalIsOpen);
@@ -132,6 +136,11 @@ const Header = () => {
           <S.AlarmButton $active={active} onClick={handleAlarmClick}>
             <MdNotifications size="27px" />
           </S.AlarmButton>
+        )}
+        {alarms?.length !== 0 && (
+          <S.AlarmMark $active={active}>
+            <AiTwotoneCheckCircle size="9" color="#e52330" />
+          </S.AlarmMark>
         )}
         {alarmModalIsOpen && (
           <Modal2 toggleModal={toggleModal}>

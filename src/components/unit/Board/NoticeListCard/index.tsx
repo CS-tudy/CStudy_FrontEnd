@@ -4,6 +4,8 @@ import * as S from './style';
 import { isLogin } from 'repository/auth';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { useDispatch } from 'react-redux';
+import moment from 'moment';
+import FormattedDate from 'components/commons/moment';
 
 interface NoticeCardProps {
   id: number;
@@ -18,6 +20,7 @@ const NoticeListCard = ({
   createdDate,
 }: NoticeCardProps) => {
   const dispatch = useDispatch();
+  const formattedDate = moment(createdDate).format('YYYY-MM-DD HH:mm');
   const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
       // Toast.error('로그인 후 이용하실 수 있습니다.');
@@ -25,6 +28,7 @@ const NoticeListCard = ({
       dispatch(Logintoggle());
     }
   };
+
   return (
     <S.Container>
       <Link to={`${id}`} onClick={checkLogin}>
@@ -32,8 +36,10 @@ const NoticeListCard = ({
           <S.ContentWrapper>
             <S.Content>
               <S.Title>{title}</S.Title>
+              <S.description>{content}</S.description>
               <S.Detail>
-                <p>{content}</p>·<span>{createdDate}</span>
+                <span>관리자 </span>·
+                <FormattedDate date={createdDate} format="YYYY-MM-DD HH:mm" />
               </S.Detail>
             </S.Content>
           </S.ContentWrapper>

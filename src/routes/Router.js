@@ -1,15 +1,8 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  createBrowserRouter,
-} from 'react-router-dom';
-import Main from 'pages/Main';
+import { createBrowserRouter } from 'react-router-dom';
 import MembersRanks from 'pages/MembersRanks';
 import Contest from 'pages/Contest';
 import MyPage from 'pages/MyPage';
 import Workbook from 'pages/Workbook';
-import Signup from 'pages/Signup';
 import Layout from 'components/commons/Layout';
 import OAuthRedirect from 'pages/Admin/OauthRedirect';
 import Request from 'pages/Request';
@@ -34,21 +27,33 @@ import ContestProblem from 'pages/ContestProblem';
 import ContestDetail from 'pages/ContestDetail';
 import CreateWorkbook from 'pages/Admin/CreateWorkbook';
 import WorkbookQuestion from 'pages/WorkbookQuestion';
-import Review from 'pages/Review';
 import ContestResultPage from 'pages/ContestResult';
 import WorkbookProblemAdd from 'pages/Admin/WorkbookProblemAdd';
 import CreateNotice from 'pages/Admin/CreateNotice';
 import AdminRoot from 'pages/Admin/AdminRoot';
 import ContestQuestionsAdd from 'pages/Admin/ContestQuestionsAdd';
 
+import { Suspense, lazy } from 'react';
+import LoadingSpinner from 'components/commons/LoadingSpinner';
+
+const Main = lazy(() => import('pages/Main'));
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <Layout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: <Main />,
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <Main />
+          </Suspense>
+        ),
       },
       {
         path: 'notice',
@@ -140,7 +145,11 @@ const router = createBrowserRouter([
           },
           {
             path: ':problemId',
-            element: <ProblemDetailPage />,
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <ProblemDetailPage />
+              </Suspense>
+            ),
           },
         ],
       },

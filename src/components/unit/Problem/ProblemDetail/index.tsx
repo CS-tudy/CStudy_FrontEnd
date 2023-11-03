@@ -13,7 +13,7 @@ import ProblemDetailSubmit from '../ProblemDetailSubmit';
 import ProblemDetailTitle from '../ProblemDetailTitle';
 import { useParams } from 'react-router-dom';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
-import ResultImage from 'components/commons/ResultImage';
+import LoadingSpinner from 'components/commons/LoadingSpinner';
 
 interface ProblemDetailProps {
   problem: IProblem;
@@ -47,7 +47,7 @@ const ProblemDetail = ({
   // const { register, handleSubmit } = useForm<FieldValues>();
 
   if (!problem) {
-    return <div>문제를 받아오는 중입니다...</div>;
+    return <LoadingSpinner />;
   }
 
   // const SelectAnswerProblem = useSelectAnswerProblem({ handleIsLoading, handleIsAnswer, actionAnimations });
@@ -56,17 +56,13 @@ const ProblemDetail = ({
     <S.Form onSubmit={handleSubmit(onSubmit)}>
       <ProblemDetailTitle problem={problem} time={time} />
       {children}
-      <ResultImage
-        isAnswer={isAnswer}
-        isAction={isAction}
-        timeCheck={timeCheck}
-      />
       <ProblemDetailContent problem={problem} register={register} />
       <ProblemDetailSubmit
         timeCheck={timeCheck}
         isAnswer={isAnswer}
         Answer={Answer}
         isLoading={isLoading}
+        isAction={isAction}
       />
     </S.Form>
   );

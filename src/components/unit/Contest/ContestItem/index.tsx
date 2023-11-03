@@ -2,9 +2,10 @@ import StyleLink from 'components/commons/StyleLink';
 import { TBodyTd } from 'components/commons/Table/style';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { isLogin } from 'repository/auth';
 import { ContestInfo } from 'types/api';
+import * as S from './style';
 
 interface ContestItemProps {
   contestItem: ContestInfo;
@@ -28,7 +29,7 @@ const ContestItem = ({ contestItem }: ContestItemProps) => {
     <tr>
       <TBodyTd>
         <StyleLink to={`${id}`} onClick={checkLogin}>
-          {title}
+          <S.Title>{title}</S.Title>
         </StyleLink>
       </TBodyTd>
       <TBodyTd>{participants}</TBodyTd>

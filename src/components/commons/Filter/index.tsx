@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import * as Styled from './style';
+import * as S from './style';
 
 interface FilterProps {
   className?: string;
@@ -7,7 +7,7 @@ interface FilterProps {
 }
 
 const Filter = ({ children, ...rest }: PropsWithChildren<FilterProps>) => {
-  return <Styled.Filter {...rest}>{children}</Styled.Filter>;
+  return <S.Filter {...rest}>{children}</S.Filter>;
 };
 
 export default Filter;

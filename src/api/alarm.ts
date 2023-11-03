@@ -2,7 +2,7 @@ import { instance } from 'api';
 
 export const getAlarm = async () => {
   const response = await instance.get(`/api/alarm`);
-  return response;
+  return response.data;
 };
 
 export const getAlarms = async (): Promise<any> => {

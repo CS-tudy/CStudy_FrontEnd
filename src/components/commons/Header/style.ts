@@ -140,9 +140,21 @@ export const HamburgerBt = styled.button`
 `;
 
 export const AlarmButton = styled.button<PrevToogle>`
+  position: absolute;
+  right: 242px;
   ${media.tablet} {
-    position: absolute;
-    right: ${props => (props.$active ? '240px' : '70px')};
+    right: ${props => (props.$active ? '240px' : '75px')};
+    display: ${props => (props.$active ? 'none' : 'block')};
+  }
+`;
+
+export const AlarmMark = styled.div<PrevToogle>`
+  position: absolute;
+  right: 243px;
+  top: 25px;
+  ${media.tablet} {
+    right: ${props => (props.$active ? '280px' : '72px')};
+    top: ${props => (props.$active ? '10px' : '25px')};
     display: ${props => (props.$active ? 'none' : 'block')};
   }
 `;

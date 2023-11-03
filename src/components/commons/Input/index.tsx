@@ -30,7 +30,6 @@ const Input = ({
   placeholder,
   defaultValue,
   pattern,
-  onErrorMsg,
   smallLabel,
 }: InputProps) => {
   return (
@@ -46,7 +45,6 @@ const Input = ({
         placeholder={placeholder}
         disabled={disabled}
         {...register(id, { required, pattern })}
-        // {...register(id, { required: '값을 입력해주세요.', pattern })}
         errors={errors}
         defaultValue={defaultValue}
         required={required}

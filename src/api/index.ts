@@ -66,7 +66,5 @@ instance.interceptors.response.use(
     }
 
     throw error.response;
-    // throw error.response.error;
-    // TODO: 예외 처리 개선
   },
 );

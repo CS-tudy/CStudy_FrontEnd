@@ -1,4 +1,4 @@
-import * as Styled from './style';
+import * as S from './style';
 
 interface ProblemDetailFooterProps {
   explain: string;
@@ -6,10 +6,10 @@ interface ProblemDetailFooterProps {
 
 const ProblemDetailFooter = ({ explain }: ProblemDetailFooterProps) => {
   return (
-    <Styled.Footer>
-      <Styled.FooterComment>해설</Styled.FooterComment>
-      <Styled.FooterCommentDesc>{explain}</Styled.FooterCommentDesc>
-    </Styled.Footer>
+    <S.Footer>
+      <S.FooterComment>해설</S.FooterComment>
+      <S.FooterCommentDesc>{explain}</S.FooterCommentDesc>
+    </S.Footer>
   );
 };
 

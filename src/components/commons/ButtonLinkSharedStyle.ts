@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-// import { SHADOW } from 'constants/Shadow';
 
 export const ButtonLinkSharedStyles = css`
   display: inline-block;

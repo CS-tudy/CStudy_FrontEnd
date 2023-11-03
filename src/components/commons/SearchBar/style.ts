@@ -3,7 +3,6 @@ import { media } from 'constants/media';
 import styled from 'styled-components';
 
 export const Searchbar = styled.div`
-  /* width: 37vw; */
   width: 386px;
   height: 45px;
   border-radius: 10px;

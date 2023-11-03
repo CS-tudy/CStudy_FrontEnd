@@ -10,7 +10,6 @@ import ApproveStatus from 'components/commons/Status';
 import { useDeleteRequest } from 'hooks/@query/request/useMutateRequest';
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai';
 import { useEffect, useState } from 'react';
-import { getMyPage } from 'api/mypage';
 import { useApproveRequest } from 'hooks/@query/request/useApproveRequest';
 import { isAdmin, userInfo } from 'repository/auth';
 import { LoginUserDto } from 'types/problem';

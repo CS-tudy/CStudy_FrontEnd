@@ -24,7 +24,6 @@ const ProblemDetailSubmit = ({
         type="submit"
         variant="primary"
         size="medium"
-        // disabled={isLoading}
         onClick={() => {
           setSubmitClick(true);
         }}

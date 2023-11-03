@@ -2,7 +2,6 @@ import Table from 'components/commons/Table';
 import { TBodyTd } from 'components/commons/Table/style';
 import { useGetRanks } from 'hooks/@query/rank/useGetRanks';
 import { PiMedalFill } from 'react-icons/pi';
-import { useSelector } from 'react-redux';
 
 const Rank = () => {
   const membersRanks = useGetRanks();
@@ -25,8 +24,7 @@ const Rank = () => {
               <PiMedalFill size="28" color="#f7d100" />
             ) : index + 1 === 2 ? (
               <PiMedalFill size="28" color="silver" />
-            ) : // <MdStars size="30" color="silver" />
-            index + 1 === 3 ? (
+            ) : index + 1 === 3 ? (
               <PiMedalFill size="28" color="#ba9964" />
             ) : (
               ''

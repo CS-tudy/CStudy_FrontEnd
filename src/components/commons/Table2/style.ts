@@ -17,7 +17,6 @@ export const Table = styled.table<Props>`
   background-color: #fff;
   padding: 10px;
   box-shadow: 0 0 0 1px #dbdbdb;
-  /* border-radius: 10px; */
   border-radius: ${({ $narrow }) => ($narrow ? '2rem' : '5rem')};
   border-radius: ${({ $narrow2 }) => $narrow2 && '2rem'};
 `;

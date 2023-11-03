@@ -89,7 +89,6 @@ const ContestProblemDetail = ({
 
   return (
     <ContentContainer>
-      {/* <Container> */}
       <S.FormContainer>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
           {fields?.map((field, index) => (
@@ -143,14 +142,6 @@ const ContestProblemDetail = ({
                     다음
                   </Button>
                 ) : (
-                  // <Button
-                  //   type="submit"
-                  //   variant="primary"
-                  //   size="medium"
-                  //   disabled={isLoading}
-                  // >
-                  //   제출
-                  // </Button>
                   <S.SubmitButton type="submit" disabled={isLoading}>
                     제출
                   </S.SubmitButton>

@@ -7,13 +7,9 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   margin-top: 6rem;
   width: 100%;
-  height: 100%;
-  background-color: #fff;
-  margin-bottom: 700px;
-
-  ${media.tablet} {
-    margin-bottom: 1000px;
-  }
+  /* height: 100%; */
+  height: 1100px;
+  /* background-color: #fff; */
 `;
 
 export const BodyWrapper = styled.div`

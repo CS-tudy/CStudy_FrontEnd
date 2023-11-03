@@ -22,6 +22,7 @@ import AlarmModal from '../Modal/AlarmModal';
 import Modal2 from '../Modal/Modal2';
 import { getAlarm } from 'api/alarm';
 import AlarmList from 'components/unit/Alarm/AlarmList';
+import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
 
 export interface PrevToogle {
   $active: boolean;
@@ -33,11 +34,8 @@ const Header = () => {
   const [active, setActive] = useState(false);
   const [moblie, setmoblie] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
-  // const alarms = useSelector(
-  //   (state: any) => state.rootReducer.alarm.alarms.content,
-  // );
-  // console.log('redux', alarms);
-  const alarms = [];
+  const alarms = useSelector((state: any) => state.rootReducer.alarm.alarms);
+  console.log('redux', alarms);
 
   const toggleModal = () => {
     setAlarmModalIsOpen(!alarmModalIsOpen);
@@ -137,11 +135,11 @@ const Header = () => {
             <MdNotifications size="27px" />
           </S.AlarmButton>
         )}
-        {alarms?.length !== 0 && (
+        {/* {isLogin() && alarms?.length !== 0 && (
           <S.AlarmMark $active={active}>
             <AiTwotoneCheckCircle size="9" color="#e52330" />
           </S.AlarmMark>
-        )}
+        )} */}
         {alarmModalIsOpen && (
           <Modal2 toggleModal={toggleModal}>
             <AlarmModal

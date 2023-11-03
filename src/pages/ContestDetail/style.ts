@@ -10,3 +10,7 @@ export const ContestDetailContent = styled.div`
     flex-direction: column;
   }
 `;
+
+export const Div = styled.div`
+  height: 80px;
+`;

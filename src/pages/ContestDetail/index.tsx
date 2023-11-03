@@ -133,16 +133,15 @@ const ContestDetail = () => {
           </Modal>
         )}
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
-        <ContestInfo contest={contest as Contest} />
-        <ContestRank
-          contestRank={contestRank as IContestRank}
-          totalQuestion={totalQuestion as number}
-          handlePage={handlePage}
-          page={page}
-        />
-      </S.ContestDetailContent>
-
+      <div style={{ width: '100%', display: 'flex' }} />
+      <ContestInfo contest={contest as Contest} />
+      <ContestRank
+        contestRank={contestRank as IContestRank}
+        totalQuestion={totalQuestion as number}
+        handlePage={handlePage}
+        page={page}
+      />
+      <S.Div />
       {isAdmin() && filterQuestion?.length !== 0 && (
         <Table colRate={colRate} title={title}>
           <AdminContestTablelists

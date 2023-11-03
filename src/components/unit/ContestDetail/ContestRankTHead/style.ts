@@ -4,8 +4,7 @@ import { FONT } from 'constants/Font';
 import { SHADOW } from 'constants/Shadow';
 
 export const StyledThead = styled.thead`
-  ${FONT.BOLD_14}
-  color: ${COLOR.GRAY_100};
+  ${FONT.BOLD_14}/* color: ${COLOR.GRAY_100}; */
 `;
 
 export const StyledTr = styled.tr`

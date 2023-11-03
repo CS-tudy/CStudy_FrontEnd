@@ -67,6 +67,7 @@ const ProblemDetail = ({
         isAnswer={isAnswer}
         Answer={Answer}
         isLoading={isLoading}
+        isAction={isAction}
       />
     </S.Form>
   );

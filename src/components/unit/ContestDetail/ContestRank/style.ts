@@ -8,12 +8,7 @@ export const Title = styled.div`
   font-weight: 700;
   margin-bottom: 8px;
   width: 100%;
-  margin-left: 3rem;
-
-  ${media.tablet} {
-    margin-left: 0;
-    margin-top: 3rem;
-  }
+  margin-top: 3rem;
 `;
 
 export const Wrapper = styled.div`
@@ -29,7 +24,7 @@ export const ContestRanking = styled.div`
   background-color: #fff;
   border: 0.1rem solid #dbdbdb;
   border-radius: 1.2rem;
-  margin-left: 3rem;
+  /* margin-left: 3rem; */
 
   ${media.tablet} {
     margin-left: 0;
@@ -60,7 +55,7 @@ export const PaginationWrapper = styled.div`
   margin-top: 1.8rem;
   display: flex;
   justify-content: center;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 
   ${media.tablet} {
     margin-left: 0;

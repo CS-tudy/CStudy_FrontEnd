@@ -1,5 +1,3 @@
-import ContentBodyWrapper from 'components/commons/ContentBodyWrapper';
-import ContentContainer from 'components/commons/ContentContainer';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as S from './style';
 import useGetNoticeList from 'hooks/@query/board/useGetNoticeList';

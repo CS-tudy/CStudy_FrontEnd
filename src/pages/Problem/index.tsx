@@ -13,7 +13,7 @@ import Filter from 'components/commons/Filter';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { IProblem } from 'types/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { handlePage, reset } from 'hooks/@redux/filterSlice';
+import { handlePage, reset, setTitle } from 'hooks/@redux/filterSlice';
 import useStatusFilterSlice from 'hooks/@redux/Problem/useStatusFilterSlice';
 import useQueryFilterSlice from 'hooks/@redux/Problem/useQueryFilterSlice';
 import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice';
@@ -26,9 +26,15 @@ import SearchBar from 'components/commons/SearchBar';
 import Select from 'components/commons/Select';
 import ContainerTop from 'components/commons/ContainerTop';
 import ContainerBottom from 'components/commons/ContainerBottom';
+import NoData from 'components/commons/NoData';
+import { isAdmin } from 'repository/auth';
+import StyleLink from 'components/commons/StyleLink';
+import Button from 'components/commons/Button/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Problem = () => {
-  const [problemList, setProblemList] = useState<IProblem>();
+  // const [problemList, setProblemList] = useState<IProblem>();
+  const [titleValue, setTitleValue] = useState('');
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const teststate = useSelector(state => state);
@@ -46,7 +52,7 @@ const Problem = () => {
   const { problemFilter, handlePage } = UseProblemFilterSlice();
 
   const problemList = useGetProblemList({
-    questionTitle: 'Question',
+    questionTitle: inputValue,
     categoryTitle: categoryValue,
     status: statusValue,
     memberId: 0,
@@ -92,6 +98,16 @@ const Problem = () => {
         </S.ButtonWrapper>
       )}
       <S.ContainerHeader>
+        <S.ButtonWrapper>
+          {isAdmin() &&
+            // <StyleLink className="lg navy style" to="/admin/CreateProblem">
+            //   문제 생성
+            // </StyleLink>
+            // <Button variant="primary" size="medium" onClick={navigateAdmin}>
+            //   문제 생성
+            // </Button>
+            ''}
+        </S.ButtonWrapper>
         <S.FilterWrapper>
           <S.SearchWrapper>
             <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
@@ -136,9 +152,17 @@ const Problem = () => {
         </S.FilterWrapper>
       </S.ContainerHeader>
       <Container>
-        <Table colRate={tableColRate} title={tableTitle}>
-          <ProblemList problemList={problemList as IProblem} />
-        </Table>
+        {problemList?.totalElements === 0 ? (
+          <tr>
+            <td colSpan={4}>
+              <NoData>문제풀이 문제가 없습니다.</NoData>
+            </td>
+          </tr>
+        ) : (
+          <Table colRate={tableColRate} title={tableTitle}>
+            <ProblemList problemList={problemList as IProblem} />
+          </Table>
+        )}
       </Container>
       <ContainerBottom>
         {(problemList?.totalPages as number) > 0 && (

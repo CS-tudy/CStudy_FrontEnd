@@ -21,8 +21,8 @@ const CreateNotice = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      boardTitle: '',
-      boardcontent: '',
+      title: '',
+      content: '',
     },
   });
   const { mutate: addboard } = useAddNoticeList();

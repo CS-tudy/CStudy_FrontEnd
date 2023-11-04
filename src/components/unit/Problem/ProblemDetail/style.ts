@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
-import { SHADOW } from 'constants/Shadow';
 
 export const Form = styled.form`
   position: relative;

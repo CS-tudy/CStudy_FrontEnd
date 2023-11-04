@@ -1,9 +1,11 @@
+import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
 import styled from 'styled-components';
 
 export const BodyTitleWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 export const ProblemBodyTitle = styled.h3`
   ${FONT.H3}

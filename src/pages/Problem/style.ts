@@ -1,3 +1,4 @@
+import { media } from 'constants/media';
 import styled from 'styled-components';
 
 export const ContainerHeader = styled.div`
@@ -7,6 +8,7 @@ export const ContainerHeader = styled.div`
   margin-bottom: 12rem;
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -50,6 +52,7 @@ export const SearchWrapper = styled.div`
 export const FilterWrapper2 = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-left: 20px;
 `;
 
 export const QueryFilterWrapper = styled.div``;

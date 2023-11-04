@@ -20,9 +20,7 @@ const ContestRank = ({
 }: ContestRankProps) => {
   return (
     <S.Wrapper>
-      <div style={{ marginLeft: '3rem' }}>
-        <S.Title>랭킹</S.Title>
-      </div>
+      <S.Title>랭킹</S.Title>
       <S.ContestRanking>
         <S.RankingTitle>
           {/* 랭킹 */}

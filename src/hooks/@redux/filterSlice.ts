@@ -212,9 +212,6 @@ export const {
 export const { setTitle, setDescription, setPageNum, setReset } =
   workbookFilterSlice.actions;
 
-export const { setContestQuery, setContestPageNumber } =
-  contestFilterSlice.actions;
-
 export const { setStatus, setStatusValue, toggleStatusActive } =
   statusFilterSlice.actions;
 export const { setCategory, setCategoryValue, toggleCategoryActive } =

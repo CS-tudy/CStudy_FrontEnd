@@ -12,16 +12,17 @@ const ProblemList = ({ problemList }: problemListProps) => {
   console.log('problemlist', problemList);
   return (
     <>
-      {problemList?.totalElements === 0 && (
+      {/* {problemList?.totalElements === 0 && (
         <tr>
           <td colSpan={4}>
             <NoData>문제풀이 문제가 없습니다.</NoData>
           </td>
         </tr>
-      )}
-      {problemList?.content?.map(problem => (
-        <ProblemItem key={problem.questionId} problem={problem} />
-      ))}
+      )} */}
+      {problemList?.content?.map(problem => {
+        // console.log('problem', problem);
+        return <ProblemItem key={problem.questionId} problem={problem} />;
+      })}
     </>
   );
 };

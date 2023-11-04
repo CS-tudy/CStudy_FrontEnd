@@ -1,31 +1,26 @@
-import Container from 'components/commons/Container';
-import Modal from 'components/unit/Modal';
-import useModal from 'hooks/useModal';
-import AuthModalFrame from 'components/commons/Modal/SignModal';
+import { Link } from 'react-router-dom';
+import * as S from './style';
+import { RequestNoticeList } from 'types/api';
+import NoticeListCard from './NoticeListCard';
 
-const BoardList = () => {
-  const { modalIsOpen, toggleModal } = useModal();
+interface NoticeListProps {
+  noticeList: RequestNoticeList;
+}
 
-  const openModal = () => {
-    toggleModal();
-  };
+const NoticeList = ({ noticeList }: NoticeListProps) => {
   return (
-    <>
-      {modalIsOpen && (
-        <Modal toggleModal={toggleModal}>
-          <AuthModalFrame toggleModal={toggleModal}>
-            <div>test</div>
-          </AuthModalFrame>
-        </Modal>
-      )}
-      <Container>
-        <div>
-          <button onClick={openModal}>AuthModal</button>
-          <p>보드 게시판</p>
-        </div>
-      </Container>
-    </>
+    <S.NoticeCards>
+      {noticeList?.content?.map(({ id, title, content, createdDate }) => (
+        <NoticeListCard
+          key={id}
+          id={id}
+          title={title}
+          content={content}
+          createdDate={createdDate}
+        />
+      ))}
+    </S.NoticeCards>
   );
 };
 
-export default BoardList;
+export default NoticeList;

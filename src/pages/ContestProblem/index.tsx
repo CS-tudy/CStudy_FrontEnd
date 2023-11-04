@@ -16,4 +16,4 @@ const ContestProblem = () => {
   );
 };
 
-export default Contest;
+export default ContestProblem;

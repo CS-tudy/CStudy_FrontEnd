@@ -34,6 +34,7 @@ const ProblemDetail = ({
   isAnswer,
   isAction,
   timeCheck,
+  time,
   Answer,
   register,
   handleSubmit,
@@ -41,18 +42,19 @@ const ProblemDetail = ({
   children,
 }: PropsWithChildren<ProblemDetailProps>) => {
   const { problemId } = useParams();
+
   // const problem = use(problemId as string);
   // const { register, handleSubmit } = useForm<FieldValues>();
 
   if (!problem) {
-    return <div>Loading...</div>;
+    return <div>문제를 받아오는 중입니다...</div>;
   }
 
   // const SelectAnswerProblem = useSelectAnswerProblem({ handleIsLoading, handleIsAnswer, actionAnimations });
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <ProblemDetailTitle problem={problem} />
+      <ProblemDetailTitle problem={problem} time={time} />
       {children}
       <ResultImage
         isAnswer={isAnswer}

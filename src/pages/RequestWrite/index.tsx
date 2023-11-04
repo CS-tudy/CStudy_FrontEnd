@@ -33,9 +33,9 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
     },
   });
 
-  //   const handleNavigate = () => {
-  //     navigate(-1);
-  //   };
+  const handleNavigate = () => {
+    navigate(-1);
+  };
 
   const { mutate: createRequest } = useCreateRequest();
   const { mutate: editRequest } = useEditRequest();

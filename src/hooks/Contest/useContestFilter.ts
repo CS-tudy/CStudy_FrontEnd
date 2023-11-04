@@ -15,7 +15,7 @@ interface ContestFilterType {
   isActive: string;
   handlePage: (page: number) => void;
   handleToggle: () => void;
-  checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
+  // checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
 }
 
 const useContestFilter = (): ContestFilterType => {
@@ -43,20 +43,20 @@ const useContestFilter = (): ContestFilterType => {
     );
   };
 
-  const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
-    if (!isLogin()) {
-      e.preventDefault();
-      // loginModal.onOpen();
-    }
-  };
+  //   const checkAndDisplayLoginModal = (e: React.MouseEvent) => {
+  //     if (!isLogin()) {
+  //       e.preventDefault();
+  //       // loginModal.onOpen();
+  //     }
+  //   };
 
-//   return {
-//     contestFilter,
-//     isActive,
-//     handlePage,
-//     handleToggle,
-//     checkAndDisplayLoginModal,
-//   };
-// };
+  return {
+    contestFilter,
+    isActive,
+    handlePage,
+    handleToggle,
+    // checkAndDisplayLoginModal,
+  };
+};
 
 export default useContestFilter;

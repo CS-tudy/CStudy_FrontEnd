@@ -33,7 +33,7 @@ const Contest = () => {
   };
 
   return (
-    <>
+    <ContentContainer>
       <ContainerTop>
         <S.ButtonWrapper>
           <Button variant="primary" size="medium" onClick={navigateAdmin}>
@@ -74,7 +74,7 @@ const Contest = () => {
           />
         )}
       </ContainerBottom>
-    </>
+    </ContentContainer>
   );
 };
 

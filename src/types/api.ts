@@ -27,31 +27,11 @@ export interface AddboardListForm {
 /* hsw notice type*/
 export interface RequestNoticeList {
   totalPages: number;
-  totalElements: bigint;
+  totalElements: number;
   size: number;
   content: ContentItem[];
   number: number;
-  sort: {
-    empty: boolean;
-    sorted: boolean;
-    unsorted: boolean;
-  };
-  first: boolean;
-  last: boolean;
   numberOfElements: number;
-  pageable: {
-    offset: bigint;
-    sort: {
-      empty: boolean;
-      sorted: boolean;
-      unsorted: boolean;
-    };
-    paged: boolean;
-    pageSize: number;
-    pageNumber: number;
-    unpaged: boolean;
-  };
-  empty: boolean;
 }
 
 interface ContentItem {
@@ -109,24 +89,6 @@ export interface MyPage {
   name: string;
   email: string;
 }
-
-/* hsw comment type*/
-
-export interface RequestComment {
-  id: string;
-  content: string;
-  memberId: string;
-  author: string;
-  parentCommentId: string;
-  childComments: [];
-}
-
-export interface AddComment {
-  noticeId: string;
-  content: string;
-  parentCommentId?: string;
-}
-// export interface RequestCheildComment {}
 
 // rank
 export interface Ranks {

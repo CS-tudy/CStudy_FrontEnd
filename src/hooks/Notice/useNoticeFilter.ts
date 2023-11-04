@@ -18,9 +18,6 @@ const useNoticeFilter = () => {
     (state: RootState) => state.rootReducer.Noticefilter,
   );
 
-  // Define your isActive variable as you have done
-  const isActive = noticeFilter.query === ROUTE.NOTICE_MY_LIST ? 'active' : '';
-
   const handlePage = (page: number) => {
     console.log(page);
 
@@ -52,7 +49,6 @@ const useNoticeFilter = () => {
     noticeFilter,
     handlePage,
     handleToggle,
-    isActive,
     onSubmit,
   };
 };

@@ -19,6 +19,17 @@ export const isLogin = () => {
   return !!accessToken;
 };
 
+export const userInfo = () => {
+  const userToken = userStorage.get();
+  if (!userToken) {
+    return null;
+  }
+
+  const { memberId, roles }: jwtDecodeProps = jwtDecode(userToken.accessToken);
+
+  return { memberId, roles };
+};
+
 export const isAdmin = () => {
   const userToken = userStorage.get();
   if (!userToken) {

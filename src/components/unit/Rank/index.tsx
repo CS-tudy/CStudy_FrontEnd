@@ -1,7 +1,6 @@
 import Table from 'components/commons/Table';
 import { TBodyTd } from 'components/commons/Table/style';
 import { useGetRanks } from 'hooks/@query/rank/useGetRanks';
-import rank1 from 'assets/rank/1rank.png';
 import { PiMedalFill } from 'react-icons/pi';
 import { useSelector } from 'react-redux';
 

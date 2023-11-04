@@ -26,6 +26,7 @@ export const getAdminRequestList = async ({
 };
 
 export const getToggleRequestList = async ({
+  query = 'notion',
   page = 0,
   size = 10,
   title = '',

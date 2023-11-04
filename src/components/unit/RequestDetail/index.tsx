@@ -1,5 +1,4 @@
 import Container from 'components/commons/Container';
-import * as S from './style';
 import Button from 'components/commons/Button/Button';
 
 const RequestDetail = () => {

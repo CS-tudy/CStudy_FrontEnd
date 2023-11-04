@@ -1,5 +1,9 @@
 import { instance } from 'api';
-import { RequestNoticeDetail, RequestNoticeList } from 'types/api';
+import {
+  RequestNoticeDetail,
+  RequestNoticeList,
+  ToggleRequestList,
+} from 'types/api';
 interface AdminNoticeProps {
   id: number;
   formData: {
@@ -27,7 +31,7 @@ export const getToggleRequestList = async ({
   title = '',
   content = '',
   createdDate = '',
-}): Promise<ApiResponse> => {
+}): Promise<RequestNoticeList> => {
   const response = await instance.get(
     `/api/notice?page=${page}&size=${size}&title=${title}&content=${content}&createdDate=${createdDate}`,
   );

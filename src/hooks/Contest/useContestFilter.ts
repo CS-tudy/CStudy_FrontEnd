@@ -12,7 +12,6 @@ interface ContestFilterType {
   isActive: string;
   handlePage: (page: number) => void;
   handleToggle: () => void;
-  // checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
 }
 
 const useContestFilter = (): ContestFilterType => {

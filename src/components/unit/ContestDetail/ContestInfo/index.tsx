@@ -1,4 +1,3 @@
-import Table from 'components/commons/Table';
 import { TBodyTd, TBodyTh } from 'components/commons/Table/style';
 import Table2 from 'components/commons/Table2';
 import { Contest } from 'types/api';

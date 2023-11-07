@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
@@ -23,9 +23,6 @@ const SignUp = () => {
   } = useSignUp();
 
   const dispatch = useDispatch();
-  const isOpen = useSelector(
-    (state: any) => state.rootReducer.registerModal.isOpen,
-  );
 
   const changeModalHandler = () => {
     dispatch(signupToggle());

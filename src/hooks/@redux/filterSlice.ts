@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ROUTE } from 'constants/Route';
 
 const pageNumberSlice = createSlice({
   name: 'pageNumber',
@@ -86,14 +85,7 @@ const queryFilterSlice = createSlice({
   reducers: {
     setProblemQuery(state, action) {
       state.query = action.payload;
-      // state.QueryActive = state.query === ROUTE.PROBLEMSET_MYQUESTION;
     },
-    // reset(state) {
-    //   return {
-    //     query: '',
-    //     isActive: false,
-    //   };
-    // },
   },
 });
 

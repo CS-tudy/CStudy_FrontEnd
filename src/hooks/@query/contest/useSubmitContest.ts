@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { submitContest } from 'api/contest';
 import Toast from 'libs/Toast';
-// import toast from 'provider/Toast';
 
 interface useSubmitContestProps {
   competitionId: string;

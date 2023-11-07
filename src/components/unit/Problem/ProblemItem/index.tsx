@@ -18,7 +18,6 @@ const ProblemItem = ({ problem }: ProblemItemProps) => {
 
   const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
-      // Toast.error('로그인 후 이용하실 수 있습니다.');
       e.preventDefault();
       dispatch(Logintoggle());
       navigate('/problem');

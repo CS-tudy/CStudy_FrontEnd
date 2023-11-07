@@ -13,7 +13,6 @@ import Button from 'components/commons/Button/Button';
 import { useSubmitContest } from 'hooks/@query/contest/useSubmitContest';
 import { UseSubmitContestProps } from 'types/contest';
 import ContentContainer from 'components/commons/ContentContainer';
-import Container from 'components/commons/Container';
 
 interface ContestProblemDetailProps {
   quizData: ContestProblem[];

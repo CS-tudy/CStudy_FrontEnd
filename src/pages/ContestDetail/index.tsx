@@ -1,5 +1,4 @@
 import Button from 'components/commons/Button/Button';
-import Container from 'components/commons/Container';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';

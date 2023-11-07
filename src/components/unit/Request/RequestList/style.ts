@@ -6,10 +6,4 @@ export const ButtonWrapper = styled.div`
   width: 100%;
 `;
 
-export const ContentWrapper = styled.div`
-  // margin: 10rem 10rem;
-`;
-
-// export const PaginationWrapper = styled.div`
-//   padding: 4rem 0 6rem;
-// `;
+export const ContentWrapper = styled.div``;

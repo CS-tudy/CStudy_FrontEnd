@@ -1,8 +1,6 @@
-import useModal from 'hooks/useModal';
 import RequestItem from '../RequestItem';
 import * as S from './style';
 import { ToggleRequestList } from 'types/api';
-import { useNavigate } from 'react-router-dom';
 import NoData from 'components/commons/NoData';
 
 interface RequestListsProps {
@@ -12,16 +10,6 @@ interface RequestListsProps {
 }
 
 const RequestList = ({ requestList, handlePage, page }: RequestListsProps) => {
-  const { modalIsOpen, toggleModal } = useModal();
-
-  const navigate = useNavigate();
-
-  console.log(requestList);
-
-  const openModal = () => {
-    toggleModal();
-  };
-
   return (
     <>
       <S.ContentWrapper>

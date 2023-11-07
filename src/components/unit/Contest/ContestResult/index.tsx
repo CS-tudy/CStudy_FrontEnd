@@ -38,16 +38,6 @@ const ContestResult = ({ contestResult }: ContestResultProps) => {
               total={contestResult?.total}
             />
           </S.ProgressBarContainer>
-          {/* <S.ScoreIndicator>
-            <S.Correct>
-              맞은 개수:
-              {contestResult?.score}
-            </S.Correct>
-            <S.Wrong>
-              틀린 개수:
-              {contestResult?.total - contestResult?.score}
-            </S.Wrong>
-          </S.ScoreIndicator> */}
           <S.ResultListContainer>
             <S.ResultProblemWrapper>
               <S.ResultProblemTitle>

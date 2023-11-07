@@ -1,5 +1,4 @@
 import { COLOR } from 'constants/Color';
-import { FONT } from 'constants/Font';
 import { media } from 'constants/media';
 import { styled } from 'styled-components';
 

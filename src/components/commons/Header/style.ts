@@ -79,9 +79,7 @@ export const Sign = styled.div<PrevToogle>`
     padding: 0.5rem;
     font-size: ${FONT.REGULAR_14};
   }
-  & > button:first-child {
-    margin-right: 1.4rem;
-  }
+
   ${media.tablet} {
     display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
@@ -127,7 +125,6 @@ export const Admin = styled.div<PrevToogle>`
   }
 `;
 
-// 반응형
 export const HamburgerBt = styled.button`
   display: none;
   ${media.tablet} {
@@ -142,10 +139,10 @@ export const HamburgerBt = styled.button`
 `;
 
 export const AlarmButton = styled.button<PrevToogle>`
-  position: absolute;
-  right: 242px;
+  margin: 0.5rem;
   ${media.tablet} {
-    right: ${props => (props.$active ? '240px' : '75px')};
+    position: absolute;
+    right: 70px;
     display: ${props => (props.$active ? 'none' : 'block')};
   }
 `;

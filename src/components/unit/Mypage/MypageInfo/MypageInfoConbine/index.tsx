@@ -15,7 +15,8 @@ interface MyPageMyInfoProps {
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   myPageInfo: myPageState;
-  img: any;
+  img: string;
+  getImg: string;
 }
 
 const MyPageInfo = ({
@@ -25,11 +26,13 @@ const MyPageInfo = ({
   handleSubmit,
   myPageInfo,
   img,
+  getImg,
 }: MyPageMyInfoProps) => {
   return (
     <>
       <S.MyInfoImg>
         <MypageInfoImg
+          getImg={getImg}
           onValid={onValid}
           register={register}
           handleSubmit={handleSubmit}

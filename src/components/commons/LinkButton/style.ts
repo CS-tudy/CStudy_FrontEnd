@@ -7,7 +7,7 @@ import { ButtonComponent, SizeCSS, VariantCSS } from 'types/button';
 const variantCSS: VariantCSS = {
   primary: css`
     background: ${COLOR.MAIN};
-    color: ${COLOR.WHITE};
+    color: ${COLOR.WHITE} !important;
   `,
 
   'primary-text': css`
@@ -73,6 +73,7 @@ export const LinkButton = styled(Link)<ButtonComponent>`
   justify-content: center;
   padding: 1.2rem 1.6rem;
   border-radius: 1rem;
+  color: ${COLOR.WHITE};
   &:hover {
     opacity: 0.8;
     color: #fff;

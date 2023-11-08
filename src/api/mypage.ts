@@ -8,7 +8,7 @@ export const getMyPage = () => {
 
 // 비밀번호변경
 export const PwdEdit = async (formData: FieldValues) => {
-  const response = await instance.patch('api/member', formData);
+  const response = await instance.put('api/member', formData);
 
   return response.data;
 };

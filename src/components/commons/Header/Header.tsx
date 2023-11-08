@@ -17,7 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 import { AiOutlineClose, AiTwotoneCheckCircle } from 'react-icons/ai';
-import { MdNotifications } from 'react-icons/md';
+import { MdNotifications, MdLogout } from 'react-icons/md';
+import { BsFillPersonFill } from 'react-icons/bs';
 import AlarmModal from '../Modal/AlarmModal';
 import Modal2 from '../Modal/Modal2';
 import { getAlarm } from 'api/alarm';
@@ -29,7 +30,6 @@ export interface PrevToogle {
 }
 
 const Header = () => {
-  // const { modalIsOpen, toggleModal } = useModal();
   const [signupModal, setSignupModal] = useState(true);
   const [active, setActive] = useState(false);
   const [moblie, setmoblie] = useState(false);
@@ -64,26 +64,8 @@ const Header = () => {
     dispatch(Logintoggle());
   };
 
-  // const openModal = () => {
-  //   toggleModal();
-  //   setSignupModal(false);
-  // };
-  // const openSignupModal = () => {
-  //   toggleModal();
-  //   setSignupModal(true);
-  // };
-
   const HandleClickToogle = () => {
     setActive(active => !active);
-    if (window.innerWidth < 1024) {
-      if (moblie === false) {
-        document.body.style.overflowY = 'hidden';
-        setmoblie(!moblie);
-      } else {
-        document.body.style.overflowY = 'auto';
-        setmoblie(!moblie);
-      }
-    }
   };
 
   return (
@@ -130,16 +112,7 @@ const Header = () => {
             </S.NavItem>
           </S.NavList>
         </S.Nav>
-        {isLogin() && (
-          <S.AlarmButton $active={active} onClick={handleAlarmClick}>
-            <MdNotifications size="27px" />
-          </S.AlarmButton>
-        )}
-        {/* {isLogin() && alarms?.length !== 0 && (
-          <S.AlarmMark $active={active}>
-            <AiTwotoneCheckCircle size="9" color="#e52330" />
-          </S.AlarmMark>
-        )} */}
+
         {alarmModalIsOpen && (
           <Modal2 toggleModal={toggleModal}>
             <AlarmModal
@@ -162,6 +135,12 @@ const Header = () => {
             <StyleNavLink to="/admin/CreateProblem">관리자</StyleNavLink>
           </S.Admin>
         )}
+        {isLogin() && (
+          <S.AlarmButton $active={active} onClick={handleAlarmClick}>
+            <MdNotifications size="27px" />
+          </S.AlarmButton>
+        )}
+
         <S.Sign $active={active}>
           {isLoginModalOpen && (
             <Modal toggleModal={LogintoggleModal}>
@@ -179,13 +158,15 @@ const Header = () => {
           )}
           {isLogin() ? (
             <>
-              <button onClick={() => signOut()}>로그아웃</button>
-              <S.MypageLink to="/mypage">마이페이지</S.MypageLink>
+              <button onClick={() => signOut()}>
+                <MdLogout size="27px" />
+              </button>
+              <S.MypageLink to="/mypage">
+                <BsFillPersonFill size="27px" />
+              </S.MypageLink>
             </>
           ) : (
             <>
-              {/* <button onClick={openModal}>로그인</button>
-              <button onClick={openSignupModal}>회원가입</button> */}
               <button onClick={LogintoggleModal}>로그인</button>
               <button onClick={RegistertoggleModal}>회원가입</button>
             </>

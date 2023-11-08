@@ -1,16 +1,16 @@
 import React from 'react';
 import MypaegBoardItem from '../MypageBoardItem';
-import { statusMap } from 'types/mypage';
+import { StatusContent, statusMap } from 'types/mypage';
 
 interface boardProps {
   handleDetail: (id: number) => void;
-  status: statusMap;
+  statusList: statusMap;
 }
 
-const MypageBoardTbody = ({ status, handleDetail }: boardProps) => {
+const MypageBoardTbody = ({ statusList, handleDetail }: boardProps) => {
   return (
     <>
-      {status?.content.map((content: statusMap) => (
+      {statusList?.content?.map((content: StatusContent) => (
         <MypaegBoardItem
           key={content.id}
           content={content}

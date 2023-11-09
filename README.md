@@ -1,46 +1,246 @@
-# Getting Started with Create React App
+# 📖 취업 CS 걱정하지마, CS;tudy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![2023-11-08 16 47 09.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FzCfcL%2Fbtsz1KbmvRD%2FO1EG64wsfLA1kil8fKack0%2Fimg.png)
+## ✨ 프로젝트 소개
 
-## Available Scripts
+`Introduce`
 
-In the project directory, you can run:
+- 취업에 있어 필요한 CS 지식을 학습할 수 있는 웹 어플리케이션 플랫폼 입니다. 카테고리 별 문제를 통해 필요한 지식을 빠르게 학습할 수 있으며 틀린 문제를 모아서 부족한 부분을 빠르게 인지할 수 있습니다. 또한 경쟁을 통하여 지루한 CS 학습에 재미를 부여하며 선의의 경쟁을 통해 동료와 함께 성장이 가능합니다.
+- [⭐️ 팀 노션](https://www.notion.so/71bd9661b2974953b83c8ba109b62611?pvs=21) | [📝 배포 사이트](http://cstudy-projects.s3-website.ap-northeast-2.amazonaws.com/)
 
-### `npm start`
+# 🌞 팀원소개
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 👤 팀 멤버
+|   순욱   |   선홍   |   한나   |
+|:--------:|:--------:|:--------:|
+|[@cleooo5857](https://github.com/cleooo5857)|[@sunhong06](https://github.com/sunhong06)|[@hannaax](https://github.com/hannaax)|
+|<img src="https://avatars.githubusercontent.com/cleooo5857" width="80">|<img src="https://avatars.githubusercontent.com/sunhong06" width="80">|<img src="https://avatars.githubusercontent.com/hannaax" width="80">|
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 디렉터리 구조도
 
-### `npm test`
+```
+📦src
+ ┣ 📂api
+ ┣ 📂assets // 정적 이미지 파일
+ ┣ 📂components // 재사용 가능한 컴포넌트
+ ┣ 📂constants // 공통적으로 사용되는 상수들 정의
+ ┣ 📂hooks // 커스텀 훅
+ ┣ 📂libs // 공통 함수
+ ┣ 📂pages // 페이지 컴포넌트
+ ┣ 📂repository // 토큰 관리
+ ┣ 📂routes // 라우팅 페이지
+ ┣ 📂store // 상태관리
+ ┣ 📂styles // reset 스타일
+ ┣ 📂types // 타입 재정의 하는 폴더
+ ┣ 📜index.tsx // 루트 파일
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### 라우터 구조
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div >
+  <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcsQt6S%2Fbtsz41QXlaW%2F93p63GuSh0NNmFpDUC3jcK%2Fimg.png" width="50%" height="80%"/>
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Environment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🐣 기술 스택
 
-### `npm run eject`
+<h3 align="center">Environment</h3>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p align="center">  
+<img src="https://img.shields.io/badge/visual studio code-007ACC.svg?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
+<img src="https://img.shields.io/badge/Git-F05032.svg?style=for-the-badge&logo=Git&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white"/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<h3 align="center">Config</h3>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p align="center">
 
-## Learn More
+<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h3 align="center">Development</h3>
+
+<div style="display: flex; justify-contents: space-between; flex-wrap: wrap;">
+  <div style="width: 50%;">
+    <h4 align="center">Language</h4>
+    <p align="center">
+      <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+    </p>
+  </div>
+
+  <div style="width: 50%">
+    <h4 align="center">UI / Style</h4>
+    <p align="center">
+      <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+      <img src="https://img.shields.io/badge/styled components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"/>
+    </p>
+    </div>
+
+<div style="width: 50%">
+    <h4 align="center">Route</h4>
+    <p align="center">
+      <img src="https://img.shields.io/badge/react router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"/>
+    </p>
+  </div>
+  
+  <div style="width: 50%">
+  <h4 align="center">HTTP Async / Optimization</h4>
+  <p align="center">
+    <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"/>
+    <img src="https://img.shields.io/badge/react query-FF4154?style=for-the-badge&logo=reactquery&logoColor=white"/>
+  </p>
+</div>
+<div style="width: 50%">
+  <h4 align="center">Form Optimization</h4>
+  <p align="center">
+  
+  <img src="https://img.shields.io/badge/react hook form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white"/>
+  
+  </p>
+</div>
+
+<div style="width: 50%">
+  <h4 align="center">WebPack Control</h4>
+  <p align="center">
+  
+  <img src="https://img.shields.io/badge/Craco-8DD6F9?style=for-the-badge&logo=webpack&logoColor=white"/>
+  </p>
+</div>
+</div>
+
+<h3 align="center">Communication</h3>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/Jira-3178C6?style=for-the-badge&logo=jira&logoColor=white"/>
+</p>
+
+<br>
+<br>
+
+# 🐌Git Commit Convention
+
+<table>
+  <tr>
+    <td>
+         feat
+    </td>
+     <td>
+        새로운 기능과 관련된 것을 의미
+    </td>
+  </tr>
+  <tr>
+    <td>
+         design
+    </td>
+     <td>
+        UI/스타일 파일 추가/수정
+    </td>
+  </tr>
+  <tr>
+    <td>
+         comment
+    </td>
+     <td>
+        주석 추가/수정
+    </td>
+  </tr>
+  <tr>
+    <td>
+         fix
+    </td>
+     <td>
+        오류와 같은 것을 수정을 하였을 때 사용
+    </td>
+  </tr>
+   <tr>
+    <td>
+         test
+    </td>
+     <td>
+        테스트 추가, 테스트 리팩토링(프로덕션 코드 변경 X)
+    </td>
+  </tr>
+  <tr>
+    <td>
+         docs
+    </td>
+     <td>
+        문서와 관련하여 수정한 부분이 있을 때 사용
+    </td>
+  </tr>
+  <tr>
+    <td>
+         style
+    </td>
+     <td>
+        코드 포맷 변경, 세미 콜론 누락, 코드 수정이 없는 경우
+    </td>
+  </tr>
+    <tr>
+    <td>
+         move
+    </td>
+     <td>
+        파일, 코드의 이동
+    </td>
+  </tr>
+    <tr>
+    <td>
+         refactor
+    </td>
+     <td>
+       코드의 리팩토링을 의미
+    </td>
+    <tr>
+    <td>
+         chore
+     <td>
+       빌드 태스트 업데이트, 패키지 매니저를 설정하는 경우(프로덕션 코드 변경 X)
+    </td>
+  </tr>
+    <tr>
+    <td>
+         build
+     <td>
+       빌드 관련 파일 수정, 외부라이브러리 추가
+    </td>
+  </tr>
+  <tr>
+    <td>
+         BREAKING CHANGE
+     <td>
+       커다란 API 변경의 경우
+    </td>
+  </tr>
+   <tr>
+    <td>
+         HOTFIX
+     <td>
+       급하게 치명적인 버그를 고쳐야하는 경우
+    </td>
+  </tr>
+   <tr>
+    <td>
+         Rename
+     <td>
+       파일 혹은 폴더명을 수정하거나 옮기는 작업만인 경우
+    </td>
+  </tr>
+  <tr>
+    <td>
+         Remove
+     <td>
+       파일을 삭제하는 작업만 수행한 경우
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<br>

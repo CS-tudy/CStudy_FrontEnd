@@ -28,8 +28,6 @@ const ContestProblemDetail = ({
 
   const contestProblem = useGetContestProblem(competitionId as string);
 
-  console.log('problem', contestProblem);
-
   const {
     register,
     handleSubmit,
@@ -64,14 +62,12 @@ const ContestProblemDetail = ({
   };
 
   const { fields } = useFieldArray({ control, name: 'questions' });
-  console.log('field', fields);
   const SubmitContest = useSubmitContest({
     handleIsLoading,
     competitionId,
   } as UseSubmitContestProps);
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
-    console.log(data);
     SubmitContest(data);
   };
 

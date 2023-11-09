@@ -51,7 +51,7 @@ export const TBodyTd = styled.td<Props>`
   }
 
   &.title {
-    ${FONT.BOLD_20}
+    ${FONT.BOLD_18}
     text-align: left;
     padding: ${({ narrow }) => (narrow ? '1.5rem 2rem' : '2rem 3rem')};
 

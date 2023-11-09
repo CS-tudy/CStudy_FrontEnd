@@ -50,7 +50,6 @@ const RequestDetail = () => {
   };
 
   useEffect(() => {
-    console.log(userInfo()?.memberId);
     setUserInfoData(userInfo());
   }, []);
 
@@ -80,7 +79,7 @@ const RequestDetail = () => {
                 <S.Title>{request?.title}</S.Title>
                 <S.Detail>
                   {request?.memberName}
-                  <span>·</span>
+                  <S.Span> · </S.Span>
                   {request?.createAt}
                 </S.Detail>
               </S.PostInfo>

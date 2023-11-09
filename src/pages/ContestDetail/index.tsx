@@ -61,7 +61,6 @@ const ContestDetail = () => {
   );
 
   const totalQuestion = contestQuestion?.length;
-  console.log('total', totalQuestion);
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);

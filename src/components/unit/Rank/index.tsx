@@ -5,7 +5,6 @@ import { PiMedalFill } from 'react-icons/pi';
 
 const Rank = () => {
   const membersRanks = useGetRanks();
-  console.log('rank', membersRanks);
 
   if (Array.isArray(membersRanks)) {
     const emptyDataCount = Math.max(0, 10 - (membersRanks?.length as number));

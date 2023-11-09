@@ -34,9 +34,9 @@ const SignUp = () => {
       <S.InputWrapper>
         <S.Input
           type="text"
-          placeholder="이름"
+          placeholder="닉네임"
           {...register('name', {
-            required: '이름을 입력해주세요.',
+            required: '닉네임을 입력해주세요.',
             pattern: {
               value: /^[a-zA-Z0-9가-힣]{2,8}$/,
               message: '2~8글자의 한글,영어를 입력해주세요.',

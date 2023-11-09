@@ -10,8 +10,6 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
 
   const handlePrevPageGroupClick = useCallback(() => {
     setCurrentPage(prevPage => {
-      console.log(prevPage);
-
       handlePage((prevPage - 1) * pagesPerGroup - 1);
       return prevPage - 1;
     });
@@ -19,7 +17,6 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
 
   const handleNextPageGroupClick = useCallback(() => {
     setCurrentPage(prevPage => {
-      console.log(prevPage);
       handlePage(prevPage * pagesPerGroup);
       return prevPage + 1;
     });

@@ -42,9 +42,13 @@ export const Detail = styled.div`
   padding-bottom: 3rem;
 `;
 
+export const Span = styled.span`
+  display: inline-block;
+  margin: 0 3px 6px 3px;
+`;
+
 export const Content = styled.div`
-  margin-top: 4rem;
-  margin-left: 1rem;
+  margin: 5rem 0 1rem 1rem;
 `;
 
 export const ButtonWrapper = styled.div`

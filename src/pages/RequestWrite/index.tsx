@@ -40,7 +40,6 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const { mutate: editRequest } = useEditRequest();
 
   const submitForm: SubmitHandler<FieldValues> = FormData => {
-    console.log('form', FormData);
     setValue('title', data?.title || '');
     setValue('description', data?.description || '');
 

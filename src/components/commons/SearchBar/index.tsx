@@ -4,7 +4,6 @@ import { HiOutlineSearch } from 'react-icons/hi';
 const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
-      console.log(e.target.value);
       props.setInputValue(e.target.value);
     }
   };

@@ -26,8 +26,6 @@ const Contest = () => {
     page: 0,
   });
 
-  console.log('query', contestFilter.query);
-
   const navigate = useNavigate();
   const navigateAdmin = () => {
     navigate('/admin/CreateContest');

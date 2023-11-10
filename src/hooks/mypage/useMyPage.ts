@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FieldValues, UseFormGetValues, UseFormReset } from 'react-hook-form';
 import { usePwdEdit } from './../@query/mypage/usePwdEdit';
 import { useUploadImg } from './../@query/mypage/useUploadImg';
-import { useGetImg } from './../@query/mypage/useGetImg';
 import { useNavigate } from 'react-router-dom';
 
 interface useMyPageProp {

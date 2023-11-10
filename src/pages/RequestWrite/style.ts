@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-// import { Field as InputField } from 'components/@shared/Input/style';
-// import { Field as TextAreaField } from './../../components/@shared/TextArea/style';
 import { COLOR } from 'constants/Color';
 
 export const Form = styled.form`

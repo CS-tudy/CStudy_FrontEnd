@@ -1,48 +1,27 @@
 import Container from 'components/commons/Container';
 import * as S from './style';
 import Table from 'components/commons/Table';
-import { ChangeEvent, useEffect, useState } from 'react';
-import {
-  getProblemList,
-  getProblemListSearch,
-  getProblemListTest,
-} from 'api/problem';
+import { useState } from 'react';
 import ProblemList from 'components/unit/Problem/ProblemList';
-// import Select from 'components/unit/Problem/Select';
 import Filter from 'components/commons/Filter';
 import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import { IProblem } from 'types/api';
-import { useDispatch, useSelector } from 'react-redux';
-import { handlePage, reset, setTitle } from 'hooks/@redux/filterSlice';
 import useStatusFilterSlice from 'hooks/@redux/Problem/useStatusFilterSlice';
 import useQueryFilterSlice from 'hooks/@redux/Problem/useQueryFilterSlice';
 import useCategoryFilterSlice from 'hooks/@redux/Problem/useCategoryFilterSlice';
 import Pagination from 'components/commons/Pagination';
 import _ from 'lodash';
-import { useMemo } from 'react';
-import { useForm } from 'react-hook-form';
 import UseProblemFilterSlice from 'hooks/@redux/Problem/useProblemFilterSlice';
 import SearchBar from 'components/commons/SearchBar';
 import Select from 'components/commons/Select';
-import ContainerTop from 'components/commons/ContainerTop';
 import ContainerBottom from 'components/commons/ContainerBottom';
 import NoData from 'components/commons/NoData';
 import { isAdmin } from 'repository/auth';
-import StyleLink from 'components/commons/StyleLink';
 import Button from 'components/commons/Button/Button';
 import { useNavigate } from 'react-router-dom';
 
 const Problem = () => {
-  // const [problemList, setProblemList] = useState<IProblem>();
-  const [titleValue, setTitleValue] = useState('');
   const [inputValue, setInputValue] = useState('');
-  const dispatch = useDispatch();
-  const teststate = useSelector(state => state);
-  const pageNumber = useSelector(
-    (state: any) => state.rootReducer.page.pageNumber,
-  );
-  // console.log('state', teststate);
-  const { register, handleSubmit } = useForm();
 
   const { status, statusValue, statusActive, handleStatusClick } =
     useStatusFilterSlice();
@@ -98,16 +77,6 @@ const Problem = () => {
         </S.ButtonWrapper>
       )}
       <S.ContainerHeader>
-        <S.ButtonWrapper>
-          {isAdmin() &&
-            // <StyleLink className="lg navy style" to="/admin/CreateProblem">
-            //   문제 생성
-            // </StyleLink>
-            // <Button variant="primary" size="medium" onClick={navigateAdmin}>
-            //   문제 생성
-            // </Button>
-            ''}
-        </S.ButtonWrapper>
         <S.FilterWrapper>
           <S.SearchWrapper>
             <SearchBar inputValue={inputValue} setInputValue={setInputValue} />

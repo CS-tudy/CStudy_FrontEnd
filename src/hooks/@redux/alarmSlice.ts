@@ -13,15 +13,6 @@ const alarmSlice = createSlice({
     },
   },
 });
-// const alarmSlice = createSlice({
-//   name: 'alarms',
-//   initialState: null,
-//   reducers: {
-//     setAlarms: (state: any, action) => {
-//       state = action.payload;
-//     },
-//   },
-// });
 
 export const { setAlarms } = alarmSlice.actions;
 const alarmReducer = alarmSlice.reducer;

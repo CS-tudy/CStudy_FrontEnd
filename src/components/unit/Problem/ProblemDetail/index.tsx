@@ -1,10 +1,9 @@
-import { PropsWithChildren, memo } from 'react';
+import { PropsWithChildren } from 'react';
 import {
   FieldValues,
   SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
-  useForm,
 } from 'react-hook-form';
 import { IProblem } from 'types/api';
 import * as S from './style';
@@ -12,7 +11,6 @@ import ProblemDetailContent from '../ProblemDetailContent';
 import ProblemDetailSubmit from '../ProblemDetailSubmit';
 import ProblemDetailTitle from '../ProblemDetailTitle';
 import { useParams } from 'react-router-dom';
-import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
 import LoadingSpinner from 'components/commons/LoadingSpinner';
 
 interface ProblemDetailProps {

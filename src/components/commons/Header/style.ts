@@ -94,7 +94,7 @@ export const NavLinkStyle = styled(NavLink)`
     font-weight: bold;
   }
   display: block;
-  font-size: ${FONT.REGULAR_14};
+  font-size: ${FONT.REGULAR_16};
   color: ${COLOR.BLACK};
   padding: 2rem 2rem 2rem 0;
   ${media.tablet} {

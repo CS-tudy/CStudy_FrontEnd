@@ -76,8 +76,6 @@ const ProblemDetailPage = () => {
       time: time,
     };
 
-    console.log(formData);
-
     setAnswer(FormData.choiceNumber);
     selectAnswerProblem({
       problemId,

@@ -4,6 +4,9 @@ import AddCommentForm from '../OptionaddComment';
 import CommentList from '../List';
 import { useState } from 'react';
 import { RequestComment } from 'types/api';
+import DeleteComment from '../OptionDeleteComment';
+import { BiSolidUserCircle } from 'react-icons/bi';
+import { useCallback } from 'react';
 
 interface ReplayProps {
   id: string;
@@ -20,17 +23,25 @@ const ReplyCommentList = ({
   childComments,
   currentDepth = 0,
 }: ReplayProps) => {
-  const { selectedCommentid, toggleReplyingHandler } = useReplyFilter();
+  const { selectedCommentid, toggleReplyingHandler, getUserImg } =
+    useReplyFilter();
   const [showAllReplies, setShowAllReplies] = useState(false);
   const handleShowAllReplies = () => {
     setShowAllReplies(prevState => !prevState);
   };
-
   return (
     <S.Container currentDepth={currentDepth}>
       <S.Profile currentDepth={currentDepth}>
-        <S.Pheader>{author}</S.Pheader>
+        <S.UserInfo>
+          {/* <DeleteComment memberId={id} commentId={id} /> */}
+          {/* <S.Userimg>{getUserIcon(author)}</S.Userimg> */}
+          <S.Userimg>
+            <img src={getUserImg(author)} />
+          </S.Userimg>
+          <S.Pheader>{author}</S.Pheader>
+        </S.UserInfo>
         <S.Pcontent>{content}</S.Pcontent>
+
         {selectedCommentid !== id ? (
           <S.ReplyButton onClick={() => toggleReplyingHandler(id)}>
             댓글 달기

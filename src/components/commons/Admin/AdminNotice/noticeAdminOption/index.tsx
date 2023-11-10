@@ -43,8 +43,6 @@ const NoticeAdminOptionGroup = ({
   const UpdateNotice = useUpdateNoticeList({ id, handleIsActive });
 
   const handleDelete = () => {
-    console.log(id);
-
     deleteComment(id);
   };
 

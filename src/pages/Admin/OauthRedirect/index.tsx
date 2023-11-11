@@ -21,7 +21,7 @@ const OAuthRedirect = () => {
   });
   dispatch(login());
 
-  window.location.replace(`http://localhost:3000`);
+  window.location.replace(`${process.env.REACT_APP_API_URL}`);
 
   return <div>Login...</div>;
 };

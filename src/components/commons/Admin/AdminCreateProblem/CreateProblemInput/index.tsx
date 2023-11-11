@@ -13,12 +13,11 @@ interface CreateProblemInputProps {
   placeholder?: string;
   type?: string;
   register: UseFormRegister<FieldValues>;
-  name?: string;
-  resgiterName: string;
+  name: string;
   required?: boolean;
   disabled?: boolean;
   value?: string;
-  onChange?: ChangeHandler;
+  onChange?: () => void;
   checked?: boolean;
   errors: FieldErrors;
 }
@@ -29,11 +28,11 @@ const CreateProblemInput = ({
   type,
   register,
   name,
-  resgiterName,
   label,
   value,
   onChange,
   errors,
+  checked,
 }: CreateProblemInputProps) => {
   return (
     <>
@@ -44,21 +43,21 @@ const CreateProblemInput = ({
             id={id}
             placeholder={placeholder}
             type={type}
-            {...register(resgiterName)}
+            {...register(name)}
             {...errors}
             required
           />
         </>
       )}
-      {type === 'radio' && (
+      {type === 'checkbox' && (
         <S.CheckBoxInput
           id={id}
           type={type}
           value={value}
-          name={name}
           {...errors}
-          {...(register(resgiterName), { onChange: () => onChange })}
-          required
+          checked={checked}
+          {...register(name)}
+          onChange={onChange}
         />
       )}
     </>

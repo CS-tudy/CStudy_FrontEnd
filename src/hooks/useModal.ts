@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const useModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -6,14 +6,6 @@ const useModal = () => {
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
-
-  // useEffect(() => {
-  //   if (modalIsOpen) {
-  //     document.body.style.overflowY = 'hidden';
-  //   } else {
-  //     document.body.style.overflowY = 'auto';
-  //   }
-  // }, [modalIsOpen]);
 
   return {
     modalIsOpen,

@@ -7,7 +7,6 @@ interface ContestListProps {
   contestFilter: ContestFilterStoreType;
   isActive: string;
   totalPages: number;
-  // checkAndDisplayLoginModal: (e: React.MouseEvent) => void;
   handlePage: (page: number) => void;
 }
 

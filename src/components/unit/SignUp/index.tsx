@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import { useSignUp } from 'hooks/@query/useSignUp';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
@@ -23,9 +23,6 @@ const SignUp = () => {
   } = useSignUp();
 
   const dispatch = useDispatch();
-  const isOpen = useSelector(
-    (state: any) => state.rootReducer.registerModal.isOpen,
-  );
 
   const changeModalHandler = () => {
     dispatch(signupToggle());
@@ -37,9 +34,9 @@ const SignUp = () => {
       <S.InputWrapper>
         <S.Input
           type="text"
-          placeholder="이름"
+          placeholder="닉네임"
           {...register('name', {
-            required: '이름을 입력해주세요.',
+            required: '닉네임을 입력해주세요.',
             pattern: {
               value: /^[a-zA-Z0-9가-힣]{2,8}$/,
               message: '2~8글자의 한글,영어를 입력해주세요.',

@@ -15,8 +15,6 @@ class Toast {
   private defaultDuration = 2500;
 
   private closeMessage(idToDelete: string) {
-    console.log(idToDelete);
-
     const indexToDelete = this.messages.findIndex(
       ({ id }) => id === idToDelete,
     );

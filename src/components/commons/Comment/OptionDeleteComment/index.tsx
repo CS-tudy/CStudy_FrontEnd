@@ -18,13 +18,17 @@ const DeleteComment = ({ memberId, commentId }: DeleteCommentProps) => {
     deleteComment({ commentId });
   };
 
-  return (
-    <>
-      {(memberId === userMemberId || isAdmin()) && (
-        <button onClick={handleSubmit(onSubmit)}>삭제</button>
-      )}
-    </>
-  );
+  const renderDeleteButton = () => {
+    if (memberId === userMemberId || isAdmin()) {
+      console.log('흠', userMemberId);
+      console.log(userMemberId);
+
+      return <button onClick={handleSubmit(onSubmit)}>삭제</button>;
+    }
+    return null;
+  };
+
+  return <>{renderDeleteButton()}</>;
 };
 
 export default DeleteComment;

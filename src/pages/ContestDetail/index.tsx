@@ -1,5 +1,4 @@
 import Button from 'components/commons/Button/Button';
-import Container from 'components/commons/Container';
 import ConfirmModal from 'components/commons/Modal/ConfirmModal';
 import ContestInfo from 'components/unit/ContestDetail/ContestInfo';
 import ContestRank from 'components/unit/ContestDetail/ContestRank';
@@ -62,7 +61,6 @@ const ContestDetail = () => {
   );
 
   const totalQuestion = contestQuestion?.length;
-  console.log('total', totalQuestion);
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
@@ -131,6 +129,7 @@ const ContestDetail = () => {
             </Modal>
           )}
         </div>
+
         <S.ContestDetailContent>
           <ContestInfo contest={contest as Contest} />
           <ContestRank
@@ -140,6 +139,7 @@ const ContestDetail = () => {
             page={page}
           />
         </S.ContestDetailContent>
+
         {isAdmin() && filterQuestion?.length !== 0 && (
           <Table colRate={colRate} title={title}>
             <AdminContestTablelists

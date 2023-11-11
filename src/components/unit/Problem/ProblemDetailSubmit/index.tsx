@@ -11,11 +11,8 @@ interface ProblemDetailSubmitProps {
 }
 
 const ProblemDetailSubmit = ({
-  isLoading,
   isAnswer,
   Answer,
-  timeCheck,
-  isAction,
 }: ProblemDetailSubmitProps) => {
   const [submitClick, setSubmitClick] = useState(false);
   return (
@@ -24,7 +21,6 @@ const ProblemDetailSubmit = ({
         type="submit"
         variant="primary"
         size="medium"
-        // disabled={isLoading}
         onClick={() => {
           setSubmitClick(true);
         }}

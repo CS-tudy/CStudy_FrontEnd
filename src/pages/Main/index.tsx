@@ -1,4 +1,3 @@
-import Button from 'components/commons/Button/Button';
 import Contents from 'components/unit/main/Contents';
 import * as S from './style';
 import Banner from '../../components/unit/main/Banner';

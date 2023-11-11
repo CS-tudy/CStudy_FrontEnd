@@ -10,7 +10,6 @@ const ContestResultPage = () => {
   const { contestId } = useParams();
 
   const contestResult = useGetContestResult(contestId as string);
-  console.log('result', contestResult);
 
   return (
     <>

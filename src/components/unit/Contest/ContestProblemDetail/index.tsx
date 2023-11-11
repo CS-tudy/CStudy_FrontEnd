@@ -13,7 +13,6 @@ import Button from 'components/commons/Button/Button';
 import { useSubmitContest } from 'hooks/@query/contest/useSubmitContest';
 import { UseSubmitContestProps } from 'types/contest';
 import ContentContainer from 'components/commons/ContentContainer';
-import Container from 'components/commons/Container';
 
 interface ContestProblemDetailProps {
   quizData: ContestProblem[];
@@ -28,8 +27,6 @@ const ContestProblemDetail = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const contestProblem = useGetContestProblem(competitionId as string);
-
-  console.log('problem', contestProblem);
 
   const {
     register,
@@ -65,14 +62,12 @@ const ContestProblemDetail = ({
   };
 
   const { fields } = useFieldArray({ control, name: 'questions' });
-  console.log('field', fields);
   const SubmitContest = useSubmitContest({
     handleIsLoading,
     competitionId,
   } as UseSubmitContestProps);
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
-    console.log(data);
     SubmitContest(data);
   };
 
@@ -89,7 +84,6 @@ const ContestProblemDetail = ({
 
   return (
     <ContentContainer>
-      {/* <Container> */}
       <S.FormContainer>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
           {fields?.map((field, index) => (
@@ -143,14 +137,6 @@ const ContestProblemDetail = ({
                     다음
                   </Button>
                 ) : (
-                  // <Button
-                  //   type="submit"
-                  //   variant="primary"
-                  //   size="medium"
-                  //   disabled={isLoading}
-                  // >
-                  //   제출
-                  // </Button>
                   <S.SubmitButton type="submit" disabled={isLoading}>
                     제출
                   </S.SubmitButton>

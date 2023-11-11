@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import { media } from 'constants/media';
 
 interface Props {
   $white?: boolean;
@@ -39,38 +38,22 @@ export const TBodyTd = styled.td<Props>`
   overflow-wrap: break-word;
   word-break: break-all;
 
-  // 선 추가 할 수도 있어서 일단 추가
-  /* & + & {
-        border-left: 0.1rem solid ${COLOR.WHITE};
-    } */
-
   & span {
     display: inline-block;
-    /* padding: 0.5rem 2rem; */
-
-    /* color: ${COLOR.WHITE};
-    border-radius: 5rem;
-    border: 0.1rem solid ${COLOR.WHITE}; */
 
     &.success {
-      /* background-color: ${COLOR.MAIN}; */
       color: ${COLOR.MAIN};
     }
 
     &.failed {
-      /* background-color: ${COLOR.RED}; */
       color: #ff8f00;
     }
   }
 
   &.title {
-    ${FONT.BOLD_20}
+    ${FONT.BOLD_18}
     text-align: left;
     padding: ${({ narrow }) => (narrow ? '1.5rem 2rem' : '2rem 3rem')};
-
-    /* a:hover {
-      transition: all 0.2s ease-in-out;
-    } */
 
     &.center {
       text-align: center;

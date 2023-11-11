@@ -41,7 +41,6 @@ const WorkbookQuestionAdminOptionGroup = ({
       workbookId: parseInt(questionId as string),
       questionIds: customQuestionIds,
     };
-    console.log(formData.questionIds.length);
 
     if (!formData.questionIds.length)
       return Toast.error('문제집 문제 삭제에 실패했습니다.');

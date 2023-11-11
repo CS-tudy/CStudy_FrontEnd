@@ -8,7 +8,6 @@ export const useDeleteAlarm = () => {
   return useMutation(deleteAlarm, {
     onSuccess: () => {
       queryClient.invalidateQueries(['alarms']);
-      //   queryClient.refetchQueries(['alarms']);
       Toast.success('알람이 삭제되었습니다.');
     },
     onError: () => {

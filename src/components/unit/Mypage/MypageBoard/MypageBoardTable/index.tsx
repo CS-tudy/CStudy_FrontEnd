@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import MypageBoardTbody from '../MypageBoardTbody';
 import { statusMap } from 'types/mypage';
 import Table2 from 'components/commons/Table2';

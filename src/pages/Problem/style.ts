@@ -12,15 +12,9 @@ export const ContainerHeader = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  /* display: flex; */
-  /* justify-content: flex-end; */
   position: absolute;
   right: 5vw;
   top: 95px;
-  /* left: 20px; */
-  /* padding-left: vw; */
-  /* width: 100%; */
-  /* padding-right: 5vw; */
 
   ${media.mobildL} {
   }
@@ -30,8 +24,6 @@ export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* flex-direction: row;
-  justify-content: flex-end; */
   width: 100%;
   position: absolute;
   padding-right: 5vw;

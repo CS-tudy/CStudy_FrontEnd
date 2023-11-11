@@ -39,11 +39,9 @@ const AlarmConnection = () => {
 
     eventSource.addEventListener('alarm', function (event) {
       console.log('alarm:', event);
-      // console.log('alarms', alarms);
     });
 
     eventSource.addEventListener('error', function (event) {
-      console.log(event);
       if (event.target.readyState === EventSource.CLOSED) {
         console.log('eventsource closed (' + event.target.readyState + ')');
       }

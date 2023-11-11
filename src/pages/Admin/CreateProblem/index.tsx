@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import { FieldValues } from 'react-hook-form';
@@ -19,6 +19,8 @@ const CreateProblem = () => {
     handleSubmit,
     getValues,
     reset,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -34,27 +36,36 @@ const CreateProblem = () => {
         {
           number: 1,
           content: '',
-          answer: '',
+          answer: null,
         },
         {
           number: 2,
           content: '',
-          answer: '',
+          answer: null,
         },
         {
           number: 3,
           content: '',
-          answer: '',
+          answer: null,
         },
         {
           number: 4,
           content: '',
-          answer: '',
+          answer: null,
         },
       ],
     },
   });
+
   const { mutate: CreateProblem } = useCreateProblem();
+
+  const handleCheckboxChange = (name: string) => {
+    setValue('createChoicesAboutQuestionDto.0.answer', null);
+    setValue('createChoicesAboutQuestionDto.1.answer', null);
+    setValue('createChoicesAboutQuestionDto.2.answer', null);
+    setValue('createChoicesAboutQuestionDto.3.answer', null);
+    setValue(name, !watch(name));
+  };
 
   const onSubmit = () => {
     const create = getValues();
@@ -76,7 +87,7 @@ const CreateProblem = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  resgiterName="createQuestionRequestDto.questionTitle"
+                  name="createQuestionRequestDto.questionTitle"
                   required
                   errors={errors}
                 />
@@ -86,7 +97,7 @@ const CreateProblem = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  resgiterName="createQuestionRequestDto.questionExplain"
+                  name="createQuestionRequestDto.questionExplain"
                   required
                   errors={errors}
                 />
@@ -96,7 +107,7 @@ const CreateProblem = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  resgiterName="createQuestionRequestDto.questionDesc"
+                  name="createQuestionRequestDto.questionDesc"
                   required
                   errors={errors}
                 />
@@ -113,19 +124,23 @@ const CreateProblem = () => {
                     type="text"
                     placeholder="내용을 입력해주세요"
                     register={register}
-                    resgiterName="createChoicesAboutQuestionDto.0.content"
+                    name="createChoicesAboutQuestionDto.0.content"
                     required
                     errors={errors}
                   />
                   <CreateProblemInput
                     id="1"
-                    type="radio"
+                    type="checkbox"
                     register={register}
-                    name="problem"
-                    resgiterName="createChoicesAboutQuestionDto.0.answer"
+                    name="createChoicesAboutQuestionDto.0.answer"
                     value="정답"
-                    required
                     errors={errors}
+                    checked={watch('createChoicesAboutQuestionDto.0.answer')}
+                    onChange={() =>
+                      handleCheckboxChange(
+                        'createChoicesAboutQuestionDto.0.answer',
+                      )
+                    }
                   />
                 </S.Ex>
                 <S.Ex>
@@ -135,19 +150,23 @@ const CreateProblem = () => {
                     type="text"
                     placeholder="내용을 입력해주세요"
                     register={register}
-                    resgiterName="createChoicesAboutQuestionDto.1.content"
+                    name="createChoicesAboutQuestionDto.1.content"
                     required
                     errors={errors}
                   />
                   <CreateProblemInput
                     id="2"
-                    type="radio"
+                    type="checkbox"
                     register={register}
-                    name="problem"
-                    resgiterName="createChoicesAboutQuestionDto.1.answer"
+                    name="createChoicesAboutQuestionDto.1.answer"
                     value="정답"
-                    required
                     errors={errors}
+                    checked={watch('createChoicesAboutQuestionDto.1.answer')}
+                    onChange={() =>
+                      handleCheckboxChange(
+                        'createChoicesAboutQuestionDto.1.answer',
+                      )
+                    }
                   />
                 </S.Ex>
                 <S.Ex>
@@ -157,19 +176,22 @@ const CreateProblem = () => {
                     type="text"
                     placeholder="내용을 입력해주세요"
                     register={register}
-                    resgiterName="createChoicesAboutQuestionDto.2.content"
-                    required
+                    name="createChoicesAboutQuestionDto.2.content"
                     errors={errors}
                   />
                   <CreateProblemInput
                     id="3"
-                    type="radio"
+                    type="checkbox"
                     register={register}
-                    name="problem"
-                    resgiterName="createChoicesAboutQuestionDto.2.answer"
+                    name="createChoicesAboutQuestionDto.2.answer"
                     value="정답"
-                    required
                     errors={errors}
+                    checked={watch('createChoicesAboutQuestionDto.2.answer')}
+                    onChange={() =>
+                      handleCheckboxChange(
+                        'createChoicesAboutQuestionDto.2.answer',
+                      )
+                    }
                   />
                 </S.Ex>
                 <S.Ex>
@@ -179,19 +201,23 @@ const CreateProblem = () => {
                     type="text"
                     placeholder="내용을 입력해주세요"
                     register={register}
-                    resgiterName="createChoicesAboutQuestionDto.3.content"
+                    name="createChoicesAboutQuestionDto.3.content"
                     required
                     errors={errors}
                   />
                   <CreateProblemInput
                     id="4"
-                    type="radio"
+                    type="checkbox"
                     register={register}
-                    name="problem"
-                    resgiterName="createChoicesAboutQuestionDto.3.answer"
+                    name="createChoicesAboutQuestionDto.3.answer"
                     value="정답"
-                    required
                     errors={errors}
+                    checked={watch('createChoicesAboutQuestionDto.3.answer')}
+                    onChange={() =>
+                      handleCheckboxChange(
+                        'createChoicesAboutQuestionDto.3.answer',
+                      )
+                    }
                   />
                 </S.Ex>
                 <AdminBtn>

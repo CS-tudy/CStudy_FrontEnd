@@ -22,7 +22,7 @@ const ContestDetail = () => {
   const { contestId } = useParams();
   const navigate = useNavigate();
   const handleNavigateMyResult = () => {
-    navigate(`/contest/1/result`);
+    navigate(`/contest/${contestId}/result`);
   };
 
   const {
@@ -83,13 +83,7 @@ const ContestDetail = () => {
   return (
     <ContentContainer>
       <ContestDetailContainer>
-        <div
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <S.ContestDetailHeader>
           <div>
             <h2>자바대회</h2>
           </div>
@@ -128,7 +122,7 @@ const ContestDetail = () => {
               />
             </Modal>
           )}
-        </div>
+        </S.ContestDetailHeader>
 
         <S.ContestDetailContent>
           <ContestInfo contest={contest as Contest} />

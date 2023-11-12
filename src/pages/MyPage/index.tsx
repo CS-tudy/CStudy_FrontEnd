@@ -44,6 +44,7 @@ const MyPage = () => {
     page: myPageStatusFilter.pageNumber,
     sort: '',
   });
+  console.log(myPageInfo);
 
   const blob = new Blob([Img], { type: 'mime-type' });
   const getImg = URL.createObjectURL(blob);

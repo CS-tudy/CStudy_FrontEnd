@@ -31,10 +31,17 @@ const WorkBookCard = ({
     }
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = workbook;
+  };
+
   return (
     <S.WorkBookCard>
       <Link to={`${id}`} onClick={checkLogin}>
-        <S.Img src={fileName ? fileName : workbook} />
+        <S.Img
+          src={fileName ? fileName : workbook}
+          onError={handleImageError}
+        />
         <S.Info>
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>

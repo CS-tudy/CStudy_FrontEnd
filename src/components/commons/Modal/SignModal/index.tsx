@@ -23,7 +23,7 @@ const SignModal = ({ children, toggleModal }: Props) => {
       </S.Line> */}
       <S.SocialLogin>
         <a
-          href={`http://cstudy.site:8080/oauth2/authorization/google`}
+          href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/google`}
           rel="noopener noreferrer"
         >
           <S.SocialLogo src={GoogleLogoImage} alt="구글로 로그인" />

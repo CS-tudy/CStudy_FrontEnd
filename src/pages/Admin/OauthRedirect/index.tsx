@@ -19,9 +19,12 @@ const OAuthRedirect = () => {
     accessToken,
     refreshToken,
   });
+
   dispatch(login());
 
-  window.location.replace(`${process.env.REACT_APP_API_URL}`);
+  window.location.replace(
+    `http://cstudy-projects.s3-website.ap-northeast-2.amazonaws.com`,
+  );
 
   return <div>Login...</div>;
 };

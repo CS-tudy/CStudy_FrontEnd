@@ -34,6 +34,7 @@ const MyPage = () => {
     onValid,
     handleDetail,
     setIsActive,
+    setSelectedFile,
   } = useMyPage({ reset, getValues });
 
   const { myPageStatusFilter, handlePage } = useMypageFilter();
@@ -44,7 +45,6 @@ const MyPage = () => {
     page: myPageStatusFilter.pageNumber,
     sort: '',
   });
-  console.log(myPageInfo);
 
   const blob = new Blob([Img], { type: 'mime-type' });
   const getImg = URL.createObjectURL(blob);
@@ -66,6 +66,7 @@ const MyPage = () => {
             handleChangePwdSubmit={handleChangePwdSubmit}
             onValid={onValid}
             setIsActive={setIsActive}
+            setSelectedFile={setSelectedFile}
           />
           <MypageBoard
             handleDetail={handleDetail}

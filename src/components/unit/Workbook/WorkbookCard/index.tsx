@@ -3,8 +3,6 @@ import * as S from './style';
 import workbook from 'assets/workbook.png';
 import { isLogin } from 'repository/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'stroe';
-import useModal from 'hooks/useModal';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 interface WorkBookCardProps {

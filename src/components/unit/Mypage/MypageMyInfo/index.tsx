@@ -23,6 +23,7 @@ interface MypageMyInfoProps {
   handleChangePwdSubmit: (formData: FieldValues) => void;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   onValid: () => void;
+  setSelectedFile: React.Dispatch<React.SetStateAction<File | null>>;
   myPageInfo: myPageState;
   img: string;
   getImg: string;
@@ -43,6 +44,7 @@ const MypageMyInfo = ({
   setIsActive,
   getImg,
   img,
+  setSelectedFile,
 }: MypageMyInfoProps) => {
   return (
     <S.MyInfoWrapper>
@@ -54,6 +56,7 @@ const MypageMyInfo = ({
         onValid={onValid}
         handleSubmit={handleSubmit}
         HandleClickPwd={HandleClickPwd}
+        setSelectedFile={setSelectedFile}
       />
       {isActive && (
         <MypageInput

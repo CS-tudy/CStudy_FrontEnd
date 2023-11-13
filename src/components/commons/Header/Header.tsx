@@ -24,6 +24,7 @@ import Modal2 from '../Modal/Modal2';
 import { getAlarm } from 'api/alarm';
 import AlarmList from 'components/unit/Alarm/AlarmList';
 import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
+import logo2 from 'assets/logo2.png';
 
 export interface PrevToogle {
   $active: boolean;
@@ -73,7 +74,8 @@ const Header = () => {
         <S.LogoWrap>
           <Link to="/">
             <picture>
-              <S.LogoImg src={Logo_Png} alt="CStudy logo" />
+              {/* <S.LogoImg src={Logo_Png} alt="CStudy logo" /> */}
+              <S.LogoImg src={logo2} alt="CStudy logo" />
             </picture>
           </Link>
         </S.LogoWrap>
@@ -157,12 +159,12 @@ const Header = () => {
           )}
           {isLogin() ? (
             <>
-              <button onClick={() => signOut()}>
-                <MdLogout size="27px" />
-              </button>
               <S.MypageLink to="/mypage">
                 <BsFillPersonFill size="27px" />
               </S.MypageLink>
+              <button onClick={() => signOut()}>
+                <MdLogout size="27px" />
+              </button>
             </>
           ) : (
             <>

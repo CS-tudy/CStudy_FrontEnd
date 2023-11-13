@@ -22,7 +22,21 @@ export const Wrapper = styled.header`
   z-index: 99;
 `;
 
-export const LogoWrap = styled.h1`
+// export const LogoWrap = styled.h1`
+//   padding-left: 1.8rem;
+//   ${media.tablet} {
+//     position: relative;
+//     z-index: 99;
+//   }
+// `;
+// export const LogoImg = styled.img`
+//   height: 6rem;
+// `;
+
+export const LogoWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-left: 1.8rem;
   ${media.tablet} {
     position: relative;
@@ -30,7 +44,7 @@ export const LogoWrap = styled.h1`
   }
 `;
 export const LogoImg = styled.img`
-  height: 6rem;
+  width: 16.5rem;
 `;
 
 export const Nav = styled.nav<PrevToogle>`
@@ -96,9 +110,10 @@ export const NavLinkStyle = styled(NavLink)`
   display: block;
   font-size: ${FONT.REGULAR_16};
   color: ${COLOR.BLACK};
-  padding: 2rem 2rem 2rem 0;
+  padding: 2rem 2rem 2rem 0rem;
   ${media.tablet} {
     ${FONT.BOLD_16}
+    padding-left: 1.5rem;
   }
 `;
 

@@ -72,6 +72,7 @@ const ContestProblemDetail = ({
   };
 
   useEffect(() => {
+    console.log('quiz', quizData);
     reset({
       competitionId,
       endTime: formatDate(new Date(), { second: true }),

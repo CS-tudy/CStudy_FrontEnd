@@ -34,8 +34,8 @@ const Contents = () => {
                 <br />
                 퀴즈 형태로 더욱 쉽게 접근 하고 학습 할 수 있게 도와줍니다.
               </S.Texts>
-              <LinkButton variant="primary" size="large" to="/notice">
-                게시판 보러 가기
+              <LinkButton variant="primary" size="large" to="/problem">
+                문제 풀러가기
               </LinkButton>
             </p>
           </S.ContentTexts>
@@ -62,7 +62,7 @@ const Contents = () => {
                 대회를 통해 성장한 자신을 확인하고, 더욱 성장하세요!
               </S.Texts>
               <LinkButton variant="primary" size="large" to="/contest">
-                대회 보러 가기
+                대회 보러가기
               </LinkButton>
             </p>
           </S.ContentTexts>
@@ -105,7 +105,7 @@ const Contents = () => {
                 위해 노력하는 동료들을 확인하고 선의의 경쟁을 위해 준비했습니다.
               </S.Texts>
               <LinkButton variant="primary" size="large" to="/membersranks">
-                랭킹 확인 하기
+                랭킹 확인하기
               </LinkButton>
             </p>
           </S.ContentTexts>

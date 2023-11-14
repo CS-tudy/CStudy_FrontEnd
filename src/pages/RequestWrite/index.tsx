@@ -11,7 +11,6 @@ import TextArea from 'components/commons/TextArea';
 import Button from 'components/commons/Button/Button';
 import Input from 'components/commons/Input';
 import ContentContainer from 'components/commons/ContentContainer';
-import Toast from 'libs/Toast';
 
 interface RequesetWriteProps {
   isEdit: boolean;
@@ -41,16 +40,9 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const { mutate: editRequest } = useEditRequest();
 
   const submitForm: SubmitHandler<FieldValues> = FormData => {
-    console.log('form', FormData);
-    // const updateRequestInput = {
-    //   title: FormData?.title,
-    //   description: FormData?.description,
-    //   id: data?.id,
-    // };
     setValue('title', data?.title || '');
     setValue('description', data?.description || '');
 
-    // const updateRequestInput = { id: data?.id };
     const updateRequestInput: {
       id: string;
       title?: string;
@@ -61,8 +53,6 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
     if (FormData.description)
       updateRequestInput.description = FormData.description;
 
-    // if(title)
-    // if(description)
     if (isEdit) editRequest(updateRequestInput);
     else createRequest(FormData);
   };

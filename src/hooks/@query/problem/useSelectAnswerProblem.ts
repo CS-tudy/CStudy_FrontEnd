@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { selectAnswerProblem } from 'api/problem';
-// import toast from 'provider/Toast';
+import Toast from 'libs/Toast';
 
 interface useProblemSetProps {
   handleIsLoading: (isLoading: boolean) => void;
@@ -24,13 +24,11 @@ export const useSelectAnswerProblem = ({
     onError: error => {
       switch (error) {
         case '3000':
-          // toast.error('이미 풀은 문제입니다.');
-          alert('이미 푼 문제입니다.');
+          Toast.error('이미 푼 문제입니다.');
           break;
 
         default:
-          // toast.error('채점 하는데 실패했습니다.');
-          alert('채점 하는데 실패했습니다.');
+          Toast.error('채점 하는데 실패했습니다.');
           break;
       }
     },

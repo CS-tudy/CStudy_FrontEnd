@@ -6,10 +6,9 @@ import { SHADOW } from 'constants/Shadow';
 
 export const FormContainer = styled.div`
   display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 10px 50px;
-  margin-bottom: 600px;
+  justify-content: space-between;
+  width: 88%;
+  margin: 10px 6vw;
 `;
 
 export const ContestProblemDesc = styled.h3`
@@ -19,7 +18,7 @@ export const Form = styled.form`
   position: relative;
   width: 100%;
   margin-top: 3rem;
-  padding: 3rem 4rem 3rem 7rem;
+  padding: 4rem 4rem 4rem 7rem;
   background-color: ${COLOR.WHITE};
   border: 0.15rem solid ${COLOR.GRAY_80};
   border-radius: 1.2rem;

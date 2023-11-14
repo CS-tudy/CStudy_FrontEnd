@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import * as Styled from './style';
+import * as S from './style';
 import TableHead from '../TableHead';
 
 interface TableProps {
@@ -21,7 +21,7 @@ const Table2 = ({
   narrow2,
 }: PropsWithChildren<TableProps>) => {
   return (
-    <Styled.Table
+    <S.Table
       cellSpacing={0}
       $white={white}
       maxHeight={maxHeight}
@@ -35,7 +35,7 @@ const Table2 = ({
         narrow2={narrow2}
       />
       <tbody>{children}</tbody>
-    </Styled.Table>
+    </S.Table>
   );
 };
 

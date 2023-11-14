@@ -39,7 +39,6 @@ const CreateContest = () => {
       competitionTitle: contest.competitionTitle,
       participants: contest.participants,
     };
-    console.log(date);
     ContestSet(date);
   };
   return (

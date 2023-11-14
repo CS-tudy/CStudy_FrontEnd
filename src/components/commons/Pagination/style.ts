@@ -30,7 +30,6 @@ export const LeftArrowButton = styled.button<PaginationOptionProps>`
   }
 
   &[disabled]::before {
-    /* display: none; */
     border-top: 0.2rem solid ${COLOR.GRAY_100};
     border-left: 0.2rem solid ${COLOR.GRAY_100};
   }

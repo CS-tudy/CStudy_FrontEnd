@@ -1,22 +1,16 @@
-import Button from 'components/commons/Button/Button';
 import Container from 'components/commons/Container';
 import ProblemDetail from 'components/unit/Problem/ProblemDetail';
 import useProblemAction from 'hooks/ProblemDetail/useProblemAction';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { selectAnswerProblem } from 'api/problem';
 import { useGetProblem } from 'hooks/@query/problem/useGetProblem';
 import { LoginUserDto, selectAnswerProblemFromProps } from 'types/problem';
-import { UTIL } from 'constants/Util';
 import { IProblem } from 'types/api';
 import { userInfo } from 'repository/auth';
-import { RxLapTimer } from 'react-icons/rx';
 import ProblemDetailFooter from 'components/unit/Problem/ProblemDetailFooter';
 import { useSelectAnswerProblem } from 'hooks/@query/problem/useSelectAnswerProblem';
 import ContentContainer from 'components/commons/ContentContainer';
-import Toast from 'libs/Toast';
-import * as S from './style';
 
 const ProblemDetailPage = () => {
   const { problemId } = useParams();
@@ -63,8 +57,6 @@ const ProblemDetailPage = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = FormData => {
     const choiceNumber = { choiceNumber: parseInt(FormData.choiceNumber) };
-    // const currentTime = new Date().getTime();
-    // const elapsedTime = currentTime - (startTime as number);
     const loginUserDto = {
       ...(userInfo() as LoginUserDto),
     };
@@ -72,11 +64,8 @@ const ProblemDetailPage = () => {
     const formData = {
       ...choiceNumber,
       loginUserDto: loginUserDto,
-      // time: Math.floor(elapsedTime / UTIL.SECOND),
       time: time,
     };
-
-    console.log(formData);
 
     setAnswer(FormData.choiceNumber);
     selectAnswerProblem({
@@ -88,14 +77,6 @@ const ProblemDetailPage = () => {
   return (
     <ContentContainer>
       <Container>
-        <div>
-          {/* <Button variant="gray" size="medium" onClick={handleNavigateBack}>
-          돌아가기
-        </Button> */}
-        </div>
-        {/* <div>
-        <RxLapTimer size={20} /> {time}
-      </div> */}
         <ProblemDetail
           isLoading={isLoading}
           problem={problem as IProblem}
@@ -108,7 +89,6 @@ const ProblemDetailPage = () => {
           timeCheck={timeCheck}
           time={time}
         ></ProblemDetail>
-        {/* {isAction && isAnswer ? null : <S.WrongAnswer>오답</S.WrongAnswer>} */}
         {isAnswer && (
           <ProblemDetailFooter explain={problem?.explain as string} />
         )}

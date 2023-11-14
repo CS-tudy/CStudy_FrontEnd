@@ -19,8 +19,6 @@ const useQueryFilterSlice = (): QueryFilterActionState => {
   const queryFilterState = useSelector(
     (state: any) => state.rootReducer.queryFilter,
   );
-  // queryFilterState.queryActive =
-  //   queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';
 
   const queryActive =
     queryFilterState.query === ROUTE.PROBLEMSET_MYQUESTION ? 'active' : '';

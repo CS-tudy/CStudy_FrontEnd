@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
-import * as Styled from './style';
+import * as S from './style';
 
 const FormSection = ({ children }: PropsWithChildren) => {
-  return <Styled.FormBody>{children}</Styled.FormBody>;
+  return <S.FormBody>{children}</S.FormBody>;
 };
 
 export default FormSection;

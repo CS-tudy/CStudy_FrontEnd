@@ -1,32 +1,18 @@
-import { useEffect, useState } from 'react';
-import { getAlarm } from 'api/alarm';
 import * as S from './style';
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { useDeleteAlarm } from 'hooks/@query/alarm/useDeleteAlarm';
 import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
+import { useDispatch } from 'react-redux';
+import { setAlarms } from 'hooks/@redux/alarmSlice';
 
 const AlarmList = () => {
-  // const [alarms, setAlarms] = useState([]);
   const alarms = useGetAlarms();
-  console.log('alarms', alarms);
+
+  const dispatch = useDispatch();
+  dispatch(setAlarms(alarms));
   const { mutate: deleteAlarm } = useDeleteAlarm();
 
-  // useEffect(() => {
-  //   const fetchAlarm = async () => {
-  //     try {
-  //       const alarm = await getAlarm();
-  //       console.log('alarm', alarm.data.content);
-  //       setAlarms(alarm.data.content);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchAlarm();
-  // }, []);
-
   const onClickDeleteAlarm = (e: React.MouseEvent) => {
-    console.log('id', e.currentTarget.id);
     deleteAlarm(e.currentTarget.id);
   };
 

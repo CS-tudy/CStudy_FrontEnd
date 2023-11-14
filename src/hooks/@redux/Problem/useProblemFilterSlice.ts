@@ -8,7 +8,6 @@ const UseProblemFilterSlice = () => {
   );
 
   const handlePage = (page: number) => {
-    //   boardFilter.setPageNumber(page);
     dispatch(setProblemPageNumber(page));
   };
   return {

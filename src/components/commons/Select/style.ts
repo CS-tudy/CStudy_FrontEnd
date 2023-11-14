@@ -69,7 +69,6 @@ export const OptionList = styled.ul`
   padding: 0;
   border-radius: 0.6rem;
   overflow: hidden;
-  /* max-height: 0; */
   opacity: 0;
 
   &::-webkit-scrollbar {

@@ -27,6 +27,14 @@ export const Title = styled.p`
   text-overflow: ellipsis;
 `;
 
+export const description = styled.div`
+  margin-top: 1rem;
+  font-size: ${FONT.REGULAR_16};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
 export const ContentWrapper = styled.ul`
   margin-top: 1rem;
   font-size: ${FONT.REGULAR_16};
@@ -44,6 +52,7 @@ export const Content = styled.li`
 `;
 
 export const Detail = styled.div`
+  display: flex;
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.GRAY_200};
   margin-top: 1.2rem;

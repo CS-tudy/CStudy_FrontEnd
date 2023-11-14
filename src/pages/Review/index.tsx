@@ -4,7 +4,6 @@ import { useGetReview } from 'hooks/@query/review/useGetReview';
 
 const Review = () => {
   const review = useGetReview();
-  console.log(review);
   return (
     <Container>
       <MypageQuestion />

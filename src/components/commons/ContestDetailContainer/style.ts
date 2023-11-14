@@ -1,15 +1,11 @@
-import { COLOR } from 'constants/Color';
 import { media } from 'constants/media';
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 6rem;
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  margin-bottom: 700px;
 
   ${media.tablet} {
     margin-bottom: 1000px;
@@ -18,13 +14,9 @@ export const Wrapper = styled.div`
 
 export const BodyWrapper = styled.div`
   width: 100%;
-  position: absolute;
-  top: 20;
 `;
 
 export const ContentWrapper = styled.div`
-  /* border: 1px solid #dbdbdb;
-  background-color: #fff; */
   border-radius: 1.2rem;
   display: flex;
   flex-direction: column;

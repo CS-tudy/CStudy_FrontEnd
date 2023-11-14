@@ -4,7 +4,7 @@ import { userStorage } from 'repository/userStorage';
 import { retryToken } from './auth';
 
 export const instance = axios.create({
-  baseURL: 'http://localhost:8081',
+  baseURL: 'http://localhost:8080',
 });
 
 instance.interceptors.request.use(
@@ -66,7 +66,5 @@ instance.interceptors.response.use(
     }
 
     throw error.response;
-    // throw error.response.error;
-    // TODO: 예외 처리 개선
   },
 );

@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useMemo } from 'react';
-import * as Styled from './style';
+import { useState, useCallback, useMemo } from 'react';
+import * as S from './style';
 import { PaginationProps } from 'types/pagination';
 
 const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
@@ -10,8 +10,6 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
 
   const handlePrevPageGroupClick = useCallback(() => {
     setCurrentPage(prevPage => {
-      console.log(prevPage);
-
       handlePage((prevPage - 1) * pagesPerGroup - 1);
       return prevPage - 1;
     });
@@ -19,7 +17,6 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
 
   const handleNextPageGroupClick = useCallback(() => {
     setCurrentPage(prevPage => {
-      console.log(prevPage);
       handlePage(prevPage * pagesPerGroup);
       return prevPage + 1;
     });
@@ -33,13 +30,13 @@ const usePagination = ({ totalPages, handlePage, page }: PaginationProps) => {
       const pageNumber = startIndex + index + 1;
 
       return (
-        <Styled.PaginationButton
+        <S.PaginationButton
           key={index}
           onClick={() => handlePage(pageNumber - 1)}
           className={pageNumber === currentPageNumber ? 'active' : ''}
         >
           {pageNumber}
-        </Styled.PaginationButton>
+        </S.PaginationButton>
       );
     });
   }, [currentPage, currentPageNumber, handlePage, totalPages]);

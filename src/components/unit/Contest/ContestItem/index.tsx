@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { isLogin } from 'repository/auth';
 import { ContestInfo } from 'types/api';
+import * as S from './style';
 
 interface ContestItemProps {
   contestItem: ContestInfo;
@@ -13,12 +14,10 @@ interface ContestItemProps {
 const ContestItem = ({ contestItem }: ContestItemProps) => {
   const { id, title, participants, startTime, endTime } = contestItem;
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const checkLogin = (e: React.MouseEvent) => {
     if (!isLogin()) {
-      // Toast.error('로그인 후 이용하실 수 있습니다.');
       e.preventDefault();
       dispatch(Logintoggle());
     }
@@ -28,7 +27,7 @@ const ContestItem = ({ contestItem }: ContestItemProps) => {
     <tr>
       <TBodyTd>
         <StyleLink to={`${id}`} onClick={checkLogin}>
-          {title}
+          <S.Title>{title}</S.Title>
         </StyleLink>
       </TBodyTd>
       <TBodyTd>{participants}</TBodyTd>

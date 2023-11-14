@@ -79,9 +79,7 @@ export const Sign = styled.div<PrevToogle>`
     padding: 0.5rem;
     font-size: ${FONT.REGULAR_14};
   }
-  & > button:first-child {
-    margin-right: 1.4rem;
-  }
+
   ${media.tablet} {
     display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
@@ -96,7 +94,7 @@ export const NavLinkStyle = styled(NavLink)`
     font-weight: bold;
   }
   display: block;
-  font-size: ${FONT.REGULAR_14};
+  font-size: ${FONT.REGULAR_16};
   color: ${COLOR.BLACK};
   padding: 2rem 2rem 2rem 0;
   ${media.tablet} {
@@ -127,7 +125,6 @@ export const Admin = styled.div<PrevToogle>`
   }
 `;
 
-// 반응형
 export const HamburgerBt = styled.button`
   display: none;
   ${media.tablet} {
@@ -142,9 +139,21 @@ export const HamburgerBt = styled.button`
 `;
 
 export const AlarmButton = styled.button<PrevToogle>`
+  margin: 0.5rem;
   ${media.tablet} {
     position: absolute;
-    right: ${props => (props.$active ? '240px' : '70px')};
+    right: 70px;
+    display: ${props => (props.$active ? 'none' : 'block')};
+  }
+`;
+
+export const AlarmMark = styled.div<PrevToogle>`
+  position: absolute;
+  right: 243px;
+  top: 25px;
+  ${media.tablet} {
+    right: ${props => (props.$active ? '280px' : '72px')};
+    top: ${props => (props.$active ? '10px' : '25px')};
     display: ${props => (props.$active ? 'none' : 'block')};
   }
 `;

@@ -35,8 +35,6 @@ export const useSignUp = () => {
     try {
       const data = await CheckDuplicatedName(watchedName);
       const nameRegex = /^[a-zA-Z0-9가-힣]{2,8}$/;
-      console.log('watch', watchedName);
-      console.log('data', data);
 
       if (watchedName === '') Toast.error('이름을 입력해주세요.');
       else if (!nameRegex.test(watchedName))
@@ -60,8 +58,6 @@ export const useSignUp = () => {
   const onCheckDuplicatedEmail = async () => {
     const data = await CheckDuplicatedEmail(watchedEmail);
     const emailRegex = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-    console.log(watchedEmail);
-    console.log(data);
 
     try {
       if (watchedEmail === '') Toast.error('이메일을 입력해주세요.');
@@ -95,13 +91,11 @@ export const useSignUp = () => {
       console.error(error);
       throw new Error('오류가 발생했습니다.');
     }
-    console.log(data); // Yf7fH9HI
     authNumber.current = data;
   };
 
   const onCheckAuthNumber = async () => {
     const watchedEmailAuthNumber = watch('emailAuthNumber');
-    console.log('test', authNumber.current);
 
     if (String(authNumber.current) === watchedEmailAuthNumber)
       Toast.success('인증번호가 일치합니다.');
@@ -111,8 +105,8 @@ export const useSignUp = () => {
   const signUpMutation = useMutation(signUpApi, {
     onSuccess: () => {
       Toast.success('회원가입 성공');
-      signupToggle();
       dispatch(signupToggle());
+      // signupToggle();
     },
     onError: () => {
       Toast.error('회원가입 실패');
@@ -121,7 +115,6 @@ export const useSignUp = () => {
 
   const submitForm = (formValues: SignUpForm) => {
     const { emailAuthNumber, passwordConfirm, ...rest } = formValues;
-    console.log({ ...rest });
     signUpMutation.mutate({ ...rest });
   };
 

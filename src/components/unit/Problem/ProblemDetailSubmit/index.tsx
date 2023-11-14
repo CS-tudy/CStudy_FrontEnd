@@ -1,41 +1,39 @@
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
+import { useState } from 'react';
 
 interface ProblemDetailSubmitProps {
   isLoading?: boolean;
   Answer?: string;
   isAnswer?: boolean;
   timeCheck?: boolean;
+  isAction?: boolean;
 }
 
 const ProblemDetailSubmit = ({
-  isLoading,
   isAnswer,
   Answer,
-  timeCheck,
 }: ProblemDetailSubmitProps) => {
+  const [submitClick, setSubmitClick] = useState(false);
   return (
     <S.ProblemSubmitWrapper>
       <Button
         type="submit"
         variant="primary"
         size="medium"
-        // disabled={isLoading}
+        onClick={() => {
+          setSubmitClick(true);
+        }}
       >
         제출
       </Button>
-      {/* {timeCheck && isAnswer && (
+      {isAnswer && (
         <S.ProblemAnswerWrapper>
-          <S.ProblemAnswerTitle>정답:</S.ProblemAnswerTitle>
+          <S.ProblemAnswerTitle>정답 :</S.ProblemAnswerTitle>
           <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>
         </S.ProblemAnswerWrapper>
-      )} */}
-      {isAnswer ? (
-        <S.ProblemAnswerWrapper>
-          <S.ProblemAnswerTitle>정답:</S.ProblemAnswerTitle>
-          <S.ProblemAnswerNumber>{Answer}</S.ProblemAnswerNumber>
-        </S.ProblemAnswerWrapper>
-      ) : (
+      )}
+      {!isAnswer && submitClick && (
         <S.ProblemAnswerWrapper>
           <S.ProblemAnswerTitle>오답입니다!</S.ProblemAnswerTitle>
         </S.ProblemAnswerWrapper>

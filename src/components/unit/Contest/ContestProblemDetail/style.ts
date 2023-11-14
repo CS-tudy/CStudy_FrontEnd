@@ -47,8 +47,6 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   justify-content: center;
   align-items: center;
   position: relative;
-  /* min-width: 6rem;
-  min-height: 6rem; */
   min-width: 4.5rem;
   min-height: 4.5rem;
   border: 0.2rem solid ${COLOR.WHITE};
@@ -63,7 +61,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   }
 
   &:checked {
-    /* border: 0.4rem solid ${COLOR.GREEN}; */
+    border: 2px solid ${COLOR.GREEN};
   }
 
   &:checked::after {

@@ -23,6 +23,7 @@ export const Div1 = styled.div`
   display: flex;
   align-items: center;
   ${media.tablet} {
+    width: 100%;
     margin-bottom: 5px;
     justify-content: flex-start;
   }

@@ -17,7 +17,8 @@ export const ContestProblemTitle = styled.div`
 
 export const ContestProblemDesc = styled.div`
   ${FONT.BOLD_20}
-  padding-top: 8px;
+  padding-top: 10px;
+  margin-bottom: 3rem;
 `;
 
 export const Form = styled.form`
@@ -107,7 +108,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 3.5rem;
+  margin-top: 4rem;
 
   button + button {
     margin-left: 1.2rem;

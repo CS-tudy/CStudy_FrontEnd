@@ -4,8 +4,7 @@ import { userStorage } from 'repository/userStorage';
 import { retryToken } from './auth';
 
 export const instance = axios.create({
-  // baseURL: process.env.REACT_APP_API_URL,
-  baseURL: 'http://localhost:8080',
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 instance.interceptors.request.use(

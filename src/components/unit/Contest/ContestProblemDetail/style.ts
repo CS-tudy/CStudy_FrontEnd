@@ -17,13 +17,13 @@ export const ContestProblemTitle = styled.div`
 
 export const ContestProblemDesc = styled.div`
   ${FONT.BOLD_20}
-  padding-top: 5px;
+  padding-top: 8px;
 `;
 
 export const Form = styled.form`
   position: relative;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   padding: 4rem 4rem 4rem 7rem;
   background-color: ${COLOR.WHITE};
   border: 0.15rem solid ${COLOR.GRAY_80};
@@ -107,6 +107,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-top: 3.5rem;
 
   button + button {
     margin-left: 1.2rem;

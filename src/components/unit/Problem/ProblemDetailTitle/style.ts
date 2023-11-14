@@ -24,12 +24,13 @@ export const Div1 = styled.div`
   align-items: center;
   ${media.tablet} {
     margin-bottom: 5px;
+    justify-content: flex-start;
   }
 `;
 
 export const Div2 = styled.div`
-  width: 100%;
   ${media.tablet} {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
   }

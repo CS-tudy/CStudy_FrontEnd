@@ -35,7 +35,7 @@ export const ProblemNumber = styled.input`
   }
 
   &:checked {
-    border: 2px solid ${COLOR.GREEN};
+    /* border: 2px solid ${COLOR.GREEN}; */
   }
 
   &:checked::after {

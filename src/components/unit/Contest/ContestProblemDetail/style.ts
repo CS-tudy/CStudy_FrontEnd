@@ -11,9 +11,15 @@ export const FormContainer = styled.div`
   margin: 10px 6vw;
 `;
 
-export const ContestProblemDesc = styled.h3`
+export const ContestProblemTitle = styled.div`
   ${FONT.H3}
 `;
+
+export const ContestProblemDesc = styled.div`
+  ${FONT.BOLD_20}
+  padding-top: 5px;
+`;
+
 export const Form = styled.form`
   position: relative;
   width: 100%;
@@ -61,7 +67,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   }
 
   &:checked {
-    border: 2px solid ${COLOR.GREEN};
+    /* border: 2px solid ${COLOR.GREEN}; */
   }
 
   &:checked::after {

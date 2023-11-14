@@ -92,9 +92,12 @@ const ContestProblemDetail = ({
               key={field.id}
               style={{ display: currentIndex === index ? 'block' : 'none' }}
             >
-              <S.ContestProblemDesc>
-                {index + 1}. {quizData[index].description}
-              </S.ContestProblemDesc>
+              <S.ContestProblemTitle>
+                {index + 1}. {quizData[index].questionTitle}
+                <S.ContestProblemDesc>
+                  {quizData[index].description}
+                </S.ContestProblemDesc>
+              </S.ContestProblemTitle>
               <S.ContestFieldWrapper>
                 {quizData[index].choices?.map(choice => (
                   <S.ContestField key={choice.number}>

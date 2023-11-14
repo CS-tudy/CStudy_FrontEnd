@@ -17,10 +17,6 @@ export const ProblemBodyTitle = styled.h3`
 export const ProblemCategory = styled.div`
   font-size: ${FONT.REGULAR_20};
   padding-left: 2.5rem;
-  width: 150px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
 `;
 
 export const Div1 = styled.div`

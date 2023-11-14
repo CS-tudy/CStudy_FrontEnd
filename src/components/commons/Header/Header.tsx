@@ -25,6 +25,7 @@ import { getAlarm } from 'api/alarm';
 import AlarmList from 'components/unit/Alarm/AlarmList';
 import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
 import logo2 from 'assets/logo2.png';
+import { useNavigate } from 'react-router-dom';
 
 export interface PrevToogle {
   $active: boolean;
@@ -36,6 +37,8 @@ const Header = () => {
   const [moblie, setmoblie] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
   const alarms = useSelector((state: any) => state.rootReducer.alarm.alarms);
+
+  const navigate = useNavigate();
 
   const toggleModal = () => {
     setAlarmModalIsOpen(!alarmModalIsOpen);
@@ -68,6 +71,13 @@ const Header = () => {
     setActive(active => !active);
   };
 
+  const HandleClickToogleCheckLogin = () => {
+    setActive(active => !active);
+    if (!isLogin()) {
+      dispatch(Logintoggle());
+    }
+  };
+
   return (
     <>
       <S.Wrapper>
@@ -92,7 +102,15 @@ const Header = () => {
               </S.NavLinkStyle>
             </S.NavItem>
             <S.NavItem>
-              <S.NavLinkStyle onClick={HandleClickToogle} to="/problem">
+              <S.NavLinkStyle
+                onClick={async () => {
+                  await HandleClickToogleCheckLogin();
+                  if (!isLogin()) {
+                    navigate('/');
+                  }
+                }}
+                to="/problem"
+              >
                 문제풀이
               </S.NavLinkStyle>
             </S.NavItem>
@@ -162,9 +180,9 @@ const Header = () => {
               <S.MypageLink to="/mypage">
                 <BsFillPersonFill size="27px" />
               </S.MypageLink>
-              <button onClick={() => signOut()}>
+              <S.LogoutLink onClick={() => signOut()}>
                 <MdLogout size="27px" />
-              </button>
+              </S.LogoutLink>
             </>
           ) : (
             <>

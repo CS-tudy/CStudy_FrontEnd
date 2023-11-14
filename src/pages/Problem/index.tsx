@@ -16,9 +16,12 @@ import SearchBar from 'components/commons/SearchBar';
 import Select from 'components/commons/Select';
 import ContainerBottom from 'components/commons/ContainerBottom';
 import NoData from 'components/commons/NoData';
-import { isAdmin } from 'repository/auth';
+import { isAdmin, isLogin } from 'repository/auth';
 import Button from 'components/commons/Button/Button';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Logintoggle } from 'hooks/@redux/loginModalSlice';
+import { useEffect } from 'react';
 
 const Problem = () => {
   const [inputValue, setInputValue] = useState('');
@@ -62,86 +65,110 @@ const Problem = () => {
   const tableTitle = ['번호', '상태', '제목', '카테고리'];
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const navigateAdmin = () => {
     navigate('/admin/createproblem');
   };
+
+  const checkLogin = () => {
+    navigate('/');
+    dispatch(Logintoggle());
+  };
+
+  useEffect(() => {
+    if (!isLogin()) {
+      checkLogin();
+    }
+  }, []);
+
   return (
     <>
-      {' '}
-      {isAdmin() && (
-        <S.ButtonWrapper>
-          <Button variant="primary" size="medium" onClick={navigateAdmin}>
-            문제 생성
-          </Button>
-        </S.ButtonWrapper>
-      )}
-      <S.ContainerHeader>
-        <S.FilterWrapper>
-          <S.SearchWrapper>
-            <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
-          </S.SearchWrapper>
-          <S.FilterWrapper2>
-            <S.QueryFilterWrapper>
-              <Filter className={queryActive} onClick={handleToggle}>
-                내가 푼 문제
-              </Filter>
-            </S.QueryFilterWrapper>
-            <S.StatusFilterWrapper>
-              <Select
-                name={status}
-                handleActive={handleStatusClick}
-                isActive={statusActive}
-                options={!queryActive ? filterOptionStatus : filterOptionTotal}
-                optionsValue={
-                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
-                }
-                selectedIndex={
-                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
-                }
-              />
-            </S.StatusFilterWrapper>
-            <S.CategoryFilterWrapper>
-              <Select
-                name={category}
-                handleActive={handleCategoryClick}
-                isActive={categoryActive}
-                options={
-                  !queryActive ? filterOptionCategory : filterOptionTotal
-                }
-                optionsValue={
-                  !queryActive ? filterOptionCategoryValue : filterOptionEmpty
-                }
-                selectedIndex={
-                  !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
-                }
-              />
-            </S.CategoryFilterWrapper>
-          </S.FilterWrapper2>
-        </S.FilterWrapper>
-      </S.ContainerHeader>
-      <Container>
-        {problemList?.totalElements === 0 ? (
-          <tr>
-            <td colSpan={4}>
-              <NoData>문제풀이 문제가 없습니다.</NoData>
-            </td>
-          </tr>
-        ) : (
-          <Table colRate={tableColRate} title={tableTitle}>
-            <ProblemList problemList={problemList as IProblem} />
-          </Table>
+      {/* {isLogin() ? ( */}
+      <>
+        {isAdmin() && (
+          <S.ButtonWrapper>
+            <Button variant="primary" size="medium" onClick={navigateAdmin}>
+              문제 생성
+            </Button>
+          </S.ButtonWrapper>
         )}
-      </Container>
-      <ContainerBottom>
-        {(problemList?.totalPages as number) > 0 && (
-          <Pagination
-            totalPages={problemList?.totalPages as number}
-            handlePage={handlePage}
-            page={problemFilter.pageNumber}
-          />
-        )}
-      </ContainerBottom>
+        <S.ContainerHeader>
+          <S.FilterWrapper>
+            <S.SearchWrapper>
+              <SearchBar
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+              />
+            </S.SearchWrapper>
+            <S.FilterWrapper2>
+              <S.QueryFilterWrapper>
+                <Filter className={queryActive} onClick={handleToggle}>
+                  내가 푼 문제
+                </Filter>
+              </S.QueryFilterWrapper>
+              <S.StatusFilterWrapper>
+                <Select
+                  name={status}
+                  handleActive={handleStatusClick}
+                  isActive={statusActive}
+                  options={
+                    !queryActive ? filterOptionStatus : filterOptionTotal
+                  }
+                  optionsValue={
+                    !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                  }
+                  selectedIndex={
+                    !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                  }
+                />
+              </S.StatusFilterWrapper>
+              <S.CategoryFilterWrapper>
+                <Select
+                  name={category}
+                  handleActive={handleCategoryClick}
+                  isActive={categoryActive}
+                  options={
+                    !queryActive ? filterOptionCategory : filterOptionTotal
+                  }
+                  optionsValue={
+                    !queryActive ? filterOptionCategoryValue : filterOptionEmpty
+                  }
+                  selectedIndex={
+                    !queryActive ? filterSelectIndex : noActiveFilterSelectIndex
+                  }
+                />
+              </S.CategoryFilterWrapper>
+            </S.FilterWrapper2>
+          </S.FilterWrapper>
+        </S.ContainerHeader>
+        <Container>
+          {problemList?.totalElements === 0 ? (
+            <tr>
+              <td colSpan={4}>
+                <NoData>문제풀이 문제가 없습니다.</NoData>
+              </td>
+            </tr>
+          ) : (
+            <Table colRate={tableColRate} title={tableTitle}>
+              <ProblemList problemList={problemList as IProblem} />
+            </Table>
+          )}
+        </Container>
+        <ContainerBottom>
+          {(problemList?.totalPages as number) > 0 && (
+            <Pagination
+              totalPages={problemList?.totalPages as number}
+              handlePage={handlePage}
+              page={problemFilter.pageNumber}
+            />
+          )}
+        </ContainerBottom>
+      </>
+      {/* )
+      : (
+        <Navigate to="/" />
+      )} */}
     </>
   );
 };

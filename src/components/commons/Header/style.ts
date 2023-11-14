@@ -45,6 +45,9 @@ export const LogoWrap = styled.div`
 `;
 export const LogoImg = styled.img`
   width: 16.5rem;
+  ${media.tablet} {
+    width: 15.5rem;
+  }
 `;
 
 export const Nav = styled.nav<PrevToogle>`
@@ -121,6 +124,19 @@ export const MypageLink = styled(Link)`
   padding: 0.5rem;
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.BLACK};
+  ${media.tablet} {
+    position: absolute;
+    top: -1.5rem;
+    right: 5.5rem;
+  }
+`;
+
+export const LogoutLink = styled.button`
+  ${media.tablet} {
+    position: absolute;
+    top: -1.5rem;
+    right: 2.3rem;
+  }
 `;
 
 export const Admin = styled.div<PrevToogle>`
@@ -135,8 +151,8 @@ export const Admin = styled.div<PrevToogle>`
   ${media.tablet} {
     display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
-    right: 25rem;
-    top: 3rem;
+    right: 15rem;
+    top: 1.65rem;
   }
 `;
 

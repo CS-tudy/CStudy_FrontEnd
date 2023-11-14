@@ -16,7 +16,8 @@ export const ButtonWrapper = styled.div`
   right: 5vw;
   top: 95px;
 
-  ${media.mobildL} {
+  ${media.tablet} {
+    top: 76px;
   }
 `;
 

@@ -4,7 +4,7 @@ import {
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
-import { myPageDownloadState, myPageState } from 'types/mypage';
+import { myPageState } from 'types/mypage';
 import MypageInfoImg from '../MypageInfoImg';
 import MypageInfoPwd from '../MypageInfoPwd';
 import MypagePersonnalInfo from '../MypagePersonalInfo';

@@ -1,4 +1,5 @@
 import { instance } from 'api';
+import { FieldValues } from 'react-hook-form';
 import {
   RequestNoticeDetail,
   RequestNoticeList,

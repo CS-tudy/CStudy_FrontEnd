@@ -26,8 +26,6 @@ const ContestProblemDetail = ({
   const [isLoading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const contestProblem = useGetContestProblem(competitionId as string);
-
   const {
     register,
     handleSubmit,
@@ -150,7 +148,6 @@ const ContestProblemDetail = ({
           ))}
         </S.Form>
       </S.FormContainer>
-      {/* </Container> */}
     </ContentContainer>
   );
 };

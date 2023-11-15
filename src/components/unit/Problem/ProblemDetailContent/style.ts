@@ -7,7 +7,7 @@ export const ProblemContentWrapper = styled.div`
 `;
 export const ProblemContentTitle = styled.h4`
   /* ${FONT.H1} */
-  ${ONT.BOLD_22}
+  ${FONT.BOLD_22}
   padding-top: 5px;
 `;
 

@@ -3,18 +3,18 @@ import MypaegBoardItem from '../MypageBoardItem';
 import { StatusContent, statusMap } from 'types/mypage';
 
 interface boardProps {
-  handleDetail: (id: number) => void;
+  handleDetailStatus: (id: number) => void;
   statusList: statusMap;
 }
 
-const MypageBoardTbody = ({ statusList, handleDetail }: boardProps) => {
+const MypageBoardTbody = ({ statusList, handleDetailStatus }: boardProps) => {
   return (
     <>
       {statusList?.content?.map((content: StatusContent) => (
         <MypaegBoardItem
           key={content.id}
           content={content}
-          handleDetail={handleDetail}
+          handleDetailStatus={handleDetailStatus}
         />
       ))}
     </>

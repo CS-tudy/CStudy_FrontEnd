@@ -1,6 +1,10 @@
 import { instance } from 'api';
 import { FieldValues } from 'react-hook-form';
-import { RequestNoticeDetail, RequestNoticeList } from 'types/api';
+import {
+  RequestNoticeDetail,
+  RequestNoticeList,
+  ToggleRequestList,
+} from 'types/api';
 interface AdminNoticeProps {
   id: number;
   formData: {
@@ -23,7 +27,7 @@ export const getAdminRequestList = async ({
 };
 
 export const getToggleRequestList = async ({
-  query = 'notice',
+  query = 'notion',
   page = 0,
   size = 10,
   title = '',

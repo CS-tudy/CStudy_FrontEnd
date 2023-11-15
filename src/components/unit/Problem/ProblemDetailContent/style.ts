@@ -2,12 +2,9 @@ import styled from 'styled-components';
 import { FONT } from 'constants/Font';
 import { COLOR } from 'constants/Color';
 
-export const ProblemContentWrapper = styled.div`
-  /* padding-top: 0.5rem; */
-`;
+export const ProblemContentWrapper = styled.div``;
 export const ProblemContentTitle = styled.h4`
-  /* ${FONT.H1} */
-  ${FONT.BOLD_22}
+  ${FONT.BOLD_20}
   padding-top: 5px;
 `;
 

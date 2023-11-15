@@ -21,7 +21,7 @@ const ProblemDetailSubmit = ({
   console.log('status', problem?.status);
   return (
     <S.ProblemSubmitWrapper>
-      {problem?.status && (
+      {!problem?.status && (
         <Button
           type="submit"
           variant="primary"

@@ -10,5 +10,5 @@ export const ProblemContentTitle = styled.h4`
 
 export const ProblemContentTitleDetail = styled.div`
   padding-top: 2.5rem;
-  color: #bbb;
+  color: ${COLOR.GRAY_100};
 `;

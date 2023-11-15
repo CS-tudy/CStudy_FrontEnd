@@ -11,14 +11,21 @@ export const FormContainer = styled.div`
   margin: 10px 6vw;
 `;
 
-export const ContestProblemDesc = styled.h3`
+export const ContestProblemTitle = styled.div`
   ${FONT.H3}
 `;
+
+export const ContestProblemDesc = styled.div`
+  ${FONT.BOLD_20}
+  padding-top: 10px;
+  margin-bottom: 3rem;
+`;
+
 export const Form = styled.form`
   position: relative;
   width: 100%;
-  margin-top: 3rem;
-  padding: 4rem 4rem 4rem 7rem;
+  margin-top: 3.5rem;
+  padding: 3.5vw 5vw;
   background-color: ${COLOR.WHITE};
   border: 0.15rem solid ${COLOR.GRAY_80};
   border-radius: 1.2rem;
@@ -47,8 +54,6 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   justify-content: center;
   align-items: center;
   position: relative;
-  /* min-width: 6rem;
-  min-height: 6rem; */
   min-width: 4.5rem;
   min-height: 4.5rem;
   border: 0.2rem solid ${COLOR.WHITE};
@@ -63,7 +68,7 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
   }
 
   &:checked {
-    /* border: 0.4rem solid ${COLOR.GREEN}; */
+    /* border: 2px solid ${COLOR.GREEN}; */
   }
 
   &:checked::after {
@@ -102,7 +107,8 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-top: 5rem;
 
   button + button {
     margin-left: 1.2rem;

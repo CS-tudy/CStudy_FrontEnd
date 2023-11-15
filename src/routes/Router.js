@@ -141,10 +141,12 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
+            loader: checkAdminLoader,
             element: <Problem />,
           },
           {
             path: ':problemId',
+            loader: checkAdminLoader,
             element: (
               <Suspense fallback={<LoadingSpinner />}>
                 <ProblemDetailPage />

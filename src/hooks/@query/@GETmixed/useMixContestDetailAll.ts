@@ -24,17 +24,17 @@ export const useMixContestDetailAll = ({
   contestId,
 }: MixQueryProps) => {
   const [
-    problemListResult,
+    // problemListResult,
     contestProblemListResult,
     contestMyRankingListResult,
     contestListResult,
     contestRankingListResult,
   ] = useQueries({
     queries: [
-      {
-        queryKey: ['getProblem', { categoryTitle, status, query }],
-        queryFn: () => getProblem({ categoryTitle, status, query }),
-      },
+      // {
+      //   queryKey: ['getProblem', { categoryTitle, status, query }],
+      //   queryFn: () => getProblem({ categoryTitle, status, query }),
+      // },
       {
         queryKey: ['contestProblem', { contestId }],
         queryFn: () => getContestProblem(contestId),
@@ -55,11 +55,12 @@ export const useMixContestDetailAll = ({
     ],
   });
 
-  const problem = problemListResult?.data;
+  // const problem = problemListResult?.data;
   const contestQuestion = contestProblemListResult?.data;
   const myRank = contestMyRankingListResult?.data;
   const contest = contestListResult?.data;
   const contestRank = contestRankingListResult?.data;
 
-  return { problem, contestQuestion, myRank, contest, contestRank };
+  // return { problem, contestQuestion, myRank, contest, contestRank };
+  return { contestQuestion, myRank, contest, contestRank };
 };

@@ -39,16 +39,9 @@ const ProblemDetail = ({
   onSubmit,
   children,
 }: PropsWithChildren<ProblemDetailProps>) => {
-  const { problemId } = useParams();
-
-  // const problem = use(problemId as string);
-  // const { register, handleSubmit } = useForm<FieldValues>();
-
   if (!problem) {
     return <LoadingSpinner />;
   }
-
-  // const SelectAnswerProblem = useSelectAnswerProblem({ handleIsLoading, handleIsAnswer, actionAnimations });
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +54,7 @@ const ProblemDetail = ({
         Answer={Answer}
         isLoading={isLoading}
         isAction={isAction}
+        problem={problem}
       />
     </S.Form>
   );

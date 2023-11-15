@@ -17,6 +17,7 @@ interface MyPageMyInfoProps {
   myPageInfo: myPageState;
   img: string;
   getImg: string;
+  setSelectedFile: React.Dispatch<React.SetStateAction<File | null>>;
 }
 
 const MyPageInfo = ({
@@ -27,6 +28,7 @@ const MyPageInfo = ({
   myPageInfo,
   img,
   getImg,
+  setSelectedFile,
 }: MyPageMyInfoProps) => {
   return (
     <>
@@ -37,6 +39,7 @@ const MyPageInfo = ({
           register={register}
           handleSubmit={handleSubmit}
           img={img}
+          setSelectedFile={setSelectedFile}
         />
         <S.MyInfo>
           <MypagePersonnalInfo myPageInfo={myPageInfo} />

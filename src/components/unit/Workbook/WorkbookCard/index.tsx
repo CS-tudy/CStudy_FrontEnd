@@ -3,8 +3,6 @@ import * as S from './style';
 import workbook from 'assets/workbook.png';
 import { isLogin } from 'repository/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'stroe';
-import useModal from 'hooks/useModal';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 
 interface WorkBookCardProps {
@@ -31,10 +29,17 @@ const WorkBookCard = ({
     }
   };
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    e.currentTarget.src = workbook;
+  };
+
   return (
     <S.WorkBookCard>
       <Link to={`${id}`} onClick={checkLogin}>
-        <S.Img src={fileName ? fileName : workbook} />
+        <S.Img
+          src={fileName ? fileName : workbook}
+          onError={handleImageError}
+        />
         <S.Info>
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>

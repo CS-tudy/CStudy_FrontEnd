@@ -12,7 +12,7 @@ interface useMyPageProp {
 const useMyPage = ({ reset, getValues }: useMyPageProp) => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const navigate = useNavigate();
 
   const passwordPattern = {
@@ -41,12 +41,14 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
   const { mutate: uploadImg } = useUploadImg();
 
   const onValid = useCallback(() => {
-    const data = getValues('files');
-    const formData = new FormData();
-    formData.append('files', data[0]);
+    console.log(selectedFile);
 
-    uploadImg(formData);
-  }, []);
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      uploadImg(formData);
+    }
+  }, [selectedFile]);
 
   const handleDetailStatus = useCallback((id: number) => {
     navigate(`/request/${id}`);
@@ -66,6 +68,8 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     handleChangePwdSubmit,
     onValid,
     setIsActive,
+    selectedFile,
+    setSelectedFile,
   };
 };
 

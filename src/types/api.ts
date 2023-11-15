@@ -81,6 +81,7 @@ export interface IProblem {
   choices: Choices[];
   totalElements: number;
   totalPages?: number;
+  status?: boolean;
 }
 
 // mypage
@@ -109,6 +110,7 @@ export interface ContestProblem {
   questionId: number;
   description: string;
   choices: Choices[];
+  questionTitle: string;
 }
 
 type ContestSort = {

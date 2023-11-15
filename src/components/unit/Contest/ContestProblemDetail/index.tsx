@@ -26,8 +26,6 @@ const ContestProblemDetail = ({
   const [isLoading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const contestProblem = useGetContestProblem(competitionId as string);
-
   const {
     register,
     handleSubmit,
@@ -72,6 +70,7 @@ const ContestProblemDetail = ({
   };
 
   useEffect(() => {
+    console.log('quiz', quizData);
     reset({
       competitionId,
       endTime: formatDate(new Date(), { second: true }),
@@ -91,9 +90,12 @@ const ContestProblemDetail = ({
               key={field.id}
               style={{ display: currentIndex === index ? 'block' : 'none' }}
             >
-              <S.ContestProblemDesc>
-                {index + 1}. {quizData[index].description}
-              </S.ContestProblemDesc>
+              <S.ContestProblemTitle>
+                {index + 1}. {quizData[index].questionTitle}
+                <S.ContestProblemDesc>
+                  {quizData[index].description}
+                </S.ContestProblemDesc>
+              </S.ContestProblemTitle>
               <S.ContestFieldWrapper>
                 {quizData[index].choices?.map(choice => (
                   <S.ContestField key={choice.number}>
@@ -146,7 +148,6 @@ const ContestProblemDetail = ({
           ))}
         </S.Form>
       </S.FormContainer>
-      {/* </Container> */}
     </ContentContainer>
   );
 };

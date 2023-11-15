@@ -36,6 +36,7 @@ const MyPage = () => {
     handleDetailStatus,
     handleDetailAnswer,
     setIsActive,
+    setSelectedFile,
   } = useMyPage({ reset, getValues });
 
   const { myPageStatusFilter, handlePage } = useMypageFilter();
@@ -68,6 +69,7 @@ const MyPage = () => {
             handleChangePwdSubmit={handleChangePwdSubmit}
             onValid={onValid}
             setIsActive={setIsActive}
+            setSelectedFile={setSelectedFile}
           />
           <MypageBoard
             handleDetailStatus={handleDetailStatus}

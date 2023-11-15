@@ -12,7 +12,10 @@ const ProblemDetailContent = ({ problem, register }: ProblemFormProps) => {
   return (
     <S.ProblemContentWrapper>
       <S.ProblemContentTitle>
-        정답을 맞추면 답과 해설을 확인할 수 있습니다.
+        <p>{problem?.description}</p>
+        <S.ProblemContentTitleDetail>
+          정답을 맞추면 답과 해설을 확인할 수 있습니다.
+        </S.ProblemContentTitleDetail>
       </S.ProblemContentTitle>
       <ChoiceList choiceList={problem?.choices} register={register} />
     </S.ProblemContentWrapper>

@@ -26,6 +26,7 @@ const Workbook = () => {
     title: workbookFilter.title,
     description: workbookFilter.description,
   });
+  console.log(workbookList);
 
   return (
     <ContentContainer>

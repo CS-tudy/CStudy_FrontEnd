@@ -22,7 +22,21 @@ export const Wrapper = styled.header`
   z-index: 99;
 `;
 
-export const LogoWrap = styled.h1`
+// export const LogoWrap = styled.h1`
+//   padding-left: 1.8rem;
+//   ${media.tablet} {
+//     position: relative;
+//     z-index: 99;
+//   }
+// `;
+// export const LogoImg = styled.img`
+//   height: 6rem;
+// `;
+
+export const LogoWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-left: 1.8rem;
   ${media.tablet} {
     position: relative;
@@ -30,7 +44,10 @@ export const LogoWrap = styled.h1`
   }
 `;
 export const LogoImg = styled.img`
-  height: 6rem;
+  width: 16.5rem;
+  ${media.tablet} {
+    width: 15.5rem;
+  }
 `;
 
 export const Nav = styled.nav<PrevToogle>`
@@ -96,9 +113,10 @@ export const NavLinkStyle = styled(NavLink)`
   display: block;
   font-size: ${FONT.REGULAR_16};
   color: ${COLOR.BLACK};
-  padding: 2rem 2rem 2rem 0;
+  padding: 2rem 2rem 2rem 0rem;
   ${media.tablet} {
     ${FONT.BOLD_16}
+    padding-left: 1.5rem;
   }
 `;
 
@@ -106,6 +124,19 @@ export const MypageLink = styled(Link)`
   padding: 0.5rem;
   font-size: ${FONT.REGULAR_14};
   color: ${COLOR.BLACK};
+  ${media.tablet} {
+    position: absolute;
+    top: -1.5rem;
+    right: 5.5rem;
+  }
+`;
+
+export const LogoutLink = styled.button`
+  ${media.tablet} {
+    position: absolute;
+    top: -1.5rem;
+    right: 2.3rem;
+  }
 `;
 
 export const Admin = styled.div<PrevToogle>`
@@ -120,8 +151,8 @@ export const Admin = styled.div<PrevToogle>`
   ${media.tablet} {
     display: ${props => (props.$active ? 'block' : 'none')};
     position: absolute;
-    right: 25rem;
-    top: 3rem;
+    right: 15rem;
+    top: 1.65rem;
   }
 `;
 

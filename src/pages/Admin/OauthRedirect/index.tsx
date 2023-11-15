@@ -19,9 +19,12 @@ const OAuthRedirect = () => {
     accessToken,
     refreshToken,
   });
+
   dispatch(login());
 
-  window.location.replace(`http://localhost:3000`);
+  window.location.replace(
+    `http://cstudy-projects.s3-website.ap-northeast-2.amazonaws.com`,
+  );
 
   return <div>Login...</div>;
 };

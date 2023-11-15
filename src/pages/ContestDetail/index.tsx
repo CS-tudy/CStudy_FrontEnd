@@ -134,6 +134,8 @@ const ContestDetail = () => {
           />
         </S.ContestDetailContent>
 
+        <S.Div />
+
         {isAdmin() && filterQuestion?.length !== 0 && (
           <Table colRate={colRate} title={title}>
             <AdminContestTablelists

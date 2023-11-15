@@ -24,7 +24,8 @@ export const LogoWrap = styled.h1`
   }
 `;
 export const LogoImg = styled.img`
-  height: 6rem;
+  /* height: 6rem; */
+  width: 15.5rem;
 `;
 
 export const Item = styled.li`

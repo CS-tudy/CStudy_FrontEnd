@@ -18,7 +18,7 @@ const ProblemDetailSubmit = ({
   problem,
 }: ProblemDetailSubmitProps) => {
   const [submitClick, setSubmitClick] = useState(false);
-  // console.log('test', problem.status);
+  console.log('status', problem?.status);
   return (
     <S.ProblemSubmitWrapper>
       {problem?.status && (

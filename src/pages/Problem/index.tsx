@@ -82,6 +82,8 @@ const Problem = () => {
     }
   }, []);
 
+  console.log('list', problemList);
+
   return (
     <>
       <>
@@ -164,10 +166,6 @@ const Problem = () => {
           )}
         </ContainerBottom>
       </>
-      {/* )
-      : (
-        <Navigate to="/" />
-      )} */}
     </>
   );
 };

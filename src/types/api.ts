@@ -81,6 +81,7 @@ export interface IProblem {
   choices: Choices[];
   totalElements: number;
   totalPages?: number;
+  status?: boolean;
 }
 
 // mypage

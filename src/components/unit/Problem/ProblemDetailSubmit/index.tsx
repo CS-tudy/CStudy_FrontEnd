@@ -18,19 +18,21 @@ const ProblemDetailSubmit = ({
   problem,
 }: ProblemDetailSubmitProps) => {
   const [submitClick, setSubmitClick] = useState(false);
-  console.log('test', problem);
+  // console.log('test', problem.status);
   return (
     <S.ProblemSubmitWrapper>
-      <Button
-        type="submit"
-        variant="primary"
-        size="medium"
-        onClick={() => {
-          setSubmitClick(true);
-        }}
-      >
-        제출
-      </Button>
+      {problem?.status && (
+        <Button
+          type="submit"
+          variant="primary"
+          size="medium"
+          onClick={() => {
+            setSubmitClick(true);
+          }}
+        >
+          제출
+        </Button>
+      )}
       {isAnswer && (
         <S.ProblemAnswerWrapper>
           <S.ProblemAnswerTitle>정답 :</S.ProblemAnswerTitle>

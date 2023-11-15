@@ -60,7 +60,7 @@
 </details>
 <details>
 <summary>댓글</summary>
-<img src="https://velog.velcdn.com/images/cleooo5857/post/fbc70c1e-d668-4a05-8bec-27f11ac064a5/image.gif"/>
+<img src="https://github.com/cleooo5857/testAPI/assets/70474741/b72dd30f-de28-45ee-a6d7-e4931d7298ad"/>
 </details>
 <details>
 <summary>문제집 검색</summary>
@@ -68,7 +68,7 @@
 </details>
 <details>
 <summary>문제집 생성</summary>
-<img src=""/>
+<img src="https://github.com/cleooo5857/testAPI/assets/70474741/30be28cf-12fc-4baa-a2a6-9eb33d694911"/>
 </details>
 <details>
 <summary>문제집 문제추가</summary>

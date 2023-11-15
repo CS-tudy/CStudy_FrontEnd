@@ -4,14 +4,14 @@ import React, { memo } from 'react';
 import { StatusContent } from 'types/mypage';
 
 interface boardProps {
-  handleDetail: (id: number) => void;
+  handleDetailStatus: (id: number) => void;
   content: StatusContent;
 }
 
-const MypaegBoardItem = ({ handleDetail, content }: boardProps) => {
+const MypaegBoardItem = ({ handleDetailStatus, content }: boardProps) => {
   const { id, title, flag } = content;
   return (
-    <tr style={{ cursor: 'pointer' }} onClick={() => handleDetail(id)}>
+    <tr style={{ cursor: 'pointer' }} onClick={() => handleDetailStatus(id)}>
       <TBodyTd $white={true} $narrow2>
         {id}
       </TBodyTd>

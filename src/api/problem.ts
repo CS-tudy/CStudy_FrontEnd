@@ -9,6 +9,7 @@ export const problemSet = async (formData: FieldValues) => {
   return response.data;
 };
 
+//  전체 문제 조회 / 내가 푼 문제 조회
 export const getProblemList = async ({
   questionTitle = '',
   categoryTitle = '',
@@ -20,10 +21,8 @@ export const getProblemList = async ({
 }): Promise<IProblem> => {
   const response = await instance.get(
     `/api/questions${query}?${
-      query === '' && questionTitle === ''
+      query === ''
         ? `questionTitle=&categoryTitle=${categoryTitle}&status=${status}&memberId=&page=${page}&size=${size}`
-        : query === '' && questionTitle !== ''
-        ? `questionTitle=${questionTitle}&categoryTitle=&status=${status}&memberId=&page=${page}&size=${size}`
         : `page=${page}&size=${size}`
     }`,
   );
@@ -37,9 +36,7 @@ export const getProblemListTest = () => {
 };
 
 export const getProblemListSearch = (search: string) => {
-  const response = instance.get(
-    `/api/questions?questionTitle=${search}&page=0&size=10`,
-  );
+  const response = instance.get(`/api/questions?questionTitle=${search}`);
   return response;
 };
 

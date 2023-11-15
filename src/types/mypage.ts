@@ -62,7 +62,19 @@ export interface myPageStatusState {
   empty: false;
 }
 
-export interface myPageDownloadState {
-  image?: any;
-  src: string;
+export interface myPageReviewState {
+  userName: string;
+  successQuestion: [string];
+  failQuestion: [string];
+  reviewNotes: [reviewNotes];
+}
+export interface reviewNotes {
+  id: string;
+  createdDate: string;
+  questionId: number;
+  questionTitle: string;
+  categoryTitle: string;
+  successChoiceNumber: number;
+  failChoiceNumber: number;
+  answer: boolean;
 }

@@ -1,14 +1,13 @@
 import {
   FieldErrors,
   FieldValues,
-  SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
 } from 'react-hook-form';
 import MyPageInfo from '../MypageInfo/MypageInfoConbine';
 import * as S from './style';
 import MypageInput from '../MypageInput/MypageInputConbine';
-import { myPageDownloadState, myPageState } from 'types/mypage';
+import { myPageState } from 'types/mypage';
 
 interface MypageMyInfoProps {
   isLoading: boolean;

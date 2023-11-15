@@ -5,6 +5,7 @@ import { MdOutlineContentPaste } from 'react-icons/md';
 import Logo_Png from 'assets/Logo.png';
 import { Link, Navigate } from 'react-router-dom';
 import { isAdmin } from 'repository/auth';
+import logo2 from 'assets/logo2.png';
 
 const Navbar = () => {
   return (
@@ -14,7 +15,8 @@ const Navbar = () => {
           <S.LogoWrap>
             <Link to="/">
               <picture>
-                <S.LogoImg src={Logo_Png} alt="CStudy logo" />
+                {/* <S.LogoImg src={Logo_Png} alt="CStudy logo" /> */}
+                <S.LogoImg src={logo2} alt="CStudy logo" />
               </picture>
             </Link>
           </S.LogoWrap>

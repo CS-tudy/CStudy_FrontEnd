@@ -50,12 +50,17 @@ const useMyPage = ({ reset, getValues }: useMyPageProp) => {
     }
   }, [selectedFile]);
 
-  const handleDetail = useCallback((id: number) => {
+  const handleDetailStatus = useCallback((id: number) => {
     navigate(`/request/${id}`);
   }, []);
 
+  const handleDetailAnswer = useCallback((id: number) => {
+    navigate(`/problem/${id}`);
+  }, []);
+
   return {
-    handleDetail,
+    handleDetailStatus,
+    handleDetailAnswer,
     HandleClickPwd,
     isActive,
     isLoading,

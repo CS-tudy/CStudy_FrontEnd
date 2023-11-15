@@ -107,8 +107,8 @@ export const ContestInput = styled.input<AdminInputStyleProps>`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 4rem;
+  justify-content: flex-start;
+  margin-top: 5rem;
 
   button + button {
     margin-left: 1.2rem;

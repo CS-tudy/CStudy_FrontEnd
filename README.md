@@ -42,7 +42,7 @@
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcsQt6S%2Fbtsz41QXlaW%2F93p63GuSh0NNmFpDUC3jcK%2Fimg.png" width="50%" height="80%"/>
 </div>
 
-### Environment
+
 
 ## 🐣 기술 스택
 

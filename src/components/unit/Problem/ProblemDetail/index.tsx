@@ -54,6 +54,7 @@ const ProblemDetail = ({
         Answer={Answer}
         isLoading={isLoading}
         isAction={isAction}
+        problem={problem}
       />
     </S.Form>
   );

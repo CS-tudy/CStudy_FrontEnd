@@ -1,6 +1,7 @@
 import Button from 'components/commons/Button/Button';
 import * as S from './style';
 import { useState } from 'react';
+import { IProblem } from 'types/api';
 
 interface ProblemDetailSubmitProps {
   isLoading?: boolean;
@@ -8,13 +9,16 @@ interface ProblemDetailSubmitProps {
   isAnswer?: boolean;
   timeCheck?: boolean;
   isAction?: boolean;
+  problem?: IProblem;
 }
 
 const ProblemDetailSubmit = ({
   isAnswer,
   Answer,
+  problem,
 }: ProblemDetailSubmitProps) => {
   const [submitClick, setSubmitClick] = useState(false);
+  console.log('test', problem);
   return (
     <S.ProblemSubmitWrapper>
       <Button

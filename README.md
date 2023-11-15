@@ -8,9 +8,8 @@
 - 취업에 있어 필요한 CS 지식을 학습할 수 있는 웹 어플리케이션 플랫폼 입니다. 카테고리 별 문제를 통해 필요한 지식을 빠르게 학습할 수 있으며 틀린 문제를 모아서 부족한 부분을 빠르게 인지할 수 있습니다. 또한 경쟁을 통하여 지루한 CS 학습에 재미를 부여하며 선의의 경쟁을 통해 동료와 함께 성장이 가능합니다.
 - [⭐️ 팀 노션](https://www.notion.so/71bd9661b2974953b83c8ba109b62611?pvs=21) | [📝 배포 사이트](http://cstudy-projects.s3-website.ap-northeast-2.amazonaws.com/)
 
-# 🌞 팀원소개
+## 🌞 팀원소개
 
-### 👤 팀 멤버
 |   순욱   |   선홍   |   한나   |
 |:--------:|:--------:|:--------:|
 |[@cleooo5857](https://github.com/cleooo5857)|[@sunhong06](https://github.com/sunhong06)|[@hannaax](https://github.com/hannaax)|
@@ -42,8 +41,47 @@
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcsQt6S%2Fbtsz41QXlaW%2F93p63GuSh0NNmFpDUC3jcK%2Fimg.png" width="50%" height="80%"/>
 </div>
 
-
-
+## 구현 화면 
+<details>
+<summary>로그인</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/80351f44-8608-4724-ba7c-d37b17661481/image.gif"/>
+</details>
+<details>
+<summary>공지사항 생성</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/caa76b95-3105-42e8-b7a6-51c5afeb94ef/image.gif"/>
+</details>
+<details>
+<summary>공지사항 삭제</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/ea5f4a4e-e4d2-4671-b8d8-43c58550ee80/image.gif"/>
+</details>
+<details>
+   <summary>공지사항 수정</summary>
+   <img src="https://velog.velcdn.com/images/cleooo5857/post/fa87935a-3518-4676-9b01-05227d0c9112/image.gif"/>
+   </details>
+<details>
+<summary>댓글</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/e4d1287e-aac6-45d3-9238-e3cab99c2973/image.gif"/>
+</details>
+<details>
+<summary>문제집 검색</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/9b4a2734-7a26-4dc7-b789-5787b14c10f6/image.gif"/>
+</details>
+<details>
+<summary>문제집 생성</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/7ce8c32f-4cd4-43d7-b679-bc9a29376cbb/image.gif"/>
+</details>
+<details>
+<summary>문제집 문제추가</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/088013eb-2826-4d65-9631-6a93394e1630/image.gif"/>
+</details>
+<details>
+<summary>문제집 문제삭제</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/8eaca558-14e3-486d-9b5e-6c0b6e03d45d/image.gif"/>
+</details>
+   
+   
+   
+   
 ## 🐣 기술 스택
 
 <h3 align="center">Environment</h3>
@@ -123,7 +161,7 @@
 <br>
 <br>
 
-# 🐌Git Commit Convention
+## 🐌Git Commit Convention
 
 <table>
   <tr>

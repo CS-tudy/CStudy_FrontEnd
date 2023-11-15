@@ -23,6 +23,6 @@ export const ContestDetailContent = styled.div`
 export const Div = styled.div`
   height: 80px;
   ${media.tablet} {
-    height: 200px;
+    height: 500px;
   }
 `;

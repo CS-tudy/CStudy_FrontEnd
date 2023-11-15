@@ -25,7 +25,7 @@ export const Form = styled.form`
   position: relative;
   width: 100%;
   margin-top: 3.5rem;
-  padding: 4rem 4rem 4rem 7rem;
+  padding: 3.5vw 5vw;
   background-color: ${COLOR.WHITE};
   border: 0.15rem solid ${COLOR.GRAY_80};
   border-radius: 1.2rem;

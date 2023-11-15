@@ -55,12 +55,12 @@
 <img src="https://velog.velcdn.com/images/cleooo5857/post/ea5f4a4e-e4d2-4671-b8d8-43c58550ee80/image.gif"/>
 </details>
 <details>
-   <summary>공지사항 수정</summary>
-   <img src="https://velog.velcdn.com/images/cleooo5857/post/fa87935a-3518-4676-9b01-05227d0c9112/image.gif"/>
-   </details>
+<summary>공지사항 수정</summary>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/fa87935a-3518-4676-9b01-05227d0c9112/image.gif"/>
+</details>
 <details>
 <summary>댓글</summary>
-<img src="https://velog.velcdn.com/images/cleooo5857/post/e4d1287e-aac6-45d3-9238-e3cab99c2973/image.gif"/>
+<img src="https://velog.velcdn.com/images/cleooo5857/post/fbc70c1e-d668-4a05-8bec-27f11ac064a5/image.gif"/>
 </details>
 <details>
 <summary>문제집 검색</summary>
@@ -68,7 +68,7 @@
 </details>
 <details>
 <summary>문제집 생성</summary>
-<img src="https://velog.velcdn.com/images/cleooo5857/post/7ce8c32f-4cd4-43d7-b679-bc9a29376cbb/image.gif"/>
+<img src=""/>
 </details>
 <details>
 <summary>문제집 문제추가</summary>
@@ -78,6 +78,8 @@
 <summary>문제집 문제삭제</summary>
 <img src="https://velog.velcdn.com/images/cleooo5857/post/8eaca558-14e3-486d-9b5e-6c0b6e03d45d/image.gif"/>
 </details>
+   
+   
    
    
    

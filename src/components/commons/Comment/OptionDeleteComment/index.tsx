@@ -20,6 +20,7 @@ const DeleteComment = ({
 
   const userMemberId = userInfo()?.memberId;
   const { mutate: deleteComment } = useDeleteCommentList();
+
   const onSubmit: SubmitHandler<FieldValues> = () => {
     deleteComment({ commentId });
   };

@@ -6,7 +6,7 @@ on:
 
 env:			
   AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: cstudy-projects
+  S3_BUCKET_NAME: cstudying.site
   
 permissions:		
   contents: read

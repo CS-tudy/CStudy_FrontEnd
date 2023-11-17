@@ -23,6 +23,12 @@ export const Profile = styled.div<ChildCommentCurrent>`
     currentDepth > 0 ? '1px dashed  hsla(220, 9%, 46%, 0.3)' : undefined};
 `;
 
+export const CommentHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;

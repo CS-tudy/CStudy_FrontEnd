@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: CI='' npm run build
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_API_URL: ${{ secrets.API_URL }}
           GENERATE_SOURCEMAP: ${{ secrets.GENERATE_SOURCEMAP }}
           
       - name: Configure AWS credentials
@@ -49,4 +49,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region ap-northeast-2 \
-            ./build s3://${{env.S3_BUCKET_NAME}}
+            ./build s3://cstudying.site

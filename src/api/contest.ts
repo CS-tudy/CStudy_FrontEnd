@@ -27,7 +27,6 @@ export const getContestProblem = async (
   return response.data;
 };
 
-
 // 참여 가능 대회 리스트 + 종료된 대회 리스트
 export const getContestList = async ({
   page = 0,

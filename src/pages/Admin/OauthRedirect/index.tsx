@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import { userStorage } from 'repository/userStorage';
 
 const OAuthRedirect = async () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const accessToken = Cookies.get('accessToken');
   // const refreshToken = Cookies.get('refreshToken');
@@ -33,7 +33,7 @@ const OAuthRedirect = async () => {
   //   refreshToken,
   // });
 
-  dispatch(login());
+  // dispatch(login());
 
   // window.location.replace(`https://cstudying.site`);
 

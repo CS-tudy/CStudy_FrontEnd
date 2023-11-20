@@ -30,7 +30,7 @@ const SignModal = ({ children, toggleModal }: Props) => {
         </a>
 
         <a
-          href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/google`}
+          href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`}
           rel="noopener noreferrer"
         >
           <S.SocialLogo src={KaKaoLogoImage} alt="카카오 로그인" />

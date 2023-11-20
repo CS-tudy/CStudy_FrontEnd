@@ -8,31 +8,31 @@ import { useParams } from 'react-router-dom';
 import { userStorage } from 'repository/userStorage';
 
 const OAuthRedirect = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const isProduction = process.env.REACT_APP_ENV;
+  console.log(isProduction);
 
   const accessToken = Cookies.get('accessToken');
   const refreshToken = Cookies.get('refreshToken');
   console.log('1', accessToken);
   console.log('2', refreshToken);
 
-  // const response = await instance.get('/oauth2/login');
+  // if (!accessToken || !refreshToken)
+  //   return Toast.error('로그인에 실패했습니다.');
 
-  // console.log('===================================');
-  // const basic_cookie = Cookies.get('accessToken');
-  // console.log('basic_cookie', basic_cookie);
-  // const cookies = document.cookie;
-  // console.log('domCOOCKIE', cookies);
-  // console.log('===================================');
+  // userStorage.set({
+  //   accessToken,
+  //   refreshToken,
+  // });
 
-  if (!accessToken || !refreshToken)
-    return Toast.error('로그인에 실패했습니다.');
+  // dispatch(login());
 
-  userStorage.set({
-    accessToken,
-    refreshToken,
-  });
-
-  dispatch(login());
+  console.log('===================================');
+  const basic_cookie = Cookies.get('accessToken');
+  console.log('basic_cookie', basic_cookie);
+  const cookies = document.cookie;
+  console.log('domCOOCKIE', cookies);
+  console.log('===================================');
 
   // window.location.replace(`https://cstudying.site`);
 

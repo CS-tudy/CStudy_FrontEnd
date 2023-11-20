@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
-const USER_TOKENS = 'accessToken';
-const REFRESH_TOKEN_COOKIE = 'refreshToken';
+const USER_TOKENS = 'USER_TOKENS';
+const REFRESH_TOKEN_COOKIE = 'REFRESH_TOKEN';
 
 type UserTokens = {
   accessToken: string;
@@ -36,7 +36,7 @@ export const userStorage = {
       secure: isProduction,
       sameSite: 'lax',
       expires: 7,
-      // domain: isProduction ? process.env.REACT_APP_API_URL : undefined,
+      domain: '.cstudy.site',
     });
   },
   remove() {

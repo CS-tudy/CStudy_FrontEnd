@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
-const USER_TOKENS = 'USER_TOKENS';
-const REFRESH_TOKEN_COOKIE = 'REFRESH_TOKEN';
+const USER_TOKENS = 'accessToken';
+const REFRESH_TOKEN_COOKIE = 'refreshToken';
 
 type UserTokens = {
   accessToken: string;
@@ -33,10 +33,11 @@ export const userStorage = {
     localStorage.setItem(USER_TOKENS, stringifyAccessToken);
     localStorage.setItem(REFRESH_TOKEN_COOKIE, stringifyRefreshToken);
     Cookies.set(REFRESH_TOKEN_COOKIE, stringifyRefreshToken, {
+      path: '/',
       secure: isProduction,
       sameSite: 'lax',
       expires: 7,
-      domain: '.cstudy.site',
+      domain: isProduction ? 'cstudy.site' : undefined,
     });
   },
   remove() {

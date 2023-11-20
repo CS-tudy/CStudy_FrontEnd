@@ -9,8 +9,6 @@ import { userStorage } from 'repository/userStorage';
 
 const OAuthRedirect = () => {
   // const dispatch = useDispatch();
-  const isProduction = process.env.REACT_APP_ENV;
-  console.log(isProduction);
 
   const accessToken = Cookies.get('accessToken');
   const refreshToken = Cookies.get('refreshToken');

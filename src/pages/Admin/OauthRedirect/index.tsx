@@ -12,13 +12,18 @@ const OAuthRedirect = async () => {
 
   // const accessToken = Cookies.get('accessToken');
   // const refreshToken = Cookies.get('refreshToken');
-  const response = await instance.get('/oauth2/login');
-  const cookies = response.headers['set-cookie'];
-  const cookies1 = response.headers['accessToken'];
-  const cookies2 = response.headers['refreshToken'];
-  console.log('1', cookies);
-  console.log('2', cookies1);
-  console.log('3', cookies2);
+  // const response = await instance.get('/oauth2/login');
+  // const cookies = response.headers['set-cookie'];
+  // const cookies1 = response.headers['accessToken'];
+  // const cookies2 = response.headers['refreshToken'];
+  console.log('===================================');
+  const basic_cookie = Cookies.get('accessToken');
+  console.log('basic_cookie', basic_cookie);
+  const cookies = document.cookie;
+  console.log('domCOOCKIE', cookies);
+  console.log('===================================');
+  // console.log('2', cookies1);
+  // console.log('3', cookies2);
 
   // if (!accessToken || !refreshToken)
   //   return Toast.error('로그인에 실패했습니다.');
@@ -30,7 +35,7 @@ const OAuthRedirect = async () => {
 
   dispatch(login());
 
-  window.location.replace(`https://cstudying.site`);
+  // window.location.replace(`https://cstudying.site`);
 
   return <div>Login...</div>;
 };

@@ -174,7 +174,16 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: 'oauth2/login', element: <OAuthRedirect /> },
+      {
+        path: 'oauth2/login',
+        children: [
+          {
+            index: false,
+            element: <OAuthRedirect />,
+          },
+        ],
+      },
+      // { path: 'oauth2/login', element: <OAuthRedirect /> },
     ],
   },
   {
@@ -233,7 +242,6 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: 'oauth2/login', element: <OAuthRedirect /> },
     ],
   },
 ]);

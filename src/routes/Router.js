@@ -175,7 +175,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'https://cstudying.site/oauth2/login',
+        path: 'oauth2/login',
         element: <OAuthRedirect />,
       },
     ],

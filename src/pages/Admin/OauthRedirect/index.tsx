@@ -34,7 +34,7 @@ const OAuthRedirect = () => {
 
   dispatch(login());
 
-  window.location.replace(`https://cstudying.site`);
+  // window.location.replace(`https://cstudying.site`);
 
   return <div>Login...</div>;
 };

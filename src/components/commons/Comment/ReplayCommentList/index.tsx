@@ -32,14 +32,19 @@ const ReplyCommentList = ({
   return (
     <S.Container currentDepth={currentDepth}>
       <S.Profile currentDepth={currentDepth}>
-        <S.UserInfo>
-          {/* <DeleteComment memberId={id} commentId={id} /> */}
-          {/* <S.Userimg>{getUserIcon(author)}</S.Userimg> */}
-          <S.Userimg>
-            <img src={getUserImg(author)} />
-          </S.Userimg>
-          <S.Pheader>{author}</S.Pheader>
-        </S.UserInfo>
+        <S.CommentHeader>
+          <S.UserInfo>
+            <S.Userimg>
+              <img src={getUserImg(author)} />
+            </S.Userimg>
+            <S.Pheader>{author}</S.Pheader>
+          </S.UserInfo>
+          <DeleteComment
+            currentDepth={currentDepth}
+            memberId={id}
+            commentId={id}
+          />
+        </S.CommentHeader>
         <S.Pcontent>{content}</S.Pcontent>
 
         {selectedCommentid !== id ? (

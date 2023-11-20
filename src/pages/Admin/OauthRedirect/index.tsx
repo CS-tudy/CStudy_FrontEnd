@@ -7,35 +7,34 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { userStorage } from 'repository/userStorage';
 
-const OAuthRedirect = async () => {
-  // const dispatch = useDispatch();
+const OAuthRedirect = () => {
+  const dispatch = useDispatch();
 
-  // const accessToken = Cookies.get('accessToken');
-  // const refreshToken = Cookies.get('refreshToken');
+  const accessToken = Cookies.get('accessToken');
+  const refreshToken = Cookies.get('refreshToken');
+  console.log('1', accessToken);
+  console.log('2', refreshToken);
+
   // const response = await instance.get('/oauth2/login');
-  // const cookies = response.headers['set-cookie'];
-  // const cookies1 = response.headers['accessToken'];
-  // const cookies2 = response.headers['refreshToken'];
-  console.log('===================================');
-  const basic_cookie = Cookies.get('accessToken');
-  console.log('basic_cookie', basic_cookie);
-  const cookies = document.cookie;
-  console.log('domCOOCKIE', cookies);
-  console.log('===================================');
-  // console.log('2', cookies1);
-  // console.log('3', cookies2);
 
-  // if (!accessToken || !refreshToken)
-  //   return Toast.error('로그인에 실패했습니다.');
+  // console.log('===================================');
+  // const basic_cookie = Cookies.get('accessToken');
+  // console.log('basic_cookie', basic_cookie);
+  // const cookies = document.cookie;
+  // console.log('domCOOCKIE', cookies);
+  // console.log('===================================');
 
-  // userStorage.set({
-  //   accessToken,
-  //   refreshToken,
-  // });
+  if (!accessToken || !refreshToken)
+    return Toast.error('로그인에 실패했습니다.');
 
-  // dispatch(login());
+  userStorage.set({
+    accessToken,
+    refreshToken,
+  });
 
-  // window.location.replace(`https://cstudying.site`);
+  dispatch(login());
+
+  window.location.replace(`https://cstudying.site`);
 
   return <div>Login...</div>;
 };

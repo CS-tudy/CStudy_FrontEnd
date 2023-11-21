@@ -49,6 +49,7 @@ export const Span = styled.span`
 
 export const Content = styled.div`
   margin: 5rem 0 1rem 1rem;
+  word-wrap: break-word;
 `;
 
 export const ButtonWrapper = styled.div`

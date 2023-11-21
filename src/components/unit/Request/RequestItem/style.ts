@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Article = styled.article`
-  padding: 2.5rem;
+  padding: 2.8rem 2.5rem;
   border-bottom: 0.1rem solid ${COLOR.GRAY_100};
   width: 80vw;
 `;

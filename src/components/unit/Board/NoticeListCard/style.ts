@@ -4,7 +4,7 @@ import { FONT } from 'constants/Font';
 
 export const Container = styled.div`
   &:hover {
-    background-color: ${COLOR.GRAY_50};
+    background-color: #f8f8f8;
   }
 `;
 
@@ -45,7 +45,6 @@ export const ContentWrapper = styled.ul`
 
 export const Content = styled.li`
   padding: 22px 20px;
-  border-bottom: 1px solid #f0f0f0;
   width: 100%;
   flex-basis: 100%;
   box-sizing: border-box;

@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import { SHADOW } from 'constants/Shadow';
 
 export const Container = styled.div`
   min-height: 60vh;
   padding: 6rem;
   background-color: ${COLOR.WHITE};
-  border: 0.1rem solid ${COLOR.WHITE};
+  border: 0.1rem solid ${COLOR.GRAY_80};
   border-radius: 5rem;
-  box-shadow: ${SHADOW.CONTENTBOX_LG};
 `;
 
 export const Title = styled.div`
@@ -28,4 +26,5 @@ export const Detail = styled.div`
 export const Content = styled.div`
   font-size: ${FONT.REGULAR_16};
   margin-top: 4rem;
+  word-wrap: break-word;
 `;

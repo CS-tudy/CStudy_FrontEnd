@@ -10,12 +10,7 @@ import RequestDetailPage from 'pages/RequestDetail';
 import RequestWrite from 'pages/RequestWrite';
 import CreateProblem from 'pages/Admin/CreateProblem';
 import CreateContest from 'pages/Admin/CreateContest';
-import RequestQuestion from 'pages/Admin/RequestQuestion';
-import {
-  checkAdminLoader,
-  checkAuthLoader,
-  isLogin,
-} from '../../src/repository/auth';
+import { checkAdminLoader, checkAuthLoader } from '../../src/repository/auth';
 import RequestEdit from 'pages/Request/RequestEdit';
 import AdminNoticeRequest from 'pages/Admin/Notice';
 import Problem from 'pages/Problem';
@@ -129,10 +124,6 @@ const router = createBrowserRouter([
           {
             path: ':contestId/contestproblem',
             element: <ContestProblem />,
-          },
-          {
-            path: ':contestId/result',
-            element: <ContestResultPage />,
           },
         ],
       },

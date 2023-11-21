@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { RequestNoticeDetail } from 'types/api';
 import * as S from './style';
 import FormattedDate from 'components/commons/moment';
@@ -14,7 +13,10 @@ const NoticeDetail = ({ request }: NoticeDetailProps) => {
       <S.Detail>
         <FormattedDate date={request?.createdDate} format="YYYY-MM-DD HH:mm" />
       </S.Detail>
-      <S.Content>{request?.content}</S.Content>
+      {/* <S.Content>{request?.content}</S.Content> */}
+      <S.Content
+        dangerouslySetInnerHTML={{ __html: String(request?.content) }}
+      />
     </S.Container>
   );
 };

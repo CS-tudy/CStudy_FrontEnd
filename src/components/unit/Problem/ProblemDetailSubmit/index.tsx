@@ -40,7 +40,7 @@ const ProblemDetailSubmit = ({
       )}
       {!isAnswer && submitClick && (
         <S.ProblemAnswerWrapper>
-          <S.ProblemAnswerTitle>오답입니다!</S.ProblemAnswerTitle>
+          <S.ProblemWrongAnswerTitle>오답입니다!</S.ProblemWrongAnswerTitle>
         </S.ProblemAnswerWrapper>
       )}
     </S.ProblemSubmitWrapper>

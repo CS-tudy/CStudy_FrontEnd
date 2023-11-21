@@ -26,6 +26,12 @@ const RequestItem = (props: RequestListProps) => {
     }
   };
 
+  const stripHtml = (html: any) => {
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    return temp.textContent || temp.innerText || '';
+  };
+
   return (
     <S.Container>
       <Link to={`/request/${id}`} onClick={checkLogin}>
@@ -34,7 +40,12 @@ const RequestItem = (props: RequestListProps) => {
             <ApproveStatus flag={flag} />
             <S.Title>{title}</S.Title>
           </S.ArticleHeader>
-          <S.Content>{description}</S.Content>
+          {/* <S.Content>{description}</S.Content> */}
+          {/* <S.Content dangerouslySetInnerHTML={{ __html: String(description)}}/> */}
+          {/* <S.Content
+            dangerouslySetInnerHTML={{ __html: String(description) }}
+          /> */}
+          <S.Content>{stripHtml(String(description))}</S.Content>
           <S.Detail>
             <span>{memberName}</span> · <span>{createAt}</span>
           </S.Detail>

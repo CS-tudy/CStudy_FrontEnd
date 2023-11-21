@@ -17,10 +17,12 @@ import { useGetProblemList } from 'hooks/@query/problem/useGetProblemList';
 import * as S from './style';
 import ContestDetailContainer from 'components/commons/ContestDetailContainer';
 import ContentContainer from 'components/commons/ContentContainer';
+import useGetContestResult from 'hooks/@query/contest/useGetContestResult';
 
 const ContestDetail = () => {
   const { contestId } = useParams();
   const navigate = useNavigate();
+
   const handleNavigateMyResult = () => {
     navigate(`/contest/${contestId}/result`);
   };
@@ -50,6 +52,8 @@ const ContestDetail = () => {
     questionTitle: '',
     categoryTitle: '',
   });
+
+  const contestResult = useGetContestResult(contestId as string);
 
   const filterQuestion = problemList?.content?.filter(
     ({ questionId: problemQuestionId }: { questionId: number }) => {
@@ -99,9 +103,13 @@ const ContestDetail = () => {
             >
               <span style={{ fontSize: '14px' }}>나의 대회 결과</span>
             </Button>
-            <Button variant="primary" size="medium" onClick={toggleModal}>
-              대회 참여
-            </Button>
+            {contestResult ? (
+              ''
+            ) : (
+              <Button variant="primary" size="medium" onClick={toggleModal}>
+                대회 참여
+              </Button>
+            )}
             <AdminContestQuestionOptionGroup
               handleSubmit={handleSubmit}
               reset={reset}

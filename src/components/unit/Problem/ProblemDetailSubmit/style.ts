@@ -12,10 +12,13 @@ export const ProblemSubmitWrapper = styled.div`
 export const ProblemAnswerWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 5rem;
 `;
 export const ProblemAnswerTitle = styled.div`
   ${FONT.BOLD_20}
+`;
+export const ProblemWrongAnswerTitle = styled.div`
+  ${FONT.BOLD_20}
+  margin-left: 3.5rem;
 `;
 export const ProblemAnswerNumber = styled.div`
   display: flex;

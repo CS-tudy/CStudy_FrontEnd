@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 import { isLogin } from 'repository/auth';
@@ -29,6 +28,12 @@ const NoticeListCard = ({
     }
   };
 
+  const stripHtml = (html: any) => {
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    return temp.textContent || temp.innerText || '';
+  };
+
   return (
     <S.Container>
       <Link to={`${id}`} onClick={checkLogin}>
@@ -36,7 +41,8 @@ const NoticeListCard = ({
           <S.ContentWrapper>
             <S.Content>
               <S.Title>{title}</S.Title>
-              <S.description>{content}</S.description>
+              {/* <S.description>{content}</S.description> */}
+              <S.description>{stripHtml(String(content))}</S.description>
               <S.Detail>
                 <span>관리자 </span>·
                 <FormattedDate date={createdDate} format="YYYY-MM-DD HH:mm" />

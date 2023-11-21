@@ -7,10 +7,10 @@ import {
 
 import * as S from './style';
 import Container from 'components/commons/Container';
-import TextArea from 'components/commons/TextArea';
 import Button from 'components/commons/Button/Button';
 import Input from 'components/commons/Input';
 import ContentContainer from 'components/commons/ContentContainer';
+import TextEditor from 'components/commons/TextEditor';
 
 interface RequesetWriteProps {
   isEdit: boolean;
@@ -24,6 +24,7 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
     register,
     handleSubmit,
     setValue,
+    trigger,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -38,6 +39,13 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
 
   const { mutate: createRequest } = useCreateRequest();
   const { mutate: editRequest } = useEditRequest();
+
+  const handleChange = (value: string) => {
+    console.log(value);
+
+    setValue('description', value === '<p><br></p>' ? '' : value);
+    trigger('description');
+  };
 
   const submitForm: SubmitHandler<FieldValues> = FormData => {
     setValue('title', data?.title || '');
@@ -71,14 +79,11 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
             errors={errors}
           />
           <S.Div />
-          <TextArea
+          <TextEditor
             id="description"
             label="내용"
-            placeholder={isEdit ? data?.description : '내용을 입력해주세요'}
-            defaultValue={data?.description}
-            required
-            register={register}
-            errors={errors}
+            onChange={handleChange}
+            isRequest={true}
           />
           <S.ButtonWrapper>
             <Button type="submit" variant="primary" size="medium">

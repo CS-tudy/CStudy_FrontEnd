@@ -97,7 +97,10 @@ const RequestDetail = () => {
                 ''
               )}
             </S.Header>
-            <S.Content>{request?.description}</S.Content>
+            {/* <S.Content>{request?.description}</S.Content> */}
+            <S.Content
+              dangerouslySetInnerHTML={{ __html: String(request?.description) }}
+            />
           </S.Container>
           <S.ButtonWrapper>
             {isAdmin() ? (

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const Footer = styled.div`
   width: 88%;
-  margin: 3rem 0 5rem;
+  margin: 0 5rem;
   padding: 4rem 3rem;
   border: 0.1rem solid ${COLOR.WHITE};
   border-radius: 1.2rem;

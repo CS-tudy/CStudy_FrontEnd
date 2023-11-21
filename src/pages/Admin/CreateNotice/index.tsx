@@ -10,6 +10,7 @@ import AdminInput from 'components/commons/Admin/AdminInput';
 import { useAddNoticeList } from 'hooks/@query/board/useCreateNotice';
 import AdminContainer from '../AdminContainer';
 import { isAdmin } from 'repository/auth';
+import TextEditor from 'components/commons/TextEditor';
 
 const CreateNotice = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const CreateNotice = () => {
     register,
     handleSubmit,
     setValue,
+    trigger,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -26,6 +28,13 @@ const CreateNotice = () => {
     },
   });
   const { mutate: addboard } = useAddNoticeList();
+
+  const handleChange = (value: string) => {
+    console.log(value);
+
+    setValue('content', value === '<p><br></p>' ? '' : value);
+    trigger('content');
+  };
 
   const onSubmit: SubmitHandler<FieldValues> = async formData => {
     addboard({ ...formData });
@@ -51,7 +60,7 @@ const CreateNotice = () => {
                   />
                 </FormSection>
                 <FormSection title="공지사항 내용을 입력해주세요">
-                  <AdminInput
+                  {/* <AdminInput
                     id="content"
                     type="textarea"
                     name="content"
@@ -60,6 +69,12 @@ const CreateNotice = () => {
                     errors={errors}
                     required
                     placeholder="공지사항 내용 입력해주세요"
+                  /> */}
+                  <TextEditor
+                    id="content"
+                    label="공지사항 내용"
+                    onChange={handleChange}
+                    isRequest={false}
                   />
                 </FormSection>
                 <Button type="submit" variant="primary" size="medium">

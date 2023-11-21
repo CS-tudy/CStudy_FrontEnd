@@ -5,6 +5,7 @@ const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
       props.setInputValue(e.target.value);
+      console.log('aa');
     }
   };
 

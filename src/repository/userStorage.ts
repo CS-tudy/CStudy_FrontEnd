@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
-const USER_TOKENS = 'accessToken';
-const REFRESH_TOKEN_COOKIE = 'refreshToken';
+const USER_TOKENS = 'USER_TOKENS';
+const REFRESH_TOKEN_COOKIE = 'REFRESH_TOKEN';
 
 type UserTokens = {
   accessToken: string;

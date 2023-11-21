@@ -2,6 +2,7 @@ import * as S from './style';
 import { AiOutlineClose } from 'react-icons/ai';
 import GoogleLogoImage from 'assets/Google_Logo.png';
 import KaKaoLogoImage from 'assets/KaKao_Logo.png';
+import { instance } from 'api';
 
 interface Props {
   children: JSX.Element;
@@ -9,6 +10,21 @@ interface Props {
 }
 
 const SignModal = ({ children, toggleModal }: Props) => {
+  const test = async () => {
+    try {
+      instance
+        .get('/oauth2/authorization/google')
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <S.Container>
       <S.XButton onClick={toggleModal}>
@@ -28,6 +44,7 @@ const SignModal = ({ children, toggleModal }: Props) => {
         >
           <S.SocialLogo src={GoogleLogoImage} alt="구글로 로그인" />
         </a>
+        <button onClick={test}>테스트 </button>
 
         <a
           href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`}

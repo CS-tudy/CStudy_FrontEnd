@@ -2,6 +2,7 @@ import * as S from './style';
 import { AiOutlineClose } from 'react-icons/ai';
 import GoogleLogoImage from 'assets/Google_Logo.png';
 import KaKaoLogoImage from 'assets/KaKao_Logo.png';
+import { instance } from 'api';
 
 interface Props {
   children: JSX.Element;
@@ -28,7 +29,6 @@ const SignModal = ({ children, toggleModal }: Props) => {
         >
           <S.SocialLogo src={GoogleLogoImage} alt="구글로 로그인" />
         </a>
-
         <a
           href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`}
           rel="noopener noreferrer"

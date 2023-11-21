@@ -10,10 +10,10 @@ import { userStorage } from 'repository/userStorage';
 const OAuthRedirect = () => {
   // const dispatch = useDispatch();
 
-  const accessToken = Cookies.get('accessToken');
-  const refreshToken = Cookies.get('refreshToken');
-  console.log('1', accessToken);
-  console.log('2', refreshToken);
+  // const accessToken = Cookies.get('accessToken');
+  // const refreshToken = Cookies.get('refreshToken');
+  // console.log('1', accessToken);
+  // console.log('2', refreshToken);
 
   // if (!accessToken || !refreshToken)
   //   return Toast.error('로그인에 실패했습니다.');
@@ -25,15 +25,23 @@ const OAuthRedirect = () => {
 
   // dispatch(login());
 
-  console.log('===================================');
-  const basic_cookie = Cookies.get('accessToken');
-  console.log('basic_cookie', basic_cookie);
-  const cookies = document.cookie;
-  console.log('domCOOCKIE', cookies);
-  console.log('===================================');
+  useEffect(() => {
+    const parsedUrl = new URL(window.location.href);
+    const accessToken = parsedUrl.searchParams.get('accessToken');
+    const refreshToken = parsedUrl.searchParams.get('refreshToken');
+    console.log('1', accessToken);
+    console.log('2', refreshToken);
 
-  // window.location.replace(`https://cstudying.site`);
+    if (!accessToken || !refreshToken)
+      return Toast.error('로그인에 실패했습니다.');
 
+    userStorage.set({
+      accessToken,
+      refreshToken,
+    });
+
+    window.location.replace(`https://cstudying.site`);
+  }, []);
   return <div>Login...</div>;
 };
 

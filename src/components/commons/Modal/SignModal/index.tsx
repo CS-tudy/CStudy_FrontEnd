@@ -2,7 +2,7 @@ import * as S from './style';
 import { AiOutlineClose } from 'react-icons/ai';
 import GoogleLogoImage from 'assets/Google_Logo.png';
 import KaKaoLogoImage from 'assets/KaKao_Logo.png';
-import { instance } from 'api';
+import NaverLogiImage from 'assets/Naver_Logo.png';
 
 interface Props {
   children: JSX.Element;
@@ -28,6 +28,12 @@ const SignModal = ({ children, toggleModal }: Props) => {
           rel="noopener noreferrer"
         >
           <S.SocialLogo src={GoogleLogoImage} alt="구글로 로그인" />
+        </a>
+        <a
+          href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/naver`}
+          rel="noopener noreferrer"
+        >
+          <S.SocialLogo src={NaverLogiImage} alt="네이버 로그인" />
         </a>
         <a
           href={`${process.env.REACT_APP_API_URL}/oauth2/authorization/kakao`}

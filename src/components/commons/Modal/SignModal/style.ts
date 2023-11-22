@@ -68,21 +68,15 @@ export const Hr = styled.span`
 
 export const SocialLogin = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 40%;
   padding-top: 3rem;
-  & a {
-    &:last-child {
-      background-color: #fae100;
-    }
-  }
 `;
 
 export const SocialLogo = styled.img`
-  width: 7rem;
-  height: 7rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
   cursor: pointer;
   box-shadow: ${SHADOW.CONTENTBOX_MD};
 `;

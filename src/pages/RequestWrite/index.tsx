@@ -40,6 +40,12 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   const { mutate: createRequest } = useCreateRequest();
   const { mutate: editRequest } = useEditRequest();
 
+  const extractText = (htmlString: any) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || '';
+  };
+
   const handleChange = (value: string) => {
     console.log(value);
 
@@ -72,7 +78,7 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
           <Input
             id="title"
             label="제목"
-            placeholder={isEdit ? data?.title : '제목을 입력해주세요'}
+            placeholder={isEdit ? data?.title : ''}
             defaultValue={data?.title}
             required
             register={register}
@@ -84,6 +90,11 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
             label="내용"
             onChange={handleChange}
             isRequest={true}
+            defaultValue={
+              extractText(data?.description) === 'undefined'
+                ? ''
+                : extractText(data?.description)
+            }
           />
           <S.ButtonWrapper>
             <Button type="submit" variant="primary" size="medium">

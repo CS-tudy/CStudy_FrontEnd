@@ -29,6 +29,12 @@ const CreateNotice = () => {
   });
   const { mutate: addboard } = useAddNoticeList();
 
+  const extractText = (htmlString: any) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || '';
+  };
+
   const handleChange = (value: string) => {
     console.log(value);
 
@@ -75,6 +81,11 @@ const CreateNotice = () => {
                     label="공지사항 내용"
                     onChange={handleChange}
                     isRequest={false}
+                    defaultValue={
+                      extractText(data?.description) === 'undefined'
+                        ? ''
+                        : extractText(data?.description)
+                    }
                   />
                 </FormSection>
                 <Button type="submit" variant="primary" size="medium">

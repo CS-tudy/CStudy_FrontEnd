@@ -5,7 +5,6 @@ const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
     if (e.key === 'Enter') {
       props.setInputValue(e.target.value);
-      console.log('aa');
     }
   };
 
@@ -13,7 +12,6 @@ const SearchBar = (props: any) => {
     <S.Searchbar>
       <S.SearchbarInput
         type="text"
-        placeholder="제목을 입력해주세요."
         onChange={e => {
           props.setInputValue(e.target.value);
         }}

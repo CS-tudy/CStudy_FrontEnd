@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import * as S from './style';
 
 interface TextEditorProps {
@@ -7,7 +8,21 @@ interface TextEditorProps {
   isRequest: boolean;
 }
 
-const TextEditor = ({ id, label, onChange, isRequest }: TextEditorProps) => {
+const TextEditor = ({
+  id,
+  label,
+  onChange,
+  isRequest,
+  defaultValue,
+}: TextEditorProps) => {
+  const quillRef = useRef(); // Create a Ref
+
+  useEffect(() => {
+    if (quillRef.current) {
+      quillRef.current.getEditor().setText(defaultValue || '');
+    }
+  }, [defaultValue]);
+
   return (
     <S.Field>
       <S.Label htmlFor={id}>{label}</S.Label>
@@ -17,6 +32,7 @@ const TextEditor = ({ id, label, onChange, isRequest }: TextEditorProps) => {
         label={label}
         onChange={onChange}
         isRequest={isRequest}
+        ref={quillRef}
       />
     </S.Field>
   );

@@ -81,11 +81,11 @@ const CreateNotice = () => {
                     label="공지사항 내용"
                     onChange={handleChange}
                     isRequest={false}
-                    defaultValue={
-                      extractText(data?.description) === 'undefined'
-                        ? ''
-                        : extractText(data?.description)
-                    }
+                    // defaultValue={
+                    //   extractText(data?.description) === 'undefined'
+                    //     ? ''
+                    //     : extractText(data?.description)
+                    // }
                   />
                 </FormSection>
                 <Button type="submit" variant="primary" size="medium">

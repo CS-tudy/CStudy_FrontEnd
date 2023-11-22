@@ -6,7 +6,7 @@ export const getRanks = async (): Promise<Ranks[]> => {
   return response.data;
 };
 
-export const getMyRank = async (): Promise<Ranks[]> => {
+export const getMyRank = async (): Promise<any> => {
   const response = await instance.get(`/api/rank`);
   return response.data;
 };

@@ -20,7 +20,7 @@ const Navbar = () => {
           <S.Sidebar>
             <S.ItemWrapper>
               <S.Item>
-                <StyleNavLink to="/admin/createnotice">공지 사항</StyleNavLink>
+                <StyleNavLink to="/admin/list">공지 사항</StyleNavLink>
               </S.Item>
               <S.Item>
                 <StyleNavLink to="/admin/createproblem">문제 생성</StyleNavLink>

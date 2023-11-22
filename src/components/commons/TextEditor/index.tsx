@@ -6,6 +6,7 @@ interface TextEditorProps {
   label?: string;
   onChange: (value: string) => void;
   isRequest: boolean;
+  defaultValue: string;
 }
 
 const TextEditor = ({
@@ -15,7 +16,7 @@ const TextEditor = ({
   isRequest,
   defaultValue,
 }: TextEditorProps) => {
-  const quillRef = useRef(); // Create a Ref
+  const quillRef = useRef<any>();
 
   useEffect(() => {
     if (quillRef.current) {

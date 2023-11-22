@@ -12,6 +12,7 @@ import ContentContainer from 'components/commons/ContentContainer';
 import { useGetMyRequestList } from 'hooks/@query/request/useGetRequestList';
 import useMypageFilter from 'hooks/mypage/useMypageFilter';
 import { useGetReview } from 'hooks/@query/review/useGetReview';
+import { useGetMyRank } from 'hooks/@query/rank/useGetMyRank';
 
 const MyPage = () => {
   const {

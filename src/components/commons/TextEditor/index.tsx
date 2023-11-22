@@ -6,7 +6,7 @@ interface TextEditorProps {
   label?: string;
   onChange: (value: string) => void;
   isRequest: boolean;
-  defaultValue: string;
+  defaultValue?: string;
 }
 
 const TextEditor = ({

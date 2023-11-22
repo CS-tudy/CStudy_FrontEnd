@@ -28,7 +28,7 @@ const Contents = () => {
                 있으신가요?
                 <br />
                 <br />
-                <S.BoldText>그래서 준비했습니다.!</S.BoldText>
+                <S.BoldText>그래서 준비했습니다.</S.BoldText>
                 <br />
                 CSTUDY에 어렵게 생각하시는 CS지식을 문의하시면
                 <br />

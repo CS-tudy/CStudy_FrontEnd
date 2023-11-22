@@ -1,5 +1,5 @@
 import * as S from './style';
-import { HiOutlineSearch } from 'react-icons/hi';
+import { IoSearch } from 'react-icons/io5';
 
 const SearchBar = (props: any) => {
   const handleLoadSearch = async (e: any) => {
@@ -19,7 +19,7 @@ const SearchBar = (props: any) => {
         onKeyDown={handleLoadSearch}
       />
       <S.SearchIcon>
-        <HiOutlineSearch size="17" color="#3d3d3d" />
+        <IoSearch size="17" color="#3d3d3d" />
       </S.SearchIcon>
     </S.Searchbar>
   );

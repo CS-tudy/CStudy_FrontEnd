@@ -22,7 +22,7 @@ export const getProblemList = async ({
   const response = await instance.get(
     `/api/questions${query}?${
       query === ''
-        ? `questionTitle=&categoryTitle=${categoryTitle}&status=${status}&memberId=&page=${page}&size=${size}`
+        ? `questionTitle=${questionTitle}&categoryTitle=${categoryTitle}&status=${status}&memberId=&page=${page}&size=${size}`
         : `page=${page}&size=${size}`
     }`,
   );

@@ -82,8 +82,6 @@ const Problem = () => {
     }
   }, []);
 
-  console.log('list', problemList);
-
   return (
     <>
       <>

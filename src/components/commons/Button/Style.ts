@@ -61,6 +61,11 @@ const sizeCSS: SizeCSS = {
     width: 100%;
     font-size: ${FONT.REGULAR_14};
   `,
+
+  full2: css`
+    font-size: ${FONT.REGULAR_20};
+    padding: 1.5rem 2rem;
+  `,
 };
 
 export const Button = styled.button<ButtonComponent>`

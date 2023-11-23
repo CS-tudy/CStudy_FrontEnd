@@ -14,24 +14,13 @@ export const Wrapper = styled.header`
   padding: 1.5rem 0;
   justify-content: space-between;
   background-color: ${COLOR.WHITE};
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid #dbdbdb;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 99;
 `;
-
-// export const LogoWrap = styled.h1`
-//   padding-left: 1.8rem;
-//   ${media.tablet} {
-//     position: relative;
-//     z-index: 99;
-//   }
-// `;
-// export const LogoImg = styled.img`
-//   height: 6rem;
-// `;
 
 export const LogoWrap = styled.div`
   display: flex;

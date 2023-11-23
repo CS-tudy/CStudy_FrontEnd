@@ -1,127 +1,214 @@
 import { styled } from 'styled-components';
 import { FONT } from './../../../../constants/Font';
-import { NavLink } from 'react-router-dom';
-import { COLOR } from 'constants/Color';
 import { media } from 'constants/media';
 
-export const ContentSection = styled.section`
-  padding-top: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-export const ContentWrapper = styled.div`
+export const Wrapper = styled.div``;
+
+export const Title = styled.div`
+  width: 100%;
+  height: 350px;
   display: flex;
-  background-color: rgb(255, 255, 255);
-  padding: 5rem 3rem;
-  border-radius: 1.2rem;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0.2rem 0.2rem 0.5rem,
-    rgba(0, 0, 0, 0.12) 0.1rem 0.1rem 0.4rem inset;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: ${FONT.H4};
+  text-align: center;
+  background-color: #f5f5f5;
+  line-height: 160%;
+  padding: 1rem;
+  ${media.mobildL} {
+    font-size: ${FONT.H3};
+  }
   ${media.mobileM} {
-    flex-direction: column;
+    font-size: 2.4rem;
+  }
+  ${media.custom(520)} {
+    height: 280px;
   }
 `;
-export const ContentWrapperReverse = styled(ContentWrapper)`
+
+export const BoldTitle = styled.div`
+  font-weight: 550;
+`;
+
+export const DispalyNoneTitle = styled.div`
+  ${media.custom(520)} {
+    display: none;
+  }
+`;
+
+export const SubTitle = styled.p`
+  font-size: 2.5rem;
+  ${media.mobildL} {
+    font-size: 2rem;
+  }
   ${media.mobileM} {
+    font-size: 1.6rem;
+  }
+`;
+
+export const Content = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 730px;
+  font-size: 2.2rem;
+  background-color: #fff;
+  line-height: 160%;
+  padding: 2rem 3rem;
+
+  ${media.mobildL} {
+    font-size: ${FONT.REGULAR_18};
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${media.mobildL} {
     flex-direction: column-reverse;
   }
 `;
 
-export const ContentTitle = styled.h2`
-    font-size:${FONT.H2}
-    padding-left:2rem;
-    ${media.tablet} {
-      font-size:${FONT.H1}
-    }
-    
-}`;
+export const ContentWrapper2 = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
 
-export const ContentImg = styled.img`
-  margin-top: 3rem;
-  width: 50rem;
-  height: 42rem;
-  background-color: #e2e2e2;
-  ${media.tablet} {
-    width: 40rem;
-    height: 32rem;
-  }
   ${media.mobildL} {
-    width: 30rem;
-    height: 22rem;
+    flex-direction: column-reverse;
   }
 `;
 
-export const ContentTitleImg = styled.div`
-  padding-right: 10rem;
-  &:nth-of-type(2) {
-    padding: 0 0 0 10rem;
-  }
-  ${media.tablet} {
-    padding-right: 7rem;
-    &:nth-of-type(2) {
-      padding: 0 0 0 7rem;
-    }
-  }
-  ${media.mobildL} {
-    padding-right: 5rem;
-    &:nth-of-type(2) {
-      padding: 0 0 0 5rem;
-    }
-  }
-  ${media.mobileM} {
-    padding-right: 0;
-    padding-bottom: 5rem;
-    text-align: center;
-    &:nth-of-type(2) {
-      padding: 0 0 5rem 0;
+export const Image = styled.div``;
+
+export const Image1 = styled.div`
+  &.animation {
+    animation-name: opacity;
+    animation-duration: 2200ms;
+
+    @keyframes opacity {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   }
 `;
 
-export const ContentTexts = styled.div`
-  padding-top: 15rem;
-  ${media.tablet} {
-    padding-top: 12rem;
-  }
-  ${media.mobildL} {
-    padding-top: 10rem;
-  }
-  ${media.mobileM} {
-    padding-top: 0;
-    text-align: center;
+export const Image2 = styled.div`
+  &.animation {
+    animation-name: opacity;
+    animation-duration: 2200ms;
+
+    @keyframes opacity {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 `;
 
-export const TextTitle = styled.strong`
-  ${FONT.BOLD_16};
+export const Image3 = styled.div`
+  &.animation {
+    animation-name: opacity;
+    animation-duration: 2200ms;
+
+    @keyframes opacity {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+`;
+
+export const ShadowedImg = styled.img`
+  box-shadow: 0px 0px 13px 5px rgba(0, 0, 0, 0.25);
+  width: 480px;
   ${media.tablet} {
-    ${FONT.BOLD_14};
+    width: 45vw;
   }
   ${media.mobildL} {
-    ${FONT.BOLD_12};
+    width: 75vw;
   }
-  ${media.mobileM} {
+`;
+
+export const Img = styled.img`
+  width: 650px;
+  ${media.tablet} {
+    width: 50vw;
+  }
+  ${media.mobildL} {
+    width: 80vw;
+  }
+`;
+
+export const RightBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5rem;
+  margin-bottom: 5rem;
+  ${media.mobildL} {
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+`;
+
+export const Text = styled.div`
+  ${media.mobildL} {
     display: none;
   }
 `;
 
-export const Texts = styled.span`
-  display: inline-block;
-  font-size: ${FONT.REGULAR_14};
-  line-height: 2.5rem;
-  margin: 1rem 0 3rem;
-  ${media.tablet} {
-    font-size: ${FONT.REGULAR_12};
+export const BoldText = styled.div`
+  font-size: ${FONT.H4};
+  padding-bottom: 3.5rem;
+  line-height: 160%;
+  text-align: left;
+  width: 100%;
+  font-weight: 550;
+
+  ${media.mobildL} {
+    font-size: 2.4rem;
   }
-  ${media.mobileM} {
+  ${media.custom(520)} {
     display: none;
   }
 `;
 
-export const BoldText = styled.span`
+export const MobileText = styled.div`
+  font-size: 2.4rem;
+  padding-bottom: 3.5rem;
+  line-height: 160%;
+  display: none;
+  font-weight: 550;
+  ${media.custom(520)} {
+    display: block;
+    text-align: center;
+  }
+`;
+
+export const ButtonWrapper = styled.div``;
+
+export const Word = styled.span`
+  color: #0078ff;
   display: inline-block;
-  ${FONT.BOLD_14};
+  padding-bottom: 8px;
   ${media.mobildL} {
-    ${FONT.BOLD_12};
+    padding-bottom: 7px;
   }
 `;

@@ -78,5 +78,6 @@ export const SocialLogo = styled.img`
   height: 6rem;
   border-radius: 50%;
   cursor: pointer;
+  margin-right: 2rem;
   box-shadow: ${SHADOW.CONTENTBOX_MD};
 `;

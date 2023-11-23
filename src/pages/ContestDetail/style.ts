@@ -10,6 +10,14 @@ export const ContestDetailHeader = styled.div`
     flex-direction: column;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  margin-bottom: 3rem;
+  ${media.mobildL} {
+    margin-top: 1.5rem;
+  }
+`;
+
 export const ContestDetailContent = styled.div`
   width: 100%;
   height: 100vh;

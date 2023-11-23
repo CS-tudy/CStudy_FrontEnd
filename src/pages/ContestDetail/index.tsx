@@ -91,11 +91,7 @@ const ContestDetail = () => {
           <div>
             <h2>자바대회</h2>
           </div>
-          <div
-            style={{
-              marginBottom: '3rem',
-            }}
-          >
+          <S.ButtonWrapper>
             <Button
               variant="green"
               size="large"
@@ -116,7 +112,7 @@ const ContestDetail = () => {
               contestId={contestId as string}
               getValues={getValues}
             />
-          </div>
+          </S.ButtonWrapper>
           {modalIsOpen && (
             <Modal toggleModal={toggleModal}>
               <ConfirmModal

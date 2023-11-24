@@ -2,11 +2,9 @@ import * as S from './style';
 import useReplyFilter from 'hooks/Comment/useReplyButton';
 import AddCommentForm from '../OptionaddComment';
 import CommentList from '../List';
-import { useState } from 'react';
-import { RequestComment } from 'types/api';
 import DeleteComment from '../OptionDeleteComment';
-import { BiSolidUserCircle } from 'react-icons/bi';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import ShowComment from '../ShowAllReplies';
 
 interface ReplayProps {
   id: string;
@@ -23,12 +21,14 @@ const ReplyCommentList = ({
   childComments,
   currentDepth = 0,
 }: ReplayProps) => {
-  const { selectedCommentid, toggleReplyingHandler, getUserImg } =
-    useReplyFilter();
-  const [showAllReplies, setShowAllReplies] = useState(false);
-  const handleShowAllReplies = () => {
-    setShowAllReplies(prevState => !prevState);
-  };
+  const {
+    selectedCommentid,
+    toggleReplyingHandler,
+    getUserImg,
+    isCommentToggle,
+    commentToggle,
+  } = useReplyFilter();
+
   return (
     <S.Container currentDepth={currentDepth}>
       <S.Profile currentDepth={currentDepth}>
@@ -48,9 +48,11 @@ const ReplyCommentList = ({
         <S.Pcontent>{content}</S.Pcontent>
 
         {selectedCommentid !== id ? (
-          <S.ReplyButton onClick={() => toggleReplyingHandler(id)}>
-            댓글 달기
-          </S.ReplyButton>
+          <>
+            <S.ReplyButton onClick={() => toggleReplyingHandler(id)}>
+              댓글 달기
+            </S.ReplyButton>
+          </>
         ) : (
           <>
             <S.CloseButton onClick={() => toggleReplyingHandler('')}>
@@ -59,15 +61,23 @@ const ReplyCommentList = ({
             <AddCommentForm parentId={id} />
           </>
         )}
+        {childComments && childComments.length > 0 && (
+          <ShowComment
+            commentLength={childComments.length}
+            isCommentToggle={isCommentToggle}
+            commentToggle={commentToggle}
+          />
+        )}
       </S.Profile>
       <S.ReplyContainer>
-        {/* {showAllReplies ? (
-          <CommentList commentList={childComments as any} />
-        ) : (
-          <div onClick={handleShowAllReplies}>더보기</div>
-        )} */}
         <S.ChildComments currentDepth={currentDepth}>
-          {childComments && childComments.length > 0 && (
+          {/* {childComments && (
+            <CommentList
+              commentList={childComments as any}
+              currentDepth={currentDepth + 1}
+            />
+          )} */}
+          {isCommentToggle && childComments && (
             <CommentList
               commentList={childComments as any}
               currentDepth={currentDepth + 1}

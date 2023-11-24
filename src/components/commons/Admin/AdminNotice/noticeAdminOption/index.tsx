@@ -70,6 +70,8 @@ const NoticeAdminOptionGroup = ({
 
     UpdateNotice({ id, formData });
   };
+  console.log(isActive);
+
   return (
     <>
       {isActive ? (

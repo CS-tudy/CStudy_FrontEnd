@@ -1,11 +1,6 @@
-import { Img } from './../../../unit/Workbook/WorkbookCard/style';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { COLOR } from 'constants/Color';
 import { FONT } from 'constants/Font';
-import user1 from 'assets/comment_user/user1.png';
-import user2 from 'assets/comment_user/user2.png';
-import user3 from 'assets/comment_user/user3.png';
-import defaultImg from 'assets/comment_user/default.png';
 
 interface ChildCommentCurrent {
   currentDepth: number;
@@ -21,6 +16,18 @@ export const Profile = styled.div<ChildCommentCurrent>`
   margin-bottom: 10px;
   border-bottom: ${({ currentDepth }) =>
     currentDepth > 0 ? '1px dashed  hsla(220, 9%, 46%, 0.3)' : undefined};
+  ${({ currentDepth }) =>
+    currentDepth >= 2
+      ? `
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        background-color: rgba(0, 0, 0, 0.016);
+        padding: 1.5rem;
+        border-radius: 4px;
+        margin-top: 1.3125rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      `
+      : undefined};
 `;
 
 export const CommentHeader = styled.div`

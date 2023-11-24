@@ -103,7 +103,7 @@ const CreateProblem = () => {
                 />
                 <CreateProblemInput
                   id="questionDesc"
-                  label="정답 설명"
+                  label="문제 정답 설명"
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}

@@ -1,6 +1,6 @@
 import { setCommentId } from 'hooks/@redux/comment';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import user1 from 'assets/comment_user/user1.png';
 import user2 from 'assets/comment_user/user2.png';
 import user3 from 'assets/comment_user/user3.png';
@@ -9,6 +9,7 @@ import defaultImg from 'assets/comment_user/default.png';
 import { RootState } from 'stroe';
 
 const useReplyFilter = () => {
+  const [isCommentToggle, setisCommentToggle] = useState(false);
   const selectedCommentid = useSelector(
     (state: RootState) => state.rootReducer.comment.selectedCommentid,
   );
@@ -34,22 +35,17 @@ const useReplyFilter = () => {
     }
   }, []);
 
-  // const getUserImg = useCallback((title: string) => {
-  //   const Images = ['황순욱', '김기리', '김충지', '이진수', '관리자'];
-
-  //   for (const Img of Images) {
-  //     if (title.includes(Img)) {
-  //       return Img;
-  //     }
-  //   }
-  //   return '';
-  // }, []);
+  const commentToggle = useCallback(() => {
+    setisCommentToggle(!isCommentToggle);
+  }, [isCommentToggle]);
 
   return {
     selectedCommentid,
     currentDepth,
     toggleReplyingHandler,
     getUserImg,
+    isCommentToggle,
+    commentToggle,
   };
 };
 

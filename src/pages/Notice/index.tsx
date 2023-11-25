@@ -55,12 +55,7 @@ const Notice = () => {
                 })}
               />
               <S.SearchIcon>
-                <button
-                  type="submit"
-                  onClick={handleSubmit(onSubmit)}
-                  // variant="primary"
-                  // size="medium"
-                >
+                <button type="submit" onClick={handleSubmit(onSubmit)}>
                   <GoSearch size="18" />
                 </button>
               </S.SearchIcon>

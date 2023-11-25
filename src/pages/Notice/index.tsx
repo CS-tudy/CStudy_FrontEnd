@@ -38,6 +38,14 @@ const Notice = () => {
     content: noticeFilter.SearchContent,
   });
 
+  const handleNoticeEnterKey = (
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ) => {
+    if (event.key === 'Enter') {
+      handleSubmit(onSubmit)();
+    }
+  };
+
   return (
     <>
       <ContentContainer>
@@ -53,6 +61,7 @@ const Notice = () => {
                 {...register(selectedSearchOption, {
                   required: '검색어를 입력해주세요.',
                 })}
+                onKeyDown={handleNoticeEnterKey}
               />
               <S.SearchIcon>
                 <button

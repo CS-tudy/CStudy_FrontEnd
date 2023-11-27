@@ -16,11 +16,16 @@ export const Table = styled.table<Props>`
   max-height: ${({ maxHeight }) => maxHeight && '32rem'};
   border: 0.1rem solid ${COLOR.WHITE};
   border-radius: ${({ narrow }) => (narrow ? '2rem' : '5rem')};
+  tbody tr:hover {
+    background-color: #f9f9f9;
+  }
 `;
 
 export const THeadTh = styled.th<Props>`
   padding: ${({ narrow }) => (narrow ? '2rem 0 1rem' : '4rem 0 2rem')};
   padding: ${({ $narrow2 }) => ($narrow2 ? '1rem 0 1rem' : '2rem 0')};
+  border-bottom: 1px solid #d2d7dc;
+  border-top: 1px solid #4c4c4c;
 `;
 
 export const TBodyTd = styled.td<Props>`
@@ -37,7 +42,7 @@ export const TBodyTd = styled.td<Props>`
   white-space: pre-wrap;
   overflow-wrap: break-word;
   word-break: break-all;
-
+  border-bottom: 1px solid #eaecf1;
   & span {
     display: inline-block;
 

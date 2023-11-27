@@ -17,7 +17,6 @@ export const CommentTextArea = styled.textarea`
   padding: 1rem;
   border: 0.1rem solid #d3d3d3;
   border-radius: 0.8rem;
-  margin-top: 1rem;
 `;
 
 export const ErrorMessage = styled.div`

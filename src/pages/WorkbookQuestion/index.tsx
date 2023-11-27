@@ -71,9 +71,7 @@ const WorkbookQuestion = () => {
           <Table
             colRate={isAdmin() ? ['20%', '60%', '20%'] : ['30%', '70%']}
             title={
-              isAdmin()
-                ? ['문제번호', '문제이름', '문제삭제']
-                : ['문제번호', '문제이름']
+              isAdmin() ? ['No.', '문제이름', '문제삭제'] : ['No.', '문제이름']
             }
           >
             <WorkbookQuestionTableLists

@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Article = styled.article`
-  padding: 2.5rem;
+  padding: 2.8rem 2.5rem;
   border-bottom: 0.1rem solid ${COLOR.GRAY_100};
   width: 80vw;
 `;
@@ -21,6 +21,7 @@ export const ArticleHeader = styled.div`
 
 export const Title = styled.p`
   display: block;
+  margin-left: 1rem;
   ${FONT.BOLD_20};
   white-space: nowrap;
   overflow: hidden;

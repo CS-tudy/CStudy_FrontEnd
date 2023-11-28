@@ -6,7 +6,7 @@ export const Wrapper = styled.div``;
 
 export const Title = styled.div`
   width: 100%;
-  height: 350px;
+  height: 330px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,7 +90,7 @@ export const Image = styled.div``;
 export const Image1 = styled.div`
   &.animation {
     animation-name: opacity;
-    animation-duration: 2200ms;
+    animation-duration: 2300ms;
 
     @keyframes opacity {
       from {
@@ -106,7 +106,7 @@ export const Image1 = styled.div`
 export const Image2 = styled.div`
   &.animation {
     animation-name: opacity;
-    animation-duration: 2200ms;
+    animation-duration: 2300ms;
 
     @keyframes opacity {
       from {
@@ -122,7 +122,7 @@ export const Image2 = styled.div`
 export const Image3 = styled.div`
   &.animation {
     animation-name: opacity;
-    animation-duration: 2200ms;
+    animation-duration: 2300ms;
 
     @keyframes opacity {
       from {

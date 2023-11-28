@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import * as S from './style';
-import TableHead from '../TableHead';
+import TableHead2 from '../TableHead2';
 
 interface TableProps {
   colRate: string[];
@@ -28,7 +28,7 @@ const Table2 = ({
       $narrow={narrow}
       $narrow2={narrow2}
     >
-      <TableHead
+      <TableHead2
         colRate={colRate}
         title={title}
         narrow={narrow}

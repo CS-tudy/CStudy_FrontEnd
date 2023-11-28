@@ -186,8 +186,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <button onClick={LogintoggleModal}>로그인</button>
-              <button onClick={RegistertoggleModal}>회원가입</button>
+              <S.SigninButton onClick={LogintoggleModal}>로그인</S.SigninButton>
+              <S.SignupButton onClick={RegistertoggleModal}>
+                회원가입
+              </S.SignupButton>
             </>
           )}
         </S.Sign>

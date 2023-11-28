@@ -55,6 +55,8 @@ const RequestDetail = () => {
 
   const { modalIsOpen, toggleModal } = useModal();
 
+  console.log('requestdetail', request);
+
   return (
     <>
       {modalIsOpen && (

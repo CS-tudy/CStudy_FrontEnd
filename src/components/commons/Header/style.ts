@@ -128,6 +128,24 @@ export const LogoutLink = styled.button`
   }
 `;
 
+export const SigninButton = styled.button`
+  ${media.tablet} {
+    position: absolute;
+    top: -1rem;
+    right: 8.5rem;
+    width: 50px;
+  }
+`;
+
+export const SignupButton = styled.button`
+  ${media.tablet} {
+    position: absolute;
+    top: -1rem;
+    right: 2rem;
+    width: 70px;
+  }
+`;
+
 export const Admin = styled.div<PrevToogle>`
   padding-right: 2rem;
   a {

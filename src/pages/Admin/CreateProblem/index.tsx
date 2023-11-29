@@ -97,7 +97,7 @@ const CreateProblem = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createQuestionRequestDto.questionExplain"
+                  name="createQuestionRequestDto.questionDesc"
                   required
                   errors={errors}
                 />
@@ -107,7 +107,7 @@ const CreateProblem = () => {
                   type="text"
                   placeholder="내용을 입력해주세요"
                   register={register}
-                  name="createQuestionRequestDto.questionDesc"
+                  name="createQuestionRequestDto.questionExplain"
                   required
                   errors={errors}
                 />

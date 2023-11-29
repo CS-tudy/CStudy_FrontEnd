@@ -1,11 +1,16 @@
 import React from 'react';
 import * as S from './style';
 
-const Container = ({ children }: React.PropsWithChildren) => {
+interface ContainerProps {
+  children: JSX.Element | JSX.Element[] | null;
+  padding?: boolean;
+}
+
+const Container = ({ children, padding }: ContainerProps) => {
   return (
     <S.Wrapper>
       <S.BodyWrapper>
-        <S.ContentWrapper>{children}</S.ContentWrapper>
+        <S.ContentWrapper padding={padding}>{children}</S.ContentWrapper>
       </S.BodyWrapper>
     </S.Wrapper>
   );

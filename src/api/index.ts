@@ -24,12 +24,12 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   response => {
-    console.log('response', response);
+    // console.log('response', response);
     return response;
   },
   async error => {
     const { config, response } = error;
-    console.log('status', response.status);
+    // console.log('status', response.status);
 
     // if (response.status == 401) {
     if (response.status) {

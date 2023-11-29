@@ -40,10 +40,12 @@ const Notice = () => {
           </S.SearchWrapper>
         </ContentHeaderWrapper>
 
-        <Container>
+        <Container padding={true}>
           <NoticeList noticeList={noticeList as RequestNoticeList} />
-          {noticeList?.numberOfElements === 0 && (
+          {noticeList?.numberOfElements === 0 ? (
             <NoData>게시글이 없습니다 다른 제목으로 입력해주세요.</NoData>
+          ) : (
+            <></>
           )}
         </Container>
         {(noticeList?.totalPages as number) > 0 && (

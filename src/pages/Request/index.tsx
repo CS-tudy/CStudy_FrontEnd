@@ -27,7 +27,7 @@ const Request = () => {
         <LoginSwitchButton isActive={isActive} handleToggle={handleToggle} />
       </ContainerTop>
       <S.ContainerMarginTop />
-      <Container>
+      <Container padding={true}>
         <RequestList
           requestList={requestList as ToggleRequestList}
           handlePage={handlePage}

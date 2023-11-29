@@ -47,8 +47,6 @@ const RequestWrite = ({ isEdit, data }: RequesetWriteProps) => {
   };
 
   const handleChange = (value: string) => {
-    console.log(value);
-
     setValue('description', value === '<p><br></p>' ? '' : value);
     trigger('description');
   };

@@ -66,7 +66,7 @@ const Rank = () => {
   return (
     <Table
       narrow
-      colRate={['10%', '5%', '65%', '20%']}
+      colRate={['9%', '13%', '65%', '13%']}
       title={['', '순위', '닉네임', '점수']}
     >
       {TBodyContent}

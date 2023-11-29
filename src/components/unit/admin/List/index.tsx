@@ -3,6 +3,7 @@ import { StyleNavLink } from 'components/NavLinkStyles';
 import Logo_Png from 'assets/Logo.png';
 import { Link, Navigate } from 'react-router-dom';
 import { isAdmin } from 'repository/auth';
+import { memo } from 'react';
 
 const Navbar = () => {
   return (
@@ -43,4 +44,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

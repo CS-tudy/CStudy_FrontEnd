@@ -1,15 +1,14 @@
 import { ROUTE } from 'constants/Route';
 import {
-  reset,
-  setNoticeFilterSearchTitle,
-  setNoticeFilterSearchContent,
-  setNoticeFilterSearchReset,
   setNoticeFilterPageNumber,
+  setNoticeFilterSearchValue,
   setRequestQuery,
+  setNoticeFilterearchOption,
+  setNoticeFilterSearchCategory,
 } from 'hooks/@redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { RootState } from 'stroe';
 
 const useNoticeFilter = () => {
@@ -19,37 +18,35 @@ const useNoticeFilter = () => {
   );
 
   const handlePage = (page: number) => {
-    console.log(page);
-
     dispatch(setNoticeFilterPageNumber(page));
   };
 
   const handleToggle = () => {
-    // dispatch(reset());
-
     dispatch(setRequestQuery(ROUTE.NOTICE_LIST));
   };
 
   const onSubmit: SubmitHandler<FieldValues> = useCallback(
     formData => {
-      const { searchOption, title, content } = formData;
+      const { searchInput } = formData;
 
-      if (searchOption === 'title') {
-        dispatch(setNoticeFilterSearchTitle(title));
-        dispatch(setNoticeFilterSearchContent(''));
-      } else if (searchOption === 'content') {
-        dispatch(setNoticeFilterSearchContent(content));
-        dispatch(setNoticeFilterSearchTitle(''));
-      }
+      dispatch(setNoticeFilterSearchValue(searchInput));
     },
     [noticeFilter],
   );
+
+  const handleOptionChange = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const value = target.getAttribute('value');
+    dispatch(setNoticeFilterearchOption(value));
+    dispatch(setNoticeFilterSearchCategory(target.innerText));
+  };
 
   return {
     noticeFilter,
     handlePage,
     handleToggle,
     onSubmit,
+    handleOptionChange,
   };
 };
 

@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setpageNumber } from 'hooks/@redux/comment';
 import { RequestComment } from 'types/api';
-import { useState } from 'react';
 
 const Comment = () => {
   const dispatch = useDispatch();

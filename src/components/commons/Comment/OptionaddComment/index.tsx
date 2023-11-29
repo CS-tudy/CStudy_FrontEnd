@@ -5,7 +5,7 @@ import { Button } from 'components/commons/Button/Style';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'stroe';
 import { isLogin } from 'repository/auth';
-import Toast from 'libs/Toast';
+import { memo } from 'react';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
 interface AddCommentFormProps {
   parentId?: string | null;
@@ -14,7 +14,6 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
   } = useForm<FieldValues>();
@@ -61,4 +60,4 @@ const AddCommentForm = ({ parentId }: AddCommentFormProps) => {
   );
 };
 
-export default AddCommentForm;
+export default memo(AddCommentForm);

@@ -12,7 +12,7 @@ export const BodyWrapper = styled.div`
   width: 100%;
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{ padding?: boolean }>`
   border: 1px solid #dbdbdb;
   background-color: #fff;
   border-radius: 1.2rem;
@@ -21,5 +21,6 @@ export const ContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 5vw;
-  padding: 5vw;
+  /* padding: 5vw; */
+  padding: ${({ padding }) => (padding ? '5vw' : '0')};
 `;

@@ -54,7 +54,7 @@ const MyPage = () => {
   const getImg = URL.createObjectURL(blob);
   return (
     <ContentContainer>
-      <Container>
+      <Container padding={true}>
         <S.MyPageInfoWrapper>
           <MypageMyInfo
             img={Img as string}

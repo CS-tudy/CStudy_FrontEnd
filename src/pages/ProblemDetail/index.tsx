@@ -89,8 +89,10 @@ const ProblemDetailPage = () => {
           timeCheck={timeCheck}
           time={time}
         ></ProblemDetail>
-        {isAnswer && (
+        {isAnswer ? (
           <ProblemDetailFooter explain={problem?.explain as string} />
+        ) : (
+          <></>
         )}
       </Container>
     </ContentContainer>

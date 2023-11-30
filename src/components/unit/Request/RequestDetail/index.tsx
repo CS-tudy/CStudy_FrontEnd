@@ -73,7 +73,7 @@ const RequestDetail = () => {
         </Modal>
       )}
       <ContentContainer>
-        <Container>
+        <Container padding={true}>
           <S.Container>
             <S.Header>
               <S.PostInfo>

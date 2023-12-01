@@ -30,12 +30,12 @@ export const getToggleRequestList = async ({
   query = 'notion',
   page = 0,
   size = 10,
-  title = '',
-  content = '',
+  serachOption = '',
+  value = '',
   createdDate = '',
 }): Promise<RequestNoticeList> => {
   const response = await instance.get(
-    `/api/notice?page=${page}&size=${size}&title=${title}&content=${content}&createdDate=${createdDate}`,
+    `/api/notice?page=${page}&size=${size}&${serachOption}=${value}&createdDate=${createdDate}`,
   );
   return response.data;
 };

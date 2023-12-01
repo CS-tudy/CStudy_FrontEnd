@@ -118,8 +118,9 @@ const NoticeFilterSlice = createSlice({
   initialState: {
     pageNumber: 0,
     query: 'notice',
-    SearchTitle: '',
-    SearchContent: '',
+    SearchValue: '',
+    SearchOption: 'title',
+    SearchCategory: '제목',
   },
   reducers: {
     setQuery(state, action) {
@@ -128,15 +129,14 @@ const NoticeFilterSlice = createSlice({
     setPageNumber(state, action) {
       state.pageNumber = action.payload;
     },
-    setSearchInput(state, action) {
-      state.SearchTitle = action.payload;
+    setSearchCategory(state, action) {
+      state.SearchCategory = action.payload;
     },
-    setContenthInput(state, action) {
-      state.SearchContent = action.payload;
+    setSearchOption(state, action) {
+      state.SearchOption = action.payload;
     },
-    setSearchReset(state) {
-      state.SearchTitle = '';
-      state.SearchContent = '';
+    setSearchValue(state, action) {
+      state.SearchValue = action.payload;
     },
   },
 });
@@ -197,9 +197,9 @@ export const { setRequestQuery, setPageNumber } = requestFilterSlice.actions;
 export const {
   setQuery: setNoticeFilterQuery,
   setPageNumber: setNoticeFilterPageNumber,
-  setSearchInput: setNoticeFilterSearchTitle,
-  setContenthInput: setNoticeFilterSearchContent,
-  setSearchReset: setNoticeFilterSearchReset,
+  setSearchCategory: setNoticeFilterSearchCategory,
+  setSearchValue: setNoticeFilterSearchValue,
+  setSearchOption: setNoticeFilterearchOption,
 } = NoticeFilterSlice.actions;
 export const { setTitle, setDescription, setPageNum, setReset } =
   workbookFilterSlice.actions;

@@ -44,7 +44,8 @@
 ## 구현 화면 
 <details>
 <summary>로그인</summary>
-<img src="https://velog.velcdn.com/images/cleooo5857/post/80351f44-8608-4724-ba7c-d37b17661481/image.gif"/>
+<img src="https://github.com/CS-tudy/CStudy_FrontEnd/assets/70474741/159fc355-b22a-4a18-809b-06209e7538b6"/>
+ <img src="https://github.com/CS-tudy/CStudy_FrontEnd/assets/70474741/262254b5-4854-4b70-8739-cdac2b726300"/>
 </details>
 <details>
 <summary>공지사항 생성</summary>

@@ -4,14 +4,19 @@ import { getToggleRequestList } from 'api/board';
 interface GetRequestList {
   page: number;
   query: string;
-  title: string;
-  content: string;
+  serachOption?: string;
+  value?: string;
 }
 
-const useGetNoticeList = ({ page, query, title, content }: GetRequestList) => {
+const useGetNoticeList = ({
+  page,
+  query,
+  serachOption,
+  value,
+}: GetRequestList) => {
   const { data: requestList } = useQuery(
-    ['noticeList', { page, query, title, content }],
-    () => getToggleRequestList({ page, query, title, content }),
+    ['noticeList', { page, query, serachOption, value }],
+    () => getToggleRequestList({ page, query, serachOption, value }),
     { keepPreviousData: true },
   );
   return requestList;

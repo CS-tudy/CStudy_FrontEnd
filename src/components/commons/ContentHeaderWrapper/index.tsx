@@ -1,7 +1,6 @@
 import { PropsWithChildren, useState, useCallback, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-
 import Input from '../Input';
 import StyleLink from '../StyleLink';
 
@@ -109,4 +108,4 @@ const ContentHeaderWrapper = ({
   );
 };
 
-export default ContentHeaderWrapper;
+export default memo(ContentHeaderWrapper);

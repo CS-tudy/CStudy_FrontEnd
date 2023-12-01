@@ -13,7 +13,7 @@ instance.interceptors.request.use(
     const tokens = getUserTokens();
     config.headers.Authorization = `Bearer ${tokens?.accessToken}`;
 
-    console.log('token', tokens);
+    // console.log('token', tokens);
 
     return config;
   },
@@ -31,8 +31,8 @@ instance.interceptors.response.use(
     const { config, response } = error;
     // console.log('status', response.status);
 
-    // if (response.status == 401) {
-    if (response.status) {
+    if (response.status == 401) {
+      // if (response.status) {
       // if (response.status == 401 && response.status == 500) {
       // 401(Unauthorized): 클라이언트가 인증되지 않았기 때문에 요청을 정상적으로 처리할 수 없음
       const originalRequest = config;

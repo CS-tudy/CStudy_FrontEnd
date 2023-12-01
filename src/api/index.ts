@@ -13,8 +13,6 @@ instance.interceptors.request.use(
     const tokens = getUserTokens();
     config.headers.Authorization = `Bearer ${tokens?.accessToken}`;
 
-    console.log('token', tokens);
-
     return config;
   },
   error => {

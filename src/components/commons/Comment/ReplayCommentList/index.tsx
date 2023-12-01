@@ -3,11 +3,11 @@ import useReplyFilter from 'hooks/Comment/useReplyButton';
 import AddCommentForm from '../OptionaddComment';
 import CommentList from '../List';
 import DeleteComment from '../OptionDeleteComment';
-import { useCallback, useEffect, useState } from 'react';
 import ShowComment from '../ShowAllReplies';
 
 interface ReplayProps {
   id: string;
+  memberId: string;
   author: string;
   content: string;
   childComments?: ReplayProps[];
@@ -16,6 +16,7 @@ interface ReplayProps {
 
 const ReplyCommentList = ({
   id,
+  memberId,
   author,
   content,
   childComments,
@@ -41,7 +42,7 @@ const ReplyCommentList = ({
           </S.UserInfo>
           <DeleteComment
             currentDepth={currentDepth}
-            memberId={id}
+            memberId={memberId}
             commentId={id}
           />
         </S.CommentHeader>
@@ -71,12 +72,6 @@ const ReplyCommentList = ({
       </S.Profile>
       <S.ReplyContainer>
         <S.ChildComments currentDepth={currentDepth}>
-          {/* {childComments && (
-            <CommentList
-              commentList={childComments as any}
-              currentDepth={currentDepth + 1}
-            />
-          )} */}
           {isCommentToggle && childComments && (
             <CommentList
               commentList={childComments as any}

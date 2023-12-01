@@ -21,7 +21,6 @@ export const ArticleHeader = styled.div`
 
 export const Title = styled.p`
   display: block;
-  margin-left: 1rem;
   ${FONT.BOLD_20};
   white-space: nowrap;
   overflow: hidden;

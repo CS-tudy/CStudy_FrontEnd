@@ -40,6 +40,7 @@ const ContentHeaderWrapper = ({
   const handleIsActive = useCallback((isActive: boolean) => {
     setIsActive(isActive);
   }, []);
+  console.log('1');
 
   const UpdateWorkbook = useUpdateWorkbook({ handleIsLoading, handleIsActive });
 

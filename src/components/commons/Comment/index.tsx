@@ -11,6 +11,7 @@ const Comment = () => {
   const { Id } = useParams();
   dispatch(setpageNumber(Id));
   const commentList = useGetCommentList(Id);
+  console.log(commentList);
 
   return (
     <>

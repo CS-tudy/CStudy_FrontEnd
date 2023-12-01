@@ -13,6 +13,8 @@ export const getUserTokens = () => {
 
 export const isLogin = () => {
   const user = userStorage.get();
+  console.log(user);
+
   if (!user) return false;
 
   const { accessToken } = user;

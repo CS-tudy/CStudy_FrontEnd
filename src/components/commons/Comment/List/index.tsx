@@ -14,6 +14,7 @@ const CommentList = ({ commentList, currentDepth }: CommentListProps) => {
         <InfoCommentList
           key={comment.id}
           id={comment.id}
+          memberId={comment.memberId}
           author={comment.author}
           content={comment.content}
           childComments={comment.childComments}

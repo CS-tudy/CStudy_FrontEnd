@@ -16,14 +16,12 @@ import { RootState } from 'stroe';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupToggle } from 'hooks/@redux/registerModalSlice';
 import { Logintoggle } from 'hooks/@redux/loginModalSlice';
-import { AiOutlineClose, AiTwotoneCheckCircle } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
 import { MdNotifications, MdLogout } from 'react-icons/md';
 import { BsFillPersonFill } from 'react-icons/bs';
 import AlarmModal from '../Modal/AlarmModal';
 import Modal2 from '../Modal/Modal2';
-import { getAlarm } from 'api/alarm';
 import AlarmList from 'components/unit/Alarm/AlarmList';
-import { useGetAlarms } from 'hooks/@query/alarm/useGetAlarms';
 import logo2 from 'assets/logo2.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -32,11 +30,8 @@ export interface PrevToogle {
 }
 
 const Header = () => {
-  const [signupModal, setSignupModal] = useState(true);
   const [active, setActive] = useState(false);
-  const [moblie, setmoblie] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
-  const alarms = useSelector((state: any) => state.rootReducer.alarm.alarms);
 
   const navigate = useNavigate();
 
@@ -45,7 +40,6 @@ const Header = () => {
   };
 
   const handleAlarmClick = () => {
-    // fetchAlarm();
     setAlarmModalIsOpen(!alarmModalIsOpen);
   };
 

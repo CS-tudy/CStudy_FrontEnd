@@ -11,6 +11,8 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
   
+
+  /* HTML5 display-role reset for older browsers */
   article,
   aside,
   details,
@@ -58,5 +60,17 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: #000;
   
+}
+
+#toast-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
 }
 `;

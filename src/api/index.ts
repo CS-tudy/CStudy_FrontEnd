@@ -11,29 +11,26 @@ export const instance = axios.create({
 instance.interceptors.request.use(
   config => {
     const tokens = getUserTokens();
-    config.headers.Authorization = `Bearer ${tokens?.accessToken}`;
-
-    // console.log('token', tokens);
+    if (tokens?.accessToken) {
+      config.headers.Authorization = `Bearer ${tokens.accessToken}`;
+    }
 
     return config;
   },
   error => {
+    console.log('error', error);
     return Promise.reject(error);
   },
 );
 
 instance.interceptors.response.use(
   response => {
-    // console.log('response', response);
     return response;
   },
   async error => {
     const { config, response } = error;
-    // console.log('status', response.status);
 
     if (response.status == 401) {
-      // if (response.status) {
-      // if (response.status == 401 && response.status == 500) {
       // 401(Unauthorized): 클라이언트가 인증되지 않았기 때문에 요청을 정상적으로 처리할 수 없음
       const originalRequest = config;
       const tokens = getUserTokens();
@@ -43,10 +40,8 @@ instance.interceptors.response.use(
       }
 
       try {
-        // if (response.status == 401 && response.data.message == "기간이 만료된 토큰")
         const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
           await retryToken(tokens.refreshToken);
-        // RefreshToken으로 AccessToken 재발급 요청
 
         const newUser = {
           accessToken: newAccessToken,
@@ -54,12 +49,10 @@ instance.interceptors.response.use(
         };
 
         userStorage.set(newUser);
-        // 발급 받은 AccessToken을 state에 재저장
 
         axios.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         return axios(originalRequest);
-        // 방금 실패했던 API 재요청
       } catch (error) {
         userStorage.remove();
         return window.location.replace('/');

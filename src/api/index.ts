@@ -4,16 +4,18 @@ import { userStorage } from 'repository/userStorage';
 import { retryToken } from './auth';
 
 export const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  // baseURL: process.env.REACT_APP_API_URL,
+  baseURL: 'http://localhost:8080',
   withCredentials: true,
 });
 
 instance.interceptors.request.use(
   config => {
     const tokens = getUserTokens();
-    if (tokens?.accessToken) {
-      config.headers.Authorization = `Bearer ${tokens.accessToken}`;
-    }
+    // if (tokens?.accessToken) {
+    //   config.headers.Authorization = `Bearer ${tokens.accessToken}`;
+    // }
+    config.headers.Authorization = `Bearer ${tokens?.accessToken}`;
 
     return config;
   },
@@ -30,6 +32,8 @@ instance.interceptors.response.use(
   async error => {
     const { config, response } = error;
 
+    console.log('response', response);
+
     if (response.status == 401) {
       // 401(Unauthorized): 클라이언트가 인증되지 않았기 때문에 요청을 정상적으로 처리할 수 없음
       const originalRequest = config;
@@ -42,6 +46,8 @@ instance.interceptors.response.use(
       try {
         const { accessToken: newAccessToken, refreshToken: newRefreshToken } =
           await retryToken(tokens.refreshToken);
+
+        console.log('refresh', tokens.refreshToken);
 
         const newUser = {
           accessToken: newAccessToken,

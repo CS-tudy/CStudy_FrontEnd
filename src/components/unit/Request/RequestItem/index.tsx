@@ -40,11 +40,6 @@ const RequestItem = (props: RequestListProps) => {
             <ApproveStatus flag={flag} />
             <S.Title>{title}</S.Title>
           </S.ArticleHeader>
-          {/* <S.Content>{description}</S.Content> */}
-          {/* <S.Content dangerouslySetInnerHTML={{ __html: String(description)}}/> */}
-          {/* <S.Content
-            dangerouslySetInnerHTML={{ __html: String(description) }}
-          /> */}
           <S.Content>{stripHtml(String(description))}</S.Content>
           <S.Detail>
             <span>{memberName}</span> · <span>{createAt}</span>

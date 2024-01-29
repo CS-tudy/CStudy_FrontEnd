@@ -89,7 +89,10 @@ const ContestDetail = () => {
       <ContestDetailContainer>
         <S.ContestDetailHeader>
           <div>
-            <h2>자바대회</h2>
+            <h2>
+              {/* {contest?.title} */}
+              자바대회
+            </h2>
           </div>
           <S.ButtonWrapper>
             <Button

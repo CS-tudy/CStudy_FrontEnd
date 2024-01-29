@@ -116,7 +116,7 @@ export const MypageLink = styled(Link)`
   ${media.tablet} {
     position: absolute;
     top: -1.5rem;
-    right: 5.5rem;
+    right: 7rem;
   }
 `;
 
@@ -124,7 +124,7 @@ export const LogoutLink = styled.button`
   ${media.tablet} {
     position: absolute;
     top: -1.5rem;
-    right: 2.3rem;
+    right: 3rem;
   }
 `;
 

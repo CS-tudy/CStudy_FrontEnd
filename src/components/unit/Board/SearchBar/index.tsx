@@ -1,6 +1,7 @@
 import * as S from './style';
 import { GoSearch } from 'react-icons/go';
 import { FieldValues, useForm } from 'react-hook-form';
+import { memo } from 'react';
 
 interface SearchbarProps {
   onSubmit: (formData: FieldValues) => void;
@@ -43,4 +44,4 @@ const Searchbar = ({ onSubmit }: SearchbarProps) => {
   );
 };
 
-export default Searchbar;
+export default memo(Searchbar);

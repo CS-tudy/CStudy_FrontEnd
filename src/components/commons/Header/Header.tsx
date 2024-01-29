@@ -37,6 +37,7 @@ const Header = () => {
   const [moblie, setmoblie] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
   const alarms = useSelector((state: any) => state.rootReducer.alarm.alarms);
+  console.log(process.env.REACT_APP_API_URL);
 
   const navigate = useNavigate();
 

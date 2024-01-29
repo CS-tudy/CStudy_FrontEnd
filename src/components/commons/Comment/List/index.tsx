@@ -1,6 +1,5 @@
 import { RequestComment } from 'types/api';
 import InfoCommentList from '../ReplayCommentList';
-import { useState } from 'react';
 
 interface CommentListProps {
   currentDepth?: number;

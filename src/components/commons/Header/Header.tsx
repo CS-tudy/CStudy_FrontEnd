@@ -32,11 +32,6 @@ export interface PrevToogle {
 const Header = () => {
   const [active, setActive] = useState(false);
   const [alarmModalIsOpen, setAlarmModalIsOpen] = useState(false);
-<<<<<<< HEAD
-  const alarms = useSelector((state: any) => state.rootReducer.alarm.alarms);
-  console.log(process.env.REACT_APP_API_URL);
-=======
->>>>>>> 1daa7be844e8ecdef1ba8c0a31e74a65c3bbddfa
 
   const navigate = useNavigate();
 
